@@ -298,6 +298,29 @@ Si l'échelle est suffisamment grande ($> \SI{1}{\micro\meter}$ dans notre cas),
 }
 \end{frame}
 
+\begin{frame}{Chimie dans les plasmas}
+
+\begin{framed}
+\centering
+\textbf{Les collisions entre les particles peuvent mener à des réactions chimiques.}
+%\begin{equation*}
+%A \leftrightharpoons B
+%\end{equation*}
+\end{framed}
+
+Si $\tau_{chem}$ et $\tau_{hydro}$ sont les temps caractéristiques de réaction chimique et d'écoulement:
+\begin{center}
+\begin{tabular}{ccc}
+\onslide<2->{$\tau_{chem} \gg \tau_{hydro}$} & \onslide<3->{$\tau_{chem} \simeq \tau_{hydro}$} & \onslide<4->{$\tau_{chem} \ll \tau_{hydro}$}\\
+%$A \leftrightharpoons B$ & $A \leftrightharpoons B$ & $A \leftrightharpoons B$\\
+\onslide<2->{En équilibre chimique} & \onslide<3->{Hors équilibre chimique} & \onslide<4->{Pas de réaction chimique}\\
+\end{tabular}
+\end{center}
+
+\onslide<5->{\textbf{Les plasmas sont soit en équilibre, soit hors équilibre.}}
+
+\end{frame}
+
 \begin{frame}{Plasma dans la vie de tous les jours}
 
 \begin{framed}
@@ -315,12 +338,13 @@ De plus en plus d'applications: fusion nucléaire, médecine, métallurgie, lase
 \begin{frame}{Plasma froids}
 
 \begin{framed}
-\textbf{Pour les plasma froids, l'énergie est d'abord emmagasinée par les éléctrons libres et cédée lors des collisions aux ions lourds.}
+\textbf{Pour les plasma froids, l'énergie est d'abord emmagasinée par les électrons libres et cédée lors des collisions aux ions et neutres lourds.}
 \end{framed}
-En fonction de l'efficacité des collisions, deux scénarii sont possibles:
+%En fonction de l'efficacité des collisions, deux scénarii sont possibles:
 \begin{center}
 \begin{tabular}{cc}
-\textbf{Collisions peu efficaces} & \textbf{Collisions efficaces}\\
+\onslide<2->{\textbf{Collisions peu efficaces}} & \onslide<3->{\textbf{Collisions efficaces}}\\
+\onslide<2->{
 \begin{tikzpicture}[scale=3]
 \node[blue] at (0,0) {$\bullet$};
 \node at (.4,.3) {$\bullet$};
@@ -340,7 +364,9 @@ En fonction de l'efficacité des collisions, deux scénarii sont possibles:
 \node[red] at (-.2,-.3) [above right]{$e^-$};
 \node[red] at (.1,.4) [above right]{$e^-$};
 \end{tikzpicture}
+}
  &
+\onslide<3->{
 \begin{tikzpicture}[scale=3]
 \node[blue] at (0,0) {$\bullet$};
 \node at (.4,.3) {$\bullet$};
@@ -360,8 +386,8 @@ En fonction de l'efficacité des collisions, deux scénarii sont possibles:
 \node[red] at (.3,-.2) [above right]{$e^-$};
 \node[red] at (-.2,-.3) [above right]{$e^-$};
 \node[red] at (.1,.4) [above right]{$e^-$};
-\end{tikzpicture}\\
-$T_e \gg T_h$ & $T_e \simeq T_h$
+\end{tikzpicture}}\\
+\onslide<2->{Hors équilibre thermique} & \onslide<3->{Equilibre thermique}
 \end{tabular}
 \end{center}
 
@@ -469,9 +495,10 @@ La grande vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$, un c
 \end{center}
 \end{frame}
 
-\begin{frame}{Solver actuels}
+\begin{frame}{Solvers actuels}
 \begin{framed}
-La plupart des solvers actuels permettent de représenter des écoulements axisymmétriques en régime établi et avec un modèle chimique et thermique simple.
+\centering
+\textbf{La plupart des solvers représentent des écoulements axisymmétriques en régime établi avec un modèle chimique et thermique d'équilibre.}
 \end{framed}
 
 Il faut pouvoir aussi représenter...
@@ -479,10 +506,18 @@ Il faut pouvoir aussi représenter...
 \centering
 \begin{tabular}{cc}
 \onslide<2->{
-\includegraphics[height=.25\linewidth]{./plasma_jet_unsteady_experimental.png}}
-& \onslide<3->{\includegraphics[height = .25 \linewidth]{./plasmatron_nozzle_operating.png}} \\
+\includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}}
+& \onslide<3->{\includegraphics[height = .2 \linewidth]{./plasmatron_nozzle_operating.png}} \\
 \onslide<2->{Instationnarités} & \onslide<3->{Effets 3D et géométries complexes} 
 \end{tabular}
+
+\end{frame}
+
+\begin{frame}{But de la thèse}
+
+\begin{framed}
+\textbf{Le but de cette thèse est de développer un nouveau solver capable de représenter }
+\end{framed}
 
 \end{frame}
 
