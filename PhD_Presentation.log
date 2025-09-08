@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  5 SEP 2025 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  8 SEP 2025 15:17
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1029,28 +1029,28 @@ e.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
 decorations.pathmorphing.code.tex))
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 32.
+h' as default language. on input line 42.
  (./PhD_Presentation.aux)
 \openout1 = `PhD_Presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1108,7 +1108,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 42.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1121,66 +1121,66 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count371
 )
-LaTeX Info: Redefining \ref on input line 32.
-LaTeX Info: Redefining \pageref on input line 32.
-LaTeX Info: Redefining \nameref on input line 32.
+LaTeX Info: Redefining \ref on input line 42.
+LaTeX Info: Redefining \pageref on input line 42.
+LaTeX Info: Redefining \nameref on input line 42.
 
 (./PhD_Presentation.out) (./PhD_Presentation.out)
 \@outlinefile=\write5
 \openout5 = `PhD_Presentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 32.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 42.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 32.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 42.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 32.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 32.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 32.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 32.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 42.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 32.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 32.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 32.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 42.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 32.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 32.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 32.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 42.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 32.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 32.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 42.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 32.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 42.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 32.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 32.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 32.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 32.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 32.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 42.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 32.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 32.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 42.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 42.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 3
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 4
 2.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 3
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 4
 2.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 32.
+ut line 42.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1212,57 +1212,57 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 32.
+or `english'. on input line 42.
  (./PhD_Presentation.nav)
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 77.
+(mdframed)              on input line 87.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 77.
+ mdframed uses option nobreak mdframed on input line 87.
 <./cover_cropped.png, id=17, 1756.5625pt x 287.0725pt>
 File: ./cover_cropped.png Graphic file (type png)
 <use ./cover_cropped.png>
-Package pdftex.def Info: ./cover_cropped.png  used on input line 77.
+Package pdftex.def Info: ./cover_cropped.png  used on input line 87.
 (pdftex.def)             Requested size: 358.50229pt x 58.58742pt.
 File: ./cover_cropped.png Graphic file (type png)
 <use ./cover_cropped.png>
-Package pdftex.def Info: ./cover_cropped.png  used on input line 77.
+Package pdftex.def Info: ./cover_cropped.png  used on input line 87.
 (pdftex.def)             Requested size: 358.50229pt x 58.58742pt.
 <2560px-University_of_Liège_logo.png, id=19, 2569.6pt x 1124.2pt>
 File: 2560px-University_of_Liège_logo.png Graphic file (type png)
 <use 2560px-University_of_Liège_logo.png>
 Package pdftex.def Info: 2560px-University_of_Liège_logo.png  used on input li
-ne 77.
+ne 87.
 (pdftex.def)             Requested size: 65.00833pt x 28.45274pt.
 <FRS-FNRS_ros_vert_transp.png, id=20, 211.992pt x 134.4222pt>
 File: FRS-FNRS_ros_vert_transp.png Graphic file (type png)
 <use FRS-FNRS_ros_vert_transp.png>
-Package pdftex.def Info: FRS-FNRS_ros_vert_transp.png  used on input line 77.
+Package pdftex.def Info: FRS-FNRS_ros_vert_transp.png  used on input line 87.
 (pdftex.def)             Requested size: 44.87221pt x 28.45274pt.
 <vki_logo_blue_rectangular.jpg, id=21, 2007.5pt x 563.10374pt>
 File: vki_logo_blue_rectangular.jpg Graphic file (type jpg)
 <use vki_logo_blue_rectangular.jpg>
-Package pdftex.def Info: vki_logo_blue_rectangular.jpg  used on input line 77.
+Package pdftex.def Info: vki_logo_blue_rectangular.jpg  used on input line 87.
 (pdftex.def)             Requested size: 101.42236pt x 28.45274pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./cover_cropped.png> <./25
 60px-University_of_Liège_logo.png> <./FRS-FNRS_ros_vert_transp.png> <./vki_log
 o_blue_rectangular.jpg>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 79.
+ut line 89.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
@@ -1274,35 +1274,35 @@ thkerncmss.
 <ice_cubes.jpg, id=39, 147.4308pt x 119.0046pt>
 File: ice_cubes.jpg Graphic file (type jpg)
 <use ice_cubes.jpg>
-Package pdftex.def Info: ice_cubes.jpg  used on input line 96.
+Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
 (pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
 <eau_liquide.jpg, id=40, 147.4308pt x 98.2872pt>
 File: eau_liquide.jpg Graphic file (type jpg)
 <use eau_liquide.jpg>
-Package pdftex.def Info: eau_liquide.jpg  used on input line 96.
+Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
 (pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
 <bouilloire.jpg, id=41, 481.8pt x 271.0125pt>
 File: bouilloire.jpg Graphic file (type jpg)
 <use bouilloire.jpg>
-Package pdftex.def Info: bouilloire.jpg  used on input line 96.
+Package pdftex.def Info: bouilloire.jpg  used on input line 111.
 (pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
 <eau_solide.png, id=42, 326.21875pt x 241.90375pt>
 File: eau_solide.png Graphic file (type png)
 <use eau_solide.png>
-Package pdftex.def Info: eau_solide.png  used on input line 96.
+Package pdftex.def Info: eau_solide.png  used on input line 111.
 (pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
 <eau_liquide.png, id=43, 307.1475pt x 262.9825pt>
 File: eau_liquide.png Graphic file (type png)
 <use eau_liquide.png>
-Package pdftex.def Info: eau_liquide.png  used on input line 96.
+Package pdftex.def Info: eau_liquide.png  used on input line 111.
 (pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
 <eau_gaz.png, id=44, 199.74625pt x 245.91875pt>
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 96.
+Package pdftex.def Info: eau_gaz.png  used on input line 111.
 (pdftex.def)             Requested size: 55.002pt x 67.71683pt.
 
-Overfull \vbox (11.32462pt too high) detected at line 96
+Overfull \vbox (13.40727pt too high) detected at line 111
  []
 
 [3
@@ -1311,39 +1311,126 @@ Overfull \vbox (11.32462pt too high) detected at line 96
 /eau_liquide.png> <./eau_gaz.png>]
 File: ice_cubes.jpg Graphic file (type jpg)
 <use ice_cubes.jpg>
-Package pdftex.def Info: ice_cubes.jpg  used on input line 96.
+Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
 (pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
 File: eau_liquide.jpg Graphic file (type jpg)
 <use eau_liquide.jpg>
-Package pdftex.def Info: eau_liquide.jpg  used on input line 96.
+Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
 (pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
 File: bouilloire.jpg Graphic file (type jpg)
 <use bouilloire.jpg>
-Package pdftex.def Info: bouilloire.jpg  used on input line 96.
+Package pdftex.def Info: bouilloire.jpg  used on input line 111.
 (pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
 File: eau_solide.png Graphic file (type png)
 <use eau_solide.png>
-Package pdftex.def Info: eau_solide.png  used on input line 96.
+Package pdftex.def Info: eau_solide.png  used on input line 111.
 (pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
 File: eau_liquide.png Graphic file (type png)
 <use eau_liquide.png>
-Package pdftex.def Info: eau_liquide.png  used on input line 96.
+Package pdftex.def Info: eau_liquide.png  used on input line 111.
 (pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 96.
+Package pdftex.def Info: eau_gaz.png  used on input line 111.
 (pdftex.def)             Requested size: 55.002pt x 67.71683pt.
 
-Overfull \vbox (11.32462pt too high) detected at line 96
+Overfull \vbox (13.40727pt too high) detected at line 111
  []
 
 [4
 
-] [5
+]
+File: ice_cubes.jpg Graphic file (type jpg)
+<use ice_cubes.jpg>
+Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
+(pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
+File: eau_liquide.jpg Graphic file (type jpg)
+<use eau_liquide.jpg>
+Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
+(pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
+File: bouilloire.jpg Graphic file (type jpg)
+<use bouilloire.jpg>
+Package pdftex.def Info: bouilloire.jpg  used on input line 111.
+(pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
+File: eau_solide.png Graphic file (type png)
+<use eau_solide.png>
+Package pdftex.def Info: eau_solide.png  used on input line 111.
+(pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
+File: eau_liquide.png Graphic file (type png)
+<use eau_liquide.png>
+Package pdftex.def Info: eau_liquide.png  used on input line 111.
+(pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
+File: eau_gaz.png Graphic file (type png)
+<use eau_gaz.png>
+Package pdftex.def Info: eau_gaz.png  used on input line 111.
+(pdftex.def)             Requested size: 55.002pt x 67.71683pt.
 
-] [6
+Overfull \vbox (13.40727pt too high) detected at line 111
+ []
 
-] [7
+[5
+
+]
+File: ice_cubes.jpg Graphic file (type jpg)
+<use ice_cubes.jpg>
+Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
+(pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
+File: eau_liquide.jpg Graphic file (type jpg)
+<use eau_liquide.jpg>
+Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
+(pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
+File: bouilloire.jpg Graphic file (type jpg)
+<use bouilloire.jpg>
+Package pdftex.def Info: bouilloire.jpg  used on input line 111.
+(pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
+File: eau_solide.png Graphic file (type png)
+<use eau_solide.png>
+Package pdftex.def Info: eau_solide.png  used on input line 111.
+(pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
+File: eau_liquide.png Graphic file (type png)
+<use eau_liquide.png>
+Package pdftex.def Info: eau_liquide.png  used on input line 111.
+(pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
+File: eau_gaz.png Graphic file (type png)
+<use eau_gaz.png>
+Package pdftex.def Info: eau_gaz.png  used on input line 111.
+(pdftex.def)             Requested size: 55.002pt x 67.71683pt.
+
+Overfull \vbox (13.40727pt too high) detected at line 111
+ []
+
+[6
+
+]
+File: ice_cubes.jpg Graphic file (type jpg)
+<use ice_cubes.jpg>
+Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
+(pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
+File: eau_liquide.jpg Graphic file (type jpg)
+<use eau_liquide.jpg>
+Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
+(pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
+File: bouilloire.jpg Graphic file (type jpg)
+<use bouilloire.jpg>
+Package pdftex.def Info: bouilloire.jpg  used on input line 111.
+(pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
+File: eau_solide.png Graphic file (type png)
+<use eau_solide.png>
+Package pdftex.def Info: eau_solide.png  used on input line 111.
+(pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
+File: eau_liquide.png Graphic file (type png)
+<use eau_liquide.png>
+Package pdftex.def Info: eau_liquide.png  used on input line 111.
+(pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
+File: eau_gaz.png Graphic file (type png)
+<use eau_gaz.png>
+Package pdftex.def Info: eau_gaz.png  used on input line 111.
+(pdftex.def)             Requested size: 55.002pt x 67.71683pt.
+
+Overfull \vbox (13.40727pt too high) detected at line 111
+ []
+
+[7
 
 ] [8
 
@@ -1353,17 +1440,262 @@ Overfull \vbox (11.32462pt too high) detected at line 96
 
 ] [11
 
+] [12
+
+] [13
+
+] [14
+
 ]
-Overfull \vbox (18.92578pt too high) detected at line 232
+Overfull \vbox (18.92578pt too high) detected at line 240
  []
 
-[12
+[15
 
 ]
-Overfull \vbox (5.41502pt too high) detected at line 232
+Overfull \vbox (21.05495pt too high) detected at line 240
  []
 
-[13
+[16
+
+]
+File: eau_gaz.png Graphic file (type png)
+<use eau_gaz.png>
+Package pdftex.def Info: eau_gaz.png  used on input line 271.
+(pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
+File: eau_gaz.png Graphic file (type png)
+<use eau_gaz.png>
+Package pdftex.def Info: eau_gaz.png  used on input line 271.
+(pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
+ [17
+
+]
+File: eau_gaz.png Graphic file (type png)
+<use eau_gaz.png>
+Package pdftex.def Info: eau_gaz.png  used on input line 271.
+(pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
+File: eau_gaz.png Graphic file (type png)
+<use eau_gaz.png>
+Package pdftex.def Info: eau_gaz.png  used on input line 271.
+(pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
+ [18
+
+]
+File: eau_gaz.png Graphic file (type png)
+<use eau_gaz.png>
+Package pdftex.def Info: eau_gaz.png  used on input line 271.
+(pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
+File: eau_gaz.png Graphic file (type png)
+<use eau_gaz.png>
+Package pdftex.def Info: eau_gaz.png  used on input line 271.
+(pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
+
+Overfull \vbox (21.29552pt too high) detected at line 271
+ []
+
+[19
+
+]
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
+299.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
+File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [20
+
+] [21
+
+]
+[22
+
+] [23
+
+]
+<./sun.jpg, id=169, 238.491pt x 178.9887pt>
+File: ./sun.jpg Graphic file (type jpg)
+<use ./sun.jpg>
+Package pdftex.def Info: ./sun.jpg  used on input line 313.
+(pdftex.def)             Requested size: 116.76698pt x 87.63496pt.
+<./aurora_borealis.jpeg, id=170, 225.84375pt x 225.84375pt>
+File: ./aurora_borealis.jpeg Graphic file (type jpg)
+<use ./aurora_borealis.jpeg>
+Package pdftex.def Info: ./aurora_borealis.jpeg  used on input line 313.
+(pdftex.def)             Requested size: 87.6376pt x 87.63496pt.
+<./lightning.jpg, id=171, 1284.8pt x 722.7pt>
+File: ./lightning.jpg Graphic file (type jpg)
+<use ./lightning.jpg>
+Package pdftex.def Info: ./lightning.jpg  used on input line 313.
+(pdftex.def)             Requested size: 155.7769pt x 87.63496pt.
+ [24
+
+ <./sun.jpg> <./aurora_borealis.jpeg> <./lightning.jpg>]
+Overfull \vbox (20.45596pt too high) detected at line 369
+ []
+
+[25
+
+]
+<./reentry_esa.jpg, id=183, 519.69438pt x 395.99629pt>
+File: ./reentry_esa.jpg Graphic file (type jpg)
+<use ./reentry_esa.jpg>
+Package pdftex.def Info: ./reentry_esa.jpg  used on input line 377.
+(pdftex.def)             Requested size: 182.97421pt x 139.42093pt.
+
+Overfull \vbox (14.73378pt too high) detected at line 377
+ []
+
+[26
+
+ <./reentry_esa.jpg>]
+<./heat_shield.jpg, id=189, 2007.5pt x 1337.99875pt>
+File: ./heat_shield.jpg Graphic file (type jpg)
+<use ./heat_shield.jpg>
+Package pdftex.def Info: ./heat_shield.jpg  used on input line 391.
+(pdftex.def)             Requested size: 179.28876pt x 119.50279pt.
+<./vizualisation_satellites_esa.jpg, id=190, 1927.2pt x 1362.08875pt>
+File: ./vizualisation_satellites_esa.jpg Graphic file (type jpg)
+<use ./vizualisation_satellites_esa.jpg>
+Package pdftex.def Info: ./vizualisation_satellites_esa.jpg  used on input line
+ 391.
+(pdftex.def)             Requested size: 169.05891pt x 119.50279pt.
+
+Overfull \vbox (4.42432pt too high) detected at line 391
+ []
+
+[27
+
+ <./heat_shield.jpg> <./vizualisation_satellites_esa.jpg>]
+File: ./heat_shield.jpg Graphic file (type jpg)
+<use ./heat_shield.jpg>
+Package pdftex.def Info: ./heat_shield.jpg  used on input line 391.
+(pdftex.def)             Requested size: 179.28876pt x 119.50279pt.
+File: ./vizualisation_satellites_esa.jpg Graphic file (type jpg)
+<use ./vizualisation_satellites_esa.jpg>
+Package pdftex.def Info: ./vizualisation_satellites_esa.jpg  used on input line
+ 391.
+(pdftex.def)             Requested size: 169.05891pt x 119.50279pt.
+
+Overfull \vbox (4.42432pt too high) detected at line 391
+ []
+
+[28
+
+]
+File: ./heat_shield.jpg Graphic file (type jpg)
+<use ./heat_shield.jpg>
+Package pdftex.def Info: ./heat_shield.jpg  used on input line 391.
+(pdftex.def)             Requested size: 179.28876pt x 119.50279pt.
+File: ./vizualisation_satellites_esa.jpg Graphic file (type jpg)
+<use ./vizualisation_satellites_esa.jpg>
+Package pdftex.def Info: ./vizualisation_satellites_esa.jpg  used on input line
+ 391.
+(pdftex.def)             Requested size: 169.05891pt x 119.50279pt.
+
+Overfull \vbox (4.42432pt too high) detected at line 391
+ []
+
+[29
+
+]
+File: ./heat_shield.jpg Graphic file (type jpg)
+<use ./heat_shield.jpg>
+Package pdftex.def Info: ./heat_shield.jpg  used on input line 391.
+(pdftex.def)             Requested size: 179.28876pt x 119.50279pt.
+File: ./vizualisation_satellites_esa.jpg Graphic file (type jpg)
+<use ./vizualisation_satellites_esa.jpg>
+Package pdftex.def Info: ./vizualisation_satellites_esa.jpg  used on input line
+ 391.
+(pdftex.def)             Requested size: 169.05891pt x 119.50279pt.
+
+Overfull \vbox (4.42432pt too high) detected at line 391
+ []
+
+[30
+
+]
+<Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg, id=211, 62.7
+472pt x 36.98393pt>
+File: Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg Graphic 
+file (type jpg)
+<use Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg>
+Package pdftex.def Info: Ablation-testing-at-the-Plasmatron-ICP-facility-of-the
+-VKI-3.jpg  used on input line 460.
+(pdftex.def)             Requested size: 195.1881pt x 115.0688pt.
+
+Overfull \vbox (8.92297pt too high) detected at line 460
+ []
+
+[31
+
+ <./Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg>]
+File: Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg Graphic 
+file (type jpg)
+<use Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg>
+Package pdftex.def Info: Ablation-testing-at-the-Plasmatron-ICP-facility-of-the
+-VKI-3.jpg  used on input line 460.
+(pdftex.def)             Requested size: 195.1881pt x 115.0688pt.
+
+[32
+
+]
+<lhtsT.pdf, id=223, 421.575pt x 125.46875pt>
+File: lhtsT.pdf Graphic file (type pdf)
+<use lhtsT.pdf>
+Package pdftex.def Info: lhtsT.pdf  used on input line 470.
+(pdftex.def)             Requested size: 278.83578pt x 82.98767pt.
+ [33
+
+ <./lhtsT.pdf>]
+<./plasma_jet_unsteady_experimental.png, id=235, 770.88pt x 396.48125pt>
+File: ./plasma_jet_unsteady_experimental.png Graphic file (type png)
+<use ./plasma_jet_unsteady_experimental.png>
+Package pdftex.def Info: ./plasma_jet_unsteady_experimental.png  used on input 
+line 487.
+(pdftex.def)             Requested size: 193.61348pt x 99.58464pt.
+<./plasmatron_nozzle_operating.png, id=236, 1239.63126pt x 794.97pt>
+File: ./plasmatron_nozzle_operating.png Graphic file (type png)
+<use ./plasmatron_nozzle_operating.png>
+Package pdftex.def Info: ./plasmatron_nozzle_operating.png  used on input line 
+487.
+(pdftex.def)             Requested size: 155.27509pt x 99.58464pt.
+
+Overfull \vbox (16.39018pt too high) detected at line 487
+ []
+
+[34
+
+ <./plasma_jet_unsteady_experimental.png> <./plasmatron_nozzle_operating.png>]
+File: ./plasma_jet_unsteady_experimental.png Graphic file (type png)
+<use ./plasma_jet_unsteady_experimental.png>
+Package pdftex.def Info: ./plasma_jet_unsteady_experimental.png  used on input 
+line 487.
+(pdftex.def)             Requested size: 193.61348pt x 99.58464pt.
+File: ./plasmatron_nozzle_operating.png Graphic file (type png)
+<use ./plasmatron_nozzle_operating.png>
+Package pdftex.def Info: ./plasmatron_nozzle_operating.png  used on input line 
+487.
+(pdftex.def)             Requested size: 155.27509pt x 99.58464pt.
+
+Overfull \vbox (16.39018pt too high) detected at line 487
+ []
+
+[35
+
+]
+File: ./plasma_jet_unsteady_experimental.png Graphic file (type png)
+<use ./plasma_jet_unsteady_experimental.png>
+Package pdftex.def Info: ./plasma_jet_unsteady_experimental.png  used on input 
+line 487.
+(pdftex.def)             Requested size: 193.61348pt x 99.58464pt.
+File: ./plasmatron_nozzle_operating.png Graphic file (type png)
+<use ./plasmatron_nozzle_operating.png>
+Package pdftex.def Info: ./plasmatron_nozzle_operating.png  used on input line 
+487.
+(pdftex.def)             Requested size: 155.27509pt x 99.58464pt.
+
+Overfull \vbox (16.39018pt too high) detected at line 487
+ []
+
+[36
 
 ]
 \tf@nav=\write6
@@ -1380,23 +1712,27 @@ Package rerunfilecheck Info: File `PhD_Presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 47949AC7C3DCEDDDEEFE3CD50587DDA1;103.
  ) 
 Here is how much of TeX's memory you used:
- 30677 strings out of 480104
- 665303 string characters out of 5892285
- 884316 words of memory out of 5000000
- 47996 multiletter control sequences out of 15000+600000
- 480964 words of font info for 70 fonts, out of 8000000 for 9000
+ 30912 strings out of 480104
+ 670320 string characters out of 5892285
+ 896784 words of memory out of 5000000
+ 48169 multiletter control sequences out of 15000+600000
+ 481825 words of font info for 72 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 128i,16n,122p,1839b,796s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on PhD_Presentation.pdf (13 pages, 848550 bytes).
+ 128i,15n,122p,1839b,1598s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb>
+Output written on PhD_Presentation.pdf (36 pages, 5480976 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
- 28 named destinations out of 1000 (max. 500000)
- 113 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 318 PDF objects out of 1000 (max. 8388607)
+ 220 compressed objects within 3 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 163 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -13,6 +13,16 @@
 \usepackage{siunitx}
 \usepackage{hyperref}
 \usetikzlibrary{decorations.pathmorphing}
+\def\spiral#1{%
+  \pgfmathparse{int(#1)}%
+  \ifnum\pgfmathresult>0
+    %\draw [help lines] (0,0) rectangle ++(1,1);
+    \begin{scope}[shift={(1,1)}, rotate=90, scale=1/1.6180339887]
+      \spiral{#1-1}
+    \end{scope}
+    \draw (0,0) arc (270:360:1);
+  \fi
+}
 
 
 \newcommand{\atom}[3]{%
@@ -82,27 +92,25 @@
 
 \begin{center}
 \begin{tabular}{ccc}
-\textbf{Solide} & \textbf{Liquide} & \textbf{Gaz}\\
-\includegraphics[height=.17\linewidth]{ice_cubes.jpg} & \includegraphics[height=.17\linewidth]{eau_liquide.jpg} & \includegraphics[height=.17\linewidth]{bouilloire.jpg}\\
-\onslide<2->{
-\includegraphics[height=.17\linewidth]{eau_solide.png} & \includegraphics[height=.17\linewidth]{eau_liquide.png} & \includegraphics[height=.17\linewidth]{eau_gaz.png}\footnote{\tiny\url{https://www.assistancescolaire.com/eleve/3e/physique-chimie/reviser-une-notion/les-\%20etatsde-la-matiere-et-les-changements-d-etat-3_pc_01/print?print=1&printSheet=1}}\\
-}
+\onslide<2->{\textbf{Solide}} & \onslide<3->{\textbf{Liquide}} & \onslide<4->{\textbf{Gaz}}\\
+\onslide<2->{\includegraphics[height=.17\linewidth]{ice_cubes.jpg}} & \onslide<3->{\includegraphics[height=.17\linewidth]{eau_liquide.jpg}} & \onslide<4->{\includegraphics[height=.17\linewidth]{bouilloire.jpg}}\\
+\onslide<2->{\includegraphics[height=.17\linewidth]{eau_solide.png}} & \onslide<3->{\includegraphics[height=.17\linewidth]{eau_liquide.png}} & \onslide<4->{\includegraphics[height=.17\linewidth]{eau_gaz.png}}%\footnote{\tiny\url{https://www.assistancescolaire.com/eleve/3e/physique-chimie/reviser-une-notion/les-\%20etatsde-la-matiere-et-les-changements-d-etat-3_pc_01/print?print=1&printSheet=1}}\\
 %\onslide<3->{
 %$T \leq \SI{0}{\celsius}$ & $T \geq \SI{0}{\celsius}$ & $T \geq \SI{100}{\celsius}$
 %}
 \end{tabular}
 \end{center}
 
+\onslide<5>
+{
+\begin{framed}
+\centering
+\textbf{Que se passe-t-il si on chauffe encore plus?}
+\end{framed}
+}
 \end{frame}
 
 \begin{frame}{Translation, rotation et vibration}
-
-\begin{framed}
-\centering
-\textbf{Que se passe-t-il si on chauffe encore plus notre eau?}
-%A plasma is a quasi-neutral gas of charged and neutral particles which exhibits collective behaviour.
-\end{framed}
-
 
 \begin{center}
 \begin{tikzpicture}[scale=3.5, spring/.style={decorate,decoration={coil,aspect=0,segment length=2mm,amplitude=1mm}}]
@@ -223,12 +231,261 @@
 {
 	\begin{framed}
 	\centering
-	Si l'énergie reçue est trop grande, l'électron est arraché: il devient \textcolor{red}{\textbf{libre}}.
+	Si l'énergie reçue est trop grande, l'électron est arraché: il devient \textcolor{red}{\textbf{libre}}. L'atome d'hydrogène a été \textbf{\textcolor{red}{ionisé}}.
 	\end{framed}
 }
 
 \end{center}
 
 \end{frame}
+
+\begin{frame}{Plasma: le quatrième état de la matière}
+\centering
+\begin{tabular}{cc}
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics[height=.3\linewidth]{eau_gaz.png}};
+\end{tikzpicture}
+&
+\onslide<2->
+{
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics[height=.3\linewidth]{eau_gaz.png}};
+\fill[red] (0,0) circle (0.1) node[above right] {$e^-$};
+\fill[red] (1,1) circle (0.1) node[above right] {$e^-$};
+\fill[red] (-1,-0.3) circle (0.1) node[above right] {$e^-$};
+\node[blue] at (-1.7,.7) {\textbf{+}};
+\node[blue] at (1.4,0) {\textbf{+}};
+\end{tikzpicture}
+}\\
+\textbf{Gaz neutre} & \onslide<2->{\textbf{Plasma}}
+\end{tabular}
+
+\only<3>{
+\begin{framed}
+\textbf{Un plasma est un gaz quasi-neutre composé de particules chargées (ions $\textcolor{blue}{\bullet^+}$ et electrons $\textcolor{red}{\bullet^{e^-}}$) et neutres ($\bullet^n$) démontrant un comportement collectif.\footnotemark}
+%A plasma is a quasi-neutral gas of charged and neutral particles which exhibits collective behaviour.
+\end{framed}
+}
+\only<3>{\footnotetext[1]{\tiny F. F. Chen. Introduction to Plasma Physics and Controlled Fusion. Ed. by Springer International Publisher. 2016}}
+
+\end{frame}
+
+\begin{frame}{Comportement collectif du plasma}
+\centering
+\begin{framed}
+\textbf{Collision = interaction entre particules}
+\end{framed}
+
+\begin{tabular}{cc}
+\onslide<2->{\textbf{Collisions de courte portée}} & \onslide<3->{\textbf{Collisions de longue portée}}\\
+\onslide<2->{
+\begin{tikzpicture}
+\fill[blue] (0,0) circle (0.1) node[above right] {$+$};
+\fill[black] (2,0) circle (0.1) node[above right]{$n$};
+\draw[blue, ->, thick] (0.2,0) -- (1.8, 0) -- (2.5, 1);
+\end{tikzpicture}} &
+\onslide<3->{\begin{tikzpicture}
+\fill[blue] (0,0) circle (0.1) node[above right] {$+$};
+\fill[blue] (2,0) circle (0.1) node[above right] {$+$};
+\draw[->,blue, thick] (0.2,0) arc[start angle=-90,end angle=-30,radius=1.5];
+\end{tikzpicture}}\\
+\onslide<2->{Contact direct (local \& binaire)} & \onslide<3->{Force électrique (à distance, collectif)}
+\end{tabular}
+\onslide<4->{
+\begin{framed}
+Si l'échelle est suffisamment grande ($> \SI{1}{\micro\meter}$ dans notre cas), le plasma est \textbf{\textcolor{red}{quasi-neutre}} grâce à la force électrique.
+\end{framed}
+}
+\end{frame}
+
+\begin{frame}{Plasma dans la vie de tous les jours}
+
+\begin{framed}
+\centering
+\textbf{Les plasmas composent 90\% de l'univers visible.}
+\end{framed}
+\begin{center}
+\includegraphics[height=.22\linewidth]{./sun.jpg}
+\includegraphics[height=.22\linewidth]{./aurora_borealis.jpeg}
+\includegraphics[height=.22\linewidth]{./lightning.jpg}
+\end{center}
+De plus en plus d'applications: fusion nucléaire, médecine, métallurgie, lasers, création de microprocesseurs, ...
+\end{frame}
+
+\begin{frame}{Plasma froids}
+
+\begin{framed}
+\textbf{Pour les plasma froids, l'énergie est d'abord emmagasinée par les éléctrons libres et cédée lors des collisions aux ions lourds.}
+\end{framed}
+En fonction de l'efficacité des collisions, deux scénarii sont possibles:
+\begin{center}
+\begin{tabular}{cc}
+\textbf{Collisions peu efficaces} & \textbf{Collisions efficaces}\\
+\begin{tikzpicture}[scale=3]
+\node[blue] at (0,0) {$\bullet$};
+\node at (.4,.3) {$\bullet$};
+\node[red] at (.5,0) {$\bullet$};
+\node[red] at (.3,-.2) {$\bullet$};
+\node[red] at (-.2,-.3) {$\bullet$};
+\node[red] at (.1,.4) {$\bullet$};
+\draw[red, ->] (.5,0.) -- (.7, 0.);
+\draw[red, ->] (.3,-.2) -- (.4, -.3);
+\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+\draw[red, ->] (.1,.4) -- (0., .3);
+\draw[blue, ->] (0,0) -- (-0.1,0);
+\node[blue] at (0,0) [above right]{$+$};
+\node at (.4,.3) [above right]{$n$};
+\node[red] at (.5,0) [above right]{$e^-$};
+\node[red] at (.3,-.2) [above right]{$e^-$};
+\node[red] at (-.2,-.3) [above right]{$e^-$};
+\node[red] at (.1,.4) [above right]{$e^-$};
+\end{tikzpicture}
+ &
+\begin{tikzpicture}[scale=3]
+\node[blue] at (0,0) {$\bullet$};
+\node at (.4,.3) {$\bullet$};
+\node[red] at (.5,0) {$\bullet$};
+\node[red] at (.3,-.2) {$\bullet$};
+\node[red] at (-.2,-.3) {$\bullet$};
+\node[red] at (.1,.4) {$\bullet$};
+\draw[red, ->] (.5,0.) -- (.7, 0.);
+\draw[red, ->] (.3,-.2) -- (.4, -.3);
+\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+\draw[red, ->] (.1,.4) -- (0., .3);
+\draw[blue, ->] (0,0) -- (-0.2,0);
+\draw[->] (.4,.3) -- (.6,.3);
+\node[blue] at (0,0) [above right]{$+$};
+\node at (.4,.3) [above right]{$n$};
+\node[red] at (.5,0) [above right]{$e^-$};
+\node[red] at (.3,-.2) [above right]{$e^-$};
+\node[red] at (-.2,-.3) [above right]{$e^-$};
+\node[red] at (.1,.4) [above right]{$e^-$};
+\end{tikzpicture}\\
+$T_e \gg T_h$ & $T_e \simeq T_h$
+\end{tabular}
+\end{center}
+
+
+\end{frame}
+
+\begin{frame}{Plasma en réentrée atmosphérique}
+\centering
+\includegraphics[height=.35\linewidth]{./reentry_esa.jpg}
+\begin{framed}
+La grande vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$, un choc suffisamment fort pour ioniser l'air $\Rightarrow$ plasma.
+\end{framed}
+\end{frame}
+
+\begin{frame}{Sytème de protection thermique et destruction des déchets spatiaux}
+\centering
+\begin{tabular}{cc}
+\onslide<2->{\includegraphics[height=.3\linewidth]{./heat_shield.jpg}} &
+\onslide<3->{\includegraphics[height=.3\linewidth]{./vizualisation_satellites_esa.jpg}}\\
+\onslide<2->{\textbf{TPS}} & \onslide<3->{\textbf{Déchets spatiaux}}
+\end{tabular}
+\onslide<4->{
+\begin{framed}
+\textbf{Nécessité de développer des machines expérimentales reproduisant les plasmas de réentrée atmosphérique pour étudier ces applications.}
+\end{framed}
+}
+\end{frame}
+
+\begin{frame}{Plasma à induction}
+\begin{minipage}[t]{0.5\linewidth}
+    \centering
+    \vspace{0.7cm}
+    \begin{tikzpicture}[scale=0.7]
+      \draw[dash dot] (0,0) -- (8.5,0);
+      \draw[-] (-0.5,-1) -- (0, -1) -- (0,1) -- (-0.5,1);
+      \fill[gray, opacity=0.5] (-0.5,-1) -- (0, -1) -- (0,1) -- (-0.5,1) -- (-0.5,-1);
+      \draw[-] (-0.5,1.5) -- (8,1.5);
+      \draw[-] (-0.5,-1.5) -- (8,-1.5);
+      \foreach \x in {1,2,...,6}{
+        \filldraw[gray, opacity = 0.5] (\x, 1.8) circle (0.2);
+        \filldraw[gray, opacity = 0.5] (\x, -1.8) circle (0.2);
+      }
+      \begin{scope}[red]
+      \begin{scope}[yshift=1cm,yscale=-0.6,xscale=1.5]
+      \spiral{10}
+      \end{scope}
+      \begin{scope}[yshift=-1cm,yscale=0.6,xscale=1.5]
+      \spiral{10}
+      \end{scope}
+      \draw plot [help lines, smooth] coordinates {(-0.5,1.2) (0,1.2) (1.5, 1.0) (3, 0.3) (8, 0.3)};
+      \draw plot [help lines, smooth] coordinates {(-0.5, -1.2) (0,-1.2) (1.5, -1.0) (3, -0.3) (8, -0.3)};
+      
+      \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0,1.4) (1.5, 1.2) (3, 0.5) (8, 0.5)};
+      \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0,-1.4) (1.5, -1.2) (3, -0.5) (8, -0.5)};
+      
+      \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0, 1.4) (1.5, 1.4) (3, 0.8) (8, 0.8)};
+      \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0, -1.4) (1.5, -1.4) (3, -0.8) (8, -0.8)};
+      
+      \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0, 1.4) (1.5, 1.4) (3, 1.0) (8, 1.0)};
+      \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0, -1.4) (1.5, -1.4) (3, -1.0) (8, -1.0)};
+      
+      \draw (6,1.2) node{\tiny \textcolor{red}{Lignes de courant}};
+      \draw (3,2.3) node{\tiny \textcolor{black}{Bobine}};
+      \draw (-1,0) node{\tiny \rotatebox{90}{\textcolor{blue}{Flux d'air}}};
+      \end{scope}
+      
+      %\draw (2,0.2) node{$T\simeq \SI{}{10^4\kelvin}$};
+      \draw[blue, ->, thick](-1.25, 1.25) -- (-0.75,1.25);
+      \draw[blue, ->, thick](-1.25, -1.25) -- (-0.75,-1.25);
+      %\draw (3.5,2.3) node{\includegraphics[width=0.1\linewidth]{AC_Sign.png}};
+      %\draw (6,1.2) node{$p \simeq \SI{}{10^4\pascal}$};
+      
+    \end{tikzpicture}
+    
+    \vspace{0.45cm}
+    Torche
+    \end{minipage}
+    \begin{minipage}[t]{0.49\linewidth}
+    \centering
+    \vspace{0.5cm}\includegraphics[width=\linewidth]{Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg}
+    
+    Chambre
+    \end{minipage}
+    
+    \only<1>
+    {
+    Examples: Plasmatron (VKI), Plasmatron X (Illinois), IPG (Russie), ...
+    
+    Basé sur le principe de \textbf{transfer de chaleur local}.
+    }
+    \only<2>
+    {
+    	Equation de Maxwell, Navier-Stokes + modèles physico-chimiques.
+    }
+    %Physique de l'électromagnétisme, equations de la mécanique des fluides, et chimie/thermodynamique.
+\end{frame}
+
+\begin{frame}{Plasma à induction: besoin de plus}
+
+\begin{center}
+\begin{framed}
+\textbf{Des solvers numériques ont été développés afin de préparer au mieux les expériences dans les torches à induction.}
+\end{framed}
+\includegraphics[width=.7\linewidth]{lhtsT.pdf}\footnote{\tiny Thierry Magin.}
+\end{center}
+\end{frame}
+
+\begin{frame}{Solver actuels}
+\begin{framed}
+La plupart des solvers actuels permettent de représenter des écoulements axisymmétriques en régime établi et avec un modèle chimique et thermique simple.
+\end{framed}
+
+Il faut pouvoir aussi représenter...
+
+\centering
+\begin{tabular}{cc}
+\onslide<2->{
+\includegraphics[height=.25\linewidth]{./plasma_jet_unsteady_experimental.png}}
+& \onslide<3->{\includegraphics[height = .25 \linewidth]{./plasmatron_nozzle_operating.png}} \\
+\onslide<2->{Instationnarités} & \onslide<3->{Effets 3D et géométries complexes} 
+\end{tabular}
+
+\end{frame}
+
+
 
 \end{document}
