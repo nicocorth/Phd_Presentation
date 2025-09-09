@@ -127,9 +127,9 @@
   \shade[ball color=HydRed] (0.9,0.5) circle (0.15);
   \shade[ball color=HydRed] (0.9,-0.5) circle (0.15);
   
-  \node at (0,0) {H};
-  \node at (0.9,0.5) {O};
-  \node at (0.9,-0.5) {O};
+  \node at (0,0) {O};
+  \node at (0.9,0.5) {H};
+  \node at (0.9,-0.5) {H};
   
   \draw[spring,thick] (0.25,0.15) -- (0.75,0.45);
   \draw[spring,thick] (0.25,-0.15) -- (0.75,-0.45);
@@ -171,7 +171,7 @@
   \definecolor{HydRed}{RGB}{220,40,40}   % bright red
 
   % Oxygen atom
-  \shade[ball color=OxyBlue] (0,0) circle (0.3);
+  \shade[ball color=HydRed] (0,0) circle (0.2);
   
   \node at (0,0) {H};
  
@@ -480,7 +480,7 @@ La grande vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$, un c
     }
     \only<2>
     {
-    	Equation de Maxwell, Navier-Stokes + modèles physico-chimiques.
+    	Résoudre les équations de Maxwell, de Navier-Stokes + modèles physico-chimiques + modèle de radiation.
     }
     %Physique de l'électromagnétisme, equations de la mécanique des fluides, et chimie/thermodynamique.
 \end{frame}
@@ -489,38 +489,108 @@ La grande vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$, un c
 
 \begin{center}
 \begin{framed}
-\textbf{Des solvers numériques ont été développés afin de préparer au mieux les expériences dans les torches à induction.}
+\textbf{Des solvers numériques (volumes finis) ont été développés afin de préparer au mieux les expériences dans les torches à induction.}
 \end{framed}
 \includegraphics[width=.7\linewidth]{lhtsT.pdf}\footnote{\tiny Thierry Magin.}
 \end{center}
 \end{frame}
 
-\begin{frame}{Solvers actuels}
+\begin{frame}{Motivations de la thèse}
+%\begin{framed}
+%\centering
+%\textbf{La plupart des solvers représentent des écoulements axisymmétriques en régime établi avec un modèle chimique et thermique d'équilibre.}
+%\end{framed}
+
+\textbf{La plupart des solvers actuels}
+
+\begin{itemize}
+\item \onslide<2->{Ne représentent que des géométries axisymmétriques et simples.}
+
+\only<2>{
+\begin{center}
+\includegraphics[width=.7\linewidth]{lhtsT.pdf}
+\end{center}
+}
+
+\only<3>{
+
+\begin{center}
+\includegraphics[height=.23\linewidth]{./coil_effect.png}
+\includegraphics[height = .23\linewidth]{./plasmatron_nozzle_operating.png}
+\includegraphics[height = .23\linewidth]{./plasmatron_nozzles.png}
+\end{center}
+}
+
+\onslide<4->{\textit{Besoin d'un solver 3D.}}
+
+\item \onslide<5-> {Sont en régime établi.}
+
+\only<6>
+{
+\begin{center}
+\includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}
+\end{center}
+}
+
+\onslide<7-> {\textit{Besoin d'un solver instationnaire.}}
+
+\item \onslide<8-> {Utilisent un modèle à l'équilibre chimique et thermique sans radiation.}
+
+\only<9>{
+\textit{C'est faux! Car la les déséquilibre chimique et thermique ont été observés dans les plasma à induction! La radiation joue aussi un rôle important dans le transfer de chaleur.}
+}
+
+\onslide<10->{
+\textit{Besoin d'un solver avec une chimie plus détaillée et de la radiation.}
+}
+
+\end{itemize}
+
+\onslide<11->{
 \begin{framed}
-\centering
-\textbf{La plupart des solvers représentent des écoulements axisymmétriques en régime établi avec un modèle chimique et thermique d'équilibre.}
+\textbf{Peut-on améliorer les solvers volume finis actuels afin de pouvoir prendre en compte toute la physique?}
+\end{framed}
+}
+
+\end{frame}
+
+\begin{frame}{Le problème des solvers volume finis actuels.}
+
+\begin{center}
+\includegraphics[width=.65\linewidth]{./thierry_mesh.png}
+\reflectbox{\includegraphics[width = .65\linewidth, angle=180, origin=c]{./thierry_mesh.png}}
+\end{center}
+
+\only<1>{
+\begin{center}
+\includegraphics[width=.65\linewidth]{lhtsT.pdf}
+\end{center}
+
+Pour les volumes finis, la solution est constante sur chaque éléments.
+
+}
+
+\onslide<2->
+{
+\begin{framed}
+\textbf{Les volumes finis nécessitent un maillage de bonne qualité, et donc très fin dans les régions de grande variation ou de géométrie complexe.}
 \end{framed}
 
-Il faut pouvoir aussi représenter...
+Compliqué pour les plasmas à induction...
 
-\centering
-\begin{tabular}{cc}
-\onslide<2->{
-\includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}}
-& \onslide<3->{\includegraphics[height = .2 \linewidth]{./plasmatron_nozzle_operating.png}} \\
-\onslide<2->{Instationnarités} & \onslide<3->{Effets 3D et géométries complexes} 
-\end{tabular}
+}
 
 \end{frame}
 
 \begin{frame}{But de la thèse}
 
 \begin{framed}
-\textbf{Le but de cette thèse est de développer un nouveau solver capable de représenter }
+\textbf{Développer un solver faisant partie des méthodes de Galerkin discontinues pour les plasma à induction.}
 \end{framed}
 
-\end{frame}
 
+
+\end{frame}
 
 
 \end{document}
