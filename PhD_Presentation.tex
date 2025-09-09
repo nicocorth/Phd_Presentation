@@ -5,7 +5,48 @@
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
+\usepackage{tikz}
+\usetikzlibrary{calc}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\newcommand{\vecu}{\mathbf{u}}
+\newcommand{\vecU}{\mathbf{U}}
+\newcommand{\vecF}{\mathbf{F}}
+\newcommand{\vecS}{\mathbf{S}}
+\newcommand{\vecq}{\mathbf{q}}
+\newcommand{\vecx}{\mathbf{x}}
+\newcommand{\vecy}{\mathbf{y}}
+\newcommand{\vece}{\mathbf{e}}
+\newcommand{\vecE}{\mathbf{E}}
+\newcommand{\vecB}{\mathbf{B}}
+\newcommand{\vecw}{\mathbf{w}}
+\newcommand{\vecj}{\mathbf{j}}
+\newcommand{\vecP}{\mathbf{P}}
+\newcommand{\vech}{\mathbf{h}}
+\newcommand{\vectau}{\boldsymbol{\tau}}
+\newcommand{\vecphi}{\boldsymbol{\phi}}
+\newcommand{\vecPsi}{\boldsymbol{\Psi}}
+\newcommand{\vecHcal}{\boldsymbol{\mathcal{H}}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\veclambda}{\boldsymbol{\lambda}}
+\newcommand{\vecpi}{\boldsymbol{\pi}}
+\newcommand{\tesselation}{\mathcal{T}}
+\newcommand{\vecn}{\mathbf{n}}
+\newcommand{\mdot}{\dot{m}}
+\newcommand{\vecv}{\mathbf{v}}
+\newcommand{\vecd}{\mathbf{d}}
+\newcommand{\vecV}{\mathbf{V}}
+\newcommand{\vecvtilde}{\tilde{\vecv}}
+\newcommand{\vecQ}{\mathbf{Q}}
+\newcommand{\vecc}{\mathbf{c}}
+\newcommand{\vecR}{\mathbf{R}}
+\newcommand{\vecA}{\mathbf{A}}
+\newcommand{\vecC}{\mathbf{C}}
+\newcommand{\vecctilde}{\tilde{\vecc}}
+\newcommand{\identity}{\mathbb{I}}
+\newcommand{\realset}{\mathbb{R}}
+\newcommand{\Gammabar}{\bar{\Gamma}}
+\newcommand{\calC}{\mathcal{C}}
 
 \setbeamercolor{background canvas}{bg=white}
 \usepackage{framed}
@@ -23,6 +64,8 @@
     \draw (0,0) arc (270:360:1);
   \fi
 }
+
+
 
 
 \newcommand{\atom}[3]{%
@@ -573,10 +616,14 @@ Pour les volumes finis, la solution est constante sur chaque éléments.
 \onslide<2->
 {
 \begin{framed}
-\textbf{Les volumes finis nécessitent un maillage de bonne qualité, et donc très fin dans les régions de grande variation ou de géométrie complexe.}
+\textbf{Les volumes finis nécessitent un maillage de bonne qualité, et donc très fin dans les régions de grande variation ou de géométrie complexe $\Rightarrow$}
 \end{framed}
 
-Compliqué pour les plasmas à induction...
+\begin{itemize}
+\item Demande beaucoup d'attention au maillage.
+\item Quasi impossible pour les géométries complexes.
+\item Demande un maillage trop fin partout pour une physique plus complexe.
+\end{itemize}
 
 }
 
@@ -588,9 +635,527 @@ Compliqué pour les plasmas à induction...
 \textbf{Développer un solver faisant partie des méthodes de Galerkin discontinues pour les plasma à induction.}
 \end{framed}
 
+\begin{itemize}
+\item La solution n'est plus constante sur chaque élément.
+\item Beaucoup plus grande flexibilité de maillage.
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=.8\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
+\reflectbox{\includegraphics[width = .8\linewidth, angle=180, origin=c]{./Grid_Independence_mesh_probe_cropped.pdf}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Research questions}
+
+With the objective of producing a new high order solver for inductively coupled plasma, we will try to answer the following questions:
+
+\begin{framed}
+\begin{description}
+\item[Q1] \textbf{In addition of being precise, can a high-order solver be robust for inductively coupled plasma applications?}
+\item[Q2] \textbf{Is the developed solver user-friendly?} 
+\item[Q3] \textbf{Can the new solver be easily adapted to the new experiments performed in ICP facilities?}
+\end{description}
+\end{framed}
+
+\end{frame}
+
+\section{Hybridized discontinuous Galerkin method}
+
+\begin{frame}{Finite volume and (hybridized) discontinuous Galerkin}
+
+\centering
+\begin{tikzpicture}[scale = 1.5]
+	% Define the vertices of the standing on base triangle
+    \coordinate (A) at (0, 0, 0);
+    \coordinate (B) at (4, 0, 0);
+    \coordinate (C) at (2, 0, -3.464); % Height for an equilateral triangle
+    
+    % Define the vertice of the trace
+    \coordinate (D) at (5,0,0);
+    \coordinate (E) at (3,0,-3.464);
+    
+    % Define the vertices of the standing on head triangle
+    \coordinate (F) at (6, 0,0);
+    \coordinate (G) at (4, 0,-3.464);
+    \coordinate (H) at (8, 0,-3.464);
+
+    % Draw the triangle standing on its base
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    
+    % Draw the triangle standing on its head
+    \draw[thick] (F) -- (G) -- (H) -- cycle;
+    
+    \only<3->
+    {
+    % Draw the trace
+    \draw[thick] (D) -- (E);
+	}
+    % Place the nodes at the vertices
+    \draw[blue] (A) circle (2pt);
+    %\only<1>
+    {
+    \draw[blue] (B) circle (2pt);
+    }
+%    \only<2->
+%    {
+%    \draw[blue] (B) circle (2pt) node[below] {$\vecu_1$, $\vecq_1$};
+%	}    
+    \draw[blue] (C) circle (2pt);
+    
+    \only<3->
+    {
+    \draw[red] (D) circle (2pt);
+    \draw[red] (E) circle (2pt);
+    }
+	%\only<1>
+    {
+    \draw[blue] (F) circle (2pt);
+	}       
+    
+%    \only<2->
+%    {
+%    \draw[blue] (F) circle (2pt) node[below] {$\vecu_2$, $\vecq_2$};
+%	}    
+    \draw[blue] (G) circle (2pt);
+    \draw[blue] (H) circle (2pt);
+
+    % Place the mid-edge nodes for the triangle on its basis
+    \coordinate (AB) at ($.5*(A)+ 0.5*(B)$);
+    \coordinate (BC) at ($.5*(B)+ 0.5*(C)$);
+    \coordinate (CA) at ($.5*(C)+ 0.5*(A)$);
+    
+    \only<3->
+    {
+    % Place the mid-edge of the trace
+    \coordinate (DE) at ($.5*(D)+ 0.5*(E)$);
+    }
+    
+    % Place the mid-edge nodes for the triangle on its head
+    \coordinate (FG) at ($.5*(F)+ 0.5*(G)$);
+    \coordinate (GH) at ($.5*(G)+ 0.5*(H)$);
+    \coordinate (HF) at ($.5*(H)+ 0.5*(F)$);
+
+    \draw[blue] (AB) circle (2pt);
+    \draw[blue] (BC) circle (2pt);
+    \draw[blue] (CA) circle (2pt);
+    
+    \draw[blue] (FG) circle (2pt);
+    \draw[blue] (GH) circle (2pt);
+    \draw[blue] (HF) circle (2pt);
+    
+    \only<3->
+    {
+    \draw[red] (DE) circle (2pt);% node[above right] {$\veclambda$};
+    \node[below left] at (DE) {$e$};
+    }
+    % Marks the center of the triangles
+    \coordinate (ABC) at ($ .333*(A) + .333*(B) + .333*(C) $);
+    \coordinate (FGH) at ($ .333*(F) + .333*(G) + .333*(H) $);
+    
+    \node[black] at (ABC) {$K_1$};
+    \node[black] at (FGH) {$K_2$};
+    
+    % Shape function of the first element.
+    \only<1>{
+    \coordinate (I) at (0, 1., 0);
+    \coordinate (J) at (4, 1., 0);
+    \coordinate (K) at (2, 1., -3.464);
+    }
+    
+    \only<2->{
+    	 \coordinate (I) at (0, 1.5, 0);
+     \coordinate (J) at (4, 2., 0);
+     \coordinate (K) at (2, 1.75, -3.464);
+    }
+    
+    \coordinate (IJ) at (2, 1., 0);
+    \coordinate (JK) at (3, 2.5, -1.732);
+    \coordinate (KI) at (1, 1.3, -1.732);
+    
+    \coordinate (IJK) at ($ .333*(I) + .333*(J) + .333*(K) $);
+    
+    \draw[dashed] (A) -- (I);
+    \draw[dashed] (B) -- (J);
+    \draw[dashed] (C) -- (K);
+    
+    \fill[blue] (I) circle (2pt);
+    \fill[blue] (J) circle (2pt);
+    \fill[blue] (K) circle (2pt);
+
+	\only<1>{
+	\fill[smooth, blue!20, opacity=0.5, tension = 0.] (I) -- (J) -- (K);
+    \draw[smooth, thick, blue, tension = 0.] (I) -- (J) -- (K) -- cycle;
+	}
+   
+    \only<2->{ 
+    \fill[smooth, blue!20, opacity=0.5, tension = 0.] (I) .. controls (IJ) .. (J) -- (J) .. controls (JK) .. (K) -- (K) .. controls (KI) ..(I);
+    \draw[smooth, thick, blue, tension = 0.] (I) .. controls (IJ) .. (J) -- (J) .. controls (JK) .. (K) -- (K) .. controls (KI) ..(I);
+	}
+
+	\only<1,2>
+	{
+	\node[below, blue] at (IJK) {$\vecu_{K_1}$};
+	}
+	
+	\only<3->
+	{
+	\node[below, blue] at (IJK) {$\vecu_{K_1}$, $\vecq_{K_1}$};
+	}
+	
+%	\only<2->
+%	{
+%	\node[below, blue] at (IJK) {$\varphi_{K_1}$};
+%	}
+	% Shape function of the second element.
+	\only<1>
+	{
+    \coordinate (L) at (6, 2,0);
+    \coordinate (M) at (4, 2,-3.464);
+    \coordinate (N) at (8, 2,-3.464);
+    }
+    
+    \only<2->
+	{
+    \coordinate (L) at (6, 2,0);
+    \coordinate (M) at (4, 1.75,-3.464);
+    \coordinate (N) at (8, 1.5,-3.464);
+    }
+    
+    \coordinate (LM) at (5, 1.3, -1.732);
+    \coordinate (MN) at (6, 2.2, -3.464);
+    \coordinate (NL) at (7, 2.3, -1.732);
+    
+    \coordinate (LMN) at ($ .333*(L) + .333*(M) + .333*(N) $);
+    
+    \draw[dashed] (F) -- (L);
+    \draw[dashed] (G) -- (M);
+    \draw[dashed] (H) -- (N);
+    
+    \fill[blue] (L) circle (2pt);
+    \fill[blue] (M) circle (2pt);
+    \fill[blue] (N) circle (2pt);
+
+	\only<1>{
+	\fill[smooth, blue!20, opacity=0.5, tension = 0.] (L) -- (M) -- (N);
+	\draw[smooth, thick, blue, tension = 0.] (L) -- (M) -- (N) -- cycle;
+	}    
+    
+    \only<2->{\fill[smooth, blue!20, opacity=0.5, tension = 0.] (L) .. controls (LM) .. (M) -- (M) .. controls (MN) .. (N) -- (N) .. controls (NL) ..(L);
+    \draw[smooth, thick, blue, tension = 0.] (L) .. controls (LM) .. (M) -- (M) .. controls (MN) .. (N) -- (N) .. controls (NL) ..(L);
+	}
+	\only<1,2>
+	{
+	\node[above, blue] at (LMN) {$\vecu_{K_2}$};
+	}
+
+	\only<3->
+	{
+	\node[above, blue] at (LMN) {$\vecu_{K_2}$, $\vecq_{K_2}$};
+	}	
+	
+%	\only<2->
+%	{
+%	\node[above, blue] at (LMN) {$\varphi_{K_2}$};
+%	}
+	% Shape function of the trace.
+	
+	\only<3->
+	{
+	\coordinate (O) at (5,1.7,0);
+    \coordinate (P) at (3,2.,-3.464);
+    \coordinate (OP) at (4,1.5,-1.732);
+    
+    \coordinate (OP_Bary) at ($ .5*(O) + .5*(P) $);
+    
+    \draw[smooth, thick, red, tension = 0.] (O) .. controls (OP) .. (P);
+    
+    \draw[dashed] (D) -- (O);
+    \draw[dashed] (E) -- (P);
+    
+    \fill[red] (O) circle (2pt);
+    \fill[red] (P) circle (2pt);
+    
+    \node[above right, red] at (OP_Bary) {$\veclambda_e$};
+	}
+	
+	\only<1,2>{
+
+	\draw[<->, ultra thick] ($(BC) + (0.1, 0)$) -- ($.5*(BC) + .5*(FG)$) node[below]{$\vecHcal(\vecu_{K_1}, \vecu_{K_2})$} -- ($(FG) - (0.1,0)$);	
+	
+	}
+
+	\only<3>{
+
+	\draw[<->, ultra thick] ($(BC) + (0.1, 0)$) -- ($.5*(BC) + .5*(DE)$) node[above]{$\vecHcal_1$} -- ($(DE) - (0.1,0)$);
+	\draw[<->, ultra thick] ($(DE) + (0.1, 0)$) -- ($.5*(DE) + .5*(FG)$) node[above]{$\vecHcal_2$} -- ($(FG) - (0.1,0)$);	
+	
+	}	
+	
+	% Axis
+	
+	%\draw[->, thick] (0, -2, 0) -- (0, -2, -1.5) node[above]{$\vece_y$};
+	%\draw[->, thick] (0, -2, 0) -- (1.5, -2, 0) node[above]{$\vece_x$};
+	%\draw[->, thick] (0, -2, 0) -- (0, -0.5, 0) node[right]{$\varphi, \mu$};
+
+\end{tikzpicture}
+
+\only<1>{
+\begin{framed}
+\centering
+\textbf{Finite volumes}
+\end{framed}
+}
+
+\only<2>{
+\begin{framed}
+\centering
+\textbf{Discontinuous Galerkin}
+\end{framed}
+}
+
+\only<3>{
+\begin{framed}
+\centering
+\textbf{Hybridized discontinuous Galerkin}
+\end{framed}
+}
+
+\end{frame}
+
+\begin{frame}{Model problem}
+
+\begin{framed}
+\begin{equation*}
+	\begin{aligned}
+		& \partial_t \vecw(\vecu) + \nabla \cdot \left(\vecF_c(\vecu) - \vecF_v(\vecu, \nabla \vecu)\right) = \vecS(\vecu, \nabla \vecu) && \text{ on } \Omega\\
+		& \vecu = \vecu_{bc} && \text{ on } \partial\Omega_D\\
+		& \vecF_v \cdot \vecn = \vecF_{v,n,bc} && \text{ on } \partial\Omega_N\\
+		& \vecu(t = 0) = \vecU && \text{ on } \Omega
+	\end{aligned}
+\end{equation*}
+\end{framed}
+
+\only<1>{
+\begin{minipage}[t]{0.49\linewidth}
+$\vecF_{c,v}$ : convective and diffusive fluxes.
+
+$S$ : source terms.
+
+$w$ : conservative variables.
+
+$\vecu$, $\vecu_{bc}$ : solution and boundary condition.
+\end{minipage}
+\begin{minipage}[t]{0.49\linewidth}
+$\Omega$ : domain of the problem.
+
+$\partial\Omega_{D,N}$ : domain boundary for Dirichlet and Neumann BC.
+
+$\vecU$ : initial data.
+\end{minipage}
+}
+
+\only<2>{
+Before going further, some notation:
+\begin{equation*}
+\begin{aligned}
+&(a,b)_{K} &&= \int_K a b\;dV,\\
+&\langle a,b \rangle_{\partial K} &&= \int_{\partial K} a  b \;dS.\\
+\end{aligned}
+\end{equation*}
+
+}
+
+\end{frame}
+
+\begin{frame}{From weak form to discrete DG problem}
+
+\only<1>
+{
+\begin{equation*}
+\left(\partial_t \vecw - \vecS, w \right)_{\Omega} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\Omega} + \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial \Omega} = 0, \; \forall w \in L_2(\Omega)
+\end{equation*}
+
+Multiplying by a function $w \in L_2(\Omega)$ and integrating over the domain gives the \textbf{weak form}.
+}
+
+\only<2>
+{
+\begin{equation*}
+\left(\partial_t \vecw - \vecS, w \right)_{\textcolor{red}{\tesselation}} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\textcolor{red}{\tesselation}} + \textcolor{red}{\sum_{K \in \tesselation}} \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\textcolor{red}{\partial K}} = 0, \; \forall w \in L_2(\Omega)
+\end{equation*}
+
+The DG discretization consists in first dividing the domain $\Omega$ in a collection of non-overlapping elements $\mathcal{T}$.
+
+\begin{center}
+\includegraphics[width=.8\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
+\end{center}
+
+}
+
+\only<3>
+{
+\begin{equation*}
+\left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial K} = 0, \; \textcolor{red}{\forall w \in W_h}
+\end{equation*}
+
+We restrict the functions to a subset of $L_2(\Omega)$ which is finite dimensional. A common choice is
+\begin{equation*}
+W_h = \left\{w \in L^2(\Omega) : w|_K \in \mathcal{P}^p(K), \forall K\in \tesselation\right\} \subset L_2(\Omega)
+\end{equation*}
+}
+
+\only<4>
+{
+\begin{equation*}
+\left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \textcolor{red}{\vecHcal}, w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
+\end{equation*}
+
+For stabilizing the method, the convective and diffusive fluxes on the interface are approximated
+\begin{equation*}
+\left(\vecF_c - \vecF_v\right) \cdot \vecn_K \simeq \vecHcal 
+\end{equation*}
+}
+
+\only<5>
+{
+\begin{equation*}
+\left(\partial_t \vecw_{\textcolor{red}{h}} - \vecS_{\textcolor{red}{h}}, w \right)_{\tesselation} - \left(\vecF_{c, {\textcolor{red}{h}}} - \vecF_{v, {\textcolor{red}{h}}}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \vecHcal, w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
+\end{equation*}
+
+The solution is also approximated by
+\begin{equation*}
+\vecu \simeq \vecu_h \in W_h
+\end{equation*}
+}
+
+\only<6>
+{
+\begin{equation*}
+\left(\partial_t \vecw_{h} - \vecS_{h}, \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} + \left\langle \vecHcal, \textcolor{red}{\varphi_{K,i}} \right\rangle_{\partial K} = 0, \; \forall \textcolor{red}{\varphi_{K,i}} \in W_h
+\end{equation*}
+
+Finally, if the $\varphi_{K,i}$ form a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}$, then its suffices to verify the equation for each $\varphi_{K,i}$ on each element, and 
+\begin{equation*}
+\vecu \simeq \vecu_h = \sum_{K\in \tesselation}\sum_{i=1}^p \vecu_{K,i} \varphi_{K,i}
+\end{equation*}
+
+The $\vecu_i$ are the degrees of freedom.
+}
+
+\only<7>
+{
+\begin{framed}
+\begin{equation*}
+\left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal, \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h
+\end{equation*}
+\end{framed}
+\begin{itemize}
+\item Because the $\varphi_{K,i}$ are in general not continuous across elements, discontinuous solutions can be represented.
+
+\item If $\varphi_K = 1$ everywhere, the finite volume method is retrieved.
+
+\item The art of designing DG is contained in the numerical fluxes (\textit{cfr.} later).
+\end{itemize}
+}
+
+\end{frame}
+
+\begin{frame}{From DG to HDG}
+
+\only<1>
+{
+\begin{equation*}
+\begin{aligned}
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal, \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
+& \textcolor{red}{\left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K',i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h}
+\end{aligned}
+\end{equation*}
+
+We solve now for the solution gradient
+\begin{equation*}
+\vecq = \nabla \vecu
+\end{equation*}
+with the subset
+\begin{equation*}
+V_h = \left\{\vecv \in L^2(\Omega) : \vecv|_K \in \left(\mathcal{P}^p(K)\right)^D, \forall K\in \tesselation\right\}
+\end{equation*}
+and local basis $\vectau_{K,i}$
+\begin{equation*}
+\vecq_h = \sum_{K\in\mathcal{T}}\sum_{i=1}^{p} \vecq_{K,i} \vectau_{K,i}
+\end{equation*}
+
+}
+
+\only<2>
+{
+\begin{equation*}
+\begin{aligned}
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \textcolor{red}{\veclambda_h}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K',i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h
+\end{aligned}
+\end{equation*}
+
+We first introduce $\Gamma$, the set of traces between elements
+\begin{equation}
+    \Gamma = \{e:e = K_i \cap K_j; \forall K_i, K_j \in \tesselation,\; K_i \neq K_j\}.
+\end{equation}
+We introduce the hybrid unknown on the element trace $\veclambda$ with the function subset
+\begin{equation*}
+M_h = \left\{\mu \in L^2(\Gamma) : \mu|_e \in \mathcal{P}^p(e), \forall e\in \Gamma\right\}
+\end{equation*}
+and local basis $\mu_{e,i}$
+\begin{equation*}
+\veclambda_h = \sum_{e\in\Gamma}\sum_{i=1}^{p} \veclambda_{e,i} \mu_{e,i}
+\end{equation*}
+
+}
+
+\only<3>
+{
+\begin{equation*}
+\begin{aligned}
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \veclambda_h), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K',i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
+& \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h}
+\end{aligned}
+\end{equation*}
+
+We need an equation to determine $\veclambda$: continuity of the normal numerical flux across the interfaces.
+
+The jump operator is given by
+\begin{equation*}
+[[\vecu]] = \vecu_+ \cdot \vecn_+ + \vecu_- \cdot \vecn_-
+\end{equation*}
+
+}
+
+\only<4>
+{
+\begin{framed}
+\small
+\begin{equation*}
+\begin{aligned}
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \veclambda_h), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K',i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
+& \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h}
+\end{aligned}
+\end{equation*}
+\end{framed}
+
+\begin{center}
+\textbf{But why HDG over DG?}
+\end{center}
+
+}
+
 
 
 \end{frame}
 
+\section{Results}
+
+\section{Conclusions and future work}
 
 \end{document}

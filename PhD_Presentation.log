@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  9 SEP 2025 09:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  9 SEP 2025 17:14
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -851,6 +851,10 @@ Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 \XKV@depth=\count346
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip79
@@ -1029,28 +1033,28 @@ e.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
 decorations.pathmorphing.code.tex))
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 42.
+h' as default language. on input line 85.
  (./PhD_Presentation.aux)
 \openout1 = `PhD_Presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1108,7 +1112,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 42.
+Package hyperref Info: Link coloring OFF on input line 85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1121,66 +1125,66 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count371
 )
-LaTeX Info: Redefining \ref on input line 42.
-LaTeX Info: Redefining \pageref on input line 42.
-LaTeX Info: Redefining \nameref on input line 42.
+LaTeX Info: Redefining \ref on input line 85.
+LaTeX Info: Redefining \pageref on input line 85.
+LaTeX Info: Redefining \nameref on input line 85.
 
 (./PhD_Presentation.out) (./PhD_Presentation.out)
 \@outlinefile=\write5
 \openout5 = `PhD_Presentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 42.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 85.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 42.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 85.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 42.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 42.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 42.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 42.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 85.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 42.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 42.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 42.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 85.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 42.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 42.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 42.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 85.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 42.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 42.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 85.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 42.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 85.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 42.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 42.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 42.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 42.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 42.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 42.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 42.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 85.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 85.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 4
-2.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 8
+5.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 4
-2.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 8
+5.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 42.
+ut line 85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1212,57 +1216,58 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 42.
+or `english'. on input line 85.
  (./PhD_Presentation.nav)
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 87.
+(mdframed)              on input line 130.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 87.
-<./cover_cropped.png, id=17, 1756.5625pt x 287.0725pt>
+ mdframed uses option nobreak mdframed on input line 130.
+<./cover_cropped.png, id=29, 1756.5625pt x 287.0725pt>
 File: ./cover_cropped.png Graphic file (type png)
 <use ./cover_cropped.png>
-Package pdftex.def Info: ./cover_cropped.png  used on input line 87.
+Package pdftex.def Info: ./cover_cropped.png  used on input line 130.
 (pdftex.def)             Requested size: 358.50229pt x 58.58742pt.
 File: ./cover_cropped.png Graphic file (type png)
 <use ./cover_cropped.png>
-Package pdftex.def Info: ./cover_cropped.png  used on input line 87.
+Package pdftex.def Info: ./cover_cropped.png  used on input line 130.
 (pdftex.def)             Requested size: 358.50229pt x 58.58742pt.
-<2560px-University_of_Liège_logo.png, id=19, 2569.6pt x 1124.2pt>
+<2560px-University_of_Liège_logo.png, id=31, 2569.6pt x 1124.2pt>
 File: 2560px-University_of_Liège_logo.png Graphic file (type png)
 <use 2560px-University_of_Liège_logo.png>
 Package pdftex.def Info: 2560px-University_of_Liège_logo.png  used on input li
-ne 87.
+ne 130.
 (pdftex.def)             Requested size: 65.00833pt x 28.45274pt.
-<FRS-FNRS_ros_vert_transp.png, id=20, 211.992pt x 134.4222pt>
+<FRS-FNRS_ros_vert_transp.png, id=32, 211.992pt x 134.4222pt>
 File: FRS-FNRS_ros_vert_transp.png Graphic file (type png)
 <use FRS-FNRS_ros_vert_transp.png>
-Package pdftex.def Info: FRS-FNRS_ros_vert_transp.png  used on input line 87.
+Package pdftex.def Info: FRS-FNRS_ros_vert_transp.png  used on input line 130.
 (pdftex.def)             Requested size: 44.87221pt x 28.45274pt.
-<vki_logo_blue_rectangular.jpg, id=21, 2007.5pt x 563.10374pt>
+<vki_logo_blue_rectangular.jpg, id=33, 2007.5pt x 563.10374pt>
 File: vki_logo_blue_rectangular.jpg Graphic file (type jpg)
 <use vki_logo_blue_rectangular.jpg>
-Package pdftex.def Info: vki_logo_blue_rectangular.jpg  used on input line 87.
+Package pdftex.def Info: vki_logo_blue_rectangular.jpg  used on input line 130.
+
 (pdftex.def)             Requested size: 101.42236pt x 28.45274pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./cover_cropped.png> <./25
 60px-University_of_Liège_logo.png> <./FRS-FNRS_ros_vert_transp.png> <./vki_log
 o_blue_rectangular.jpg>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 132
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 132
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 89.
+ut line 132.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
@@ -1271,38 +1276,38 @@ thkerncmss.
 [2
 
 ]
-<ice_cubes.jpg, id=39, 147.4308pt x 119.0046pt>
+<ice_cubes.jpg, id=51, 147.4308pt x 119.0046pt>
 File: ice_cubes.jpg Graphic file (type jpg)
 <use ice_cubes.jpg>
-Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
+Package pdftex.def Info: ice_cubes.jpg  used on input line 154.
 (pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
-<eau_liquide.jpg, id=40, 147.4308pt x 98.2872pt>
+<eau_liquide.jpg, id=52, 147.4308pt x 98.2872pt>
 File: eau_liquide.jpg Graphic file (type jpg)
 <use eau_liquide.jpg>
-Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
+Package pdftex.def Info: eau_liquide.jpg  used on input line 154.
 (pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
-<bouilloire.jpg, id=41, 481.8pt x 271.0125pt>
+<bouilloire.jpg, id=53, 481.8pt x 271.0125pt>
 File: bouilloire.jpg Graphic file (type jpg)
 <use bouilloire.jpg>
-Package pdftex.def Info: bouilloire.jpg  used on input line 111.
+Package pdftex.def Info: bouilloire.jpg  used on input line 154.
 (pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
-<eau_solide.png, id=42, 326.21875pt x 241.90375pt>
+<eau_solide.png, id=54, 326.21875pt x 241.90375pt>
 File: eau_solide.png Graphic file (type png)
 <use eau_solide.png>
-Package pdftex.def Info: eau_solide.png  used on input line 111.
+Package pdftex.def Info: eau_solide.png  used on input line 154.
 (pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
-<eau_liquide.png, id=43, 307.1475pt x 262.9825pt>
+<eau_liquide.png, id=55, 307.1475pt x 262.9825pt>
 File: eau_liquide.png Graphic file (type png)
 <use eau_liquide.png>
-Package pdftex.def Info: eau_liquide.png  used on input line 111.
+Package pdftex.def Info: eau_liquide.png  used on input line 154.
 (pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
-<eau_gaz.png, id=44, 199.74625pt x 245.91875pt>
+<eau_gaz.png, id=56, 199.74625pt x 245.91875pt>
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 111.
+Package pdftex.def Info: eau_gaz.png  used on input line 154.
 (pdftex.def)             Requested size: 55.002pt x 67.71683pt.
 
-Overfull \vbox (13.40727pt too high) detected at line 111
+Overfull \vbox (13.40727pt too high) detected at line 154
  []
 
 [3
@@ -1311,30 +1316,30 @@ Overfull \vbox (13.40727pt too high) detected at line 111
 /eau_liquide.png> <./eau_gaz.png>]
 File: ice_cubes.jpg Graphic file (type jpg)
 <use ice_cubes.jpg>
-Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
+Package pdftex.def Info: ice_cubes.jpg  used on input line 154.
 (pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
 File: eau_liquide.jpg Graphic file (type jpg)
 <use eau_liquide.jpg>
-Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
+Package pdftex.def Info: eau_liquide.jpg  used on input line 154.
 (pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
 File: bouilloire.jpg Graphic file (type jpg)
 <use bouilloire.jpg>
-Package pdftex.def Info: bouilloire.jpg  used on input line 111.
+Package pdftex.def Info: bouilloire.jpg  used on input line 154.
 (pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
 File: eau_solide.png Graphic file (type png)
 <use eau_solide.png>
-Package pdftex.def Info: eau_solide.png  used on input line 111.
+Package pdftex.def Info: eau_solide.png  used on input line 154.
 (pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
 File: eau_liquide.png Graphic file (type png)
 <use eau_liquide.png>
-Package pdftex.def Info: eau_liquide.png  used on input line 111.
+Package pdftex.def Info: eau_liquide.png  used on input line 154.
 (pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 111.
+Package pdftex.def Info: eau_gaz.png  used on input line 154.
 (pdftex.def)             Requested size: 55.002pt x 67.71683pt.
 
-Overfull \vbox (13.40727pt too high) detected at line 111
+Overfull \vbox (13.40727pt too high) detected at line 154
  []
 
 [4
@@ -1342,30 +1347,30 @@ Overfull \vbox (13.40727pt too high) detected at line 111
 ]
 File: ice_cubes.jpg Graphic file (type jpg)
 <use ice_cubes.jpg>
-Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
+Package pdftex.def Info: ice_cubes.jpg  used on input line 154.
 (pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
 File: eau_liquide.jpg Graphic file (type jpg)
 <use eau_liquide.jpg>
-Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
+Package pdftex.def Info: eau_liquide.jpg  used on input line 154.
 (pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
 File: bouilloire.jpg Graphic file (type jpg)
 <use bouilloire.jpg>
-Package pdftex.def Info: bouilloire.jpg  used on input line 111.
+Package pdftex.def Info: bouilloire.jpg  used on input line 154.
 (pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
 File: eau_solide.png Graphic file (type png)
 <use eau_solide.png>
-Package pdftex.def Info: eau_solide.png  used on input line 111.
+Package pdftex.def Info: eau_solide.png  used on input line 154.
 (pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
 File: eau_liquide.png Graphic file (type png)
 <use eau_liquide.png>
-Package pdftex.def Info: eau_liquide.png  used on input line 111.
+Package pdftex.def Info: eau_liquide.png  used on input line 154.
 (pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 111.
+Package pdftex.def Info: eau_gaz.png  used on input line 154.
 (pdftex.def)             Requested size: 55.002pt x 67.71683pt.
 
-Overfull \vbox (13.40727pt too high) detected at line 111
+Overfull \vbox (13.40727pt too high) detected at line 154
  []
 
 [5
@@ -1373,30 +1378,30 @@ Overfull \vbox (13.40727pt too high) detected at line 111
 ]
 File: ice_cubes.jpg Graphic file (type jpg)
 <use ice_cubes.jpg>
-Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
+Package pdftex.def Info: ice_cubes.jpg  used on input line 154.
 (pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
 File: eau_liquide.jpg Graphic file (type jpg)
 <use eau_liquide.jpg>
-Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
+Package pdftex.def Info: eau_liquide.jpg  used on input line 154.
 (pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
 File: bouilloire.jpg Graphic file (type jpg)
 <use bouilloire.jpg>
-Package pdftex.def Info: bouilloire.jpg  used on input line 111.
+Package pdftex.def Info: bouilloire.jpg  used on input line 154.
 (pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
 File: eau_solide.png Graphic file (type png)
 <use eau_solide.png>
-Package pdftex.def Info: eau_solide.png  used on input line 111.
+Package pdftex.def Info: eau_solide.png  used on input line 154.
 (pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
 File: eau_liquide.png Graphic file (type png)
 <use eau_liquide.png>
-Package pdftex.def Info: eau_liquide.png  used on input line 111.
+Package pdftex.def Info: eau_liquide.png  used on input line 154.
 (pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 111.
+Package pdftex.def Info: eau_gaz.png  used on input line 154.
 (pdftex.def)             Requested size: 55.002pt x 67.71683pt.
 
-Overfull \vbox (13.40727pt too high) detected at line 111
+Overfull \vbox (13.40727pt too high) detected at line 154
  []
 
 [6
@@ -1404,30 +1409,30 @@ Overfull \vbox (13.40727pt too high) detected at line 111
 ]
 File: ice_cubes.jpg Graphic file (type jpg)
 <use ice_cubes.jpg>
-Package pdftex.def Info: ice_cubes.jpg  used on input line 111.
+Package pdftex.def Info: ice_cubes.jpg  used on input line 154.
 (pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
 File: eau_liquide.jpg Graphic file (type jpg)
 <use eau_liquide.jpg>
-Package pdftex.def Info: eau_liquide.jpg  used on input line 111.
+Package pdftex.def Info: eau_liquide.jpg  used on input line 154.
 (pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
 File: bouilloire.jpg Graphic file (type jpg)
 <use bouilloire.jpg>
-Package pdftex.def Info: bouilloire.jpg  used on input line 111.
+Package pdftex.def Info: bouilloire.jpg  used on input line 154.
 (pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
 File: eau_solide.png Graphic file (type png)
 <use eau_solide.png>
-Package pdftex.def Info: eau_solide.png  used on input line 111.
+Package pdftex.def Info: eau_solide.png  used on input line 154.
 (pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
 File: eau_liquide.png Graphic file (type png)
 <use eau_liquide.png>
-Package pdftex.def Info: eau_liquide.png  used on input line 111.
+Package pdftex.def Info: eau_liquide.png  used on input line 154.
 (pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 111.
+Package pdftex.def Info: eau_gaz.png  used on input line 154.
 (pdftex.def)             Requested size: 55.002pt x 67.71683pt.
 
-Overfull \vbox (13.40727pt too high) detected at line 111
+Overfull \vbox (13.40727pt too high) detected at line 154
  []
 
 [7
@@ -1447,13 +1452,13 @@ Overfull \vbox (13.40727pt too high) detected at line 111
 ] [14
 
 ]
-Overfull \vbox (18.92578pt too high) detected at line 240
+Overfull \vbox (18.92578pt too high) detected at line 283
  []
 
 [15
 
 ]
-Overfull \vbox (21.05495pt too high) detected at line 240
+Overfull \vbox (21.05495pt too high) detected at line 283
  []
 
 [16
@@ -1461,43 +1466,43 @@ Overfull \vbox (21.05495pt too high) detected at line 240
 ]
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 271.
+Package pdftex.def Info: eau_gaz.png  used on input line 314.
 (pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 271.
+Package pdftex.def Info: eau_gaz.png  used on input line 314.
 (pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
  [17
 
 ]
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 271.
+Package pdftex.def Info: eau_gaz.png  used on input line 314.
 (pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 271.
+Package pdftex.def Info: eau_gaz.png  used on input line 314.
 (pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
  [18
 
 ]
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 271.
+Package pdftex.def Info: eau_gaz.png  used on input line 314.
 (pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
-Package pdftex.def Info: eau_gaz.png  used on input line 271.
+Package pdftex.def Info: eau_gaz.png  used on input line 314.
 (pdftex.def)             Requested size: 97.06578pt x 119.50279pt.
 
-Overfull \vbox (21.29552pt too high) detected at line 271
+Overfull \vbox (21.29552pt too high) detected at line 314
  []
 
 [19
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-299.
+342.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [20
@@ -1520,20 +1525,20 @@ File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ] [28
 
 ]
-<./sun.jpg, id=195, 238.491pt x 178.9887pt>
+<./sun.jpg, id=207, 238.491pt x 178.9887pt>
 File: ./sun.jpg Graphic file (type jpg)
 <use ./sun.jpg>
-Package pdftex.def Info: ./sun.jpg  used on input line 336.
+Package pdftex.def Info: ./sun.jpg  used on input line 379.
 (pdftex.def)             Requested size: 116.76698pt x 87.63496pt.
-<./aurora_borealis.jpeg, id=196, 225.84375pt x 225.84375pt>
+<./aurora_borealis.jpeg, id=208, 225.84375pt x 225.84375pt>
 File: ./aurora_borealis.jpeg Graphic file (type jpg)
 <use ./aurora_borealis.jpeg>
-Package pdftex.def Info: ./aurora_borealis.jpeg  used on input line 336.
+Package pdftex.def Info: ./aurora_borealis.jpeg  used on input line 379.
 (pdftex.def)             Requested size: 87.6376pt x 87.63496pt.
-<./lightning.jpg, id=197, 1284.8pt x 722.7pt>
+<./lightning.jpg, id=209, 1284.8pt x 722.7pt>
 File: ./lightning.jpg Graphic file (type jpg)
 <use ./lightning.jpg>
-Package pdftex.def Info: ./lightning.jpg  used on input line 336.
+Package pdftex.def Info: ./lightning.jpg  used on input line 379.
 (pdftex.def)             Requested size: 155.7769pt x 87.63496pt.
  [29
 
@@ -1544,31 +1549,31 @@ Package pdftex.def Info: ./lightning.jpg  used on input line 336.
 ] [32
 
 ]
-<./reentry_esa.jpg, id=219, 519.69438pt x 395.99629pt>
+<./reentry_esa.jpg, id=231, 519.69438pt x 395.99629pt>
 File: ./reentry_esa.jpg Graphic file (type jpg)
 <use ./reentry_esa.jpg>
-Package pdftex.def Info: ./reentry_esa.jpg  used on input line 403.
+Package pdftex.def Info: ./reentry_esa.jpg  used on input line 446.
 (pdftex.def)             Requested size: 182.97421pt x 139.42093pt.
 
-Overfull \vbox (14.73378pt too high) detected at line 403
+Overfull \vbox (14.73378pt too high) detected at line 446
  []
 
 [33
 
  <./reentry_esa.jpg>]
-<./heat_shield.jpg, id=225, 2007.5pt x 1337.99875pt>
+<./heat_shield.jpg, id=237, 2007.5pt x 1337.99875pt>
 File: ./heat_shield.jpg Graphic file (type jpg)
 <use ./heat_shield.jpg>
-Package pdftex.def Info: ./heat_shield.jpg  used on input line 417.
+Package pdftex.def Info: ./heat_shield.jpg  used on input line 460.
 (pdftex.def)             Requested size: 179.28876pt x 119.50279pt.
-<./vizualisation_satellites_esa.jpg, id=226, 1927.2pt x 1362.08875pt>
+<./vizualisation_satellites_esa.jpg, id=238, 1927.2pt x 1362.08875pt>
 File: ./vizualisation_satellites_esa.jpg Graphic file (type jpg)
 <use ./vizualisation_satellites_esa.jpg>
 Package pdftex.def Info: ./vizualisation_satellites_esa.jpg  used on input line
- 417.
+ 460.
 (pdftex.def)             Requested size: 169.05891pt x 119.50279pt.
 
-Overfull \vbox (4.42432pt too high) detected at line 417
+Overfull \vbox (4.42432pt too high) detected at line 460
  []
 
 [34
@@ -1576,15 +1581,15 @@ Overfull \vbox (4.42432pt too high) detected at line 417
  <./heat_shield.jpg> <./vizualisation_satellites_esa.jpg>]
 File: ./heat_shield.jpg Graphic file (type jpg)
 <use ./heat_shield.jpg>
-Package pdftex.def Info: ./heat_shield.jpg  used on input line 417.
+Package pdftex.def Info: ./heat_shield.jpg  used on input line 460.
 (pdftex.def)             Requested size: 179.28876pt x 119.50279pt.
 File: ./vizualisation_satellites_esa.jpg Graphic file (type jpg)
 <use ./vizualisation_satellites_esa.jpg>
 Package pdftex.def Info: ./vizualisation_satellites_esa.jpg  used on input line
- 417.
+ 460.
 (pdftex.def)             Requested size: 169.05891pt x 119.50279pt.
 
-Overfull \vbox (4.42432pt too high) detected at line 417
+Overfull \vbox (4.42432pt too high) detected at line 460
  []
 
 [35
@@ -1592,15 +1597,15 @@ Overfull \vbox (4.42432pt too high) detected at line 417
 ]
 File: ./heat_shield.jpg Graphic file (type jpg)
 <use ./heat_shield.jpg>
-Package pdftex.def Info: ./heat_shield.jpg  used on input line 417.
+Package pdftex.def Info: ./heat_shield.jpg  used on input line 460.
 (pdftex.def)             Requested size: 179.28876pt x 119.50279pt.
 File: ./vizualisation_satellites_esa.jpg Graphic file (type jpg)
 <use ./vizualisation_satellites_esa.jpg>
 Package pdftex.def Info: ./vizualisation_satellites_esa.jpg  used on input line
- 417.
+ 460.
 (pdftex.def)             Requested size: 169.05891pt x 119.50279pt.
 
-Overfull \vbox (4.42432pt too high) detected at line 417
+Overfull \vbox (4.42432pt too high) detected at line 460
  []
 
 [36
@@ -1608,30 +1613,30 @@ Overfull \vbox (4.42432pt too high) detected at line 417
 ]
 File: ./heat_shield.jpg Graphic file (type jpg)
 <use ./heat_shield.jpg>
-Package pdftex.def Info: ./heat_shield.jpg  used on input line 417.
+Package pdftex.def Info: ./heat_shield.jpg  used on input line 460.
 (pdftex.def)             Requested size: 179.28876pt x 119.50279pt.
 File: ./vizualisation_satellites_esa.jpg Graphic file (type jpg)
 <use ./vizualisation_satellites_esa.jpg>
 Package pdftex.def Info: ./vizualisation_satellites_esa.jpg  used on input line
- 417.
+ 460.
 (pdftex.def)             Requested size: 169.05891pt x 119.50279pt.
 
-Overfull \vbox (4.42432pt too high) detected at line 417
+Overfull \vbox (4.42432pt too high) detected at line 460
  []
 
 [37
 
 ]
-<Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg, id=248, 62.7
+<Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg, id=260, 62.7
 472pt x 36.98393pt>
 File: Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg Graphic 
 file (type jpg)
 <use Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg>
 Package pdftex.def Info: Ablation-testing-at-the-Plasmatron-ICP-facility-of-the
--VKI-3.jpg  used on input line 486.
+-VKI-3.jpg  used on input line 529.
 (pdftex.def)             Requested size: 195.1881pt x 115.0688pt.
 
-Overfull \vbox (8.92297pt too high) detected at line 486
+Overfull \vbox (8.92297pt too high) detected at line 529
  []
 
 [38
@@ -1641,19 +1646,19 @@ File: Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg Graphic
 file (type jpg)
 <use Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg>
 Package pdftex.def Info: Ablation-testing-at-the-Plasmatron-ICP-facility-of-the
--VKI-3.jpg  used on input line 486.
+-VKI-3.jpg  used on input line 529.
 (pdftex.def)             Requested size: 195.1881pt x 115.0688pt.
 
-Overfull \vbox (0.71046pt too high) detected at line 486
+Overfull \vbox (0.71046pt too high) detected at line 529
  []
 
 [39
 
 ]
-<lhtsT.pdf, id=259, 421.575pt x 125.46875pt>
+<lhtsT.pdf, id=271, 421.575pt x 125.46875pt>
 File: lhtsT.pdf Graphic file (type pdf)
 <use lhtsT.pdf>
-Package pdftex.def Info: lhtsT.pdf  used on input line 496.
+Package pdftex.def Info: lhtsT.pdf  used on input line 539.
 (pdftex.def)             Requested size: 278.83578pt x 82.98767pt.
  [40
 
@@ -1662,33 +1667,33 @@ Package pdftex.def Info: lhtsT.pdf  used on input line 496.
 ]
 File: lhtsT.pdf Graphic file (type pdf)
 <use lhtsT.pdf>
-Package pdftex.def Info: lhtsT.pdf  used on input line 555.
+Package pdftex.def Info: lhtsT.pdf  used on input line 598.
 (pdftex.def)             Requested size: 263.50581pt x 78.42542pt.
 
-Overfull \vbox (70.23857pt too high) detected at line 555
+Overfull \vbox (70.23857pt too high) detected at line 598
  []
 
 [42
 
 ]
-<./coil_effect.png, id=282, 360.34625pt x 453.695pt>
+<./coil_effect.png, id=294, 360.34625pt x 453.695pt>
 File: ./coil_effect.png Graphic file (type png)
 <use ./coil_effect.png>
-Package pdftex.def Info: ./coil_effect.png  used on input line 555.
+Package pdftex.def Info: ./coil_effect.png  used on input line 598.
 (pdftex.def)             Requested size: 68.76341pt x 86.57925pt.
-<./plasmatron_nozzle_operating.png, id=283, 1239.63126pt x 794.97pt>
+<./plasmatron_nozzle_operating.png, id=295, 1239.63126pt x 794.97pt>
 File: ./plasmatron_nozzle_operating.png Graphic file (type png)
 <use ./plasmatron_nozzle_operating.png>
 Package pdftex.def Info: ./plasmatron_nozzle_operating.png  used on input line 
-555.
+598.
 (pdftex.def)             Requested size: 134.99796pt x 86.57925pt.
-<./plasmatron_nozzles.png, id=284, 1160.335pt x 614.295pt>
+<./plasmatron_nozzles.png, id=296, 1160.335pt x 614.295pt>
 File: ./plasmatron_nozzles.png Graphic file (type png)
 <use ./plasmatron_nozzles.png>
-Package pdftex.def Info: ./plasmatron_nozzles.png  used on input line 555.
+Package pdftex.def Info: ./plasmatron_nozzles.png  used on input line 598.
 (pdftex.def)             Requested size: 163.5258pt x 86.57925pt.
 
-Overfull \vbox (78.39241pt too high) detected at line 555
+Overfull \vbox (78.39241pt too high) detected at line 598
  []
 
 [43
@@ -1699,14 +1704,14 @@ png>] [44
 ] [45
 
 ]
-<./plasma_jet_unsteady_experimental.png, id=304, 770.88pt x 396.48125pt>
+<./plasma_jet_unsteady_experimental.png, id=316, 770.88pt x 396.48125pt>
 File: ./plasma_jet_unsteady_experimental.png Graphic file (type png)
 <use ./plasma_jet_unsteady_experimental.png>
 Package pdftex.def Info: ./plasma_jet_unsteady_experimental.png  used on input 
-line 555.
+line 598.
 (pdftex.def)             Requested size: 146.37462pt x 75.28654pt.
 
-Overfull \vbox (67.0997pt too high) detected at line 555
+Overfull \vbox (67.0997pt too high) detected at line 598
  []
 
 [46
@@ -1716,7 +1721,7 @@ Overfull \vbox (67.0997pt too high) detected at line 555
 ] [48
 
 ]
-Overfull \vbox (34.60376pt too high) detected at line 555
+Overfull \vbox (34.60376pt too high) detected at line 598
  []
 
 [49
@@ -1726,21 +1731,21 @@ Overfull \vbox (34.60376pt too high) detected at line 555
 ] [51
 
 ]
-<./thierry_mesh.png, id=338, 1682.285pt x 258.9675pt>
+<./thierry_mesh.png, id=350, 1682.285pt x 258.9675pt>
 File: ./thierry_mesh.png Graphic file (type png)
 <use ./thierry_mesh.png>
-Package pdftex.def Info: ./thierry_mesh.png  used on input line 583.
+Package pdftex.def Info: ./thierry_mesh.png  used on input line 630.
 (pdftex.def)             Requested size: 258.91765pt x 39.85503pt.
 File: ./thierry_mesh.png Graphic file (type png)
 <use ./thierry_mesh.png>
-Package pdftex.def Info: ./thierry_mesh.png  used on input line 583.
+Package pdftex.def Info: ./thierry_mesh.png  used on input line 630.
 (pdftex.def)             Requested size: 258.91765pt x 39.85503pt.
 File: lhtsT.pdf Graphic file (type pdf)
 <use lhtsT.pdf>
-Package pdftex.def Info: lhtsT.pdf  used on input line 583.
+Package pdftex.def Info: lhtsT.pdf  used on input line 630.
 (pdftex.def)             Requested size: 258.91765pt x 77.06038pt.
 
-Overfull \vbox (93.83398pt too high) detected at line 583
+Overfull \vbox (126.11383pt too high) detected at line 630
  []
 
 [52
@@ -1748,15 +1753,151 @@ Overfull \vbox (93.83398pt too high) detected at line 583
  <./thierry_mesh.png>]
 File: ./thierry_mesh.png Graphic file (type png)
 <use ./thierry_mesh.png>
-Package pdftex.def Info: ./thierry_mesh.png  used on input line 583.
+Package pdftex.def Info: ./thierry_mesh.png  used on input line 630.
 (pdftex.def)             Requested size: 258.91765pt x 39.85503pt.
 File: ./thierry_mesh.png Graphic file (type png)
 <use ./thierry_mesh.png>
-Package pdftex.def Info: ./thierry_mesh.png  used on input line 583.
+Package pdftex.def Info: ./thierry_mesh.png  used on input line 630.
 (pdftex.def)             Requested size: 258.91765pt x 39.85503pt.
- [53
 
-] [54
+Overfull \vbox (13.4635pt too high) detected at line 630
+ []
+
+[53
+
+]
+<./Grid_Independence_mesh_probe_cropped.pdf, id=362, 1602.98875pt x 227.85126pt
+>
+File: ./Grid_Independence_mesh_probe_cropped.pdf Graphic file (type pdf)
+<use ./Grid_Independence_mesh_probe_cropped.pdf>
+Package pdftex.def Info: ./Grid_Independence_mesh_probe_cropped.pdf  used on in
+put line 648.
+(pdftex.def)             Requested size: 318.67209pt x 45.29477pt.
+File: ./Grid_Independence_mesh_probe_cropped.pdf Graphic file (type pdf)
+<use ./Grid_Independence_mesh_probe_cropped.pdf>
+Package pdftex.def Info: ./Grid_Independence_mesh_probe_cropped.pdf  used on in
+put line 648.
+(pdftex.def)             Requested size: 318.67209pt x 45.29477pt.
+
+Overfull \vbox (12.20308pt too high) detected at line 648
+ []
+
+[54
+
+ <./Grid_Independence_mesh_probe_cropped.pdf>] [55
+
+] [56
+
+]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 925.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 925.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 925.
+
+
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 925--925
+ [][] 
+ []
+
+
+Overfull \vbox (3.95381pt too high) detected at line 925
+ []
+
+[57
+
+]
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 925--925
+ [][] 
+ []
+
+
+Overfull \vbox (9.89053pt too high) detected at line 925
+ []
+
+[58
+
+]
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 925--925
+ [][] 
+ []
+
+
+Overfull \vbox (12.0197pt too high) detected at line 925
+ []
+
+[59
+
+] [60
+
+]
+Overfull \vbox (8.35222pt too high) detected at line 970
+ []
+
+[61
+
+] [62
+
+]
+File: ./Grid_Independence_mesh_probe_cropped.pdf Graphic file (type pdf)
+<use ./Grid_Independence_mesh_probe_cropped.pdf>
+Package pdftex.def Info: ./Grid_Independence_mesh_probe_cropped.pdf  used on in
+put line 1063.
+(pdftex.def)             Requested size: 318.67209pt x 45.29477pt.
+ [63
+
+] [64
+
+] [65
+
+] [66
+
+] [67
+
+] [68
+
+]
+Overfull \vbox (10.29645pt too high) detected at line 1155
+ []
+
+[69
+
+]
+Overfull \hbox (10.84087pt too wide) detected at line 1155
+[][]
+ []
+
+
+Overfull \vbox (10.22305pt too high) detected at line 1155
+ []
+
+[70
+
+]
+Overfull \hbox (10.84087pt too wide) detected at line 1155
+[][]
+ []
+
+[71
+
+]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1155
+.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1155
+.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1155
+.
+ [72
+
+] [73
+
+] [74
 
 ]
 \tf@nav=\write6
@@ -1770,30 +1911,36 @@ Package pdftex.def Info: ./thierry_mesh.png  used on input line 583.
 
  (./PhD_Presentation.aux)
 Package rerunfilecheck Info: File `PhD_Presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 47949AC7C3DCEDDDEEFE3CD50587DDA1;103.
+(rerunfilecheck)             Checksum: F10593A49B7754ADA968BA870FA81922;620.
  ) 
 Here is how much of TeX's memory you used:
- 31009 strings out of 480104
- 672127 string characters out of 5892285
- 897241 words of memory out of 5000000
- 48226 multiletter control sequences out of 15000+600000
- 482181 words of font info for 73 fonts, out of 8000000 for 9000
+ 31525 strings out of 480104
+ 679606 string characters out of 5892285
+ 920450 words of memory out of 5000000
+ 48683 multiletter control sequences out of 15000+600000
+ 493797 words of font info for 104 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  128i,15n,122p,1839b,1598s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on PhD_Presentation.pdf (54 pages, 6553094 bytes).
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
+bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1
+/public/cm-super/sfss1095.pfb>
+Output written on PhD_Presentation.pdf (74 pages, 7171789 bytes).
 PDF statistics:
- 430 PDF objects out of 1000 (max. 8388607)
- 306 compressed objects within 4 object streams
- 110 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 595 PDF objects out of 1000 (max. 8388607)
+ 436 compressed objects within 5 object streams
+ 153 named destinations out of 1000 (max. 500000)
+ 207 words of extra memory for PDF output out of 10000 (max. 10000000)
 
