@@ -661,6 +661,277 @@ With the objective of producing a new high order solver for inductively coupled 
 
 \end{frame}
 
+\section{Model for inductively coupled plasma}
+
+\begin{frame}{Hypothesis on the plasma}
+
+%\begin{framed}
+%
+%\textbf{In order to simplify the development of the solver, assumptions are made.}
+%\end{framed}
+\begin{minipage}{.6\linewidth}
+%\small
+\onslide<1->
+{
+\textbf{Collision-dominated and thermal plasma}
+}
+
+\onslide<2->
+{
+\textbf{Quasi-neutrality}
+}
+
+\onslide<3->
+{
+\textbf{No displacement current}
+}
+
+\onslide<4->
+{
+\textbf{Axisymmetry}
+}
+
+\onslide<5->
+{
+\textbf{Non-radiative plasma}
+}
+
+\onslide<6->
+{
+\textbf{Local thermodynamic equilibrium}
+}
+
+\onslide<7->
+{
+\textbf{No elemental de-mixing}
+}
+
+\onslide<8->
+{
+\textbf{Unmagnetized plasma}
+}
+
+\onslide<9->
+{
+\textbf{Steady-state}
+}
+\end{minipage}
+\begin{minipage}{.39\linewidth}
+\only<1>{
+\begin{center}
+\begin{tikzpicture}[scale=3]
+\node[blue] at (0,0) {$\bullet$};
+\node at (.4,.3) {$\bullet$};
+\node[red] at (.5,0) {$\bullet$};
+\node[red] at (.3,-.2) {$\bullet$};
+\node[red] at (-.2,-.3) {$\bullet$};
+\node[red] at (.1,.4) {$\bullet$};
+\draw[red, ->] (.5,0.) -- (.7, 0.);
+\draw[red, ->] (.3,-.2) -- (.4, -.3);
+\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+\draw[red, ->] (.1,.4) -- (0., .3);
+\draw[blue, ->] (0,0) -- (-0.2,0);
+\draw[->] (.4,.3) -- (.6,.3);
+\node[blue] at (0,0) [above right]{$+$};
+\node at (.4,.3) [above right]{$n$};
+\node[red] at (.5,0) [above right]{$e^-$};
+\node[red] at (.3,-.2) [above right]{$e^-$};
+\node[red] at (-.2,-.3) [above right]{$e^-$};
+\node[red] at (.1,.4) [above right]{$e^-$};
+\end{tikzpicture}
+
+\begin{framed}
+\begin{equation*}
+T_e \simeq T_h
+\end{equation*}
+\end{framed}
+
+\end{center}
+}
+
+\only<2>
+{
+
+Characteristic length greater than the Debye length, \textit{i.e.} the distance at which
+\begin{equation*}
+E_{thermal} \simeq E_{elec}
+\end{equation*}
+so
+\begin{equation*}
+q \simeq 0
+\end{equation*}
+
+}
+
+\only<3>
+{
+
+	ELM waves perturb electrons, but they are assumed to return fast to equilibrium.
+	
+	ELM wavelength are much greater than the plasma length scale.
+
+}
+
+\only<4>
+{
+
+%	No 3D plasma modes may occur.
+%	Fully axisymmetric electric field.
+	
+	\begin{center}
+	\includegraphics[height=.4\linewidth]{./coil_effect.png}
+	\includegraphics[height = .4\linewidth]{./plasmatron_nozzle_operating.png}
+	\includegraphics[height = .4\linewidth]{./plasmatron_nozzles.png}
+	\end{center}
+
+}
+
+\only<5>
+{
+	\begin{tikzpicture}[scale=3.5]
+	\def\dist{1.5}
+  	\fill[blue] (\dist,0) circle (0.03) node[below left=2pt] {$p^+$};
+
+  	% Orbit path (optional, dashed)
+  	\draw[dashed,gray] (\dist,0) circle (.5);
+
+  	% Electron (red dot on orbit)
+  	\def\ang{-40} % position angle
+  
+  
+  	\fill[red] ({\dist+.5*cos(\ang)},{.5*sin(\ang)}) circle (0.03) 
+  	node[above left] {$e^-$};
+    
+  	\draw[dashed,gray] (\dist,0) circle (.7);
+  	\fill[red!50] ({\dist+.7*cos(\ang)},{.7*sin(\ang)}) circle (0.03) 
+  	node[below right] {$e^-$};
+  	\draw[<-, ultra thick, red] ({\dist+.55*cos(\ang)},{.55*sin(\ang)}) -- ({\dist+.65*cos(\ang)},{.65*sin(\ang)});
+  	
+  	\draw[->, ultra thick] ({\dist+.6*cos(\ang)}, {.6*sin(\ang)}) -- (2., -.6) node[below right]{$h \nu$};
+  
+  \end{tikzpicture}
+}
+
+\only<6>
+{
+
+Chemical reaction return very fast to equilibrium.
+
+In reality, non equilibrium can be observed in the torch.
+
+Thermal + chemical equilibrium = local thermodynamic equilibrium.
+
+}
+
+\only<7>
+{
+
+Elemental de-mixing accounts for the diffusion of elements. In the case of LTE, gives results closer to non-equilibrium models.
+
+Cheaper to solve as the elements have no production rates. 
+
+}
+
+\only<8>
+{
+\includegraphics[width=.7\linewidth]{helicoidal_motion.png}
+}
+
+\only<9>
+{
+\includegraphics[width=\linewidth]{./plasma_jet_unsteady_experimental.png}
+
+We average the equations over one period of the induction current. 
+}
+
+\only<10>
+{
+The electric field:
+
+\begin{itemize}
+
+\item It is ambipolar ($j_z = j_r = 0$).
+
+\item The coils are thin parallels wires surrounding the facility.
+
+\item Axisymmetric
+
+\item $E_{tot} = E_C + E_P$
+
+\item We use phasor notation.
+
+\end{itemize}
+}
+
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}{Equations governing the plasma}
+
+\textbf{Navier-Stokes equations}
+
+\begin{framed}
+\begin{equation*}
+\begin{aligned}
+& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) = 0\\
+& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv \right) = -\nabla p + \nabla \cdot \vectau + \vecF_L\\
+& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv\right) = \nabla \cdot \left(\vectau\vecv\right) + \nabla \cdot \vecq + P_J\\
+\end{aligned}
+\end{equation*}
+\end{framed}
+
+\only<2>
+{
+\vspace{-.7cm}
+\begin{minipage}{0.49\linewidth}
+\begin{equation*}
+\begin{aligned}
+& \vectau = \mu \left(\nabla \vecv + \nabla \vecv^T\right) - \frac{2}{3} \mu \nabla \cdot \vecv\\
+& \vecq = -k \nabla T
+\end{aligned}
+\end{equation*}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+\begin{equation*}
+\begin{aligned}
+& F_z^L = \frac{\sigma_e}{4 \pi f} \left[E_I^{Im} \partial_z E_I^{Re} - E_I^{Re} \partial_z E_I^{Im}\right]\\
+& F_r^L = \frac{\sigma_e}{4 \pi f} \left[E_I^{Im} \frac{1}{r}\partial_r (r E_I^{Re}) - E_I^{Re} \frac{1}{r} \partial_r (r E_I^{Im})\right]\\
+& P^J = \frac{\sigma_e}{2} \left[(E_I^{Im})^2 + (E_I^{Re})^2\right]
+\end{aligned}
+\end{equation*}
+\end{minipage}
+}
+
+\end{frame}
+
+\begin{frame}{Electric field equation}
+
+\begin{framed}
+\begin{equation*}
+\partial^2_{zz} E_P + \frac{1}{r}\partial_r (r \partial_r E_P) - \frac{E_P}{r^2} = i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)
+\end{equation*}
+\end{framed}
+
+\only<2>
+{
+\begin{equation*}
+	E_C = \sum_{l=1}^{N_{coil}} i f \mu_0 I_C \sqrt{\frac{r_0}{r}}\left[2 \frac{E_2(k_l)}{k_l} - E_1(k_l)\left(\frac{2}{k_l}-k_l\right)\right]
+\end{equation*}
+\begin{equation*}
+	\begin{aligned}
+		& E_1(k) &&= \int_0^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{1-k^2 \sin^2(\theta)}}\\
+		& E_1(k) &&= \int_0^{\frac{\pi}{2}} \sqrt{1-k^2 \sin^2(\theta)} \; d\theta
+	\end{aligned}
+\end{equation*}
+}
+
+\end{frame}
+
+\begin{frame}{Transport properties}
+
+\end{frame}
+
 \section{Hybridized discontinuous Galerkin method}
 
 \begin{frame}{Finite volume and (hybridized) discontinuous Galerkin}
@@ -1069,7 +1340,7 @@ The $\vecu_i$ are the degrees of freedom.
 \begin{equation*}
 \begin{aligned}
 & \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal, \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \textcolor{red}{\left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K',i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h}
+& \textcolor{red}{\left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h}
 \end{aligned}
 \end{equation*}
 
@@ -1093,7 +1364,7 @@ and local basis $\vectau_{K,i}$
 \begin{equation*}
 \begin{aligned}
 & \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \textcolor{red}{\veclambda_h}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K',i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h
 \end{aligned}
 \end{equation*}
 
@@ -1117,12 +1388,12 @@ and local basis $\mu_{e,i}$
 \begin{equation*}
 \begin{aligned}
 & \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \veclambda_h), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K',i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
 & \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h}
 \end{aligned}
 \end{equation*}
 
-We need an equation to determine $\veclambda$: continuity of the normal numerical flux across the interfaces.
+Equation for $\veclambda$: continuity of the normal numerical flux across the interfaces.
 
 The jump operator is given by
 \begin{equation*}
@@ -1131,15 +1402,15 @@ The jump operator is given by
 
 }
 
-\only<4>
+\only<4->
 {
 \begin{framed}
 \small
 \begin{equation*}
 \begin{aligned}
 & \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \veclambda_h), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K',i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
-& \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h}
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
+& \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h
 \end{aligned}
 \end{equation*}
 \end{framed}
@@ -1149,6 +1420,15 @@ The jump operator is given by
 \end{center}
 
 }
+
+\only<5>
+{
+As will be seen later, HDG allows for static condensation, effectively reducing the number of DOFs when using a Newton solver.
+}
+
+\end{frame}
+
+\begin{frame}{ICP: a multi-domain problem}
 
 
 

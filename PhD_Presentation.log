@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  9 SEP 2025 17:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  10 SEP 2025 16:05
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1223,7 +1223,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 130.
 Package mdframed Info: mdframed inside a box 
  mdframed uses option nobreak mdframed on input line 130.
-<./cover_cropped.png, id=29, 1756.5625pt x 287.0725pt>
+<./cover_cropped.png, id=33, 1756.5625pt x 287.0725pt>
 File: ./cover_cropped.png Graphic file (type png)
 <use ./cover_cropped.png>
 Package pdftex.def Info: ./cover_cropped.png  used on input line 130.
@@ -1232,18 +1232,18 @@ File: ./cover_cropped.png Graphic file (type png)
 <use ./cover_cropped.png>
 Package pdftex.def Info: ./cover_cropped.png  used on input line 130.
 (pdftex.def)             Requested size: 358.50229pt x 58.58742pt.
-<2560px-University_of_Liège_logo.png, id=31, 2569.6pt x 1124.2pt>
+<2560px-University_of_Liège_logo.png, id=35, 2569.6pt x 1124.2pt>
 File: 2560px-University_of_Liège_logo.png Graphic file (type png)
 <use 2560px-University_of_Liège_logo.png>
 Package pdftex.def Info: 2560px-University_of_Liège_logo.png  used on input li
 ne 130.
 (pdftex.def)             Requested size: 65.00833pt x 28.45274pt.
-<FRS-FNRS_ros_vert_transp.png, id=32, 211.992pt x 134.4222pt>
+<FRS-FNRS_ros_vert_transp.png, id=36, 211.992pt x 134.4222pt>
 File: FRS-FNRS_ros_vert_transp.png Graphic file (type png)
 <use FRS-FNRS_ros_vert_transp.png>
 Package pdftex.def Info: FRS-FNRS_ros_vert_transp.png  used on input line 130.
 (pdftex.def)             Requested size: 44.87221pt x 28.45274pt.
-<vki_logo_blue_rectangular.jpg, id=33, 2007.5pt x 563.10374pt>
+<vki_logo_blue_rectangular.jpg, id=37, 2007.5pt x 563.10374pt>
 File: vki_logo_blue_rectangular.jpg Graphic file (type jpg)
 <use vki_logo_blue_rectangular.jpg>
 Package pdftex.def Info: vki_logo_blue_rectangular.jpg  used on input line 130.
@@ -1276,32 +1276,32 @@ thkerncmss.
 [2
 
 ]
-<ice_cubes.jpg, id=51, 147.4308pt x 119.0046pt>
+<ice_cubes.jpg, id=55, 147.4308pt x 119.0046pt>
 File: ice_cubes.jpg Graphic file (type jpg)
 <use ice_cubes.jpg>
 Package pdftex.def Info: ice_cubes.jpg  used on input line 154.
 (pdftex.def)             Requested size: 83.8947pt x 67.71683pt.
-<eau_liquide.jpg, id=52, 147.4308pt x 98.2872pt>
+<eau_liquide.jpg, id=56, 147.4308pt x 98.2872pt>
 File: eau_liquide.jpg Graphic file (type jpg)
 <use eau_liquide.jpg>
 Package pdftex.def Info: eau_liquide.jpg  used on input line 154.
 (pdftex.def)             Requested size: 101.58113pt x 67.71683pt.
-<bouilloire.jpg, id=53, 481.8pt x 271.0125pt>
+<bouilloire.jpg, id=57, 481.8pt x 271.0125pt>
 File: bouilloire.jpg Graphic file (type jpg)
 <use bouilloire.jpg>
 Package pdftex.def Info: bouilloire.jpg  used on input line 154.
 (pdftex.def)             Requested size: 120.38353pt x 67.71683pt.
-<eau_solide.png, id=54, 326.21875pt x 241.90375pt>
+<eau_solide.png, id=58, 326.21875pt x 241.90375pt>
 File: eau_solide.png Graphic file (type png)
 <use eau_solide.png>
 Package pdftex.def Info: eau_solide.png  used on input line 154.
 (pdftex.def)             Requested size: 91.32071pt x 67.71683pt.
-<eau_liquide.png, id=55, 307.1475pt x 262.9825pt>
+<eau_liquide.png, id=59, 307.1475pt x 262.9825pt>
 File: eau_liquide.png Graphic file (type png)
 <use eau_liquide.png>
 Package pdftex.def Info: eau_liquide.png  used on input line 154.
 (pdftex.def)             Requested size: 79.08784pt x 67.71683pt.
-<eau_gaz.png, id=56, 199.74625pt x 245.91875pt>
+<eau_gaz.png, id=60, 199.74625pt x 245.91875pt>
 File: eau_gaz.png Graphic file (type png)
 <use eau_gaz.png>
 Package pdftex.def Info: eau_gaz.png  used on input line 154.
@@ -1525,17 +1525,17 @@ File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ] [28
 
 ]
-<./sun.jpg, id=207, 238.491pt x 178.9887pt>
+<./sun.jpg, id=211, 238.491pt x 178.9887pt>
 File: ./sun.jpg Graphic file (type jpg)
 <use ./sun.jpg>
 Package pdftex.def Info: ./sun.jpg  used on input line 379.
 (pdftex.def)             Requested size: 116.76698pt x 87.63496pt.
-<./aurora_borealis.jpeg, id=208, 225.84375pt x 225.84375pt>
+<./aurora_borealis.jpeg, id=212, 225.84375pt x 225.84375pt>
 File: ./aurora_borealis.jpeg Graphic file (type jpg)
 <use ./aurora_borealis.jpeg>
 Package pdftex.def Info: ./aurora_borealis.jpeg  used on input line 379.
 (pdftex.def)             Requested size: 87.6376pt x 87.63496pt.
-<./lightning.jpg, id=209, 1284.8pt x 722.7pt>
+<./lightning.jpg, id=213, 1284.8pt x 722.7pt>
 File: ./lightning.jpg Graphic file (type jpg)
 <use ./lightning.jpg>
 Package pdftex.def Info: ./lightning.jpg  used on input line 379.
@@ -1549,7 +1549,7 @@ Package pdftex.def Info: ./lightning.jpg  used on input line 379.
 ] [32
 
 ]
-<./reentry_esa.jpg, id=231, 519.69438pt x 395.99629pt>
+<./reentry_esa.jpg, id=235, 519.69438pt x 395.99629pt>
 File: ./reentry_esa.jpg Graphic file (type jpg)
 <use ./reentry_esa.jpg>
 Package pdftex.def Info: ./reentry_esa.jpg  used on input line 446.
@@ -1561,12 +1561,12 @@ Overfull \vbox (14.73378pt too high) detected at line 446
 [33
 
  <./reentry_esa.jpg>]
-<./heat_shield.jpg, id=237, 2007.5pt x 1337.99875pt>
+<./heat_shield.jpg, id=241, 2007.5pt x 1337.99875pt>
 File: ./heat_shield.jpg Graphic file (type jpg)
 <use ./heat_shield.jpg>
 Package pdftex.def Info: ./heat_shield.jpg  used on input line 460.
 (pdftex.def)             Requested size: 179.28876pt x 119.50279pt.
-<./vizualisation_satellites_esa.jpg, id=238, 1927.2pt x 1362.08875pt>
+<./vizualisation_satellites_esa.jpg, id=242, 1927.2pt x 1362.08875pt>
 File: ./vizualisation_satellites_esa.jpg Graphic file (type jpg)
 <use ./vizualisation_satellites_esa.jpg>
 Package pdftex.def Info: ./vizualisation_satellites_esa.jpg  used on input line
@@ -1627,7 +1627,7 @@ Overfull \vbox (4.42432pt too high) detected at line 460
 [37
 
 ]
-<Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg, id=260, 62.7
+<Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg, id=264, 62.7
 472pt x 36.98393pt>
 File: Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg Graphic 
 file (type jpg)
@@ -1655,7 +1655,7 @@ Overfull \vbox (0.71046pt too high) detected at line 529
 [39
 
 ]
-<lhtsT.pdf, id=271, 421.575pt x 125.46875pt>
+<lhtsT.pdf, id=275, 421.575pt x 125.46875pt>
 File: lhtsT.pdf Graphic file (type pdf)
 <use lhtsT.pdf>
 Package pdftex.def Info: lhtsT.pdf  used on input line 539.
@@ -1676,18 +1676,18 @@ Overfull \vbox (70.23857pt too high) detected at line 598
 [42
 
 ]
-<./coil_effect.png, id=294, 360.34625pt x 453.695pt>
+<./coil_effect.png, id=298, 360.34625pt x 453.695pt>
 File: ./coil_effect.png Graphic file (type png)
 <use ./coil_effect.png>
 Package pdftex.def Info: ./coil_effect.png  used on input line 598.
 (pdftex.def)             Requested size: 68.76341pt x 86.57925pt.
-<./plasmatron_nozzle_operating.png, id=295, 1239.63126pt x 794.97pt>
+<./plasmatron_nozzle_operating.png, id=299, 1239.63126pt x 794.97pt>
 File: ./plasmatron_nozzle_operating.png Graphic file (type png)
 <use ./plasmatron_nozzle_operating.png>
 Package pdftex.def Info: ./plasmatron_nozzle_operating.png  used on input line 
 598.
 (pdftex.def)             Requested size: 134.99796pt x 86.57925pt.
-<./plasmatron_nozzles.png, id=296, 1160.335pt x 614.295pt>
+<./plasmatron_nozzles.png, id=300, 1160.335pt x 614.295pt>
 File: ./plasmatron_nozzles.png Graphic file (type png)
 <use ./plasmatron_nozzles.png>
 Package pdftex.def Info: ./plasmatron_nozzles.png  used on input line 598.
@@ -1704,7 +1704,7 @@ png>] [44
 ] [45
 
 ]
-<./plasma_jet_unsteady_experimental.png, id=316, 770.88pt x 396.48125pt>
+<./plasma_jet_unsteady_experimental.png, id=321, 770.88pt x 396.48125pt>
 File: ./plasma_jet_unsteady_experimental.png Graphic file (type png)
 <use ./plasma_jet_unsteady_experimental.png>
 Package pdftex.def Info: ./plasma_jet_unsteady_experimental.png  used on input 
@@ -1731,7 +1731,7 @@ Overfull \vbox (34.60376pt too high) detected at line 598
 ] [51
 
 ]
-<./thierry_mesh.png, id=350, 1682.285pt x 258.9675pt>
+<./thierry_mesh.png, id=354, 1682.285pt x 258.9675pt>
 File: ./thierry_mesh.png Graphic file (type png)
 <use ./thierry_mesh.png>
 Package pdftex.def Info: ./thierry_mesh.png  used on input line 630.
@@ -1766,7 +1766,7 @@ Overfull \vbox (13.4635pt too high) detected at line 630
 [53
 
 ]
-<./Grid_Independence_mesh_probe_cropped.pdf, id=362, 1602.98875pt x 227.85126pt
+<./Grid_Independence_mesh_probe_cropped.pdf, id=366, 1602.98875pt x 227.85126pt
 >
 File: ./Grid_Independence_mesh_probe_cropped.pdf Graphic file (type pdf)
 <use ./Grid_Independence_mesh_probe_cropped.pdf>
@@ -1788,116 +1788,207 @@ Overfull \vbox (12.20308pt too high) detected at line 648
 
 ] [56
 
-]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 925.
+] [57
 
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 925.
+] [58
 
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 925.
-
-
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 925--925
- [][] 
- []
-
-
-Overfull \vbox (3.95381pt too high) detected at line 925
- []
-
-[57
+] [59
 
 ]
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 925--925
- [][] 
- []
+File: ./coil_effect.png Graphic file (type png)
+<use ./coil_effect.png>
+Package pdftex.def Info: ./coil_effect.png  used on input line 868.
+(pdftex.def)             Requested size: 49.35394pt x 62.13977pt.
+File: ./plasmatron_nozzle_operating.png Graphic file (type png)
+<use ./plasmatron_nozzle_operating.png>
+Package pdftex.def Info: ./plasmatron_nozzle_operating.png  used on input line 
+868.
+(pdftex.def)             Requested size: 96.88377pt x 62.13977pt.
+File: ./plasmatron_nozzles.png Graphic file (type png)
+<use ./plasmatron_nozzles.png>
+Package pdftex.def Info: ./plasmatron_nozzles.png  used on input line 868.
+(pdftex.def)             Requested size: 117.36818pt x 62.13977pt.
 
+[60
 
-Overfull \vbox (9.89053pt too high) detected at line 925
- []
-
-[58
-
-]
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 925--925
- [][] 
- []
-
-
-Overfull \vbox (12.0197pt too high) detected at line 925
- []
-
-[59
-
-] [60
-
-]
-Overfull \vbox (8.35222pt too high) detected at line 970
- []
-
-[61
+] [61
 
 ] [62
+
+] [63
+
+]
+<helicoidal_motion.png, id=425, 547.04375pt x 648.4225pt>
+File: helicoidal_motion.png Graphic file (type png)
+<use helicoidal_motion.png>
+Package pdftex.def Info: helicoidal_motion.png  used on input line 868.
+(pdftex.def)             Requested size: 108.74579pt x 128.89067pt.
+ [64
+
+ <./helicoidal_motion.png>]
+File: ./plasma_jet_unsteady_experimental.png Graphic file (type png)
+<use ./plasma_jet_unsteady_experimental.png>
+Package pdftex.def Info: ./plasma_jet_unsteady_experimental.png  used on input 
+line 868.
+(pdftex.def)             Requested size: 155.3518pt x 79.89981pt.
+ [65
+
+] [66
+
+]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 906.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 906.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 906.
+
+ [67
+
+]
+Overfull \hbox (11.24687pt too wide) detected at line 906
+[][]
+ []
+
+
+Overfull \vbox (23.10217pt too high) detected at line 906
+ []
+
+[68
+
+] [69
+
+]
+Overfull \vbox (4.4774pt too high) detected at line 929
+ []
+
+[70
+
+] [71
+
+] [72
+
+]
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1196--1196
+ [][] 
+ []
+
+
+Overfull \vbox (3.95381pt too high) detected at line 1196
+ []
+
+[73
+
+]
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1196--1196
+ [][] 
+ []
+
+
+Overfull \vbox (9.89053pt too high) detected at line 1196
+ []
+
+[74
+
+]
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1196--1196
+ [][] 
+ []
+
+
+Overfull \vbox (12.0197pt too high) detected at line 1196
+ []
+
+[75
+
+] [76
+
+]
+Overfull \vbox (8.35222pt too high) detected at line 1241
+ []
+
+[77
+
+] [78
 
 ]
 File: ./Grid_Independence_mesh_probe_cropped.pdf Graphic file (type pdf)
 <use ./Grid_Independence_mesh_probe_cropped.pdf>
 Package pdftex.def Info: ./Grid_Independence_mesh_probe_cropped.pdf  used on in
-put line 1063.
+put line 1334.
 (pdftex.def)             Requested size: 318.67209pt x 45.29477pt.
- [63
+ [79
 
-] [64
+] [80
 
-] [65
+] [81
 
-] [66
+] [82
 
-] [67
+] [83
 
-] [68
+] [84
 
 ]
-Overfull \vbox (10.29645pt too high) detected at line 1155
+Overfull \vbox (10.29645pt too high) detected at line 1429
  []
 
-[69
+[85
 
 ]
-Overfull \hbox (10.84087pt too wide) detected at line 1155
+Overfull \hbox (10.84087pt too wide) detected at line 1429
 [][]
  []
 
 
-Overfull \vbox (10.22305pt too high) detected at line 1155
+Overfull \vbox (10.22305pt too high) detected at line 1429
  []
 
-[70
+[86
 
 ]
-Overfull \hbox (10.84087pt too wide) detected at line 1155
+Overfull \hbox (10.84087pt too wide) detected at line 1429
 [][]
  []
 
-[71
+[87
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1155
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1429
 .
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1155
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1429
 .
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1155
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1429
 .
- [72
+ [88
 
-] [73
+] [89
 
-] [74
+]
+Overfull \hbox (18.97081pt too wide) in paragraph at lines 1435--1435
+[][]  
+ []
+
+[90
+
+]
+Overfull \hbox (10.03874pt too wide) in paragraph at lines 1437--1437
+[][][]  
+ []
+
+[91
+
+]
+Overfull \hbox (10.03874pt too wide) in paragraph at lines 1439--1439
+[][][]  
+ []
+
+[92
 
 ]
 \tf@nav=\write6
@@ -1911,13 +2002,13 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
 
  (./PhD_Presentation.aux)
 Package rerunfilecheck Info: File `PhD_Presentation.out' has not changed.
-(rerunfilecheck)             Checksum: F10593A49B7754ADA968BA870FA81922;620.
+(rerunfilecheck)             Checksum: EEFD784EDC3CD18C53D0DB456EE588B0;855.
  ) 
 Here is how much of TeX's memory you used:
- 31525 strings out of 480104
- 679606 string characters out of 5892285
- 920450 words of memory out of 5000000
- 48683 multiletter control sequences out of 15000+600000
+ 31589 strings out of 480104
+ 680359 string characters out of 5892285
+ 920965 words of memory out of 5000000
+ 48709 multiletter control sequences out of 15000+600000
  493797 words of font info for 104 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  128i,15n,122p,1839b,1598s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1925,22 +2016,22 @@ Here is how much of TeX's memory you used:
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
-bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/tex
+ts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1
 /public/cm-super/sfss1095.pfb>
-Output written on PhD_Presentation.pdf (74 pages, 7171789 bytes).
+Output written on PhD_Presentation.pdf (92 pages, 7275473 bytes).
 PDF statistics:
- 595 PDF objects out of 1000 (max. 8388607)
- 436 compressed objects within 5 object streams
- 153 named destinations out of 1000 (max. 500000)
- 207 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 704 PDF objects out of 1000 (max. 8388607)
+ 524 compressed objects within 6 object streams
+ 190 named destinations out of 1000 (max. 500000)
+ 220 words of extra memory for PDF output out of 10000 (max. 10000000)
 
