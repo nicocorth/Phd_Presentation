@@ -1,0 +1,96 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{darkturquoise0191191}{RGB}{0,191,191}
+\definecolor{green}{RGB}{0,128,0}
+\definecolor{lightgray204}{RGB}{204,204,204}
+
+\begin{axis}[
+scale = .7,
+legend cell align={left},
+legend pos = north west,
+log basis x={10},
+log basis y={10},
+tick align=outside,
+tick pos=left,
+x grid style={darkgray176},
+xmajorgrids,
+xmin=0.0008, xmax=0.011,
+xmode=log,
+xlabel={\(\displaystyle h/(p+1)\) [m]},
+xtick style={color=black},
+xtick={0.0001,0.001,0.01,0.1,1},
+xticklabels={
+  \(\displaystyle {10^{-4}}\),
+  \(\displaystyle {10^{-3}}\),
+  \(\displaystyle {10^{-2}}\),
+  \(\displaystyle {10^{-1}}\),
+  \(\displaystyle {10^{0}}\)
+},
+%xlabel={\(\displaystyle \frac{h}{p+1}\) [m]},
+y grid style={darkgray176},
+ylabel={\(\displaystyle L_2\left(p - p^*\right)\) [-]},
+ylabel style={yshift=15pt},
+ymajorgrids,
+ymin=1e-15, ymax=0.00001,
+ymode=log,
+ytick style={color=black},
+%ytick={1e-13,1e-11,1e-9,1e-7,1e-5,1e-3},
+%yticklabels={
+%  \(\displaystyle {10^{-13}}\),
+%  \(\displaystyle {10^{-11}}\),
+%  \(\displaystyle {10^{-9}}\),
+%  \(\displaystyle {10^{-7}}\),
+%  \(\displaystyle {10^{-5}}\),
+%  \(\displaystyle {10^{-3}}\)
+%}
+]
+\addplot [semithick, blue, mark=*, mark size=3, mark options={solid}]
+table {%
+0.0081 7.90013e-07
+0.00486 3.14639e-07
+0.00405 2.26418e-07
+0.00347142857142857 1.71405e-07
+0.0030375 1.3474e-07
+0.00243 9.03089e-08
+};
+\addlegendentry{p = 1}
+\addplot [semithick, red, dash pattern=on 5.55pt off 2.4pt, mark=*, mark size=3, mark options={solid}]
+table {%
+0.0054 1.60139e-09
+0.00324 4.58952e-10
+0.0027 3.07117e-10
+0.00231428571428571 2.20577e-10
+0.002025 1.66428e-10
+0.00162 1.0456e-10
+};
+\addlegendentry{p = 2}
+\addplot [semithick, green, dash pattern=on 1.5pt off 2.475pt, mark=*, mark size=3, mark options={solid}]
+table {%
+0.00405 2.61297e-11
+0.00243 3.68089e-12
+0.002025 1.86166e-12
+0.00173571428571429 1.04154e-12
+0.00151875 6.13634e-13
+0.001215 3.00462e-13
+};
+\addlegendentry{p = 3}
+\addplot [semithick, black, dash pattern=on 9.6pt off 2.4pt on 1.5pt off 2.4pt, mark=*, mark size=3, mark options={solid}]
+table {%
+0.00324 3.8921e-14
+0.001944 2.70126e-14
+0.00162 2.63708e-14
+0.00138857142857143 2.59766e-14
+0.001215 2.65164e-14
+0.000972 2.61729e-14
+};
+\addlegendentry{p = 4}
+
+\addplot [domain=0.003:0.005, ultra thick, black] {((.5*x)^5)};
+\addplot [domain=0.003:0.005, ultra thick, green] {((.4*x)^4)};
+\addplot [domain=0.003:0.005, ultra thick, red] {((.15*x)^3)};
+\addplot [domain=0.003:0.005, ultra thick, blue] {((.05*x)^2)};
+\end{axis}
+
+\end{tikzpicture}

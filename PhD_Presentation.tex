@@ -6,6 +6,8 @@
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 \usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
 \usetikzlibrary{calc}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
@@ -1776,19 +1778,527 @@ with
 	\gamma = C \max_{K \ni f}\left(\frac{1}{2\mathcal{V}} \sum_{f\in K} \mathcal{A}\right) 
 \end{equation*}
 
+C depends on the diffusive transport coefficients.
+
 \end{frame}
 
 \begin{frame}{Solution strategy}
+The HDG system is solved at steady-state such that
+\begin{equation*}
+	\begin{aligned}
+		\only<1>
+		{
+		& \left(\xcancel{\partial_t \vecw_h} - \vecS_h^K, \varphi_{K,i} \right)_{K} - \left(\vecF_{h,c}^K - \vecF_{h,v}^K, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal^K, \varphi_{K,i} \right\rangle_{\partial K} = 0\\
+		}
+		\only<2->
+		{
+		& \left(\textcolor{red}{\frac{\delta\vecw_h^K}{\tau_{K,k}}} - \vecS_h^K, \varphi_{K,i} \right)_{K} - \left(\vecF_{h,c}^K - \vecF_{h,v}^K, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal^K, \varphi_{K,i} \right\rangle_{\partial K} = 0\\
+		}
+		& \left(\vecq_K, \vectau_{K,i}\right)_{K} - \left(\vecu_K, \nabla \vectau_{K',i}\right)_{K} + \left\langle \veclambda_{\partial K}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0\\
+		& \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e\setminus\Gammabar} + \langle \Tilde{\mathcal{F}^e}, \mu_{e,i}\rangle_{e\cap\Gammabar} = 0\\
+	\end{aligned}
+\end{equation*}
 
+\only<1>
+{
+If the system is written as $\mathcal{N} = 0$, then the Newton method solves
+\begin{equation*}
+\mathcal{N}'(\vecx_k) \delta \vecx_k = - \mathcal{N}(\vecx_k) 
+\end{equation*}
+with $\delta\vecx_k = \vecx_{k+1} - \vecx_k$.
+}
+
+\only<2>
+{
+If the system is written as $\tilde{\mathcal{N}} = 0$, then the Newton method solves
+\begin{equation*}
+\tilde{\mathcal{N}}'(\vecx_k) \delta \vecx = - \tilde{\mathcal{N}}(\vecx_k) 
+\end{equation*}
+with $\delta\vecx = \vecx_{k+1} - \vecx_k$.
+}
+
+\onslide<2->{
+
+In order to stabilize the solver, a fictive temporal term is added.
+
+}
 
 
 \end{frame}
 
-\begin{frame}{Iterative procedure for power}
+\begin{frame}{Damping term}
+
+\begin{equation*}
+\frac{\delta \vecw_h}{\tau_K} = \frac{\vecw(\vecu_{h,k+1}) - \vecw(\vecu_{h,k})}{\tau_{K,k}}
+\end{equation*}
+with
+\begin{equation*}
+\tau_{K,k} = CFL_k \frac{h_K}{v_K} = CFL_k \frac{V_K}{\int_{\partial K} \lambda_{max} dS}
+\end{equation*}
+
+and the following CFL evolution law
+\begin{equation*}
+CFL_k = \min\left(CFL_0 \left(\frac{||\mathcal{N}||_2^0}{||\mathcal{N}||_2^k}\right)^\alpha, CFL_{max}\right)
+\end{equation*}
+
+\onslide<2>
+{
+\begin{framed}
+\centering
+\textbf{We only use convective eigenvalues here. The diffusive could be use to enhance the convergence.}
+\end{framed}
+}
+
+\end{frame}
+
+\begin{frame}{Matrix form of the system}
+
+\begin{framed}
+\begin{equation*}
+\tilde{\mathcal{N}}'(\vecx_k) \delta \vecx_k = - \tilde{\mathcal{N}}(\vecx_k) 
+\end{equation*}
+\end{framed}
+
+\only<2>
+{
+\begin{equation*}
+    \underbrace{
+    \begin{pmatrix}
+        A & B & R\\
+        C & D & S\\
+        L & M & N
+    \end{pmatrix}
+    }_{\Tilde{\mathcal{N}}'}
+    \overbrace{
+    \begin{pmatrix}
+        \delta Q\\
+        \delta U\\
+        \delta \Lambda
+    \end{pmatrix}
+    }^{\delta \vecx}
+    = 
+    \underbrace{
+    \begin{pmatrix}
+        F\\
+        G\\
+        H
+    \end{pmatrix}
+    }_{-\Tilde{\mathcal{N}}},
+\end{equation*}
+}
+\only<3>
+{
+The system can be split into two parts
+\begin{equation*}
+	\underbrace{
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}
+    }_{\text{Block diagonal}}
+    \begin{pmatrix}
+        \delta Q\\
+        \delta U\\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        F\\
+        G
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        R\\
+        S
+    \end{pmatrix}
+    \delta \Lambda
+\end{equation*}
+and
+\begin{equation*}
+    \begin{pmatrix}
+        L & M
+    \end{pmatrix}
+    \begin{pmatrix}
+        \delta Q\\
+        \delta U\\
+    \end{pmatrix}
+    + N \delta \Lambda
+    = H
+\end{equation*}
+}
+
+\only<4->
+{
+By eliminating $\delta U$ and $\delta Q$, one gets the \textbf{global} system
+\begin{equation*}
+    \begin{aligned}
+    &\left(
+    N -
+    \begin{pmatrix}
+        L & M
+    \end{pmatrix}
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        R\\
+        S
+    \end{pmatrix}
+    \right)
+    \delta \Lambda
+    =
+    H - 
+    \begin{pmatrix}
+        L & M
+    \end{pmatrix}
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        F\\
+        G
+    \end{pmatrix}
+    \end{aligned}
+\end{equation*}
+}
+\only<5>
+{
+This system is solved for $\veclambda$, then the \textbf{local} variables $\vecu$ and $\vecq$ are retrieved by inverting local small matrices.
+\begin{equation*}
+    \begin{pmatrix}
+        \delta Q\\
+        \delta U\\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        F\\
+        G
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        R\\
+        S
+    \end{pmatrix}
+    \delta \Lambda
+\end{equation*}
+}
+\end{frame}
+
+\begin{frame}{The problem of power quenching.}
+
+There is no straightforward relation linking the induction current and the power dissipated in the facility.
+
+\textbf{If the power dissipated in the facility is not maintained during the simulation, the torch quenches!}
+
+\begin{equation*}
+	\begin{aligned}
+		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
+		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \gamma \left.\vecF^L\right|_{I_c = \SI{1}{\ampere}}\\
+		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = \gamma \left.P_J\right|_{I_c = \SI{1}{\ampere}}\\
+	\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+	\Delta \left.E_P\right|_{I_c = \SI{1}{\ampere}} = \frac{\left.E_P\right|_{I_c = \SI{1}{\ampere}}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\left.E_C\right|_{I_c = \SI{1}{\ampere}} + \left.E_P\right|_{I_c = \SI{1}{\ampere}}\right)
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}{Power ratio}
+
+At every Newton iteration, the induction current is set to $\SI{1}{\ampere}$. $\gamma$ is the power ratio
+\begin{equation*}
+\gamma = \frac{P_{target}}{P|_{I_c=\SI{1}{\ampere}}}
+\end{equation*}
+with $P_{target}$ the desired power and
+\begin{equation*}
+P|_{I_c=\SI{1}{\ampere}} = \int_{NS}\frac{\sigma_e}{2} ||\left.E_C\right|_{I_c = \SI{1}{\ampere}} + \left.E_P\right|_{I_c = \SI{1}{\ampere}}||^2 dV
+\end{equation*}
+
+$\gamma$ is computed at the beginning of every Newton iteration and used as a scaling factor for the Joule heating and Lorentz source terms evalutaed at $I_c = \SI{1}{\ampere}$. The true electric fields are given by
+\begin{equation*}
+E_C = \sqrt{\gamma} E_C|_{I_c = \SI{1}{\ampere}} \quad E_P = \sqrt{\gamma} E_P|_{I_c = \SI{1}{\ampere}}
+\end{equation*}
 
 \end{frame}
 
 \section{Results}
+
+\begin{frame}{Manufactured solution}
+
+\begin{center}
+\begin{tikzpicture}
+\fill[orange!20] (-1.0,1.5) -- (8.5,1.5) -- (8.5,3.) -- (-1.0,3.);
+\fill[blue!20] (-1.0,1.5) -- (8.5,1.5) -- (8.5,0.) -- (-1.0, 0.);
+\draw[dash dot, thick, black] (-1.1,0) -- (8.6,0);
+\draw[-,thick, black] (-1.0,1.5) -- (8.5,1.5);
+\draw[-,thick, black] (-1.0,3.) -- (8.5,3.);
+\draw (3.75, 2.25) node{II : Maxwell equations};
+\draw (3.75, .75) node{I : ICP equations};
+\draw[<->] (8.9,0) -- (8.9,1.5) node[right] {$R_2$} -- (8.9, 3.);
+\draw[<->] (-1.4,0) -- (-1.4,0.75) node[left] {$R_1$} -- (-1.4, 1.5);
+\end{tikzpicture}
+\end{center}
+
+\begin{equation*}
+\begin{aligned}
+& p =\Delta p_{0} f(z,r) + p_{0} && T = T_{min} + \left(T_{max} - T_{min}\right) f(z,r)\\
+& v_z = u_{0} f(z,r) && E_p = E_{0} f(z,r) (1 - i)\\
+& v_r = u_{0} f(z,r) && v_\theta = u_{0} f(z,r) \\
+\end{aligned}
+\end{equation*}
+
+with 
+\begin{equation*}
+f(z,r) = \left(\frac{rz}{RL}\right)^2\exp\left(-\frac{z}{L} - \frac{r}{R_1}\right)
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}{Convergence study : in the torch}
+\centering
+\begin{tabular}{cc}
+\only<1>
+{
+\hspace{-1.3cm}\input{./Convergence_Study_Plot_p_0} &
+\input{./Convergence_Study_Plot_u_0}
+}
+\only<2>
+{
+\hspace{-1.3cm}\input{./Convergence_Study_Plot_v_0} & \input{./Convergence_Study_Plot_T_0}
+}
+\end{tabular}
+\only<3>
+{
+\begin{tabular}{c}
+	\input{./Convergence_Study_Plot_utheta_0}
+\end{tabular}
+}
+
+\begin{framed}
+\centering
+\textbf{Convergence order of $p+1$ is retrieved!}
+\end{framed}
+
+\end{frame}
+
+\begin{frame}{Convergence study : outside the torch}
+
+\centering
+
+\begin{tabular}{cc}
+\only<1>
+{
+\hspace{-1.3cm}\input{./Convergence_Study_Plot_EpRe_0} & \input{./Convergence_Study_Plot_EpIm_0}
+}
+\only<2>
+{
+\hspace{-1.5cm}\input{./Convergence_Study_Plot_EpRe_1} & \input{./Convergence_Study_Plot_EpIm_1}
+}
+\end{tabular}
+
+\begin{framed}
+\centering
+\textbf{Convergence order of $p+1$ is retrieved!}
+\end{framed}
+
+\end{frame}
+
+\begin{frame}{Grid and order dependence study}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
+	\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./ConvergenceFS_coarse-crop.pdf}}
+\end{figure} 
+
+\only<1>
+{
+\begin{framed}
+\centering
+\textbf{Mesh independence study : this relatively coarse mesh at $p=4$ with 4013 elements for the probe case and 3055 for the freestream case.}
+\end{framed}
+
+In the following we only consider the probe case.
+
+}
+
+\only<2>
+{
+The mesh size close to the probe is $\SI{10}{\micro\meter}$ thick, while it is of $\SI{1}{\micro\meter}$ for the finite volume solvers!
+}
+
+\end{frame}
+
+\begin{frame}{The question of the coflow}
+
+\begin{framed}
+\textbf{A coflow is introduced in the chamber for obtaining a steady state, does it have an important impact?}
+\only<5>{\textcolor{red}{Short answer is no.}}
+\end{framed}
+
+\only<2>
+{
+We consider an ICP flow with the following characteristics
+\begin{itemize}
+	\item $P = \SI{100}{\kilo\watt}$ (power dissipated in the facility)
+	\item $p_0 = \SI{10000}{\pascal}$ (background pressure)
+	\item $f = \SI{0.37}{\mega\hertz}$ (induction frequency)
+	\item $Q = \SI{16}{\gram\;\second^{-1}}$ (mass flow rate)
+	\item $S = \SI{20}{\degree}$ (swirl angle)
+	\item air mixture with 11 species
+\end{itemize}
+}
+\only<3>
+{
+\centering
+	\begin{tikzpicture}[scale = .8]
+		\draw[dash dot] (-1.0,0) -- (15,0);
+		\draw[-, thick] (0, 0) -- (0,1) -- (-1.0,1);
+		\fill[gray, opacity=0.5] (-1.0,0) -- (0, 0) -- (0,1) -- (-1.0,1) -- (-1.0,-1);
+		\draw[-,thick] (-1.0,1.5) -- (8.5,1.5) -- (8.5,4.);
+		\foreach \x in {1,2,...,6}{
+			\filldraw[gray, opacity = 0.5] (\x, 2.) circle (0.2);
+		}
+		\draw[-, thick] (15, 0.5) -- (13,0.5) arc[start angle=90, end angle = 180, radius=0.5];
+		\draw[<->] (0,2) -- (1.,2);
+		\draw (.5,2.5) node{$\SI{127}{\milli\meter}$};
+		\draw[<->] (3,2) -- (4,2);
+		\draw (3.5,2.5) node{$\SI{50}{\milli\meter}$};
+		\draw[<->] (0,-0.2) -- node[below]{$\SI{486}{\milli\meter}$} (8.5,-0.2);
+		\draw[<->] (8.5,-0.2) -- node[below]{$\SI{385}{\milli\meter}$} (12.5,-0.2);
+		\draw[<->] (0.1,0) -- node[right]{$\SI{75}{\milli\meter}$} (0.1,1);
+		\draw[<->] (-1.1, 1.) -- node[left]{$\SI{5}{\milli\meter}$} (-1.1,1.5);
+		\draw[<->] (13,0) -- node[right]{$\SI{25}{\milli\meter}$} (13,0.5);
+		\draw[thick, red, <->] (12.5, 0.) -- (12, 0.) node[above]{STAG} -- (11.5, 0.);
+		\draw[thick, red, <->] (4.15, 0.) -- (4.15, 0.75) node[right]{TC} -- (4.15, 1.5);
+		\draw[thick, red, <->] (10, 0.) -- (10, 0.75) node[left]{PF} -- (10, 1.5);
+		\draw[black] (0,0) node{$\bullet$};
+		\draw[black] (0,0) node[below left]{$(0,0)$};  
+	\end{tikzpicture}
+}
+
+\only<4>
+{
+The coflow parameter $\chi$ is defined as
+\begin{equation*}
+\chi = \frac{U_{blow}}{U_{in}}
+\end{equation*}
+and tested from $0.2$ to $1.0$.
+}
+
+\only<5>
+{
+%Short answer, $\chi$ does not have an impact, the only measurable impact being on the region where the coflow is injected.
+\begin{tabular}{cc}
+\input{./HS50mm_Radial_1_N=4163_u} & \input{./HS50mm_Radial_1_N=4163_v}
+\end{tabular}
+}
+
+\only<6>
+{
+ However, we were not able to obtain any steady state without coflow.
+
+ A question to ask is to see if steady state is possible in ICP?
+ 
+ Left for future work... 
+ 
+}
+
+\end{frame}
+
+\begin{frame}{Comparison with the COOLFluiD solver}
+
+\begin{framed}
+\textbf{We compared the results of the COOLFluiD solver and the HDG code.}
+\end{framed}
+\only<1>
+{
+\begin{itemize}
+	\item $p_0 = \SI{5000}{\pascal}$ 
+	\item $Q = \SI{16}{\gram\;\second^{-1}}$ 
+	\item $T_{wall} = T_{inlet} = \SI{350}{\kelvin}$
+	\item $P = \SI{100}{\kilo\watt}$ 
+	\item $f = \SI{0.37}{\mega\hertz}$
+	\item air mixture with 11 species.
+	\item No swirl angle.
+	\item The coflow applied for HDG is $\chi_{HDG} = 0.2$.
+\end{itemize}
+}
+
+\only<2>
+{
+
+\begin{center}
+\begin{tabular}{cc}
+\input{./CF_HDG_Comparison_Torch_Center_dp} &
+\input{./CF_HDG_Comparison_Torch_Center_u}
+\end{tabular}
+\end{center}
+
+}
+
+\only<3>
+{
+\begin{tabular}{cc}
+\input{./CF_HDG_Comparison_Torch_Center_v} & \input{./CF_HDG_Comparison_Torch_Center_T}
+\end{tabular}
+}
+
+\only<4>
+{
+\begin{tabular}{cc}
+\input{./CF_HDG_Comparison_Torch_Center_Ep_Re} & \input{./CF_HDG_Comparison_Torch_Center_Ep_Im}
+\end{tabular}
+}
+
+\only<5>
+{
+Very similar results except for the electric field in the torch, might be due to the way electric field boundary are imposed.
+}
+
+\end{frame}
+
+\begin{frame}{Convergence history}
+
+\textbf{We use GMRES solver with at most $50$ vectors and a ILU(4) preconditioner.}
+
+We first solve at order 1 then order 4 (red separation line).
+
+\begin{center}
+\only<1>
+{
+\begin{tabular}{cc}
+\input{./resL2.tex} & \input{./CFL_history.tex}
+\end{tabular}
+}
+\only<2>
+{
+\begin{tabular}{c}
+\input{./GMRES_history.tex}
+\end{tabular}
+}
+\end{center}
+
+\only<3>
+{
+We have a fast and robust solver for ICP, able to produce meaningful results in 20 minutes of time on a single laptop using 8 OMP threads!
+}
+
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
 
 \section{Conclusions and future work}
 
