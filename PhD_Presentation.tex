@@ -887,7 +887,7 @@ The electric field:
 \begin{minipage}{0.49\linewidth}
 \begin{equation*}
 \begin{aligned}
-& \vectau = \mu \left(\nabla \vecv + \nabla \vecv^T\right) - \frac{2}{3} \mu \nabla \cdot \vecv\\
+& \vectau = \eta \left(\nabla \vecv + \nabla \vecv^T\right) - \frac{2}{3} \eta \nabla \cdot \vecv\\
 & \vecq = -k \nabla T
 \end{aligned}
 \end{equation*}
@@ -915,14 +915,20 @@ The electric field:
 
 \only<2>
 {
+$\mu_0$ : magnetic permeability
+
+$\sigma_e$ : electron electric conductivity
+
+$f$ : induction frequency
+}
+
+\only<3>
+{
 \begin{equation*}
 	E_C = \sum_{l=1}^{N_{coil}} i f \mu_0 I_C \sqrt{\frac{r_0}{r}}\left[2 \frac{E_2(k_l)}{k_l} - E_1(k_l)\left(\frac{2}{k_l}-k_l\right)\right]
 \end{equation*}
 \begin{equation*}
-	\begin{aligned}
-		& E_1(k) &&= \int_0^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{1-k^2 \sin^2(\theta)}}\\
-		& E_1(k) &&= \int_0^{\frac{\pi}{2}} \sqrt{1-k^2 \sin^2(\theta)} \; d\theta
-	\end{aligned}
+		E_1(k) = \int_0^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{1-k^2 \sin^2(\theta)}} \quad E_2(k) = \int_0^{\frac{\pi}{2}} \sqrt{1-k^2 \sin^2(\theta)} \; d\theta
 \end{equation*}
 }
 
@@ -930,9 +936,184 @@ The electric field:
 
 \begin{frame}{Transport properties}
 
+\begin{framed}
+\centering
+\textbf{The transport properties are computed using Mutation++}
+
+$\eta$, $k$, $\sigma_e$ 
+\end{framed}
+
+\begin{center}
+\includegraphics[width=\linewidth]{./mpp-logo.png}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Coupling of the systems}
+
+\only<1,2>
+{
+\textbf{Navier-Stokes}
+\begin{equation*}
+\begin{aligned}
+& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) = 0\\
+& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv \right) = -\nabla p + \nabla \cdot \vectau + \vecF_L\\
+& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv\right) = \nabla \cdot \left(\vectau\vecv\right) + \nabla \cdot \vecq + P_J\\
+\end{aligned}
+\end{equation*}
+}
+
+\only<2>
+{
+\textbf{Maxwell}
+\begin{equation*}
+\begin{aligned}
+& \partial^2_{zz} E_P + \frac{1}{r}\partial_r (r \partial_r E_P) - \frac{E_P}{r^2} = i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)
+\end{aligned}
+\end{equation*}
+}
+
+\only<3>
+{
+\textbf{Navier-Stokes}
+\begin{equation*}
+\begin{aligned}
+& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) = 0\\
+& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv \right) = -\nabla p + \nabla \cdot \vectau + \textcolor{red}{\vecF_L}\\
+& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv\right) = \nabla \cdot \left(\vectau\vecv\right) + \nabla \cdot \vecq + \textcolor{red}{P_J}\\
+\end{aligned}
+\end{equation*}
+
+\textbf{Maxwell}
+\begin{equation*}
+\begin{aligned}
+& \partial^2_{zz} E_P + \frac{1}{r}\partial_r (r \partial_r E_P) - \frac{E_P}{r^2} = i 2 \pi f\mu_0\textcolor{red}{\sigma_e} \left(E_C + E_P\right)
+\end{aligned}
+\end{equation*}
+}
+
+\end{frame}
+
+\begin{frame}{Computational domain}
+
+\begin{center}
+\begin{tikzpicture}[scale = .6]
+	\draw[dash dot] (-1.0,0) -- (15,0);
+	\draw[-, thick] (-1.0,-1) -- (0, -1) -- (0,1) -- (-1.0,1);
+	\fill[gray, opacity=0.5] (-1.0,-1) -- (0, -1) -- (0,1) -- (-1.0,1) -- (-1.0,-1);
+	\draw[-,thick] (-1.0,1.5) -- (8.5,1.5) -- (8.5,4.);
+	\draw[-,thick] (-1.0,-1.5) -- (8.5,-1.5) -- (8.5,-4);
+	\foreach \x in {1,2,...,6}{
+		\filldraw[gray, opacity = 0.5] (\x, 2.) circle (0.2);
+		\filldraw[gray, opacity = 0.5] (\x, -2.) circle (0.2);
+	}
+	\draw[dashed, blue] (0.2, 0) -- (0.2, 1.3) -- (8.7, 1.3) -- (8.7, 3.8) -- (15, 3.8) -- (15, 0.7) -- (13, 0.7) arc[start angle=90, end angle = 180, radius=0.7];
+	\draw[dashed, blue] (0.2, 0) -- (0.2, -1.3) -- (8.7, -1.3) -- (8.7, -3.8) -- (15, -3.8) -- (15, -0.7) -- (13, -0.7) arc[start angle=-90, end angle = -180, radius=0.7];
+	\draw[blue] (7,0) node[above]{Maxwell + N-S};
+	\draw[dashed, red] (-1.2,0) -- (-1.2, 1.7) -- (8, 1.7) -- (8, 3.8) -- (-3, 3.8) -- (-3,0);
+	\draw[dashed, red] (-1.2,0) -- (-1.2, -1.7) -- (8, -1.7) -- (8, -3.8) -- (-3, -3.8) -- (-3,0);
+	\draw[red] (3.5,-3) node[above]{Maxwell};
+	\draw[-, thick] (15, 0.5) -- (13,0.5) arc[start angle=90, end angle = 180, radius=0.5];
+	\draw[-, thick] (15, -0.5) -- (13,-0.5) arc[start angle=-90, end angle = -180, radius=0.5];
+	%\draw (14,-0.15) node[above]{Probe};
+	
+	\only<6,9>
+	{
+	\draw[-, thick, black, ->] (-1, 1.25) -- (-0.2, 1.25);
+	\draw[-, thick, black, ->] (-1, -1.25) -- (-0.2, -1.25);
+	}
+	
+	% Boundary conditions
+	
+	\only<4,9>{\draw (12,3.8) node[above]{Opening}};
+	\only<4,9>{\draw (15,2) node[above, rotate = -90]{Opening}};
+	\only<3,9>{\draw (4,3.8) node[above]{Far electric field};}
+	\only<3,9>{\draw (-3,0) node[above, rotate = 90]{Far electric field};}
+	\only<5,9>{\draw (0.2,0) node[above, rotate = -90]{Isothermal}};
+	\only<5,9>{\draw (4,-1.3) node[above]{No slip isothermal}};
+	\only<5,9>{\draw (14, -0.7) node[below]{Isothermal}};
+	\only<7,9>{\draw (8.7, -2.55) node[above, rotate = -90] {Coflow}};
+	
+\end{tikzpicture}
+\end{center}
+
+\only<2>
+{
+\textbf{Symmetry axis} $\partial_r p = 0$, $\partial_r u_z = 0$, $u_r = 0$, $\partial_r T = 0$ and $E_P = 0$.
+}
+\only<3>
+{
+\textbf{Vanishing far electric field} $E_P = 0$.
+}
+\only<4>
+{
+\textbf{Openings} $p = p_0$
+}
+\only<5>
+{	
+\textbf{No-slip wall isothermal} $T = T_{wall}$ and $\vecu = \mathbf{0}$.
+}
+\only<6>
+{
+\textbf{Inflow} $u_z = U_{in}$, $u_r = 0$ and $T = T_{inlet}$.
+}
+\only<7>
+{
+\textbf{Stabilizing co-flow} $T = T_{wall}$, $\vecu = u_{coflow} \mathbf{e}_z$
+}
+\only<8>
+{
+\textbf{ICP and Maxwell interface}
+\begin{equation*}
+\begin{aligned}
+&\nabla E_p^{Re, NS} \cdot \vecn^{NS} &&= \nabla E_p^{Re, MAX} \cdot \vecn^{MAX}\\
+&\nabla E_p^{Im, NS} \cdot \vecn^{NS} &&= \nabla E_p^{Im, MAX} \cdot \vecn^{MAX}
+\end{aligned}
+\end{equation*}
+}
 \end{frame}
 
 \section{Hybridized discontinuous Galerkin method}
+
+\begin{frame}{Conservative form of the equations}
+
+%\textbf{Navier-Stokes}
+\begin{equation*}
+\begin{aligned}
+& \partial_t \rho &&+ \nabla \cdot \left(\rho \vecv\right) && &&= 0\\
+& \partial_t \left(\rho \vecv\right) &&+ \nabla \cdot \left(\rho \vecv \vecv + p \mathbb{I} \right) &&- \nabla \cdot \vectau &&= \vecF_L\\
+& \partial_t \left(\rho E\right) &&+ \nabla \cdot \left(\rho E \vecv + p \vecv\right) &&- \nabla \cdot \left(\vectau\vecv + \vecq\right) &&= P_J\\
+& && &&- \nabla \cdot \left(\nabla E_P\right) &&= -\frac{E_P}{r^2} - i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)\\
+& && && &&\\
+\only<2>
+{
+& \partial_t \vecw(\vecu) &&+ \nabla \cdot \vecF_c(\vecu) &&- \nabla \cdot \vecF_v(\vecu, \nabla \vecu) &&= \vecS(\vecu, \nabla \vecu)
+}
+\end{aligned}
+\end{equation*}
+
+\only<3>
+{
+\begin{framed}
+\begin{equation*}
+\partial_t \vecw(\vecu) + \nabla \cdot \vecF_c(\vecu) - \nabla \cdot \vecF_v(\vecu, \nabla \vecu) = \vecS(\vecu, \nabla \vecu)
+\end{equation*}
+\end{framed}
+}
+
+%\textbf{Maxwell}
+%\begin{equation*}
+%\begin{aligned}
+%
+%\end{aligned}
+%\end{equation*}
+
+%\onslide<2>
+%{
+
+%}
+
+\end{frame}
 
 \begin{frame}{Finite volume and (hybridized) discontinuous Galerkin}
 
@@ -1153,7 +1334,7 @@ The electric field:
 	
 	\only<1,2>{
 
-	\draw[<->, ultra thick] ($(BC) + (0.1, 0)$) -- ($.5*(BC) + .5*(FG)$) node[below]{$\vecHcal(\vecu_{K_1}, \vecu_{K_2})$} -- ($(FG) - (0.1,0)$);	
+	\draw[<->, ultra thick] ($(BC) + (0.1, 0)$) -- ($.5*(BC) + .5*(FG)$) node[below]{$\vecHcal$} -- ($(FG) - (0.1,0)$);	
 	
 	}
 
@@ -1364,14 +1545,14 @@ and local basis $\vectau_{K,i}$
 \begin{equation*}
 \begin{aligned}
 & \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \textcolor{red}{\veclambda_h}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \textcolor{red}{\veclambda}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h
 \end{aligned}
 \end{equation*}
 
 We first introduce $\Gamma$, the set of traces between elements
-\begin{equation}
+\begin{equation*}
     \Gamma = \{e:e = K_i \cap K_j; \forall K_i, K_j \in \tesselation,\; K_i \neq K_j\}.
-\end{equation}
+\end{equation*}
 We introduce the hybrid unknown on the element trace $\veclambda$ with the function subset
 \begin{equation*}
 M_h = \left\{\mu \in L^2(\Gamma) : \mu|_e \in \mathcal{P}^p(e), \forall e\in \Gamma\right\}
@@ -1388,7 +1569,7 @@ and local basis $\mu_{e,i}$
 \begin{equation*}
 \begin{aligned}
 & \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \veclambda_h), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
 & \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h}
 \end{aligned}
 \end{equation*}
@@ -1409,7 +1590,7 @@ The jump operator is given by
 \begin{equation*}
 \begin{aligned}
 & \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \veclambda_h), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
 & \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h
 \end{aligned}
 \end{equation*}
@@ -1428,9 +1609,182 @@ As will be seen later, HDG allows for static condensation, effectively reducing 
 
 \end{frame}
 
-\begin{frame}{ICP: a multi-domain problem}
+\begin{frame}{ICP as a multi-domain problem}
+
+\only<1>
+{
+\textbf{Single domain + integral boundary value}
+}
+
+\only<2>
+{
+\textbf{Two overlapping domain}
+}
+
+\only<3>
+{
+\textbf{Multi-domain}
+}
+
+\begin{center}
+\small
+\begin{tikzpicture}[scale = .82]
+			\draw[-, thick] (0, 0) -- (0,1) -- (-1.0,1);
+			\fill[gray, opacity=0.5] (-1.0,0) -- (0, 0) -- (0,1) -- (-1.0,1) -- cycle;
+			\draw[-,thick] (-1.0,1.5) -- (8.5,1.5) -- (8.5,4.);
+			\draw[dashed, blue] (0.2, 0) -- (0.2, 1.3) -- (8.7, 1.3) -- (8.7, 3.8) -- (15, 3.8) -- (15, 0.7) -- (13, 0.7) arc[start angle=90, end angle = 180, radius=0.7] -- cycle;
+			
+			\onslide<1,3>
+			{
+			\draw[blue] (12,2) node[above]{Maxwell + N-S ($\Omega^1$)};
+			}
+			\onslide<2>
+			{
+			\draw[blue] (12,2) node[above]{N-S ($\Omega^1$)};
+			}
+			\draw[-, thick] (15, 0.5) -- (13,0.5) arc[start angle=90, end angle = 180, radius=0.5];
+			
+			\onslide<2->
+			{
+			\draw[red] (-0.5,3) node{Maxwell ($\Omega^2$)};
+			}
+			
+			\onslide<2>
+			{
+			\draw[dashed, red] (-3.,-0.1) -- (15,-0.1) -- (15,3.9) -- (-3.,3.9) -- cycle;% (-1.2, 1.7) -- (8, 1.7) -- (8, 3.8) -- (-3, 3.8) -- (-3,0) -- cycle;
+			}
+			
+			\onslide<1>
+			{
+			\node[red] at (1.5, 1.5) [above]{$E_{bc} = \sum E_{cell}$};
+			%\draw[black, <->, ultra thick] (1.5,1) -- (1.5,2);
+			}			
+			
+			\onslide<3>
+			{
+			\draw[dashed, red] (-1.2,0) -- (-1.2, 1.7) -- (8, 1.7) -- (8, 3.8) -- (-3, 3.8) -- (-3,0) -- cycle;
+			\draw[black, <->, ultra thick] (1.5,1) -- (1.5,2) node[above right]{$\mathcal{F}$};
+			}
+			
+			
+		\end{tikzpicture}
+\end{center}
+
+\only<1>
+{
+Compact but fills the jacobian matrix, making it incompatible with HDG.
+}
+
+\only<2>
+{
+Most widely used. Solve N-S while Maxwell frozen, and \textit{vice versa}. Slow convergence.
+}
+
+\only<3>
+{
+Solves the system in a fully coupled manner, with two domains. The method we employ here.
+}
+
+\end{frame}
+
+\begin{frame}{Modification of the model problem}
+
+\begin{framed}
+\begin{equation*}
+	\begin{aligned}
+		& \partial_t \vecw^l(\vecu) + \nabla \cdot \left(\vecF_c^l(\vecu) - \vecF_v^l(\vecu, \nabla \vecu)\right) = \vecS^l(\vecu, \nabla \vecu), && \text{ on } \Omega^l\\
+		& \vecu^l = \vecu_{bc}^l, && \vecx\in\partial\Omega^l_d\\
+		& \vecF_v^l \cdot \vecn = \vecF_{v,n,bc}^l, &&  \text{ on } \partial\Omega^l_n\\
+		\only<1,3->
+		{
+		& \mathcal{F}^{l,l'}(\vecu^l, \nabla \vecu^l, \vecu^{l'}, \nabla \vecu^{l'}) = 0, &&  \text{ on }  \gamma^{l,l'}, \; l \neq l'\\
+		}
+		\only<2>
+		{
+		& \textcolor{red}{\mathcal{F}^{l,l'}(\vecu^l, \nabla \vecu^l, \vecu^{l'}, \nabla \vecu^{l'}) = 0}, &&  \text{ on }  \gamma^{l,l'}, \; l \neq l'\\
+		}
+		& \vecu^l(t = 0) = \vecU^l, &&  \text{ on }  \Omega^l
+	\end{aligned}
+\end{equation*}
+\end{framed}
+
+\onslide<3>
+{
+For ICP, 
+\begin{equation*}
+\mathcal{F} =
+\begin{pmatrix}
+\nabla E_p^{Re, NS} \cdot \vecn^{NS} - \nabla E_p^{Re, MAX} \cdot \vecn^{MAX}\\
+\nabla E_p^{Im, NS} \cdot \vecn^{NS} - \nabla E_p^{Im, MAX} \cdot \vecn^{MAX}
+\end{pmatrix}
+\end{equation*}
+}
+
+\end{frame}
+
+\begin{frame}{Modification of the discrete formulation}
+
+\begin{framed}
+\begin{equation*}
+	\begin{aligned}
+		& \left(\partial_t \vecw_h - \vecS_h^K, \varphi_{K,i} \right)_{K} - \left(\vecF_{h,c}^K - \vecF_{h,v}^K, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal^K, \varphi_{K,i} \right\rangle_{\partial K} = 0\\
+		& \left(\vecq_K, \vectau_{K,i}\right)_{K} - \left(\vecu_K, \nabla \vectau_{K',i}\right)_{K} + \left\langle \veclambda_{\partial K}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0\\
+		& \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e\setminus\Gammabar} \textcolor{red}{+ \langle \Tilde{\mathcal{F}^e}, \mu_{e,i}\rangle_{e\cap\Gammabar}} = 0\\
+	\end{aligned}
+\end{equation*}
+\end{framed}
+
+with $\bar{\Gamma}$ the set of interfaces between subdomains.
+
+\end{frame}
+
+\begin{frame}{Numerical fluxes : convection}
+
+\begin{framed}
+\begin{equation*}
+\vecHcal = \vecHcal_c - \vecHcal_v
+\end{equation*}
+\end{framed}
+
+\begin{equation*}
+	\vecHcal_c = R \vecHcal_{c,n}(\vecu, \veclambda) = R (\dot{m} + \dot{m}_p) \Psi_\lambda - R |\dot{m}| (\Psi_\lambda - \Psi_U) + \vecP
+\end{equation*}
+with
+\begin{equation*}
+	\vecPsi = \begin{pmatrix} 1 & v^\perp & v^\parallel & v_\theta & e + \frac{1}{2} ||\mathbf{v}||^2 + \frac{p}{\rho} \end{pmatrix}^T
+\end{equation*}
+\begin{equation*}
+\vecP = \begin{pmatrix} 0 & p_\lambda & 0 & 0 \end{pmatrix}^T
+\end{equation*}
 
 
+\end{frame}
+
+\begin{frame}{Numerical fluxes : diffusion}
+
+\begin{framed}
+\begin{equation*}
+\vecHcal = \vecHcal_c - \vecHcal_v
+\end{equation*}
+\end{framed}
+
+\begin{equation*}
+	\vecHcal_v(\vecu, \lambda, \vecq) = \vecF_v(\veclambda, \vecq) \cdot \mathbf{n} + \gamma(h) (\veclambda - \vecu)
+\end{equation*}
+with 
+\begin{equation*}
+	\gamma = C \max_{K \ni f}\left(\frac{1}{2\mathcal{V}} \sum_{f\in K} \mathcal{A}\right) 
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}{Solution strategy}
+
+
+
+\end{frame}
+
+\begin{frame}{Iterative procedure for power}
 
 \end{frame}
 

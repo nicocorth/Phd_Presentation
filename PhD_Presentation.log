@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  10 SEP 2025 16:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  11 SEP 2025 11:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1860,135 +1860,283 @@ Overfull \vbox (23.10217pt too high) detected at line 906
 
 ] [69
 
-]
-Overfull \vbox (4.4774pt too high) detected at line 929
- []
-
-[70
+] [70
 
 ] [71
 
-] [72
+]
+<./mpp-logo.png, id=472, 2015.53pt x 660.4675pt>
+File: ./mpp-logo.png Graphic file (type png)
+<use ./mpp-logo.png>
+Package pdftex.def Info: ./mpp-logo.png  used on input line 950.
+(pdftex.def)             Requested size: 398.3386pt x 130.52908pt.
+
+Overfull \vbox (13.23361pt too high) detected at line 950
+ []
+
+[72
+
+ <./mpp-logo.png>] [73
+
+] [74
+
+] [75
 
 ]
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 1196--1196
- [][] 
- []
-
-
-Overfull \vbox (3.95381pt too high) detected at line 1196
- []
-
-[73
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[76
 
 ]
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 1196--1196
- [][] 
- []
-
-
-Overfull \vbox (9.89053pt too high) detected at line 1196
- []
-
-[74
-
-]
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 1196--1196
- [][] 
- []
-
-
-Overfull \vbox (12.0197pt too high) detected at line 1196
- []
-
-[75
-
-] [76
-
-]
-Overfull \vbox (8.35222pt too high) detected at line 1241
- []
-
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
 [77
 
-] [78
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[78
 
 ]
-File: ./Grid_Independence_mesh_probe_cropped.pdf Graphic file (type pdf)
-<use ./Grid_Independence_mesh_probe_cropped.pdf>
-Package pdftex.def Info: ./Grid_Independence_mesh_probe_cropped.pdf  used on in
-put line 1334.
-(pdftex.def)             Requested size: 318.67209pt x 45.29477pt.
- [79
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[79
 
-] [80
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[80
 
-] [81
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[81
 
-] [82
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[82
 
-] [83
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+
+Overfull \vbox (23.18567pt too high) detected at line 1074
+ []
+
+[83
 
 ] [84
 
+] [85
+
+] [86
+
+] [87
+
 ]
-Overfull \vbox (10.29645pt too high) detected at line 1429
+Overfull \vbox (3.45633pt too high) detected at line 1116
  []
 
-[85
+[88
 
 ]
-Overfull \hbox (10.84087pt too wide) detected at line 1429
-[][]
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1377--1377
+ [][] 
  []
 
 
-Overfull \vbox (10.22305pt too high) detected at line 1429
+Overfull \vbox (3.95381pt too high) detected at line 1377
  []
 
-[86
+[89
 
 ]
-Overfull \hbox (10.84087pt too wide) detected at line 1429
-[][]
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1377--1377
+ [][] 
  []
 
-[87
 
-]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1429
-.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1429
-.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1429
-.
- [88
-
-] [89
-
-]
-Overfull \hbox (18.97081pt too wide) in paragraph at lines 1435--1435
-[][]  
+Overfull \vbox (9.89053pt too high) detected at line 1377
  []
 
 [90
 
 ]
-Overfull \hbox (10.03874pt too wide) in paragraph at lines 1437--1437
-[][][]  
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1377--1377
+ [][] 
+ []
+
+
+Overfull \vbox (12.0197pt too high) detected at line 1377
  []
 
 [91
 
+] [92
+
 ]
-Overfull \hbox (10.03874pt too wide) in paragraph at lines 1439--1439
+Overfull \vbox (8.35222pt too high) detected at line 1422
+ []
+
+[93
+
+] [94
+
+]
+File: ./Grid_Independence_mesh_probe_cropped.pdf Graphic file (type pdf)
+<use ./Grid_Independence_mesh_probe_cropped.pdf>
+Package pdftex.def Info: ./Grid_Independence_mesh_probe_cropped.pdf  used on in
+put line 1515.
+(pdftex.def)             Requested size: 318.67209pt x 45.29477pt.
+ [95
+
+] [96
+
+] [97
+
+] [98
+
+] [99
+
+] [100
+
+]
+Overfull \vbox (10.29645pt too high) detected at line 1610
+ []
+
+[101
+
+]
+Overfull \hbox (10.84087pt too wide) detected at line 1610
+[][]
+ []
+
+
+Overfull \vbox (10.22305pt too high) detected at line 1610
+ []
+
+[102
+
+]
+Overfull \hbox (10.84087pt too wide) detected at line 1610
+[][]
+ []
+
+[103
+
+]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1610
+.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1610
+.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1610
+.
+ [104
+
+] [105
+
+]
+Overfull \hbox (22.22763pt too wide) in paragraph at lines 1688--1688
+ [] 
+ []
+
+[106
+
+]
+Overfull \hbox (22.22763pt too wide) in paragraph at lines 1688--1688
+ [] 
+ []
+
+[107
+
+]
+Overfull \hbox (22.22763pt too wide) in paragraph at lines 1688--1688
+ [] 
+ []
+
+[108
+
+]
+Overfull \vbox (5.93738pt too high) detected at line 1723
+ []
+
+[109
+
+]
+Overfull \vbox (5.93738pt too high) detected at line 1723
+ []
+
+[110
+
+]
+Overfull \vbox (5.93738pt too high) detected at line 1723
+ []
+
+[111
+
+] [112
+
+] [113
+
+] [114
+
+]
+Overfull \hbox (14.22636pt too wide) in paragraph at lines 1785--1785
+[][]  
+ []
+
+[115
+
+]
+Overfull \hbox (28.45274pt too wide) in paragraph at lines 1789--1789
+[][]  
+ []
+
+[116
+
+]
+Overfull \hbox (15.05627pt too wide) in paragraph at lines 1791--1791
 [][][]  
  []
 
-[92
+[117
+
+]
+Overfull \hbox (15.05627pt too wide) in paragraph at lines 1793--1793
+[][][]  
+ []
+
+[118
 
 ]
 \tf@nav=\write6
@@ -2005,10 +2153,10 @@ Package rerunfilecheck Info: File `PhD_Presentation.out' has not changed.
 (rerunfilecheck)             Checksum: EEFD784EDC3CD18C53D0DB456EE588B0;855.
  ) 
 Here is how much of TeX's memory you used:
- 31589 strings out of 480104
- 680359 string characters out of 5892285
- 920965 words of memory out of 5000000
- 48709 multiletter control sequences out of 15000+600000
+ 31674 strings out of 480104
+ 681313 string characters out of 5892285
+ 921282 words of memory out of 5000000
+ 48741 multiletter control sequences out of 15000+600000
  493797 words of font info for 104 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  128i,15n,122p,1839b,1598s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2026,12 +2174,13 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sfss1095.pfb>
-Output written on PhD_Presentation.pdf (92 pages, 7275473 bytes).
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sfss1095.pfb>
+Output written on PhD_Presentation.pdf (118 pages, 7350128 bytes).
 PDF statistics:
- 704 PDF objects out of 1000 (max. 8388607)
- 524 compressed objects within 6 object streams
- 190 named destinations out of 1000 (max. 500000)
- 220 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 859 PDF objects out of 1000 (max. 8388607)
+ 648 compressed objects within 7 object streams
+ 242 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 
