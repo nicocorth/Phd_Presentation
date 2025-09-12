@@ -2296,10 +2296,259 @@ We have a fast and robust solver for ICP, able to produce meaningful results in 
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Flow fields in ICP: gauge pressure}
+
+\begin{center}
+	\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_dp.png}};
+	\node at (0,-2.25) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_dp.png}}};
+	%\filldraw (-0.05,-2.25) circle (3pt);
+	%\filldraw (-0.05,0.) circle (3pt);
+	%\filldraw (-7.,-2.2) circle (3pt);
+	\filldraw (-5.207716049 ,-2.6578125 ) circle (3pt);
+	\filldraw (-4.482407407 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.757098765 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.031790123 ,-2.6578125 ) circle (3pt);
+	\filldraw (-2.306481481 ,-2.6578125 ) circle (3pt);
+	\filldraw (-1.58117284 ,-2.6578125 ) circle (3pt);
+	\end{tikzpicture}
+\end{center}
+
+\begin{framed}
+\centering
+\textbf{The pressure is almost constant everywhere.}
+\end{framed}
+
+\end{frame}
+
+\begin{frame}{Flow fields in ICP: temperature}
+
+\begin{center}
+	\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_T.png}};
+	\node at (0,-2.25) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_T.png}}};
+	%\filldraw (-0.05,-2.25) circle (3pt);
+	%\filldraw (-0.05,0.) circle (3pt);
+	%\filldraw (-7.,-2.2) circle (3pt);
+	\filldraw (-5.207716049 ,-2.6578125 ) circle (3pt);
+	\filldraw (-4.482407407 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.757098765 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.031790123 ,-2.6578125 ) circle (3pt);
+	\filldraw (-2.306481481 ,-2.6578125 ) circle (3pt);
+	\filldraw (-1.58117284 ,-2.6578125 ) circle (3pt);
+	\end{tikzpicture}
+\end{center}
+
+\begin{framed}
+\centering
+\textbf{Large temperature gradients.}
+\end{framed}
+
+\end{frame}
+
+%\begin{frame}{Flow fields in ICP: density}
+%
+%\begin{center}
+%	\begin{tikzpicture}
+%	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_rho.png}};
+%	\node at (0,-2.25) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_rho.png}}};
+%	%\filldraw (-0.05,-2.25) circle (3pt);
+%	%\filldraw (-0.05,0.) circle (3pt);
+%	%\filldraw (-7.,-2.2) circle (3pt);
+%	\filldraw (-5.207716049 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-4.482407407 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-3.757098765 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-3.031790123 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-2.306481481 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-1.58117284 ,-2.6578125 ) circle (3pt);
+%	\end{tikzpicture}
+%\end{center}
+%\end{frame}
+
+\begin{frame}{Flow fields in ICP: streamlines}
+
+\begin{center}
+	\begin{tikzpicture}
+		\node at (0,0) {\includegraphics[width = \linewidth]{./HS_Streamlines.png}};
+		\node at (0,-2.25) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_Streamlines.png}}};
+	\filldraw (-5.207716049 ,-2.6578125 ) circle (3pt);
+	\filldraw (-4.482407407 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.757098765 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.031790123 ,-2.6578125 ) circle (3pt);
+	\filldraw (-2.306481481 ,-2.6578125 ) circle (3pt);
+	\filldraw (-1.58117284 ,-2.6578125 ) circle (3pt);
+	\filldraw (-5.207716049 ,0.4078125 ) circle (3pt);
+	\filldraw (-4.482407407 ,0.4078125 ) circle (3pt);
+	\filldraw (-3.757098765 ,0.4078125 ) circle (3pt);
+	\filldraw (-3.031790123 ,0.4078125 ) circle (3pt);
+	\filldraw (-2.306481481 ,0.4078125 ) circle (3pt);
+	\filldraw (-1.58117284 ,0.4078125 ) circle (3pt);
+	\end{tikzpicture}
+\end{center}
+
+\begin{framed}
+\centering
+\textbf{$\nabla \cdot \vecv \simeq 0$}
+\end{framed}
+
+\end{frame}
+
+\begin{frame}{Flow fields in ICP: volume power}
+
+\begin{center}
+	\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_P.png}};
+	\node at (0,-2.25) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_P.png}}};
+	%\filldraw (-0.05,-2.25) circle (3pt);
+	%\filldraw (-0.05,0.) circle (3pt);
+	%\filldraw (-7.,-2.2) circle (3pt);
+	\filldraw (-5.207716049 ,-2.6578125 ) circle (3pt);
+	\filldraw (-4.482407407 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.757098765 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.031790123 ,-2.6578125 ) circle (3pt);
+	\filldraw (-2.306481481 ,-2.6578125 ) circle (3pt);
+	\filldraw (-1.58117284 ,-2.6578125 ) circle (3pt);
+	\end{tikzpicture}
+\end{center}
+
+\begin{framed}
+\centering
+\textbf{Volume power peak off-axis, where the coupling is the strongest.}
+\end{framed}
+
+\end{frame}
+
+\begin{frame}{Flow fields in ICP: Total electric field}
+
+\begin{center}
+	\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_E_tot.png}};
+	\node at (0,-2.45) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_E_tot.png}}};
+%	\filldraw (-3.45,-2.8078125) circle (3pt);
+%	\filldraw (-0.5,-2.8078125) circle (3pt);
+%	\filldraw (-0.5,-0.2) circle (3pt);
+	\filldraw (-3.45,-2.8078125 ) circle (3pt);
+	\filldraw (-2.86 ,-2.8078125 ) circle (3pt);
+	\filldraw (-2.27 ,-2.8078125 ) circle (3pt);
+	\filldraw (-1.68 ,-2.8078125 ) circle (3pt);
+	\filldraw (-1.09 ,-2.8078125 ) circle (3pt);
+	\filldraw (-0.5,-2.8078125 ) circle (3pt);
+	\filldraw (-3.45,-0.2 ) circle (3pt);
+	\filldraw (-2.86 ,-0.2 ) circle (3pt);
+	\filldraw (-2.27 ,-0.2 ) circle (3pt);
+	\filldraw (-1.68 ,-0.2 ) circle (3pt);
+	\filldraw (-1.09 ,-0.2 ) circle (3pt);
+	\filldraw (-0.5,-0.2 ) circle (3pt);
+	\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{Flow fields in ICP: Lorentz force}
+
+\begin{center}
+	\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_Lorentz.png}};
+	\node at (0,-2.25) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_Lorentz.png}}};
+	%\filldraw (-0.05,-2.25) circle (3pt);
+	%\filldraw (-0.05,0.) circle (3pt);
+	%\filldraw (-7.,-2.2) circle (3pt);
+	\filldraw (-5.207716049 ,-2.6578125 ) circle (3pt);
+	\filldraw (-4.482407407 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.757098765 ,-2.6578125 ) circle (3pt);
+	\filldraw (-3.031790123 ,-2.6578125 ) circle (3pt);
+	\filldraw (-2.306481481 ,-2.6578125 ) circle (3pt);
+	\filldraw (-1.58117284 ,-2.6578125 ) circle (3pt);
+	\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{Parametric study}
+
+We performed a parametric study of ICP for the parameters used by the experimenters.
+
+\begin{itemize}
+\item $Q$ from $\SI{8}{\gram\;\second^{-1}}$ to $\SI{16}{\gram\;\second^{-1}}$.
+\item $p_0$ from $\SI{5000}{\pascal}$ to $\SI{20000}{\pascal}$.
+\item $P_{tot}$ from $\SI{50}{\kilo\watt}$ to $\SI{200}{\kilo\watt}$.
+\item $f$ from $\SI{10}{\kilo\hertz}$, to $\SI{1}{\mega\hertz}$.
+\item $S$ from $\SI{0}{\degree}$ to $\SI{20}{\degree}$.
+\end{itemize}
+
+\begin{framed}
+\centering
+\textbf{The complete discussion is in the thesis.}
+\end{framed}
 
 \end{frame}
 
 \section{Conclusions and future work}
+
+\begin{frame}{Conclusions}
+
+\begin{description}
+
+\onslide<1->
+{
+\item[Q1] \textbf{In addition of being precise, can a high-order solver be robust?}
+}
+
+\onslide<2->
+{
+YES! More robust than FV, thanks to the monolithic strategy.
+}
+
+\onslide<3-> 
+{
+\item[Q2] \textbf{Is the developed solver user-friendly?} 
+}
+\onslide<4->
+{
+
+Yes, but there is still some parameter tuning.
+
+However, much easier to use and give meaningful results fast.
+
+A lot of simulations can be performed "eyes closed".
+ 
+}
+
+\onslide<5->
+{
+\item[Q3] \textbf{Can the new solver be easily adapted to the new experiments performed in ICP facilities?}
+}
+
+\onslide<6->
+{
+We believe so, but there is still much work to do...
+
+Going 2D, 3D, and complex chemistry and radiation for unsteady simulations will need much more computational power.
+
+For supersonic, shock capturing and redesign of the numerical flux.
+}
+
+\end{description}
+
+\end{frame}
+
+\begin{frame}{Future work}
+
+Main effort is to put our developments in the ARGO DG solver, which is fully paralleled and equipped shock capturing technologies. (Landry Riou)
+
+We see the following roadmap:
+\begin{itemize}
+\item Going 3D.
+
+\item Going unsteady (also relieving the average over the induction current period).
+
+\item Development of chemistry (non equilibrium).
+
+\item Development of radiation.
+
+\end{itemize}
+
+%Once these milestones are performed, the path is open to supersonic ICP flows.
+
+\end{frame}
+
 
 \end{document}
