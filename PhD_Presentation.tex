@@ -276,7 +276,7 @@
 {
 	\begin{framed}
 	\centering
-	Si l'énergie reçue est trop grande, l'électron est arraché: il devient \textcolor{red}{\textbf{libre}}. L'atome d'hydrogène a été \textbf{\textcolor{red}{ionisé}}.
+	Si l'énergie reçue est suffisamment grande, l'électron est arraché: il devient \textcolor{red}{\textbf{libre}}. L'atome d'hydrogène a été \textbf{\textcolor{red}{ionisé}}.
 	\end{framed}
 }
 
@@ -383,55 +383,58 @@ De plus en plus d'applications: fusion nucléaire, médecine, métallurgie, lase
 \begin{frame}{Plasma froids}
 
 \begin{framed}
-\textbf{Pour les plasma froids, l'énergie est d'abord emmagasinée par les électrons libres et cédée lors des collisions aux ions et neutres lourds.}
+\textbf{Pour les "plasmas froids", l'énergie est d'abord emmagasinée par les électrons libres et cédée lors des collisions aux ions et neutres lourds.}
 \end{framed}
 %En fonction de l'efficacité des collisions, deux scénarii sont possibles:
 \begin{center}
 \begin{tabular}{cc}
 \onslide<2->{\textbf{Collisions peu efficaces}} & \onslide<3->{\textbf{Collisions efficaces}}\\
 \onslide<2->{
-\begin{tikzpicture}[scale=3]
-\node[blue] at (0,0) {$\bullet$};
-\node at (.4,.3) {$\bullet$};
-\node[red] at (.5,0) {$\bullet$};
-\node[red] at (.3,-.2) {$\bullet$};
-\node[red] at (-.2,-.3) {$\bullet$};
-\node[red] at (.1,.4) {$\bullet$};
-\draw[red, ->] (.5,0.) -- (.7, 0.);
-\draw[red, ->] (.3,-.2) -- (.4, -.3);
-\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-\draw[red, ->] (.1,.4) -- (0., .3);
-\draw[blue, ->] (0,0) -- (-0.1,0);
-\node[blue] at (0,0) [above right]{$+$};
-\node at (.4,.3) [above right]{$n$};
-\node[red] at (.5,0) [above right]{$e^-$};
-\node[red] at (.3,-.2) [above right]{$e^-$};
-\node[red] at (-.2,-.3) [above right]{$e^-$};
-\node[red] at (.1,.4) [above right]{$e^-$};
-\end{tikzpicture}
+%\begin{tikzpicture}[scale=3]
+%\node[blue] at (0,0) {$\bullet$};
+%\node at (.4,.3) {$\bullet$};
+%\node[red] at (.5,0) {$\bullet$};
+%\node[red] at (.3,-.2) {$\bullet$};
+%\node[red] at (-.2,-.3) {$\bullet$};
+%\node[red] at (.1,.4) {$\bullet$};
+%\draw[red, ->] (.5,0.) -- (.7, 0.);
+%\draw[red, ->] (.3,-.2) -- (.4, -.3);
+%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+%\draw[red, ->] (.1,.4) -- (0., .3);
+%\draw[blue, ->] (0,0) -- (-0.1,0);
+%\node[blue] at (0,0) [above right]{$+$};
+%\node at (.4,.3) [above right]{$n$};
+%\node[red] at (.5,0) [above right]{$e^-$};
+%\node[red] at (.3,-.2) [above right]{$e^-$};
+%\node[red] at (-.2,-.3) [above right]{$e^-$};
+%\node[red] at (.1,.4) [above right]{$e^-$};
+%\end{tikzpicture}
+$T_e \gg T_h$
 }
  &
 \onslide<3->{
-\begin{tikzpicture}[scale=3]
-\node[blue] at (0,0) {$\bullet$};
-\node at (.4,.3) {$\bullet$};
-\node[red] at (.5,0) {$\bullet$};
-\node[red] at (.3,-.2) {$\bullet$};
-\node[red] at (-.2,-.3) {$\bullet$};
-\node[red] at (.1,.4) {$\bullet$};
-\draw[red, ->] (.5,0.) -- (.7, 0.);
-\draw[red, ->] (.3,-.2) -- (.4, -.3);
-\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-\draw[red, ->] (.1,.4) -- (0., .3);
-\draw[blue, ->] (0,0) -- (-0.2,0);
-\draw[->] (.4,.3) -- (.6,.3);
-\node[blue] at (0,0) [above right]{$+$};
-\node at (.4,.3) [above right]{$n$};
-\node[red] at (.5,0) [above right]{$e^-$};
-\node[red] at (.3,-.2) [above right]{$e^-$};
-\node[red] at (-.2,-.3) [above right]{$e^-$};
-\node[red] at (.1,.4) [above right]{$e^-$};
-\end{tikzpicture}}\\
+%\begin{tikzpicture}[scale=3]
+%\node[blue] at (0,0) {$\bullet$};
+%\node at (.4,.3) {$\bullet$};
+%\node[red] at (.5,0) {$\bullet$};
+%\node[red] at (.3,-.2) {$\bullet$};
+%\node[red] at (-.2,-.3) {$\bullet$};
+%\node[red] at (.1,.4) {$\bullet$};
+%\draw[red, ->] (.5,0.) -- (.7, 0.);
+%\draw[red, ->] (.3,-.2) -- (.4, -.3);
+%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+%\draw[red, ->] (.1,.4) -- (0., .3);
+%\draw[blue, ->] (0,0) -- (-0.2,0);
+%\draw[->] (.4,.3) -- (.6,.3);
+%\node[blue] at (0,0) [above right]{$+$};
+%\node at (.4,.3) [above right]{$n$};
+%\node[red] at (.5,0) [above right]{$e^-$};
+%\node[red] at (.3,-.2) [above right]{$e^-$};
+%\node[red] at (-.2,-.3) [above right]{$e^-$};
+%\node[red] at (.1,.4) [above right]{$e^-$};
+%\end{tikzpicture}}\\
+$T_e \simeq T_h$
+}\\
 \onslide<2->{Hors équilibre thermique} & \onslide<3->{Equilibre thermique}
 \end{tabular}
 \end{center}
@@ -618,7 +621,7 @@ Pour les volumes finis, la solution est constante sur chaque éléments.
 \onslide<2->
 {
 \begin{framed}
-\textbf{Les volumes finis nécessitent un maillage de bonne qualité, et donc très fin dans les régions de grande variation ou de géométrie complexe $\Rightarrow$}
+\textbf{Les volumes finis nécessitent un maillage de bonne qualité, et donc très fin dans les régions de grande variation ou de géométrie complexe}
 \end{framed}
 
 \begin{itemize}
@@ -673,50 +676,52 @@ With the objective of producing a new high order solver for inductively coupled 
 %\end{framed}
 \begin{minipage}{.6\linewidth}
 %\small
+\begin{itemize}
 \onslide<1->
 {
-\textbf{Collision-dominated and thermal plasma}
+\item\textbf{Collision-dominated and thermal plasma}
 }
 
 \onslide<2->
 {
-\textbf{Quasi-neutrality}
+\item\textbf{Quasi-neutrality}
 }
 
 \onslide<3->
 {
-\textbf{No displacement current}
+\item\textbf{No displacement current}
 }
 
 \onslide<4->
 {
-\textbf{Axisymmetry}
+\item\textbf{Axisymmetry}
 }
 
 \onslide<5->
 {
-\textbf{Non-radiative plasma}
+\item\textbf{Non-radiative plasma}
 }
 
 \onslide<6->
 {
-\textbf{Local thermodynamic equilibrium}
+\item\textbf{Local thermodynamic equilibrium}
 }
 
 \onslide<7->
 {
-\textbf{No elemental de-mixing}
+\item\textbf{No elemental de-mixing}
 }
 
 \onslide<8->
 {
-\textbf{Unmagnetized plasma}
+\item\textbf{Unmagnetized plasma}
 }
 
 \onslide<9->
 {
-\textbf{Steady-state}
+\item\textbf{Steady-state}
 }
+\end{itemize}
 \end{minipage}
 \begin{minipage}{.39\linewidth}
 \only<1>{
@@ -754,11 +759,11 @@ T_e \simeq T_h
 \only<2>
 {
 
-Characteristic length greater than the Debye length, \textit{i.e.} the distance at which
+Characteristic length $\gg$ Debye length
 \begin{equation*}
 E_{thermal} \simeq E_{elec}
 \end{equation*}
-so
+and
 \begin{equation*}
 q \simeq 0
 \end{equation*}
@@ -768,10 +773,11 @@ q \simeq 0
 \only<3>
 {
 
-	ELM waves perturb electrons, but they are assumed to return fast to equilibrium.
+	\begin{itemize}
+	\item Electrons return fast to equilibrium when perturbed by ELM waves.
 	
-	ELM wavelength are much greater than the plasma length scale.
-
+	\item ELM wavelength $\gg$ plasma length scale.
+	\end{itemize}
 }
 
 \only<4>
@@ -781,9 +787,9 @@ q \simeq 0
 %	Fully axisymmetric electric field.
 	
 	\begin{center}
-	\includegraphics[height=.4\linewidth]{./coil_effect.png}
-	\includegraphics[height = .4\linewidth]{./plasmatron_nozzle_operating.png}
-	\includegraphics[height = .4\linewidth]{./plasmatron_nozzles.png}
+	\includegraphics[height=.42\linewidth]{./coil_effect.png}
+	\includegraphics[height = .42\linewidth]{./plasmatron_nozzle_operating.png}
+	\includegraphics[height = .42\linewidth]{./plasmatron_nozzles.png}
 	\end{center}
 
 }
@@ -817,33 +823,30 @@ q \simeq 0
 \only<6>
 {
 
-Chemical reaction return very fast to equilibrium.
-
-In reality, non equilibrium can be observed in the torch.
-
-Thermal + chemical equilibrium = local thermodynamic equilibrium.
+Thermal + chemical equilibrium = LTE
 
 }
 
 \only<7>
 {
 
-Elemental de-mixing accounts for the diffusion of elements. In the case of LTE, gives results closer to non-equilibrium models.
+Elemental de-mixing = diffusion of elements for LTE.
 
-Cheaper to solve as the elements have no production rates. 
+Results closer to non-equilibrium.
 
 }
 
 \only<8>
 {
-\includegraphics[width=.7\linewidth]{helicoidal_motion.png}
+\includegraphics[width=.8\linewidth]{helicoidal_motion.png}
 }
 
 \only<9>
 {
 \includegraphics[width=\linewidth]{./plasma_jet_unsteady_experimental.png}
 
-We average the equations over one period of the induction current. 
+Equations averaged over one period of the induction current.
+
 }
 
 \only<10>
@@ -929,9 +932,12 @@ $f$ : induction frequency
 \begin{equation*}
 	E_C = \sum_{l=1}^{N_{coil}} i f \mu_0 I_C \sqrt{\frac{r_0}{r}}\left[2 \frac{E_2(k_l)}{k_l} - E_1(k_l)\left(\frac{2}{k_l}-k_l\right)\right]
 \end{equation*}
-\begin{equation*}
-		E_1(k) = \int_0^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{1-k^2 \sin^2(\theta)}} \quad E_2(k) = \int_0^{\frac{\pi}{2}} \sqrt{1-k^2 \sin^2(\theta)} \; d\theta
-\end{equation*}
+%\begin{equation*}
+%		E_1(k) = \int_0^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{1-k^2 \sin^2(\theta)}} \quad E_2(k) = \int_0^{\frac{\pi}{2}} \sqrt{1-k^2 \sin^2(\theta)} \; d\theta
+%\end{equation*}
+
+$E_1(k)$, $E_2(k)$ elliptic integral of the first and second kind.
+
 }
 
 \end{frame}
@@ -946,7 +952,7 @@ $\eta$, $k$, $\sigma_e$
 \end{framed}
 
 \begin{center}
-\includegraphics[width=\linewidth]{./mpp-logo.png}
+\includegraphics[width=.8\linewidth]{./mpp-logo.png}
 \end{center}
 
 \end{frame}
@@ -1077,45 +1083,7 @@ $\eta$, $k$, $\sigma_e$
 
 \section{Hybridized discontinuous Galerkin method}
 
-\begin{frame}{Conservative form of the equations}
 
-%\textbf{Navier-Stokes}
-\begin{equation*}
-\begin{aligned}
-& \partial_t \rho &&+ \nabla \cdot \left(\rho \vecv\right) && &&= 0\\
-& \partial_t \left(\rho \vecv\right) &&+ \nabla \cdot \left(\rho \vecv \vecv + p \mathbb{I} \right) &&- \nabla \cdot \vectau &&= \vecF_L\\
-& \partial_t \left(\rho E\right) &&+ \nabla \cdot \left(\rho E \vecv + p \vecv\right) &&- \nabla \cdot \left(\vectau\vecv + \vecq\right) &&= P_J\\
-& && &&- \nabla \cdot \left(\nabla E_P\right) &&= -\frac{E_P}{r^2} - i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)\\
-& && && &&\\
-\only<2>
-{
-& \partial_t \vecw(\vecu) &&+ \nabla \cdot \vecF_c(\vecu) &&- \nabla \cdot \vecF_v(\vecu, \nabla \vecu) &&= \vecS(\vecu, \nabla \vecu)
-}
-\end{aligned}
-\end{equation*}
-
-\only<3>
-{
-\begin{framed}
-\begin{equation*}
-\partial_t \vecw(\vecu) + \nabla \cdot \vecF_c(\vecu) - \nabla \cdot \vecF_v(\vecu, \nabla \vecu) = \vecS(\vecu, \nabla \vecu)
-\end{equation*}
-\end{framed}
-}
-
-%\textbf{Maxwell}
-%\begin{equation*}
-%\begin{aligned}
-%
-%\end{aligned}
-%\end{equation*}
-
-%\onslide<2>
-%{
-
-%}
-
-\end{frame}
 
 \begin{frame}{Finite volume and (hybridized) discontinuous Galerkin}
 
@@ -1378,6 +1346,46 @@ $\eta$, $k$, $\sigma_e$
 
 \end{frame}
 
+\begin{frame}{Conservative form of the equations}
+
+%\textbf{Navier-Stokes}
+\begin{equation*}
+\begin{aligned}
+& \partial_t \rho &&+ \nabla \cdot \left(\rho \vecv\right) && &&= 0\\
+& \partial_t \left(\rho \vecv\right) &&+ \nabla \cdot \left(\rho \vecv \vecv + p \mathbb{I} \right) &&- \nabla \cdot \vectau &&= \vecF_L\\
+& \partial_t \left(\rho E\right) &&+ \nabla \cdot \left(\rho E \vecv + p \vecv\right) &&- \nabla \cdot \left(\vectau\vecv + \vecq\right) &&= P_J\\
+& && &&- \nabla \cdot \left(\nabla E_P\right) &&= -\frac{E_P}{r^2} - i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)\\
+& && && &&\\
+\only<2>
+{
+& \partial_t \vecw(\vecu) &&+ \nabla \cdot \vecF_c(\vecu) &&- \nabla \cdot \vecF_v(\vecu, \nabla \vecu) &&= \vecS(\vecu, \nabla \vecu)
+}
+\end{aligned}
+\end{equation*}
+
+\only<3>
+{
+\begin{framed}
+\begin{equation*}
+\partial_t \vecw(\vecu) + \nabla \cdot \vecF_c(\vecu) - \nabla \cdot \vecF_v(\vecu, \nabla \vecu) = \vecS(\vecu, \nabla \vecu)
+\end{equation*}
+\end{framed}
+}
+
+%\textbf{Maxwell}
+%\begin{equation*}
+%\begin{aligned}
+%
+%\end{aligned}
+%\end{equation*}
+
+%\onslide<2>
+%{
+
+%}
+
+\end{frame}
+
 \begin{frame}{Model problem}
 
 \begin{framed}
@@ -1395,9 +1403,9 @@ $\eta$, $k$, $\sigma_e$
 \begin{minipage}[t]{0.49\linewidth}
 $\vecF_{c,v}$ : convective and diffusive fluxes.
 
-$S$ : source terms.
+$\vecS$ : source terms.
 
-$w$ : conservative variables.
+$\vecw$ : conservative variables.
 
 $\vecu$, $\vecu_{bc}$ : solution and boundary condition.
 \end{minipage}
@@ -1427,34 +1435,40 @@ Before going further, some notation:
 
 \only<1>
 {
+\begin{framed}
 \begin{equation*}
 \left(\partial_t \vecw - \vecS, w \right)_{\Omega} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\Omega} + \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial \Omega} = 0, \; \forall w \in L_2(\Omega)
 \end{equation*}
+\end{framed}
 
 Multiplying by a function $w \in L_2(\Omega)$ and integrating over the domain gives the \textbf{weak form}.
 }
 
 \only<2>
 {
+\begin{framed}
 \begin{equation*}
 \left(\partial_t \vecw - \vecS, w \right)_{\textcolor{red}{\tesselation}} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\textcolor{red}{\tesselation}} + \textcolor{red}{\sum_{K \in \tesselation}} \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\textcolor{red}{\partial K}} = 0, \; \forall w \in L_2(\Omega)
 \end{equation*}
+\end{framed}
 
-The DG discretization consists in first dividing the domain $\Omega$ in a collection of non-overlapping elements $\mathcal{T}$.
+The domain $\Omega$ is split in a collection of elements $K \in \mathcal{T}$.
 
 \begin{center}
-\includegraphics[width=.8\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
+\includegraphics[width=\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
 \end{center}
 
 }
 
 \only<3>
 {
+\begin{framed}
 \begin{equation*}
 \left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial K} = 0, \; \textcolor{red}{\forall w \in W_h}
 \end{equation*}
+\end{framed}
+We restrict $w$ to a \textbf{finite dimensional} subset of $L_2(\Omega)$.
 
-We restrict the functions to a subset of $L_2(\Omega)$ which is finite dimensional. A common choice is
 \begin{equation*}
 W_h = \left\{w \in L^2(\Omega) : w|_K \in \mathcal{P}^p(K), \forall K\in \tesselation\right\} \subset L_2(\Omega)
 \end{equation*}
@@ -1462,9 +1476,11 @@ W_h = \left\{w \in L^2(\Omega) : w|_K \in \mathcal{P}^p(K), \forall K\in \tessel
 
 \only<4>
 {
+\begin{framed}
 \begin{equation*}
 \left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \textcolor{red}{\vecHcal}, w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
 \end{equation*}
+\end{framed}
 
 For stabilizing the method, the convective and diffusive fluxes on the interface are approximated
 \begin{equation*}
@@ -1474,9 +1490,11 @@ For stabilizing the method, the convective and diffusive fluxes on the interface
 
 \only<5>
 {
+\begin{framed}
 \begin{equation*}
 \left(\partial_t \vecw_{\textcolor{red}{h}} - \vecS_{\textcolor{red}{h}}, w \right)_{\tesselation} - \left(\vecF_{c, {\textcolor{red}{h}}} - \vecF_{v, {\textcolor{red}{h}}}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \vecHcal, w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
 \end{equation*}
+\end{framed}
 
 The solution is also approximated by
 \begin{equation*}
@@ -1486,16 +1504,17 @@ The solution is also approximated by
 
 \only<6>
 {
+\begin{framed}
 \begin{equation*}
 \left(\partial_t \vecw_{h} - \vecS_{h}, \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} + \left\langle \vecHcal, \textcolor{red}{\varphi_{K,i}} \right\rangle_{\partial K} = 0, \; \forall \textcolor{red}{\varphi_{K,i}} \in W_h
 \end{equation*}
+\end{framed}
 
-Finally, if the $\varphi_{K,i}$ form a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}$, then its suffices to verify the equation for each $\varphi_{K,i}$ on each element, and 
+If the $\varphi_{K,i}$ is a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}$,
 \begin{equation*}
 \vecu \simeq \vecu_h = \sum_{K\in \tesselation}\sum_{i=1}^p \vecu_{K,i} \varphi_{K,i}
 \end{equation*}
 
-The $\vecu_i$ are the degrees of freedom.
 }
 
 \only<7>
@@ -1506,11 +1525,11 @@ The $\vecu_i$ are the degrees of freedom.
 \end{equation*}
 \end{framed}
 \begin{itemize}
-\item Because the $\varphi_{K,i}$ are in general not continuous across elements, discontinuous solutions can be represented.
+\item $\varphi_{K,i}$ are discontinuous across elements.
 
-\item If $\varphi_K = 1$ everywhere, the finite volume method is retrieved.
+\item If $\varphi_{K,i} = 1$ everywhere $\Rightarrow$ finite volume.
 
-\item The art of designing DG is contained in the numerical fluxes (\textit{cfr.} later).
+%\item The art of designing DG is contained in the numerical fluxes (\textit{cfr.} later).
 \end{itemize}
 }
 
@@ -1520,46 +1539,46 @@ The $\vecu_i$ are the degrees of freedom.
 
 \only<1>
 {
+\begin{framed}
 \begin{equation*}
 \begin{aligned}
 & \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal, \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
 & \textcolor{red}{\left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h}
 \end{aligned}
 \end{equation*}
+\end{framed}
 
-We solve now for the solution gradient
+With the solution gradient
 \begin{equation*}
-\vecq = \nabla \vecu
+\vecq = \nabla \vecu \simeq \vecq_h = \sum_{K\in\mathcal{T}}\sum_{i=1}^{p} \vecq_{K,i} \vectau_{K,i}
 \end{equation*}
 with the subset
 \begin{equation*}
 V_h = \left\{\vecv \in L^2(\Omega) : \vecv|_K \in \left(\mathcal{P}^p(K)\right)^D, \forall K\in \tesselation\right\}
 \end{equation*}
-and local basis $\vectau_{K,i}$
-\begin{equation*}
-\vecq_h = \sum_{K\in\mathcal{T}}\sum_{i=1}^{p} \vecq_{K,i} \vectau_{K,i}
-\end{equation*}
+and local basis $\vectau_{K,i}$.
 
 }
 
 \only<2>
 {
+\begin{framed}
 \begin{equation*}
 \begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \textcolor{red}{\veclambda_h}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \textcolor{red}{\veclambda}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\textcolor{red}{\veclambda_h}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \textcolor{red}{\veclambda_h}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0, \forall \vectau_{K,i} \in V_h
 \end{aligned}
 \end{equation*}
+\end{framed}
 
-We first introduce $\Gamma$, the set of traces between elements
 \begin{equation*}
     \Gamma = \{e:e = K_i \cap K_j; \forall K_i, K_j \in \tesselation,\; K_i \neq K_j\}.
 \end{equation*}
-We introduce the hybrid unknown on the element trace $\veclambda$ with the function subset
+%and $\veclambda$ the hybrid unknowns defined on the function subset
 \begin{equation*}
 M_h = \left\{\mu \in L^2(\Gamma) : \mu|_e \in \mathcal{P}^p(e), \forall e\in \Gamma\right\}
 \end{equation*}
-and local basis $\mu_{e,i}$
+%and local basis $\mu_{e,i}$
 \begin{equation*}
 \veclambda_h = \sum_{e\in\Gamma}\sum_{i=1}^{p} \veclambda_{e,i} \mu_{e,i}
 \end{equation*}
@@ -1568,13 +1587,16 @@ and local basis $\mu_{e,i}$
 
 \only<3>
 {
+\begin{framed}
+\small
 \begin{equation*}
 \begin{aligned}
 & \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \veclambda_h), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
 & \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h}
 \end{aligned}
 \end{equation*}
+\end{framed}
 
 Equation for $\veclambda$: continuity of the normal numerical flux across the interfaces.
 
@@ -1599,7 +1621,7 @@ The jump operator is given by
 \end{framed}
 
 \begin{center}
-\textbf{But why HDG over DG?}
+\textbf{Why HDG over DG?}
 \end{center}
 
 }
@@ -1810,16 +1832,16 @@ with $\delta\vecx_k = \vecx_{k+1} - \vecx_k$.
 
 \only<2>
 {
-If the system is written as $\tilde{\mathcal{N}} = 0$, then the Newton method solves
+If the system is written as \textcolor{red}{$\tilde{\mathcal{N}} = 0$}, then the Newton method solves
 \begin{equation*}
-\tilde{\mathcal{N}}'(\vecx_k) \delta \vecx = - \tilde{\mathcal{N}}(\vecx_k) 
+\textcolor{red}{\tilde{\mathcal{N}}'(\vecx_k) \delta \vecx = - \tilde{\mathcal{N}}(\vecx_k)}
 \end{equation*}
 with $\delta\vecx = \vecx_{k+1} - \vecx_k$.
 }
 
 \onslide<2->{
 
-In order to stabilize the solver, a fictive temporal term is added.
+\textbf{In order to stabilize the solver, a fictive temporal term is added.}
 
 }
 
@@ -1964,7 +1986,7 @@ By eliminating $\delta U$ and $\delta Q$, one gets the \textbf{global} system
 }
 \only<5>
 {
-This system is solved for $\veclambda$, then the \textbf{local} variables $\vecu$ and $\vecq$ are retrieved by inverting local small matrices.
+System solved for $\veclambda$, then $\vecu$ and $\vecq$ are retrieved by small local matrices inversion.
 \begin{equation*}
     \begin{pmatrix}
         \delta Q\\
@@ -1993,29 +2015,44 @@ This system is solved for $\veclambda$, then the \textbf{local} variables $\vecu
 }
 \end{frame}
 
-\begin{frame}{The problem of power quenching.}
+\begin{frame}{The problem of power quenching}
 
-There is no straightforward relation linking the induction current and the power dissipated in the facility.
+\textbf{If the power dissipated is not maintained, the torch quenches!}
 
-\textbf{If the power dissipated in the facility is not maintained during the simulation, the torch quenches!}
-
+\only<2>
+{
 \begin{equation*}
 	\begin{aligned}
 		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
-		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \gamma \left.\vecF^L\right|_{I_c = \SI{1}{\ampere}}\\
-		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = \gamma \left.P_J\right|_{I_c = \SI{1}{\ampere}}\\
+		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \vecF^L\\
+		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = P_J\\
 	\end{aligned}
 \end{equation*}
 
 \begin{equation*}
-	\Delta \left.E_P\right|_{I_c = \SI{1}{\ampere}} = \frac{\left.E_P\right|_{I_c = \SI{1}{\ampere}}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\left.E_C\right|_{I_c = \SI{1}{\ampere}} + \left.E_P\right|_{I_c = \SI{1}{\ampere}}\right)
+	\Delta E_P = \frac{E_P}{r^2} + i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)
+\end{equation*}
+}
+
+\only<3>
+{
+\begin{equation*}
+	\begin{aligned}
+		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
+		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \textcolor{red}{\gamma \left.\vecF^L\right|_{I_c = \SI{1}{\ampere}}}\\
+		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = \textcolor{red}{\gamma \left.P_J\right|_{I_c = \SI{1}{\ampere}}}\\
+	\end{aligned}
 \end{equation*}
 
+\begin{equation*}
+	\Delta \textcolor{red}{\left.E_P\right|_{I_c = \SI{1}{\ampere}}} = \frac{\textcolor{red}{\left.E_P\right|_{I_c = \SI{1}{\ampere}}}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\textcolor{red}{\left.E_C\right|_{I_c = \SI{1}{\ampere}}} + \textcolor{red}{\left.E_P\right|_{I_c = \SI{1}{\ampere}}}\right)
+\end{equation*}
+}
 \end{frame}
 
 \begin{frame}{Power ratio}
 
-At every Newton iteration, the induction current is set to $\SI{1}{\ampere}$. $\gamma$ is the power ratio
+$\gamma$ is the power ratio
 \begin{equation*}
 \gamma = \frac{P_{target}}{P|_{I_c=\SI{1}{\ampere}}}
 \end{equation*}
@@ -2024,7 +2061,7 @@ with $P_{target}$ the desired power and
 P|_{I_c=\SI{1}{\ampere}} = \int_{NS}\frac{\sigma_e}{2} ||\left.E_C\right|_{I_c = \SI{1}{\ampere}} + \left.E_P\right|_{I_c = \SI{1}{\ampere}}||^2 dV
 \end{equation*}
 
-$\gamma$ is computed at the beginning of every Newton iteration and used as a scaling factor for the Joule heating and Lorentz source terms evalutaed at $I_c = \SI{1}{\ampere}$. The true electric fields are given by
+$\gamma$ is computed at every Newton iteration and used to scale $\left.P_J\right|_{I_c = \SI{1}{\ampere}}$ and $\left.\vecF^L\right|_{I_c = \SI{1}{\ampere}}$. The true electric fields are given by
 \begin{equation*}
 E_C = \sqrt{\gamma} E_C|_{I_c = \SI{1}{\ampere}} \quad E_P = \sqrt{\gamma} E_P|_{I_c = \SI{1}{\ampere}}
 \end{equation*}
@@ -2263,7 +2300,7 @@ and tested from $0.2$ to $1.0$.
 
 \only<5>
 {
-Very similar results except for the electric field in the torch, might be due to the way electric field boundary are imposed.
+Very similar results except for the electric field in the torch, might be due to the way electric field boundary conditions are imposed.
 }
 
 \end{frame}
