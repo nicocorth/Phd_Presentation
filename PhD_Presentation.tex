@@ -1345,6 +1345,14 @@ $\eta$, $k$, $\sigma_e$
 \end{framed}
 }
 
+\only<4>
+{
+\begin{framed}
+\centering
+\textbf{Why HDG over DG?} As will be seen later, HDG allows for static condensation, effectively reducing the number of DOFs when using a Newton solver.
+\end{framed}
+}
+
 \end{frame}
 
 \begin{frame}{Conservative form of the equations}
@@ -1545,7 +1553,7 @@ If the $\varphi_{K,i}$ is a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}
 \begin{framed}
 \begin{equation*}
 \begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\varphi_{K,i}, \textcolor{red}{\vectau_{K,i}}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \\
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \textcolor{red}{\vecq_h}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \\
 & \textcolor{red}{\left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,} \\
 & \forall \varphi_{K,i} \in W_h, \; \textcolor{red}{\forall \vectau_{K,i} \in V_h}
 \end{aligned}
@@ -1569,7 +1577,7 @@ and local basis $\vectau_{K,i}$.
 \begin{framed}
 \begin{equation*}
 \begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\textcolor{red}{\veclambda_h}, \varphi_{K,i}, \vectau_{K,i}), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\textcolor{red}{\veclambda_h}, \vecu_h, \vecq_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
 & \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \textcolor{red}{\veclambda_h}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0\\ 
 & \forall \varphi_{K,i} \in W_h, \; \forall \vectau_{K,i} \in V_h
 \end{aligned}
@@ -1596,9 +1604,10 @@ M_h = \left\{\mu \in L^2(\Gamma) : \mu|_e \in \mathcal{P}^p(e), \forall e\in \Ga
 \small
 \begin{equation*}
 \begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \veclambda_h), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
-& \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h}
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\veclambda_h, \vecu_h, \vecq_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\\
+& \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0},\\ 
+& \textcolor{red}{ \forall \mu_{e,i} \in M_h}, \; \forall \varphi_{K,i} \in W_h, \; \forall \vectau_{K,i} \in V_h
 \end{aligned}
 \end{equation*}
 \end{framed}
@@ -1618,22 +1627,14 @@ The jump operator is given by
 \small
 \begin{equation*}
 \begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \vecq_h, \veclambda_h), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h\\
-& \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0, \forall \mu_{e,i} \in M_h
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\veclambda_h, \vecu_h, \vecq_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\\
+& \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0,\\ 
+& \forall \mu_{e,i} \in M_h, \; \forall \varphi_{K,i} \in W_h, \; \forall \vectau_{K,i} \in V_h
 \end{aligned}
 \end{equation*}
 \end{framed}
 
-\begin{center}
-\textbf{Why HDG over DG?}
-\end{center}
-
-}
-
-\only<12>
-{
-As will be seen later, HDG allows for static condensation, effectively reducing the number of DOFs when using a Newton solver.
 }
 
 \end{frame}
@@ -1865,7 +1866,7 @@ with
 
 and the following CFL evolution law
 \begin{equation*}
-CFL_k = \min\left(CFL_0 \left(\frac{||\mathcal{N}||_2^0}{||\mathcal{N}||_2^k}\right)^\alpha, CFL_{max}\right)
+CFL_k = \min\left(CFL_0 \left(\frac{||\Tilde{\mathcal{N}}||_2^0}{||\Tilde{\mathcal{N}}||_2^k}\right)^\alpha, CFL_{max}\right)
 \end{equation*}
 
 \onslide<2>
