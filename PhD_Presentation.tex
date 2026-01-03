@@ -155,144 +155,8 @@
 }
 \end{frame}
 
-\begin{frame}{Translation, rotation et vibration}
-
-\begin{center}
-\begin{tikzpicture}[scale=3.5, spring/.style={decorate,decoration={coil,aspect=0,segment length=2mm,amplitude=1mm}}]
-
-  % Oxygen atom color (blue)
-  \definecolor{OxyBlue}{RGB}{70,130,255} % light-medium blue
-  % Hydrogen atom color (red)
-  \definecolor{HydRed}{RGB}{220,40,40}   % bright red
-
-  % Oxygen atom
-  \shade[ball color=OxyBlue] (0,0) circle (0.3);
-
-  % Hydrogen atoms (approx 104° apart)
-  \shade[ball color=HydRed] (0.9,0.5) circle (0.15);
-  \shade[ball color=HydRed] (0.9,-0.5) circle (0.15);
-  
-  \node at (0,0) {O};
-  \node at (0.9,0.5) {H};
-  \node at (0.9,-0.5) {H};
-  
-  \draw[spring,thick] (0.25,0.15) -- (0.75,0.45);
-  \draw[spring,thick] (0.25,-0.15) -- (0.75,-0.45);
-  
-  \onslide<2,5->{
-  \draw[->, ultra thick] (-0.4,0) -- (-0.65,0) node[above]{Translation} -- (-0.9,0);
-  }
-  
-  \onslide<3,5->{
-  \draw[->,thick, ultra thick] (0.9,0.3) arc[start angle=25,end angle=-25,radius=.7];
-  \node at (1., 0) [right]{Rotation};
-  %\draw[bend right, ->, ultra thick] (0.9,-0.5) -- (0.9,0.5);
-  }
-  
-  \onslide<4,5->{
-  \draw[<->,thick, ultra thick] (0.15,0.27) -- (0.65,0.57);
-  \node at (0.4, .42) [above, rotate=30] {Vibration};
-  %\draw[bend right, ->, ultra thick] (0.9,-0.5) -- (0.9,0.5);
-  }
-
-  % Optional arrows to mimic rotation (as in your image)
-  %\draw[->,thick] (0.35,0.55) arc[start angle=100,end angle=20,radius=0.6];
-  %\draw[->,thick] (0.35,-0.55) arc[start angle=-100,end angle=-20,radius=0.6];
-
-\end{tikzpicture}
-\end{center}
-
-%Les molécules vibrent, tournent et se déplacent de plus en plus vite. Les electrons sont excités jusqu'à ce que certains se détachent et se meuvent librement.
-\end{frame}
-
-\begin{frame}{Excitation et ionization}
-
-\begin{center}
-\begin{tikzpicture}[scale=3.5, spring/.style={decorate,decoration={coil,aspect=0,segment length=2mm,amplitude=1mm}}]
-
-  % Oxygen atom color (blue)
-  \definecolor{OxyBlue}{RGB}{70,130,255} % light-medium blue
-  % Hydrogen atom color (red)
-  \definecolor{HydRed}{RGB}{220,40,40}   % bright red
-
-  % Oxygen atom
-  \shade[ball color=HydRed] (0,0) circle (0.2);
-  
-  \node at (0,0) {H};
- 
-  \onslide<2->
-  {
-  	\def\dist{1.5}
-  	\fill[blue] (\dist,0) circle (0.03) node[below left=2pt] {$p^+$};
-
-  	% Orbit path (optional, dashed)
-  	\draw[dashed,gray] (\dist,0) circle (.5);
-
-	\draw[->, ultra thick] (.4, 0) -- (.9,0);
-
-  	% Electron (red dot on orbit)
-  	\def\ang{40} % position angle
-  }
-  
-  \onslide<2>{
-  	\fill[red] ({\dist+.5*cos(\ang)},{.5*sin(\ang)}) circle (0.03) 
-  	node[below left] {$e^-$};
-  }
-  
-  \onslide<3->
-  {
-  	\fill[red!50] ({\dist+.5*cos(\ang)},{.5*sin(\ang)}) circle (0.03) 
-  	node[below left] {$e^-$};
-  }  
-  
-  \onslide<3>
-  {
-  	\draw[dashed,gray] (\dist,0) circle (.7);
-  	\fill[red] ({\dist+.7*cos(\ang)},{.7*sin(\ang)}) circle (0.03) 
-  	node[above right] {$e^-$};
-  	\draw[->, ultra thick, red] ({\dist+.55*cos(\ang)},{.55*sin(\ang)}) -- ({\dist+.65*cos(\ang)},{.65*sin(\ang)});
-  }
-  
-  
-  \onslide<4>
-  {
-  	%\draw[dashed,gray] (\dist,0) circle (.9);
-  	\fill[red] ({\dist+.9*cos(\ang)},{.9*sin(\ang)}) circle (0.03) 
-  	node[above right] {$e^-$};
-  	\draw[->, ultra thick, red] ({\dist+.9*cos(\ang)+0.1},{.9*sin(\ang)}) -- ({\dist+.9*cos(\ang)+0.1+0.5},{.9*sin(\ang)});
-  }
-
-\end{tikzpicture}
-
-\only<3>
-{
-	\begin{framed}
-	\centering
-	Si l'énergie reçue le permet, l'électron est dans un état \textcolor{red}{\textbf{excité}}. Il reviendra à son état initial en émettant de la lumière: c'est la \textbf{\textcolor{red}{radiation}}.
-	\end{framed}
-}
-
-\only<4>
-{
-	\begin{framed}
-	\centering
-	Si l'énergie reçue est suffisamment grande, l'électron est arraché: il devient \textcolor{red}{\textbf{libre}}. L'atome d'hydrogène a été \textbf{\textcolor{red}{ionisé}}.
-	\end{framed}
-}
-
-\end{center}
-
-\end{frame}
-
 \begin{frame}{Plasma: le quatrième état de la matière}
 \centering
-\begin{tabular}{cc}
-\begin{tikzpicture}
-\node at (0,0) {\includegraphics[height=.3\linewidth]{eau_gaz.png}};
-\end{tikzpicture}
-&
-\onslide<2->
-{
 \begin{tikzpicture}
 \node at (0,0) {\includegraphics[height=.3\linewidth]{eau_gaz.png}};
 \fill[red] (0,0) circle (0.1) node[above right] {$e^-$};
@@ -301,68 +165,17 @@
 \node[blue] at (-1.7,.7) {\textbf{+}};
 \node[blue] at (1.4,0) {\textbf{+}};
 \end{tikzpicture}
-}\\
-\textbf{Gaz neutre} & \onslide<2->{\textbf{Plasma}}
-\end{tabular}
 
-\only<3>{
 \begin{framed}
-\textbf{Un plasma est un gaz quasi-neutre composé de particules chargées (ions $\textcolor{blue}{\bullet^+}$ et electrons $\textcolor{red}{\bullet^{e^-}}$) et neutres ($\bullet^n$) démontrant un comportement collectif.\footnotemark}
+\textbf{Un plasma est un gaz quasi-neutre composé de particules chargées 
+%(ions $\textcolor{blue}{\bullet^+}$ et electrons $\textcolor{red}{\bullet^{e^-}}$)
+et neutres 
+%($\bullet^n$)
+démontrant un comportement collectif.\footnotemark}
 %A plasma is a quasi-neutral gas of charged and neutral particles which exhibits collective behaviour.
 \end{framed}
-}
-\only<3>{\footnotetext[1]{\tiny F. F. Chen. Introduction to Plasma Physics and Controlled Fusion. Ed. by Springer International Publisher. 2016}}
 
-\end{frame}
-
-\begin{frame}{Comportement collectif du plasma}
-\centering
-\begin{framed}
-\textbf{Collision = interaction entre particules}
-\end{framed}
-
-\begin{tabular}{cc}
-\onslide<2->{\textbf{Collisions de courte portée}} & \onslide<3->{\textbf{Collisions de longue portée}}\\
-\onslide<2->{
-\begin{tikzpicture}
-\fill[blue] (0,0) circle (0.1) node[above right] {$+$};
-\fill[black] (2,0) circle (0.1) node[above right]{$n$};
-\draw[blue, ->, thick] (0.2,0) -- (1.8, 0) -- (2.5, 1);
-\end{tikzpicture}} &
-\onslide<3->{\begin{tikzpicture}
-\fill[blue] (0,0) circle (0.1) node[above right] {$+$};
-\fill[blue] (2,0) circle (0.1) node[above right] {$+$};
-\draw[->,blue, thick] (0.2,0) arc[start angle=-90,end angle=-30,radius=1.5];
-\end{tikzpicture}}\\
-\onslide<2->{Contact direct (local \& binaire)} & \onslide<3->{Force électrique (à distance, collectif)}
-\end{tabular}
-\onslide<4->{
-\begin{framed}
-Si l'échelle est suffisamment grande ($> \SI{1}{\micro\meter}$ dans notre cas), le plasma est \textbf{\textcolor{red}{quasi-neutre}} grâce à la force électrique.
-\end{framed}
-}
-\end{frame}
-
-\begin{frame}{Chimie dans les plasmas}
-
-\begin{framed}
-\centering
-\textbf{Les collisions entre les particles peuvent mener à des réactions chimiques.}
-%\begin{equation*}
-%A \leftrightharpoons B
-%\end{equation*}
-\end{framed}
-
-Si $\tau_{chem}$ et $\tau_{hydro}$ sont les temps caractéristiques de réaction chimique et d'écoulement:
-\begin{center}
-\begin{tabular}{ccc}
-\onslide<2->{$\tau_{chem} \gg \tau_{hydro}$} & \onslide<3->{$\tau_{chem} \simeq \tau_{hydro}$} & \onslide<4->{$\tau_{chem} \ll \tau_{hydro}$}\\
-%$A \leftrightharpoons B$ & $A \leftrightharpoons B$ & $A \leftrightharpoons B$\\
-\onslide<2->{En équilibre chimique} & \onslide<3->{Hors équilibre chimique} & \onslide<4->{Pas de réaction chimique}\\
-\end{tabular}
-\end{center}
-
-\onslide<5->{\textbf{Les plasmas sont soit en équilibre, soit hors équilibre.}}
+\footnotetext[1]{\tiny F. F. Chen. Introduction to Plasma Physics and Controlled Fusion. Ed. by Springer International Publisher. 2016}
 
 \end{frame}
 
@@ -375,78 +188,18 @@ Si $\tau_{chem}$ et $\tau_{hydro}$ sont les temps caractéristiques de réaction
 \begin{center}
 \includegraphics[height=.22\linewidth]{./sun.jpg}
 \includegraphics[height=.22\linewidth]{./aurora_borealis.jpeg}
-\includegraphics[height=.22\linewidth]{./lightning.jpg}
+\includegraphics[height=.22\linewidth]{./lightning.jpg}\footnote{Courtesy of Wikipedia.}
 \end{center}
-De plus en plus d'applications: fusion nucléaire, médecine, métallurgie, lasers, création de microprocesseurs, ...
+Fusion nucléaire, médecine, métallurgie, lasers, création de microprocesseurs, ...
 \end{frame}
 
-\begin{frame}{Plasma froids}
 
-\begin{framed}
-\textbf{Pour les "plasmas froids", l'énergie est d'abord emmagasinée par les électrons libres et cédée lors des collisions aux ions et neutres lourds.}
-\end{framed}
-%En fonction de l'efficacité des collisions, deux scénarii sont possibles:
-\begin{center}
-\begin{tabular}{cc}
-\onslide<2->{\textbf{Collisions peu efficaces}} & \onslide<3->{\textbf{Collisions efficaces}}\\
-\onslide<2->{
-%\begin{tikzpicture}[scale=3]
-%\node[blue] at (0,0) {$\bullet$};
-%\node at (.4,.3) {$\bullet$};
-%\node[red] at (.5,0) {$\bullet$};
-%\node[red] at (.3,-.2) {$\bullet$};
-%\node[red] at (-.2,-.3) {$\bullet$};
-%\node[red] at (.1,.4) {$\bullet$};
-%\draw[red, ->] (.5,0.) -- (.7, 0.);
-%\draw[red, ->] (.3,-.2) -- (.4, -.3);
-%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-%\draw[red, ->] (.1,.4) -- (0., .3);
-%\draw[blue, ->] (0,0) -- (-0.1,0);
-%\node[blue] at (0,0) [above right]{$+$};
-%\node at (.4,.3) [above right]{$n$};
-%\node[red] at (.5,0) [above right]{$e^-$};
-%\node[red] at (.3,-.2) [above right]{$e^-$};
-%\node[red] at (-.2,-.3) [above right]{$e^-$};
-%\node[red] at (.1,.4) [above right]{$e^-$};
-%\end{tikzpicture}
-$T_e \gg T_h$
-}
- &
-\onslide<3->{
-%\begin{tikzpicture}[scale=3]
-%\node[blue] at (0,0) {$\bullet$};
-%\node at (.4,.3) {$\bullet$};
-%\node[red] at (.5,0) {$\bullet$};
-%\node[red] at (.3,-.2) {$\bullet$};
-%\node[red] at (-.2,-.3) {$\bullet$};
-%\node[red] at (.1,.4) {$\bullet$};
-%\draw[red, ->] (.5,0.) -- (.7, 0.);
-%\draw[red, ->] (.3,-.2) -- (.4, -.3);
-%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-%\draw[red, ->] (.1,.4) -- (0., .3);
-%\draw[blue, ->] (0,0) -- (-0.2,0);
-%\draw[->] (.4,.3) -- (.6,.3);
-%\node[blue] at (0,0) [above right]{$+$};
-%\node at (.4,.3) [above right]{$n$};
-%\node[red] at (.5,0) [above right]{$e^-$};
-%\node[red] at (.3,-.2) [above right]{$e^-$};
-%\node[red] at (-.2,-.3) [above right]{$e^-$};
-%\node[red] at (.1,.4) [above right]{$e^-$};
-%\end{tikzpicture}}\\
-$T_e \simeq T_h$
-}\\
-\onslide<2->{Hors équilibre thermique} & \onslide<3->{Equilibre thermique}
-\end{tabular}
-\end{center}
-
-
-\end{frame}
 
 \begin{frame}{Plasma en réentrée atmosphérique}
 \centering
-\includegraphics[height=.35\linewidth]{./reentry_esa.jpg}
+\includegraphics[height=.35\linewidth]{./reentry_esa.jpg}\footnote{Coutesy of NASA.}
 \begin{framed}
-La grande vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$, un choc suffisamment fort pour ioniser l'air $\Rightarrow$ plasma.
+Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transformant l'air en plasma.
 \end{framed}
 \end{frame}
 
@@ -459,7 +212,7 @@ La grande vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$, un c
 \end{tabular}
 \onslide<4->{
 \begin{framed}
-\textbf{Nécessité de développer des machines expérimentales reproduisant les plasmas de réentrée atmosphérique pour étudier ces applications.}
+\textbf{Développement de dispositifs expérimentaaux reproduisant les plasmas de réentrée atmosphérique.}
 \end{framed}
 }
 \end{frame}
@@ -539,7 +292,7 @@ La grande vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$, un c
 \begin{framed}
 \textbf{Des solvers numériques (volumes finis) ont été développés afin de préparer au mieux les expériences dans les torches à induction.}
 \end{framed}
-\includegraphics[width=.7\linewidth]{lhtsT.pdf}\footnote{\tiny Thierry Magin.}
+\includegraphics[width=.7\linewidth]{lhtsT.pdf}\footnote{Courtesy of Thierry Magin.}
 \end{center}
 \end{frame}
 
@@ -621,7 +374,7 @@ Pour les volumes finis, la solution est constante sur chaque éléments.
 \onslide<2->
 {
 \begin{framed}
-\textbf{Les volumes finis nécessitent un maillage de bonne qualité, et donc très fin dans les régions de grande variation ou de géométrie complexe}
+\textbf{Les volumes finis nécessitent un maillage très fin dans les régions de grande variation ou de géométrie complexe.}
 \end{framed}
 
 \begin{itemize}
@@ -668,6 +421,261 @@ With the objective of producing a new high order solver for inductively coupled 
 
 \section{Model for inductively coupled plasma}
 
+%\begin{frame}{Translation, rotation et vibration}
+%
+%\begin{center}
+%\begin{tikzpicture}[scale=3.5, spring/.style={decorate,decoration={coil,aspect=0,segment length=2mm,amplitude=1mm}}]
+%
+%  % Oxygen atom color (blue)
+%  \definecolor{OxyBlue}{RGB}{70,130,255} % light-medium blue
+%  % Hydrogen atom color (red)
+%  \definecolor{HydRed}{RGB}{220,40,40}   % bright red
+%
+%  % Oxygen atom
+%  \shade[ball color=OxyBlue] (0,0) circle (0.3);
+%
+%  % Hydrogen atoms (approx 104° apart)
+%  \shade[ball color=HydRed] (0.9,0.5) circle (0.15);
+%  \shade[ball color=HydRed] (0.9,-0.5) circle (0.15);
+%  
+%  \node at (0,0) {O};
+%  \node at (0.9,0.5) {H};
+%  \node at (0.9,-0.5) {H};
+%  
+%  \draw[spring,thick] (0.25,0.15) -- (0.75,0.45);
+%  \draw[spring,thick] (0.25,-0.15) -- (0.75,-0.45);
+%  
+%  \onslide<2,5->{
+%  \draw[->, ultra thick] (-0.4,0) -- (-0.65,0) node[above]{Translation} -- (-0.9,0);
+%  }
+%  
+%  \onslide<3,5->{
+%  \draw[->,thick, ultra thick] (0.9,0.3) arc[start angle=25,end angle=-25,radius=.7];
+%  \node at (1., 0) [right]{Rotation};
+%  %\draw[bend right, ->, ultra thick] (0.9,-0.5) -- (0.9,0.5);
+%  }
+%  
+%  \onslide<4,5->{
+%  \draw[<->,thick, ultra thick] (0.15,0.27) -- (0.65,0.57);
+%  \node at (0.4, .42) [above, rotate=30] {Vibration};
+%  %\draw[bend right, ->, ultra thick] (0.9,-0.5) -- (0.9,0.5);
+%  }
+%
+%  % Optional arrows to mimic rotation (as in your image)
+%  %\draw[->,thick] (0.35,0.55) arc[start angle=100,end angle=20,radius=0.6];
+%  %\draw[->,thick] (0.35,-0.55) arc[start angle=-100,end angle=-20,radius=0.6];
+%
+%\end{tikzpicture}
+%\end{center}
+%
+%%Les molécules vibrent, tournent et se déplacent de plus en plus vite. Les electrons sont excités jusqu'à ce que certains se détachent et se meuvent librement.
+%\end{frame}
+%
+%\begin{frame}{Excitation et ionization}
+%
+%\begin{center}
+%\begin{tikzpicture}[scale=3.5, spring/.style={decorate,decoration={coil,aspect=0,segment length=2mm,amplitude=1mm}}]
+%
+%  % Oxygen atom color (blue)
+%  \definecolor{OxyBlue}{RGB}{70,130,255} % light-medium blue
+%  % Hydrogen atom color (red)
+%  \definecolor{HydRed}{RGB}{220,40,40}   % bright red
+%
+%  % Oxygen atom
+%  \shade[ball color=HydRed] (0,0) circle (0.2);
+%  
+%  \node at (0,0) {H};
+% 
+%  \onslide<2->
+%  {
+%  	\def\dist{1.5}
+%  	\fill[blue] (\dist,0) circle (0.03) node[below left=2pt] {$p^+$};
+%
+%  	% Orbit path (optional, dashed)
+%  	\draw[dashed,gray] (\dist,0) circle (.5);
+%
+%	\draw[->, ultra thick] (.4, 0) -- (.9,0);
+%
+%  	% Electron (red dot on orbit)
+%  	\def\ang{40} % position angle
+%  }
+%  
+%  \onslide<2>{
+%  	\fill[red] ({\dist+.5*cos(\ang)},{.5*sin(\ang)}) circle (0.03) 
+%  	node[below left] {$e^-$};
+%  }
+%  
+%  \onslide<3->
+%  {
+%  	\fill[red!50] ({\dist+.5*cos(\ang)},{.5*sin(\ang)}) circle (0.03) 
+%  	node[below left] {$e^-$};
+%  }  
+%  
+%  \onslide<3>
+%  {
+%  	\draw[dashed,gray] (\dist,0) circle (.7);
+%  	\fill[red] ({\dist+.7*cos(\ang)},{.7*sin(\ang)}) circle (0.03) 
+%  	node[above right] {$e^-$};
+%  	\draw[->, ultra thick, red] ({\dist+.55*cos(\ang)},{.55*sin(\ang)}) -- ({\dist+.65*cos(\ang)},{.65*sin(\ang)});
+%  }
+%  
+%  
+%  \onslide<4>
+%  {
+%  	%\draw[dashed,gray] (\dist,0) circle (.9);
+%  	\fill[red] ({\dist+.9*cos(\ang)},{.9*sin(\ang)}) circle (0.03) 
+%  	node[above right] {$e^-$};
+%  	\draw[->, ultra thick, red] ({\dist+.9*cos(\ang)+0.1},{.9*sin(\ang)}) -- ({\dist+.9*cos(\ang)+0.1+0.5},{.9*sin(\ang)});
+%  }
+%
+%\end{tikzpicture}
+%
+%\only<3>
+%{
+%	\begin{framed}
+%	\centering
+%	Si l'énergie reçue le permet, l'électron est dans un état \textcolor{red}{\textbf{excité}}. Il reviendra à son état initial en émettant de la lumière: c'est la \textbf{\textcolor{red}{radiation}}.
+%	\end{framed}
+%}
+%
+%\only<4>
+%{
+%	\begin{framed}
+%	\centering
+%	Si l'énergie reçue est suffisamment grande, l'électron est arraché: il devient \textcolor{red}{\textbf{libre}}. L'atome d'hydrogène a été \textbf{\textcolor{red}{ionisé}}.
+%	\end{framed}
+%}
+%
+%\end{center}
+%
+%\end{frame}
+%
+\begin{frame}{Plasma collective behaviour}
+
+\only<1>{
+\begin{framed}
+\textbf{A plasma is a quasi-neutral gas composed of charged 
+%(ions $\textcolor{blue}{\bullet^+}$ et electrons $\textcolor{red}{\bullet^{e^-}}$)
+and neutral particles 
+%($\bullet^n$)
+exhibiting a \underline{collective} behaviour.}
+%A plasma is a quasi-neutral gas of charged and neutral particles which exhibits collective behaviour.
+\end{framed}
+}
+\onslide<2->{
+\centering
+\begin{framed}
+\textbf{Collision = particles interaction}
+\end{framed}
+
+\begin{tabular}{cc}
+\textbf{Short ranged}} & \onslide<3->{\textbf{Long ranged}}\\
+\onslide<2->{
+\begin{tikzpicture}
+\fill[blue] (0,0) circle (0.1) node[above right] {$+$};
+\fill[black] (2,0) circle (0.1) node[above right]{$n$};
+\draw[blue, ->, thick] (0.2,0) -- (1.8, 0) -- (2.5, 1);
+\end{tikzpicture}} &
+\onslide<3->{\begin{tikzpicture}
+\fill[blue] (0,0) circle (0.1) node[above right] {$+$};
+\fill[blue] (2,0) circle (0.1) node[above right] {$+$};
+\draw[->,blue, thick] (0.2,0) arc[start angle=-90,end angle=-30,radius=1.5];
+\end{tikzpicture}}\\
+\onslide<2->{Direct contact (local \& binary)} & \onslide<3->{Electric force (distance and collective)}
+\end{tabular}
+\onslide<4->{
+\begin{framed}
+On sufficiently large scales ($> \SI{1}{\micro\meter}$ in our case), the electric neutrality of the plasma is guaranteed by the long range collisions (electric force).
+\end{framed}
+}
+\end{frame}
+
+\begin{frame}{Chemical equilibrium state}
+
+\begin{framed}
+\centering
+\textbf{Collisions may lead to chemical reactions.}
+%\begin{equation*}
+%A \leftrightharpoons B
+%\end{equation*}
+\end{framed}
+
+If $\tau_{chem}$ and $\tau_{hydro}$ are characteristic chemical reaction and flow time respectively:
+\begin{center}
+\begin{tabular}{ccc}
+\onslide<2->{$\tau_{chem} \gg \tau_{hydro}$} & \onslide<3->{$\tau_{chem} \simeq \tau_{hydro}$} & \onslide<4->{$\tau_{chem} \ll \tau_{hydro}$}\\
+%$A \leftrightharpoons B$ & $A \leftrightharpoons B$ & $A \leftrightharpoons B$\\
+\onslide<2->{Chemical equilibrium} & \onslide<3->{Chemical non-equilibrium} & \onslide<4->{Frozen flow}\\
+\end{tabular}
+\end{center}
+
+\onslide<5->{\textbf{Plasmas are in chemical equilibrium in this work.}}
+
+\end{frame}
+
+\begin{frame}{Cold plasmas and thermal equilibrium}
+
+\begin{framed}
+\textbf{"Cold plasmas" store energy in the free electrons. It is then transmitted during collisions to the ions et neutrals.}
+\end{framed}
+%En fonction de l'efficacité des collisions, deux scénarii sont possibles:
+\begin{center}
+\begin{tabular}{cc}
+\onslide<2->{\textbf{Inneficient collisions}} & \onslide<3->{\textbf{Efficient collisions}}\\
+\onslide<2->{
+%\begin{tikzpicture}[scale=3]
+%\node[blue] at (0,0) {$\bullet$};
+%\node at (.4,.3) {$\bullet$};
+%\node[red] at (.5,0) {$\bullet$};
+%\node[red] at (.3,-.2) {$\bullet$};
+%\node[red] at (-.2,-.3) {$\bullet$};
+%\node[red] at (.1,.4) {$\bullet$};
+%\draw[red, ->] (.5,0.) -- (.7, 0.);
+%\draw[red, ->] (.3,-.2) -- (.4, -.3);
+%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+%\draw[red, ->] (.1,.4) -- (0., .3);
+%\draw[blue, ->] (0,0) -- (-0.1,0);
+%\node[blue] at (0,0) [above right]{$+$};
+%\node at (.4,.3) [above right]{$n$};
+%\node[red] at (.5,0) [above right]{$e^-$};
+%\node[red] at (.3,-.2) [above right]{$e^-$};
+%\node[red] at (-.2,-.3) [above right]{$e^-$};
+%\node[red] at (.1,.4) [above right]{$e^-$};
+%\end{tikzpicture}
+$T_e \gg T_h$
+}
+ &
+\onslide<3->{
+%\begin{tikzpicture}[scale=3]
+%\node[blue] at (0,0) {$\bullet$};
+%\node at (.4,.3) {$\bullet$};
+%\node[red] at (.5,0) {$\bullet$};
+%\node[red] at (.3,-.2) {$\bullet$};
+%\node[red] at (-.2,-.3) {$\bullet$};
+%\node[red] at (.1,.4) {$\bullet$};
+%\draw[red, ->] (.5,0.) -- (.7, 0.);
+%\draw[red, ->] (.3,-.2) -- (.4, -.3);
+%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+%\draw[red, ->] (.1,.4) -- (0., .3);
+%\draw[blue, ->] (0,0) -- (-0.2,0);
+%\draw[->] (.4,.3) -- (.6,.3);
+%\node[blue] at (0,0) [above right]{$+$};
+%\node at (.4,.3) [above right]{$n$};
+%\node[red] at (.5,0) [above right]{$e^-$};
+%\node[red] at (.3,-.2) [above right]{$e^-$};
+%\node[red] at (-.2,-.3) [above right]{$e^-$};
+%\node[red] at (.1,.4) [above right]{$e^-$};
+%\end{tikzpicture}}\\
+$T_e \simeq T_h$
+}\\
+\onslide<2->{Thermal non-equilibrium} & \onslide<3->{Thermal equilibrium}
+\end{tabular}
+\end{center}
+
+\onslide<3->{\textbf{Plasmas are in thermal equilibrium in this work.}}
+
+\end{frame}
+
 \begin{frame}{Hypothesis on the plasma}
 
 %\begin{framed}
@@ -699,7 +707,7 @@ With the objective of producing a new high order solver for inductively coupled 
 
 \onslide<5->
 {
-\item\textbf{Non-radiative plasma}
+\item\textbf{Optically thick plasma}
 }
 
 \onslide<6->
@@ -756,19 +764,12 @@ T_e \simeq T_h
 \end{center}
 }
 
-\only<2>
-{
-
-Characteristic length $\gg$ Debye length
-\begin{equation*}
-E_{thermal} \simeq E_{elec}
-\end{equation*}
-and
-\begin{equation*}
-q \simeq 0
-\end{equation*}
-
-}
+%\only<2>
+%{
+%
+%Characteristic length $\gg$ Debye length so that $q \simeq 0$.
+%
+%}
 
 \only<3>
 {
@@ -1550,7 +1551,7 @@ If the $\varphi_{K,i}$ is a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}
 
 With the solution gradient
 \begin{equation*}
-\vecq = \nabla \vecu \simeq \vecq_h = \sum_{K\in\mathcal{T}}\sum_{i=1}^{p} \vecq_{K,i} \vectau_{K,i}
+\vecq = \nabla \vecu \simeq \vecq_h
 \end{equation*}
 with the subset
 \begin{equation*}
@@ -1797,7 +1798,7 @@ with
 \end{equation*}
 with 
 \begin{equation*}
-	\gamma = C \max_{K \ni f}\left(\frac{1}{2\mathcal{V}} \sum_{f\in K} \mathcal{A}\right) 
+	\gamma = C \max_{f\in K}\left(\frac{1}{2\mathcal{V}} \sum_{f\in K} \mathcal{A}\right) 
 \end{equation*}
 
 C depends on the diffusive transport coefficients.
@@ -2039,32 +2040,32 @@ System solved for $\veclambda$, then $\vecu$ and $\vecq$ are retrieved by small 
 \begin{equation*}
 	\begin{aligned}
 		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
-		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \textcolor{red}{\gamma \left.\vecF^L\right|_{I_c = \SI{1}{\ampere}}}\\
-		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = \textcolor{red}{\gamma \left.P_J\right|_{I_c = \SI{1}{\ampere}}}\\
+		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \textcolor{red}{\gamma \left(\vecF^L\right)'}\\
+		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = \textcolor{red}{\gamma P_J'}\\
 	\end{aligned}
 \end{equation*}
 
 \begin{equation*}
-	\Delta \textcolor{red}{\left.E_P\right|_{I_c = \SI{1}{\ampere}}} = \frac{\textcolor{red}{\left.E_P\right|_{I_c = \SI{1}{\ampere}}}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\textcolor{red}{\left.E_C\right|_{I_c = \SI{1}{\ampere}}} + \textcolor{red}{\left.E_P\right|_{I_c = \SI{1}{\ampere}}}\right)
+	\Delta \textcolor{red}{E_P'} = \frac{\textcolor{red}{E_P'}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\textcolor{red}{E_C'} + \textcolor{red}{E_P'}\right)
 \end{equation*}
+
+with
+\begin{equation*}
+E_P = \sqrt{\gamma} E_P' \quad E_C = \sqrt{\gamma} E_C'
+\end{equation*}
+
 }
 \end{frame}
 
 \begin{frame}{Power ratio}
 
-$\gamma$ is the power ratio
+$\gamma$ is computed at every Newton iteration by equalizing
 \begin{equation*}
-\gamma = \frac{P_{target}}{P|_{I_c=\SI{1}{\ampere}}}
+\gamma = \frac{P_{target}}{\int_{NS}P_J' dV}
 \end{equation*}
-with $P_{target}$ the desired power and
-\begin{equation*}
-P|_{I_c=\SI{1}{\ampere}} = \int_{NS}\frac{\sigma_e}{2} ||\left.E_C\right|_{I_c = \SI{1}{\ampere}} + \left.E_P\right|_{I_c = \SI{1}{\ampere}}||^2 dV
-\end{equation*}
+with $P_{target}$ the desired power dissipated in the facility.
 
-$\gamma$ is computed at every Newton iteration and used to scale $\left.P_J\right|_{I_c = \SI{1}{\ampere}}$ and $\left.\vecF^L\right|_{I_c = \SI{1}{\ampere}}$. The true electric fields are given by
-\begin{equation*}
-E_C = \sqrt{\gamma} E_C|_{I_c = \SI{1}{\ampere}} \quad E_P = \sqrt{\gamma} E_P|_{I_c = \SI{1}{\ampere}}
-\end{equation*}
+The power was found to remain constant and $\gamma$ was converging towards a value using this method.
 
 \end{frame}
 
@@ -2309,7 +2310,7 @@ Very similar results except for the electric field in the torch, might be due to
 
 \textbf{We use GMRES solver with at most $50$ vectors and a ILU(4) preconditioner.}
 
-We first solve at order 1 then order 4 (red separation line).
+We first solve with polynomial degree 1 then 4 (red separation line).
 
 \begin{center}
 \only<1>
