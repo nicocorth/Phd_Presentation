@@ -1432,7 +1432,7 @@ Before going further, some notation:
 
 \end{frame}
 
-\begin{frame}{From weak form to discrete DG problem}
+\begin{frame}{From weak form to HDG}
 
 \only<1>
 {
@@ -1479,7 +1479,7 @@ W_h = \left\{w \in L^2(\Omega) : w|_K \in \mathcal{P}^p(K), \forall K\in \tessel
 {
 \begin{framed}
 \begin{equation*}
-\left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \textcolor{red}{\vecHcal}, w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
+\left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \textcolor{red}{\vecHcal (\vecu, \nabla \vecu)}, w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
 \end{equation*}
 \end{framed}
 
@@ -1493,7 +1493,7 @@ For stabilizing the method, the convective and diffusive fluxes on the interface
 {
 \begin{framed}
 \begin{equation*}
-\left(\partial_t \vecw_{\textcolor{red}{h}} - \vecS_{\textcolor{red}{h}}, w \right)_{\tesselation} - \left(\vecF_{c, {\textcolor{red}{h}}} - \vecF_{v, {\textcolor{red}{h}}}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \vecHcal, w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
+\left(\partial_t \vecw_{\textcolor{red}{h}} - \vecS_{\textcolor{red}{h}}, w \right)_{\tesselation} - \left(\vecF_{c, {\textcolor{red}{h}}} - \vecF_{v, {\textcolor{red}{h}}}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \vecHcal (\vecu, \nabla \vecu), w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
 \end{equation*}
 \end{framed}
 
@@ -1507,7 +1507,10 @@ The solution is also approximated by
 {
 \begin{framed}
 \begin{equation*}
-\left(\partial_t \vecw_{h} - \vecS_{h}, \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} + \left\langle \vecHcal, \textcolor{red}{\varphi_{K,i}} \right\rangle_{\partial K} = 0, \; \forall \textcolor{red}{\varphi_{K,i}} \in W_h
+\begin{aligned}
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} + \left\langle \vecHcal(\textcolor{red}{\vecu_h, \nabla \vecu_h}), \textcolor{red}{\varphi_{K,i}} \right\rangle_{\partial K} = 0,\\
+& \forall \textcolor{red}{\varphi_{K,i}} \in W_h
+\end{aligned}
 \end{equation*}
 \end{framed}
 
@@ -1522,7 +1525,10 @@ If the $\varphi_{K,i}$ is a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}
 {
 \begin{framed}
 \begin{equation*}
-\left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal, \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h
+\begin{aligned}
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal (\vecu_h, \nabla \vecu_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
+& \forall \varphi_{K,i} \in W_h
+\end{aligned}
 \end{equation*}
 \end{framed}
 \begin{itemize}
@@ -1534,17 +1540,14 @@ If the $\varphi_{K,i}$ is a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}
 \end{itemize}
 }
 
-\end{frame}
-
-\begin{frame}{From DG to HDG}
-
-\only<1>
+\only<8>
 {
 \begin{framed}
 \begin{equation*}
 \begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal, \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \textcolor{red}{\left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\; \forall \vectau_{K,i} \in V_h}
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\varphi_{K,i}, \textcolor{red}{\vectau_{K,i}}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \\
+& \textcolor{red}{\left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,} \\
+& \forall \varphi_{K,i} \in W_h, \; \textcolor{red}{\forall \vectau_{K,i} \in V_h}
 \end{aligned}
 \end{equation*}
 \end{framed}
@@ -1561,13 +1564,14 @@ and local basis $\vectau_{K,i}$.
 
 }
 
-\only<2>
+\only<9>
 {
 \begin{framed}
 \begin{equation*}
 \begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\textcolor{red}{\veclambda_h}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \; \forall \varphi_{K,i} \in W_h\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \textcolor{red}{\veclambda_h}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0, \forall \vectau_{K,i} \in V_h
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\textcolor{red}{\veclambda_h}, \varphi_{K,i}, \vectau_{K,i}), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \textcolor{red}{\veclambda_h}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0\\ 
+& \forall \varphi_{K,i} \in W_h, \; \forall \vectau_{K,i} \in V_h
 \end{aligned}
 \end{equation*}
 \end{framed}
@@ -1586,7 +1590,7 @@ M_h = \left\{\mu \in L^2(\Gamma) : \mu|_e \in \mathcal{P}^p(e), \forall e\in \Ga
 
 }
 
-\only<3>
+\only<10>
 {
 \begin{framed}
 \small
@@ -1599,7 +1603,7 @@ M_h = \left\{\mu \in L^2(\Gamma) : \mu|_e \in \mathcal{P}^p(e), \forall e\in \Ga
 \end{equation*}
 \end{framed}
 
-Equation for $\veclambda$: continuity of the normal numerical flux across the interfaces.
+Equation for $\veclambda$: conservativity of the normal numerical flux across the interfaces.
 
 The jump operator is given by
 \begin{equation*}
@@ -1608,7 +1612,7 @@ The jump operator is given by
 
 }
 
-\only<4->
+\only<11->
 {
 \begin{framed}
 \small
@@ -1627,7 +1631,7 @@ The jump operator is given by
 
 }
 
-\only<5>
+\only<12>
 {
 As will be seen later, HDG allows for static condensation, effectively reducing the number of DOFs when using a Newton solver.
 }
@@ -2020,6 +2024,20 @@ System solved for $\veclambda$, then $\vecu$ and $\vecq$ are retrieved by small 
 
 \textbf{If the power dissipated is not maintained, the torch quenches!}
 
+\only<1>
+{
+\begin{center}
+	\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_P.png}};
+	\end{tikzpicture}
+\end{center}
+\begin{framed}
+\begin{equation*}
+P_{target} = \int_{NS} P_J dV
+\end{equation*}
+\end{framed}
+}
+
 \only<2>
 {
 \begin{equation*}
@@ -2107,12 +2125,12 @@ f(z,r) = \left(\frac{rz}{RL}\right)^2\exp\left(-\frac{z}{L} - \frac{r}{R_1}\righ
 \begin{tabular}{cc}
 \only<1>
 {
-\hspace{-1.3cm}\input{./Convergence_Study_Plot_p_0} &
+\hspace{-1cm}\input{./Convergence_Study_Plot_p_0} &
 \input{./Convergence_Study_Plot_u_0}
 }
 \only<2>
 {
-\hspace{-1.3cm}\input{./Convergence_Study_Plot_v_0} & \input{./Convergence_Study_Plot_T_0}
+\hspace{-1cm}\input{./Convergence_Study_Plot_v_0} & \input{./Convergence_Study_Plot_T_0}
 }
 \end{tabular}
 \only<3>
@@ -2136,11 +2154,11 @@ f(z,r) = \left(\frac{rz}{RL}\right)^2\exp\left(-\frac{z}{L} - \frac{r}{R_1}\righ
 \begin{tabular}{cc}
 \only<1>
 {
-\hspace{-1.3cm}\input{./Convergence_Study_Plot_EpRe_0} & \input{./Convergence_Study_Plot_EpIm_0}
+\hspace{-1cm}\input{./Convergence_Study_Plot_EpRe_0} & \input{./Convergence_Study_Plot_EpIm_0}
 }
 \only<2>
 {
-\hspace{-1.5cm}\input{./Convergence_Study_Plot_EpRe_1} & \input{./Convergence_Study_Plot_EpIm_1}
+\hspace{-1cm}\input{./Convergence_Study_Plot_EpRe_1} & \input{./Convergence_Study_Plot_EpIm_1}
 }
 \end{tabular}
 
