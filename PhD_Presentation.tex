@@ -943,19 +943,51 @@ $E_1(k)$, $E_2(k)$ elliptic integral of the first and second kind.
 
 \end{frame}
 
-\begin{frame}{Transport properties}
+\begin{frame}{Transport properties : Mutation++}
 
-\begin{framed}
+%\begin{framed}
+%\centering
+%\textbf{The transport properties are computed using Mutation++}
+%
+%%$\eta$, $k$, $\sigma_e$ 
+%\end{framed}
+
 \centering
-\textbf{The transport properties are computed using Mutation++}
-
-$\eta$, $k$, $\sigma_e$ 
-\end{framed}
-
 \begin{center}
 \includegraphics[width=.8\linewidth]{./mpp-logo.png}
 \end{center}
 
+Uses a Galerkin approximate solution of the linearized Boltzmann equation for computing the transport coefficients ($\sigma_e$, $\eta$, $\lambda$).
+
+
+\end{frame}
+
+\begin{frame}{Transport properties : viscosity}
+\centering
+\begin{minipage}{0.49\linewidth}
+\input{./mu}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+\begin{equation*}
+	\eta_i \propto \frac{\sqrt{T_i}}{\sigma_i}.
+\end{equation*}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}{Transport properties : heat conductivity}
+\centering
+\begin{minipage}{.49\linewidth}
+\input{./lambda}
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+\input{./X}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Transport properties : electric conductivity}
+\centering
+\input{./sigma_e}
 \end{frame}
 
 \begin{frame}{Coupling of the systems}
@@ -2170,7 +2202,7 @@ f(z,r) = \left(\frac{rz}{RL}\right)^2\exp\left(-\frac{z}{L} - \frac{r}{R_1}\righ
 
 \end{frame}
 
-\begin{frame}{Grid and order dependence study}
+\begin{frame}{Mesh and order dependence study}
 
 \begin{figure}[h]
 	\centering
@@ -2182,16 +2214,11 @@ f(z,r) = \left(\frac{rz}{RL}\right)^2\exp\left(-\frac{z}{L} - \frac{r}{R_1}\righ
 {
 \begin{framed}
 \centering
-\textbf{Mesh independence study : this relatively coarse mesh at $p=4$ with 4013 elements for the probe case and 3055 for the freestream case.}
+\textbf{This mesh at $p=4$ with 4013 elements for the probe case and 3055 for the freestream case is sufficient for capturing the solution accurately.}
 \end{framed}
 
-In the following we only consider the probe case.
+The mesh size close to the probe is $\SI{10}{\micro\meter}$ thick, while it is of $\SI{1}{\micro\meter}$ for FV!
 
-}
-
-\only<2>
-{
-The mesh size close to the probe is $\SI{10}{\micro\meter}$ thick, while it is of $\SI{1}{\micro\meter}$ for the finite volume solvers!
 }
 
 \end{frame}
@@ -2200,22 +2227,9 @@ The mesh size close to the probe is $\SI{10}{\micro\meter}$ thick, while it is o
 
 \begin{framed}
 \textbf{A coflow is introduced in the chamber for obtaining a steady state, does it have an important impact?}
-\only<5>{\textcolor{red}{Short answer is no.}}
+\only<5>{\textcolor{red}{Short answer is no, BUT...}}
 \end{framed}
-
 \only<2>
-{
-We consider an ICP flow with the following characteristics
-\begin{itemize}
-	\item $P = \SI{100}{\kilo\watt}$ (power dissipated in the facility)
-	\item $p_0 = \SI{10000}{\pascal}$ (background pressure)
-	\item $f = \SI{0.37}{\mega\hertz}$ (induction frequency)
-	\item $Q = \SI{16}{\gram\;\second^{-1}}$ (mass flow rate)
-	\item $S = \SI{20}{\degree}$ (swirl angle)
-	\item air mixture with 11 species
-\end{itemize}
-}
-\only<3>
 {
 \centering
 	\begin{tikzpicture}[scale = .8]
@@ -2240,30 +2254,41 @@ We consider an ICP flow with the following characteristics
 		\draw[thick, red, <->] (4.15, 0.) -- (4.15, 0.75) node[right]{TC} -- (4.15, 1.5);
 		\draw[thick, red, <->] (10, 0.) -- (10, 0.75) node[left]{PF} -- (10, 1.5);
 		\draw[black] (0,0) node{$\bullet$};
-		\draw[black] (0,0) node[below left]{$(0,0)$};  
+		\draw[black] (0,0) node[below left]{$(0,0)$};
+		\draw[blue, thick, ->] (8.5,2.75)-- (9.5, 2.75) node[above right]{$U_{blow} = \chi U_{in}$} --(10.5,2.75);
 	\end{tikzpicture}
 }
-
-\only<4>
+\only<3>
 {
-The coflow parameter $\chi$ is defined as
+\begin{minipage}{.49\linewidth}
+\begin{itemize}
+	\item $P = \SI{100}{\kilo\watt}$
+	\item $p_0 = \SI{10000}{\pascal}$
+	\item $f = \SI{0.37}{\mega\hertz}$
+	\item $Q = \SI{16}{\gram\;\second^{-1}}$
+	\item $S = \SI{20}{\degree}$
+	\item air mixture with 11 species
+\end{itemize}
+\end{minipage}
+\hfill\begin{minipage}{.49\linewidth}
+\centering
+The coflow $\chi$ is defined as
 \begin{equation*}
 \chi = \frac{U_{blow}}{U_{in}}
 \end{equation*}
 and tested from $0.2$ to $1.0$.
+\end{minipage}
 }
-
-\only<5>
+\only<4>
 {
 %Short answer, $\chi$ does not have an impact, the only measurable impact being on the region where the coflow is injected.
 \begin{tabular}{cc}
 \input{./HS50mm_Radial_1_N=4163_u} & \input{./HS50mm_Radial_1_N=4163_v}
 \end{tabular}
 }
-
-\only<6>
+\only<5>
 {
- However, we were not able to obtain any steady state without coflow.
+ ... we were not able to obtain any steady state without coflow.
 
  A question to ask is to see if steady state is possible in ICP?
  
@@ -2538,6 +2563,54 @@ We performed a parametric study of ICP for the parameters used by the experiment
 
 \end{frame}
 
+
+\begin{frame}{Power dissipated in the facility: impact on mass flow rate}
+
+\centering
+\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_Streamlines_min.png}};
+	\node at (0,-2.4) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./HS_Streamlines_max.png}}};
+\end{tikzpicture}
+
+$P_{tot} = \SI{50}{\kilo\watt}$ (top) and $P_{tot} = \SI{200}{\kilo\watt}$ (bottom)
+
+\end{frame}
+
+\begin{frame}{Power dissipated in the facility: impact in the torch}
+
+\centering
+\begin{tabular}{cc}
+	\hspace{-.7cm}\input{./Torch_Center_P_T.tex} & \input{./Torch_Center_P_P.tex}
+\end{tabular}
+
+
+\end{frame}
+
+\begin{frame}{Power dissipated in the facility: impact along the stagnation line}
+
+\only<1>
+{
+\centering
+	\begin{tabular}{cc}
+		\hspace{-1cm}\input{./Stagnation_P_u.tex} &
+		\input{./Stagnation_P_gradv_r.tex}
+	\end{tabular}
+}
+
+\only<2>
+{
+\centering
+\begin{tabular}{cc}
+	\centering
+	\begin{tabular}{cc}
+		\hspace{-1cm}\input{./Stagnation_P_gradT_z.tex} &
+		\input{./probe_heat_flux.tex}
+	\end{tabular}
+\end{tabular}
+}
+
+\end{frame}
+
 \section{Conclusions and future work}
 
 \begin{frame}{Conclusions}
@@ -2601,9 +2674,32 @@ We see the following roadmap:
 
 \item Development of radiation.
 
+\item For all of the above, comparison with experiment when possible.
+
 \end{itemize}
 
 %Once these milestones are performed, the path is open to supersonic ICP flows.
+
+\end{frame}
+
+\begin{frame}{Comparison with experiment}
+
+\centering
+\begin{minipage}{.7\linewidth}
+\input{./comparison_experiment}
+\end{minipage}
+\begin{minipage}{.29\linewidth}
+\begin{itemize}
+\item $p_0 = \SI{200}{\milli\bar}$
+\item $Q = \SI{16}{\gram\;\second^{-1}}$ 
+\item $P_{exp.} = \SI{200}{\kilo\watt}$
+\item $P_{num.} = \SI{78}{\kilo\watt}$
+\item Freestream, no swirl, air.
+\end{itemize}
+\end{minipage}
+
+\centering
+Comparison of the experimental $T(r)$ at $\SI{385}{\milli\meter}$ from the torch exit, from $r = 0$ to $\SI{40}{\milli\meter}$.
 
 \end{frame}
 

@@ -1,0 +1,32 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}[scale=.9]
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+
+\begin{axis}[
+scale = .9,
+xlabel = {$P_{tot}$ [W]},
+ylabel = {$q$ [W m$^{-2}$]},
+tick align=outside,
+tick pos=left,
+x grid style={darkgray176},
+xmajorgrids,
+xmin=42500, xmax=207500,
+xtick style={color=black},
+y grid style={darkgray176},
+ymajorgrids,
+ymin=253986.622510537, ymax=4995015.59592373,
+ytick style={color=black},
+ytick={0,1000000,2000000,3000000,4000000,5000000},
+yticklabels={0,1,2,3,4,5}
+]
+\addplot [semithick, blue]
+table {%
+50000 469487.939483864
+100000 1917371.40014216
+150000 3181164.90383653
+200000 4779514.2789504
+};
+\end{axis}
+
+\end{tikzpicture}
