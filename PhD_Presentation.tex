@@ -212,7 +212,7 @@ Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transfor
 \end{tabular}
 \onslide<4->{
 \begin{framed}
-\textbf{Développement de dispositifs expérimentaaux reproduisant les plasmas de réentrée atmosphérique.}
+\textbf{Développement de dispositifs expérimentaux reproduisant les plasmas de réentrée atmosphérique.}
 \end{framed}
 }
 \end{frame}
@@ -277,12 +277,12 @@ Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transfor
     {
     Examples: Plasmatron (VKI), Plasmatron X (Illinois), IPG (Russie), ...
     
-    Basé sur le principe de \textbf{transfer de chaleur local}.
+    Basé sur le principe de \textbf{transfer de chaleur local} (video).
     }
-    \only<2>
-    {
-    	Résoudre les équations de Maxwell, de Navier-Stokes + modèles physico-chimiques + modèle de radiation.
-    }
+    %\only<2>
+    %{
+    	%Résoudre les équations de Maxwell, de Navier-Stokes + modèles physico-chimiques + modèle de radiation.
+    %}
     %Physique de l'électromagnétisme, equations de la mécanique des fluides, et chimie/thermodynamique.
 \end{frame}
 
@@ -290,117 +290,198 @@ Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transfor
 
 \begin{center}
 \begin{framed}
-\textbf{Des solvers numériques (volumes finis) ont été développés afin de préparer au mieux les expériences dans les torches à induction.}
+\textbf{Des solvers numériques ont été développés afin de préparer au mieux les expériences dans les torches à induction.}
 \end{framed}
 \includegraphics[width=.7\linewidth]{lhtsT.pdf}\footnote{Courtesy of Thierry Magin.}
 \end{center}
 \end{frame}
 
-\begin{frame}{Motivations de la thèse}
-%\begin{framed}
-%\centering
-%\textbf{La plupart des solvers représentent des écoulements axisymmétriques en régime établi avec un modèle chimique et thermique d'équilibre.}
-%\end{framed}
+\begin{frame}{Objectif de la thèse}
+\begin{center}
+\begin{framed}
+\textbf{On propose un nouveau type de solver numérique pour les plasmas afin de représenter plus de situations physiques.}
+\end{framed}
 
-\textbf{La plupart des solvers actuels}
+\includegraphics[height = .15\linewidth]{./coil_effect.png}
+\includegraphics[height = .15\linewidth]{./plasmatron_nozzle_operating.png}
+\includegraphics[height = .15\linewidth]{./plasmatron_nozzles.png}
+\includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}
 
-\begin{itemize}
-\item \onslide<2->{Ne représentent que des géométries axisymmétriques et simples.}
+\end{center}
+\end{frame}
 
-\only<2>{
+\begin{frame}{ICP facility: an overview}
+\begin{minipage}[t]{0.5\linewidth}
+    \centering
+    \vspace{0.7cm}
+    \begin{tikzpicture}[scale=0.7]
+      \draw[dash dot] (0,0) -- (8.5,0);
+      \draw[-] (-0.5,-1) -- (0, -1) -- (0,1) -- (-0.5,1);
+      \fill[gray, opacity=0.5] (-0.5,-1) -- (0, -1) -- (0,1) -- (-0.5,1) -- (-0.5,-1);
+      \draw[-] (-0.5,1.5) -- (8,1.5);
+      \draw[-] (-0.5,-1.5) -- (8,-1.5);
+      \foreach \x in {1,2,...,6}{
+        \filldraw[gray, opacity = 0.5] (\x, 1.8) circle (0.2);
+        \filldraw[gray, opacity = 0.5] (\x, -1.8) circle (0.2);
+      }
+      \begin{scope}[red]
+      \begin{scope}[yshift=1cm,yscale=-0.6,xscale=1.5]
+      \spiral{10}
+      \end{scope}
+      \begin{scope}[yshift=-1cm,yscale=0.6,xscale=1.5]
+      \spiral{10}
+      \end{scope}
+      \draw plot [help lines, smooth] coordinates {(-0.5,1.2) (0,1.2) (1.5, 1.0) (3, 0.3) (8, 0.3)};
+      \draw plot [help lines, smooth] coordinates {(-0.5, -1.2) (0,-1.2) (1.5, -1.0) (3, -0.3) (8, -0.3)};
+      
+      \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0,1.4) (1.5, 1.2) (3, 0.5) (8, 0.5)};
+      \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0,-1.4) (1.5, -1.2) (3, -0.5) (8, -0.5)};
+      
+      \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0, 1.4) (1.5, 1.4) (3, 0.8) (8, 0.8)};
+      \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0, -1.4) (1.5, -1.4) (3, -0.8) (8, -0.8)};
+      
+      \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0, 1.4) (1.5, 1.4) (3, 1.0) (8, 1.0)};
+      \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0, -1.4) (1.5, -1.4) (3, -1.0) (8, -1.0)};
+      
+      \draw (6,1.2) node{\tiny \textcolor{red}{Streamlines}};
+      \draw (3,2.3) node{\tiny \textcolor{black}{Coil}};
+      \draw (-1,0) node{\tiny \rotatebox{90}{\textcolor{blue}{Inflow}}};
+      \end{scope}
+      
+      %\draw (2,0.2) node{$T\simeq \SI{}{10^4\kelvin}$};
+      \draw[blue, ->, thick](-1.25, 1.25) -- (-0.75,1.25);
+      \draw[blue, ->, thick](-1.25, -1.25) -- (-0.75,-1.25);
+      %\draw (3.5,2.3) node{\includegraphics[width=0.1\linewidth]{AC_Sign.png}};
+      %\draw (6,1.2) node{$p \simeq \SI{}{10^4\pascal}$};
+      
+    \end{tikzpicture}
+    
+    \vspace{0.45cm}
+    Torch
+    
+    $T ~ \SI{10 0000}{K}$, $p \in [\SI{1000}{\pascal}; \SI{100000}{\pascal}]$.
+    
+    Air, argon, carbon dioxide.
+    \end{minipage}
+    \begin{minipage}[t]{0.49\linewidth}
+    \centering
+    \vspace{0.5cm}\includegraphics[width=\linewidth]{Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg}
+    
+    Chamber
+    
+    $Re ~ 100$, $Ma ~ 0.01$.
+    
+    At LTE \& non equilibrium.
+    \end{minipage}
+    
+    
+\end{frame}
+
+\begin{frame}{ICP : geometry}
+\begin{center}
+\begin{tikzpicture}[scale = .8]
+		\draw[dash dot] (-1.0,0) -- (15,0);
+		\draw[-, thick] (0, 0) -- (0,1) -- (-1.0,1);
+		\fill[gray, opacity=0.5] (-1.0,0) -- (0, 0) -- (0,1) -- (-1.0,1) -- (-1.0,-1);
+		\draw[-,thick] (-1.0,1.5) -- (8.5,1.5) -- (8.5,4.);
+		\foreach \x in {1,2,...,6}{
+			\filldraw[gray, opacity = 0.5] (\x, 2.) circle (0.2);
+		}
+		\draw[-, thick] (15, 0.5) -- (13,0.5) arc[start angle=90, end angle = 180, radius=0.5];
+		\draw[<->] (0,2) -- (1.,2);
+		\draw (.5,2.5) node{$\SI{127}{\milli\meter}$};
+		\draw[<->] (3,2) -- (4,2);
+		\draw (3.5,2.5) node{$\SI{50}{\milli\meter}$};
+		\draw[<->] (0,-0.2) -- node[below]{$\SI{486}{\milli\meter}$} (8.5,-0.2);
+		\draw[<->] (8.5,-0.2) -- node[below]{$\SI{385}{\milli\meter}$} (12.5,-0.2);
+		\draw[<->] (0.1,0) -- node[right]{$\SI{75}{\milli\meter}$} (0.1,1);
+		\draw[<->] (-1.1, 1.) -- node[left]{$\SI{5}{\milli\meter}$} (-1.1,1.5);
+		\draw[<->] (13,0) -- node[right]{$\SI{25}{\milli\meter}$} (13,0.5);
+		%\draw[thick, red, <->] (12.5, 0.) -- (12, 0.) node[above]{STAG} -- (11.5, 0.);
+		%\draw[thick, red, <->] (4.15, 0.) -- (4.15, 0.75) node[right]{TC} -- (4.15, 1.5);
+		%\draw[thick, red, <->] (10, 0.) -- (10, 0.75) node[left]{PF} -- (10, 1.5);
+		\draw[black] (0,0) node{$\bullet$};
+		\draw[black] (0,0) node[below left]{$(0,0)$};  
+	\end{tikzpicture}
+\end{center}   
+
+Large temperature gradients!
+    
+\end{frame}
+
+\begin{frame}{ICP : existing solvers}
+
 \begin{center}
 \includegraphics[width=.7\linewidth]{lhtsT.pdf}
 \end{center}
-}
 
-\only<3>{
+\begin{minipage}{0.49\linewidth}
+\begin{itemize}
+\item Axisymmetric.
+\item Subsonic.
+\item Steady-state.
+\item Local thermodynamic equilibrium.
+\item No-radiation.
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+\begin{itemize}
+\item Relatively slow convergence.
+\item Requires a constant attention during convergence processes.
+\end{itemize}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{ICP : what is missing?}
 
 \begin{center}
-\includegraphics[height=.23\linewidth]{./coil_effect.png}
-\includegraphics[height = .23\linewidth]{./plasmatron_nozzle_operating.png}
-\includegraphics[height = .23\linewidth]{./plasmatron_nozzles.png}
-\end{center}
-}
-
-\onslide<4->{\textit{Besoin d'un solver 3D.}}
-
-\item \onslide<5-> {Sont en régime établi.}
-
-\only<6>
-{
-\begin{center}
+\includegraphics[height = .15\linewidth]{./coil_effect.png}
+\includegraphics[height = .15\linewidth]{./plasmatron_nozzle_operating.png}
+\includegraphics[height = .15\linewidth]{./plasmatron_nozzles.png}
 \includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}
 \end{center}
-}
 
-\onslide<7-> {\textit{Besoin d'un solver instationnaire.}}
-
-\item \onslide<8-> {Utilisent un modèle à l'équilibre chimique et thermique sans radiation.}
-
-\only<9>{
-\textit{C'est faux! Car la les déséquilibre chimique et thermique ont été observés dans les plasma à induction! La radiation joue aussi un rôle important dans le transfer de chaleur.}
-}
-
-\onslide<10->{
-\textit{Besoin d'un solver avec une chimie plus détaillée et de la radiation.}
-}
-
-\end{itemize}
-
-\onslide<11->{
 \begin{framed}
-\textbf{Peut-on améliorer les solvers volume finis actuels afin de pouvoir prendre en compte toute la physique?}
+\textbf{Can we offer a framework able to support future ICP simulations requirements?}
 \end{framed}
-}
 
 \end{frame}
 
-\begin{frame}{Le problème des solvers volume finis actuels.}
+\begin{frame}{Finite volume solver limitations.}
 
 \begin{center}
-\includegraphics[width=.65\linewidth]{./thierry_mesh.png}
-\reflectbox{\includegraphics[width = .65\linewidth, angle=180, origin=c]{./thierry_mesh.png}}
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics[width=.65\linewidth]{lhtsT.pdf}};
+\node at (0,-.7) {\reflectbox{\includegraphics[width = .65\linewidth, angle=180, origin=c]{./thierry_mesh.png}}};
+\end{tikzpicture}
 \end{center}
 
-\only<1>{
-\begin{center}
-\includegraphics[width=.65\linewidth]{lhtsT.pdf}
-\end{center}
-
-Pour les volumes finis, la solution est constante sur chaque éléments.
-
-}
-
-\onslide<2->
-{
 \begin{framed}
-\textbf{Les volumes finis nécessitent un maillage très fin dans les régions de grande variation ou de géométrie complexe.}
+\textbf{FV require a highly refined mesh in regions of large solution gradient.}
+
+\textbf{FV can be very dissipative, smoothing small scale phenomena.}
 \end{framed}
 
-\begin{itemize}
-\item Demande beaucoup d'attention au maillage.
-\item Quasi impossible pour les géométries complexes.
-\item Demande un maillage trop fin partout pour une physique plus complexe.
-\end{itemize}
-
-}
+Solution procedure makes convergence slow and tedious...
 
 \end{frame}
 
-\begin{frame}{But de la thèse}
+\begin{frame}{Thesis objective}
 
 \begin{framed}
-\textbf{Développer un solver faisant partie des méthodes de Galerkin discontinues pour les plasma à induction.}
+\textbf{Developing a discontinuous Galerkin solver of inductively coupled plasmas.}
 \end{framed}
 
 \begin{itemize}
-\item La solution n'est plus constante sur chaque élément.
-\item Beaucoup plus grande flexibilité de maillage.
+\item Solution is not constant anymore on every element.
+\item Much greater mesh flexibility and (hopefully) less mesh elements.
+\item We hope to make a more robust solver.
+\item More precise (less dissipative) solver than finite volumes.
 \end{itemize}
 
 \begin{center}
 \includegraphics[width=.8\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
-\reflectbox{\includegraphics[width = .8\linewidth, angle=180, origin=c]{./Grid_Independence_mesh_probe_cropped.pdf}}
+%\reflectbox{\includegraphics[width = .8\linewidth, angle=180, origin=c]{./Grid_Independence_mesh_probe_cropped.pdf}}
 \end{center}
 
 \end{frame}
@@ -552,42 +633,32 @@ With the objective of producing a new high order solver for inductively coupled 
 %
 \begin{frame}{Plasma collective behaviour}
 
-\only<1>{
 \begin{framed}
 \textbf{A plasma is a quasi-neutral gas composed of charged 
 %(ions $\textcolor{blue}{\bullet^+}$ et electrons $\textcolor{red}{\bullet^{e^-}}$)
 and neutral particles 
 %($\bullet^n$)
-exhibiting a \underline{collective} behaviour.}
+exhibiting a \underline{collective} behaviour (through collisions = particles interaction).}
 %A plasma is a quasi-neutral gas of charged and neutral particles which exhibits collective behaviour.
 \end{framed}
-}
-\onslide<2->{
 \centering
-\begin{framed}
-\textbf{Collision = particles interaction}
-\end{framed}
-
 \begin{tabular}{cc}
-\textbf{Short ranged}} & \onslide<3->{\textbf{Long ranged}}\\
-\onslide<2->{
+\textbf{Short ranged} & \textbf{Long ranged}\\
 \begin{tikzpicture}
 \fill[blue] (0,0) circle (0.1) node[above right] {$+$};
 \fill[black] (2,0) circle (0.1) node[above right]{$n$};
 \draw[blue, ->, thick] (0.2,0) -- (1.8, 0) -- (2.5, 1);
-\end{tikzpicture}} &
-\onslide<3->{\begin{tikzpicture}
+\end{tikzpicture} &
+\begin{tikzpicture}
 \fill[blue] (0,0) circle (0.1) node[above right] {$+$};
 \fill[blue] (2,0) circle (0.1) node[above right] {$+$};
 \draw[->,blue, thick] (0.2,0) arc[start angle=-90,end angle=-30,radius=1.5];
-\end{tikzpicture}}\\
-\onslide<2->{Direct contact (local \& binary)} & \onslide<3->{Electric force (distance and collective)}
+\end{tikzpicture}\\
+Direct contact (local \& binary) & Electric force (distance and collective)
 \end{tabular}
-\onslide<4->{
 \begin{framed}
 On sufficiently large scales ($> \SI{1}{\micro\meter}$ in our case), the electric neutrality of the plasma is guaranteed by the long range collisions (electric force).
 \end{framed}
-}
 \end{frame}
 
 \begin{frame}{Chemical equilibrium state}
@@ -603,13 +674,13 @@ On sufficiently large scales ($> \SI{1}{\micro\meter}$ in our case), the electri
 If $\tau_{chem}$ and $\tau_{hydro}$ are characteristic chemical reaction and flow time respectively:
 \begin{center}
 \begin{tabular}{ccc}
-\onslide<2->{$\tau_{chem} \gg \tau_{hydro}$} & \onslide<3->{$\tau_{chem} \simeq \tau_{hydro}$} & \onslide<4->{$\tau_{chem} \ll \tau_{hydro}$}\\
+$\tau_{chem} \gg \tau_{hydro}$ & $\tau_{chem} \simeq \tau_{hydro}$ & $\tau_{chem} \ll \tau_{hydro}$\\
 %$A \leftrightharpoons B$ & $A \leftrightharpoons B$ & $A \leftrightharpoons B$\\
-\onslide<2->{Chemical equilibrium} & \onslide<3->{Chemical non-equilibrium} & \onslide<4->{Frozen flow}\\
+Chemical equilibrium & Chemical non-equilibrium & Frozen flow\\
 \end{tabular}
 \end{center}
 
-\onslide<5->{\textbf{Plasmas are in chemical equilibrium in this work.}}
+\textbf{Plasmas are in chemical equilibrium in this work.}
 
 \end{frame}
 
@@ -621,58 +692,52 @@ If $\tau_{chem}$ and $\tau_{hydro}$ are characteristic chemical reaction and flo
 %En fonction de l'efficacité des collisions, deux scénarii sont possibles:
 \begin{center}
 \begin{tabular}{cc}
-\onslide<2->{\textbf{Inneficient collisions}} & \onslide<3->{\textbf{Efficient collisions}}\\
-\onslide<2->{
-%\begin{tikzpicture}[scale=3]
-%\node[blue] at (0,0) {$\bullet$};
-%\node at (.4,.3) {$\bullet$};
-%\node[red] at (.5,0) {$\bullet$};
-%\node[red] at (.3,-.2) {$\bullet$};
-%\node[red] at (-.2,-.3) {$\bullet$};
-%\node[red] at (.1,.4) {$\bullet$};
-%\draw[red, ->] (.5,0.) -- (.7, 0.);
-%\draw[red, ->] (.3,-.2) -- (.4, -.3);
-%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-%\draw[red, ->] (.1,.4) -- (0., .3);
-%\draw[blue, ->] (0,0) -- (-0.1,0);
-%\node[blue] at (0,0) [above right]{$+$};
-%\node at (.4,.3) [above right]{$n$};
-%\node[red] at (.5,0) [above right]{$e^-$};
-%\node[red] at (.3,-.2) [above right]{$e^-$};
-%\node[red] at (-.2,-.3) [above right]{$e^-$};
-%\node[red] at (.1,.4) [above right]{$e^-$};
-%\end{tikzpicture}
-$T_e \gg T_h$
-}
- &
-\onslide<3->{
-%\begin{tikzpicture}[scale=3]
-%\node[blue] at (0,0) {$\bullet$};
-%\node at (.4,.3) {$\bullet$};
-%\node[red] at (.5,0) {$\bullet$};
-%\node[red] at (.3,-.2) {$\bullet$};
-%\node[red] at (-.2,-.3) {$\bullet$};
-%\node[red] at (.1,.4) {$\bullet$};
-%\draw[red, ->] (.5,0.) -- (.7, 0.);
-%\draw[red, ->] (.3,-.2) -- (.4, -.3);
-%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-%\draw[red, ->] (.1,.4) -- (0., .3);
-%\draw[blue, ->] (0,0) -- (-0.2,0);
-%\draw[->] (.4,.3) -- (.6,.3);
-%\node[blue] at (0,0) [above right]{$+$};
-%\node at (.4,.3) [above right]{$n$};
-%\node[red] at (.5,0) [above right]{$e^-$};
-%\node[red] at (.3,-.2) [above right]{$e^-$};
-%\node[red] at (-.2,-.3) [above right]{$e^-$};
-%\node[red] at (.1,.4) [above right]{$e^-$};
-%\end{tikzpicture}}\\
-$T_e \simeq T_h$
-}\\
-\onslide<2->{Thermal non-equilibrium} & \onslide<3->{Thermal equilibrium}
+\textbf{Inneficient collisions} & \textbf{Efficient collisions}\\
+\begin{tikzpicture}[scale=3]
+\node[blue] at (0,0) {$\bullet$};
+\node at (.4,.3) {$\bullet$};
+\node[red] at (.5,0) {$\bullet$};
+\node[red] at (.3,-.2) {$\bullet$};
+\node[red] at (-.2,-.3) {$\bullet$};
+\node[red] at (.1,.4) {$\bullet$};
+\draw[red, ->] (.5,0.) -- (.7, 0.);
+\draw[red, ->] (.3,-.2) -- (.4, -.3);
+\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+\draw[red, ->] (.1,.4) -- (0., .3);
+\draw[blue, ->] (0,0) -- (-0.1,0);
+\node[blue] at (0,0) [above right]{$+$};
+\node at (.4,.3) [above right]{$n$};
+\node[red] at (.5,0) [above right]{$e^-$};
+\node[red] at (.3,-.2) [above right]{$e^-$};
+\node[red] at (-.2,-.3) [above right]{$e^-$};
+\node[red] at (.1,.4) [above right]{$e^-$};
+\end{tikzpicture}
+ & \begin{tikzpicture}[scale=3]
+\node[blue] at (0,0) {$\bullet$};
+\node at (.4,.3) {$\bullet$};
+\node[red] at (.5,0) {$\bullet$};
+\node[red] at (.3,-.2) {$\bullet$};
+\node[red] at (-.2,-.3) {$\bullet$};
+\node[red] at (.1,.4) {$\bullet$};
+\draw[red, ->] (.5,0.) -- (.7, 0.);
+\draw[red, ->] (.3,-.2) -- (.4, -.3);
+\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+\draw[red, ->] (.1,.4) -- (0., .3);
+\draw[blue, ->] (0,0) -- (-0.2,0);
+\draw[->] (.4,.3) -- (.6,.3);
+\node[blue] at (0,0) [above right]{$+$};
+\node at (.4,.3) [above right]{$n$};
+\node[red] at (.5,0) [above right]{$e^-$};
+\node[red] at (.3,-.2) [above right]{$e^-$};
+\node[red] at (-.2,-.3) [above right]{$e^-$};
+\node[red] at (.1,.4) [above right]{$e^-$};
+\end{tikzpicture}\\
+$T_e \simeq T_h$ & $T_e \gg T_h$\\
+Thermal non-equilibrium & Thermal equilibrium
 \end{tabular}
 \end{center}
 
-\onslide<3->{\textbf{Plasmas are in thermal equilibrium in this work.}}
+\textbf{Plasmas are in thermal equilibrium in this work.}
 
 \end{frame}
 
@@ -764,12 +829,12 @@ T_e \simeq T_h
 \end{center}
 }
 
-%\only<2>
-%{
-%
-%Characteristic length $\gg$ Debye length so that $q \simeq 0$.
-%
-%}
+\only<2>
+{
+
+Characteristic length $\gg$ Debye length so that $q \simeq 0$.
+
+}
 
 \only<3>
 {
