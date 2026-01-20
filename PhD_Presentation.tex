@@ -7,9 +7,11 @@
 \usepackage[scale=2]{ccicons}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{amssymb}
 \usepackage[makeroom]{cancel}
 \usetikzlibrary{calc}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
 
 \newcommand{\vecu}{\mathbf{u}}
 \newcommand{\vecU}{\mathbf{U}}
@@ -631,6 +633,25 @@ With the objective of producing a new high order solver for inductively coupled 
 %
 %\end{frame}
 %
+
+\begin{frame}{Plasma governing equations : the Boltzmann equation}
+
+\begin{framed}
+\begin{equation*}
+\mathcal{D}_{i}(f_{i,I}) = \partial_t f_{i,I} + \mathbf{c}_i \cdot \nabla f_{i,I} + \frac{\mathbf{F}_i}{m_i}\cdot \partial_{\mathbf{c}_{i}} f_{i,I} = \mathcal{S}_{i} + \mathcal{C}_{i}
+\end{equation*}
+\end{framed}
+
+$f_i(\mathbf{x}, \mathbf{c})$ : probability density function. 
+
+$\mathcal{S}_i$ : scattering collision operator.
+
+$\mathcal{C}_i$ : chemically reacting collision operator.
+
+Provided $Kn \ll 1$ (continuous medium) + conservation of mass, momentum and energy, it is possible to simplify this system.
+
+\end{frame}
+
 \begin{frame}{Plasma collective behaviour}
 
 \begin{framed}
@@ -657,8 +678,64 @@ exhibiting a \underline{collective} behaviour (through collisions = particles in
 Direct contact (local \& binary) & Electric force (distance and collective)
 \end{tabular}
 \begin{framed}
-On sufficiently large scales ($> \SI{1}{\micro\meter}$ in our case), the electric neutrality of the plasma is guaranteed by the long range collisions (electric force).
+For large scales ($> \SI{1}{\micro\meter}$ in our case), $q \simeq 0$ due to electric force.
 \end{framed}
+\end{frame}
+
+\begin{frame}{Cold plasmas and thermal equilibrium}
+
+\begin{framed}
+\textbf{"Cold plasmas" store energy in the free electrons. It is then transmitted during collisions to the ions et neutrals.}
+\end{framed}
+%En fonction de l'efficacité des collisions, deux scénarii sont possibles:
+\begin{center}
+\begin{tabular}{cc}
+\textbf{Innefficient collisions} ($T_e \gg T_h$) & \textbf{Efficient collisions} ($T_e \simeq T_h$)\\
+\begin{tikzpicture}[scale=3]
+\node[blue] at (0,0) {$\bullet$};
+\node[red] at (.4,.3) {$\bullet$};
+%\node[red] at (.5,0) {$\bullet$};
+\node[red] at (.3,-.2) {$\bullet$};
+%\node[red] at (-.2,-.3) {$\bullet$};
+\node[red] at (.1,.4) {$\bullet$};
+%\draw[red, ->] (.5,0.) -- (.7, 0.);
+\draw[red, ->] (.3,-.2) -- (.4, -.3);
+%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+\draw[red, ->] (.1,.4) -- (0., .3);
+\draw[blue, ->] (0,0) -- (-0.1,0);
+\node[blue] at (0,0) [above right]{$+$};
+\node[red] at (.4,.3) [above right]{$e^-$};
+%\node[red] at (.5,0) [above right]{$e^-$};
+\node[red] at (.3,-.2) [above right]{$e^-$};
+%\node[red] at (-.2,-.3) [above right]{$e^-$};
+\node[red] at (.1,.4) [above right]{$e^-$};
+\end{tikzpicture}
+ & \begin{tikzpicture}[scale=3]
+\node[blue] at (0,0) {$\bullet$};
+\node[red] at (.4,.3) {$\bullet$};
+\node[red] at (.5,0) {$\bullet$};
+\node[red] at (.3,-.2) {$\bullet$};
+\node[red] at (-.2,-.3) {$\bullet$};
+\node[red] at (.1,.4) {$\bullet$};
+\draw[red, ->] (.5,0.) -- (.7, 0.);
+\draw[red, ->] (.3,-.2) -- (.4, -.3);
+\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+\draw[red, ->] (.1,.4) -- (0., .3);
+\draw[blue, ->] (0,0) -- (-0.2,0);
+\draw[red, ->] (.4,.3) -- (.6,.3);
+\node[blue] at (0,0) [above right]{$+$};
+\node[red] at (.4,.3) [above right]{$e^-$};
+\node[red] at (.5,0) [above right]{$e^-$};
+\node[red] at (.3,-.2) [above right]{$e^-$};
+\node[red] at (-.2,-.3) [above right]{$e^-$};
+\node[red] at (.1,.4) [above right]{$e^-$};
+\end{tikzpicture}\\
+Thermal non-equilibrium & Thermal equilibrium
+\end{tabular}
+\end{center}
+
+\textbf{Plasmas are in thermal equilibrium in this work.}
+
 \end{frame}
 
 \begin{frame}{Chemical equilibrium state}
@@ -681,63 +758,6 @@ Chemical equilibrium & Chemical non-equilibrium & Frozen flow\\
 \end{center}
 
 \textbf{Plasmas are in chemical equilibrium in this work.}
-
-\end{frame}
-
-\begin{frame}{Cold plasmas and thermal equilibrium}
-
-\begin{framed}
-\textbf{"Cold plasmas" store energy in the free electrons. It is then transmitted during collisions to the ions et neutrals.}
-\end{framed}
-%En fonction de l'efficacité des collisions, deux scénarii sont possibles:
-\begin{center}
-\begin{tabular}{cc}
-\textbf{Inneficient collisions} & \textbf{Efficient collisions}\\
-\begin{tikzpicture}[scale=3]
-\node[blue] at (0,0) {$\bullet$};
-\node at (.4,.3) {$\bullet$};
-\node[red] at (.5,0) {$\bullet$};
-\node[red] at (.3,-.2) {$\bullet$};
-\node[red] at (-.2,-.3) {$\bullet$};
-\node[red] at (.1,.4) {$\bullet$};
-\draw[red, ->] (.5,0.) -- (.7, 0.);
-\draw[red, ->] (.3,-.2) -- (.4, -.3);
-\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-\draw[red, ->] (.1,.4) -- (0., .3);
-\draw[blue, ->] (0,0) -- (-0.1,0);
-\node[blue] at (0,0) [above right]{$+$};
-\node at (.4,.3) [above right]{$n$};
-\node[red] at (.5,0) [above right]{$e^-$};
-\node[red] at (.3,-.2) [above right]{$e^-$};
-\node[red] at (-.2,-.3) [above right]{$e^-$};
-\node[red] at (.1,.4) [above right]{$e^-$};
-\end{tikzpicture}
- & \begin{tikzpicture}[scale=3]
-\node[blue] at (0,0) {$\bullet$};
-\node at (.4,.3) {$\bullet$};
-\node[red] at (.5,0) {$\bullet$};
-\node[red] at (.3,-.2) {$\bullet$};
-\node[red] at (-.2,-.3) {$\bullet$};
-\node[red] at (.1,.4) {$\bullet$};
-\draw[red, ->] (.5,0.) -- (.7, 0.);
-\draw[red, ->] (.3,-.2) -- (.4, -.3);
-\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-\draw[red, ->] (.1,.4) -- (0., .3);
-\draw[blue, ->] (0,0) -- (-0.2,0);
-\draw[->] (.4,.3) -- (.6,.3);
-\node[blue] at (0,0) [above right]{$+$};
-\node at (.4,.3) [above right]{$n$};
-\node[red] at (.5,0) [above right]{$e^-$};
-\node[red] at (.3,-.2) [above right]{$e^-$};
-\node[red] at (-.2,-.3) [above right]{$e^-$};
-\node[red] at (.1,.4) [above right]{$e^-$};
-\end{tikzpicture}\\
-$T_e \simeq T_h$ & $T_e \gg T_h$\\
-Thermal non-equilibrium & Thermal equilibrium
-\end{tabular}
-\end{center}
-
-\textbf{Plasmas are in thermal equilibrium in this work.}
 
 \end{frame}
 
@@ -801,7 +821,7 @@ Thermal non-equilibrium & Thermal equilibrium
 \begin{center}
 \begin{tikzpicture}[scale=3]
 \node[blue] at (0,0) {$\bullet$};
-\node at (.4,.3) {$\bullet$};
+\node[red] at (.4,.3) {$\bullet$};
 \node[red] at (.5,0) {$\bullet$};
 \node[red] at (.3,-.2) {$\bullet$};
 \node[red] at (-.2,-.3) {$\bullet$};
@@ -811,9 +831,9 @@ Thermal non-equilibrium & Thermal equilibrium
 \draw[red, ->] (-.2,-.3) -- (-.2, -.1);
 \draw[red, ->] (.1,.4) -- (0., .3);
 \draw[blue, ->] (0,0) -- (-0.2,0);
-\draw[->] (.4,.3) -- (.6,.3);
+\draw[red, ->] (.4,.3) -- (.6,.3);
 \node[blue] at (0,0) [above right]{$+$};
-\node at (.4,.3) [above right]{$n$};
+\node[red] at (.4,.3) [above right]{$e^-$};
 \node[red] at (.5,0) [above right]{$e^-$};
 \node[red] at (.3,-.2) [above right]{$e^-$};
 \node[red] at (-.2,-.3) [above right]{$e^-$};
