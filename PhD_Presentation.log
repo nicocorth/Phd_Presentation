@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  20 JAN 2026 19:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  20 JAN 2026 22:57
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1808,71 +1808,121 @@ Overfull \vbox (11.54936pt too high) detected at line 739
 ] [30
 
 ]
-Underfull \hbox (badness 2134) in paragraph at lines 959--959
-[]\OT1/cmss/m/n/10.95 Characteristic length $\OMS/cmsy/m/n/10.95 ^^]$ \OT1/cmss
-/m/n/10.95 De-bye
+Overfull \hbox (48.20656pt too wide) detected at line 809
+[][]
+ []
+
+<./mpp-logo.png, id=252, 2015.53pt x 660.4675pt>
+File: ./mpp-logo.png Graphic file (type png)
+<use ./mpp-logo.png>
+Package pdftex.def Info: ./mpp-logo.png  used on input line 809.
+(pdftex.def)             Requested size: 80.86049pt x 26.49481pt.
+
+Overfull \vbox (15.90826pt too high) detected at line 809
  []
 
 [31
 
-] [32
+ <./mpp-logo.png>] (./mu.tex)
+Overfull \hbox (4.9479pt too wide) in paragraph at lines 233--860
+[][]
+ []
 
-]
-File: ./coil_effect.png Graphic file (type png)
-<use ./coil_effect.png>
-Package pdftex.def Info: ./coil_effect.png  used on input line 959.
-(pdftex.def)             Requested size: 51.82274pt x 65.24747pt.
-File: ./plasmatron_nozzle_operating.png Graphic file (type png)
-<use ./plasmatron_nozzle_operating.png>
-Package pdftex.def Info: ./plasmatron_nozzle_operating.png  used on input line 
-959.
-(pdftex.def)             Requested size: 101.72607pt x 65.24747pt.
-File: ./plasmatron_nozzles.png Graphic file (type png)
-<use ./plasmatron_nozzles.png>
-Package pdftex.def Info: ./plasmatron_nozzles.png  used on input line 959.
-(pdftex.def)             Requested size: 123.22862pt x 65.24747pt.
 
-Overfull \vbox (9.15877pt too high) detected at line 959
+Underfull \hbox (badness 10000) in paragraph at lines 233--860
+
+ []
+
+(./X.tex)
+Overfull \hbox (0.83766pt too wide) in paragraph at lines 1179--860
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1179--860
+
+ []
+
+
+Overfull \vbox (40.12593pt too high) detected at line 860
+ []
+
+[32
+
+] (./lambda.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 233--860
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--860
+
+ []
+
+(./X.tex)
+Overfull \hbox (0.83766pt too wide) in paragraph at lines 1179--860
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1179--860
+
+ []
+
+
+Overfull \vbox (20.89319pt too high) detected at line 860
  []
 
 [33
 
-] [34
+] (./sigma_e.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 127--860
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--860
+
+ []
+
+(./X.tex)
+Overfull \hbox (0.83766pt too wide) in paragraph at lines 1179--860
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1179--860
+
+ []
+
+
+Overfull \vbox (26.1264pt too high) detected at line 860
+ []
+
+[34
 
 ] [35
 
 ] [36
 
-]
-<helicoidal_motion.png, id=280, 547.04375pt x 648.4225pt>
-File: helicoidal_motion.png Graphic file (type png)
-<use helicoidal_motion.png>
-Package pdftex.def Info: helicoidal_motion.png  used on input line 959.
-(pdftex.def)             Requested size: 124.2819pt x 147.3135pt.
- [37
+] [37
 
- <./helicoidal_motion.png>]
-File: ./plasma_jet_unsteady_experimental.png Graphic file (type png)
-<use ./plasma_jet_unsteady_experimental.png>
-Package pdftex.def Info: ./plasma_jet_unsteady_experimental.png  used on input 
-line 959.
-(pdftex.def)             Requested size: 155.3518pt x 79.89981pt.
- [38
+]
+Overfull \hbox (11.24687pt too wide) detected at line 1081
+[][]
+ []
+
+
+Overfull \vbox (23.10217pt too high) detected at line 1081
+ []
+
+[38
 
 ] [39
 
 ] [40
 
-]
-Overfull \hbox (11.24687pt too wide) detected at line 997
-[][]
- []
-
-
-Overfull \vbox (23.10217pt too high) detected at line 997
- []
-
-[41
+] [41
 
 ] [42
 
@@ -1881,58 +1931,44 @@ Overfull \vbox (23.10217pt too high) detected at line 997
 ] [44
 
 ]
-<./mpp-logo.png, id=327, 2015.53pt x 660.4675pt>
-File: ./mpp-logo.png Graphic file (type png)
-<use ./mpp-logo.png>
-Package pdftex.def Info: ./mpp-logo.png  used on input line 1048.
-(pdftex.def)             Requested size: 318.67209pt x 104.4172pt.
- [45
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[45
 
- <./mpp-logo.png>] (./mu.tex)
-Overfull \hbox (4.9479pt too wide) in paragraph at lines 233--1060
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--1060
-
- []
-
-
-Overfull \vbox (4.34608pt too high) detected at line 1060
- []
-
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
 [46
 
-] (./lambda.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 233--1071
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--1071
-
- []
-
-(./X.tex)
-Overfull \hbox (0.83766pt too wide) in paragraph at lines 1179--1071
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1179--1071
-
- []
-
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
 [47
 
-] (./sigma_e.tex) [48
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[48
 
-] [49
-
-] [50
-
-] [51
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[49
 
 ]
 Missing character: There is no ; in font nullfont!
@@ -1941,216 +1977,198 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
+[50
+
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[51
+
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+
+Overfull \vbox (23.18567pt too high) detected at line 1239
+ []
+
 [52
 
-]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-[53
+] [53
+
+] [54
 
 ]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-[54
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1512--1512
+ [][] 
+ []
 
-]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
+
+Overfull \vbox (3.95381pt too high) detected at line 1512
+ []
+
 [55
 
 ]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1512--1512
+ [][] 
+ []
+
+
+Overfull \vbox (9.89053pt too high) detected at line 1512
+ []
+
 [56
 
 ]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1512--1512
+ [][] 
+ []
+
+
+Overfull \vbox (12.0197pt too high) detected at line 1512
+ []
+
 [57
 
 ]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-[58
-
-]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-
-Overfull \vbox (23.18567pt too high) detected at line 1200
+Overfull \hbox (6.46074pt too wide) in paragraph at lines 1512--1512
+ [][] 
  []
 
-[59
+
+Overfull \vbox (27.65962pt too high) detected at line 1512
+ []
+
+[58
+
+] [59
 
 ] [60
 
-] [61
+]
+Overfull \vbox (3.45633pt too high) detected at line 1552
+ []
+
+[61
+
+] [62
 
 ]
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 1473--1473
- [][] 
- []
-
-
-Overfull \vbox (3.95381pt too high) detected at line 1473
- []
-
-[62
-
-]
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 1473--1473
- [][] 
- []
-
-
-Overfull \vbox (9.89053pt too high) detected at line 1473
+Overfull \vbox (8.35222pt too high) detected at line 1597
  []
 
 [63
 
-]
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 1473--1473
- [][] 
- []
-
-
-Overfull \vbox (12.0197pt too high) detected at line 1473
- []
-
-[64
-
-]
-Overfull \hbox (6.46074pt too wide) in paragraph at lines 1473--1473
- [][] 
- []
-
-
-Overfull \vbox (27.65962pt too high) detected at line 1473
- []
-
-[65
-
-] [66
-
-] [67
-
-]
-Overfull \vbox (3.45633pt too high) detected at line 1513
- []
-
-[68
-
-] [69
-
-]
-Overfull \vbox (8.35222pt too high) detected at line 1558
- []
-
-[70
-
-] [71
+] [64
 
 ]
 File: ./Grid_Independence_mesh_probe_cropped.pdf Graphic file (type pdf)
 <use ./Grid_Independence_mesh_probe_cropped.pdf>
 Package pdftex.def Info: ./Grid_Independence_mesh_probe_cropped.pdf  used on in
-put line 1757.
+put line 1796.
 (pdftex.def)             Requested size: 398.3386pt x 56.61847pt.
- [72
+ [65
 
-] [73
+] [66
+
+] [67
+
+] [68
+
+] [69
+
+] [70
+
+]
+Overfull \vbox (3.87364pt too high) detected at line 1796
+ []
+
+[71
+
+]
+Overfull \vbox (20.51038pt too high) detected at line 1796
+ []
+
+[72
+
+]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1796
+.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1796
+.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1796
+.
+ [73
 
 ] [74
 
-] [75
+]
+Overfull \hbox (22.22763pt too wide) in paragraph at lines 1874--1874
+ [] 
+ []
 
-] [76
-
-] [77
+[75
 
 ]
-Overfull \vbox (3.87364pt too high) detected at line 1757
+Overfull \hbox (22.22763pt too wide) in paragraph at lines 1874--1874
+ [] 
+ []
+
+[76
+
+]
+Overfull \hbox (22.22763pt too wide) in paragraph at lines 1874--1874
+ [] 
+ []
+
+[77
+
+]
+Overfull \vbox (5.93738pt too high) detected at line 1909
  []
 
 [78
 
 ]
-Overfull \vbox (20.51038pt too high) detected at line 1757
+Overfull \vbox (5.93738pt too high) detected at line 1909
  []
 
 [79
 
 ]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1757
-.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1757
-.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1757
-.
- [80
+Overfull \vbox (5.93738pt too high) detected at line 1909
+ []
+
+[80
 
 ] [81
 
-]
-Overfull \hbox (22.22763pt too wide) in paragraph at lines 1835--1835
- [] 
- []
+] [82
 
-[82
+] [83
 
-]
-Overfull \hbox (22.22763pt too wide) in paragraph at lines 1835--1835
- [] 
- []
+] [84
 
-[83
+] [85
 
 ]
-Overfull \hbox (22.22763pt too wide) in paragraph at lines 1835--1835
- [] 
- []
-
-[84
-
-]
-Overfull \vbox (5.93738pt too high) detected at line 1870
- []
-
-[85
-
-]
-Overfull \vbox (5.93738pt too high) detected at line 1870
+Overfull \vbox (5.94528pt too high) detected at line 2036
  []
 
 [86
 
 ]
-Overfull \vbox (5.93738pt too high) detected at line 1870
+Overfull \vbox (5.94528pt too high) detected at line 2036
  []
 
 [87
@@ -2166,16 +2184,19 @@ Overfull \vbox (5.93738pt too high) detected at line 1870
 ] [92
 
 ]
-Overfull \vbox (5.94528pt too high) detected at line 1997
+<./HS_P.png, id=584, 4685.505pt x 763.85374pt>
+File: ./HS_P.png Graphic file (type png)
+<use ./HS_P.png>
+Package pdftex.def Info: ./HS_P.png  used on input line 2233.
+(pdftex.def)             Requested size: 398.3386pt x 64.93253pt.
+
+Overfull \hbox (7.29922pt too wide) in paragraph at lines 2233--2233
+ [] 
  []
 
 [93
 
-]
-Overfull \vbox (5.94528pt too high) detected at line 1997
- []
-
-[94
+ <./HS_P.png>] [94
 
 ] [95
 
@@ -2183,388 +2204,363 @@ Overfull \vbox (5.94528pt too high) detected at line 1997
 
 ] [97
 
-] [98
-
-] [99
-
 ]
-<./HS_P.png, id=623, 4685.505pt x 763.85374pt>
-File: ./HS_P.png Graphic file (type png)
-<use ./HS_P.png>
-Package pdftex.def Info: ./HS_P.png  used on input line 2194.
-(pdftex.def)             Requested size: 398.3386pt x 64.93253pt.
+Overfull \vbox (28.96869pt too high) detected at line 2278
+ []
 
-Overfull \hbox (7.29922pt too wide) in paragraph at lines 2194--2194
- [] 
+[98
+
+] (./Convergence_Study_Plot_p_0.tex) (./Convergence_Study_Plot_u_0.tex)
+Overfull \hbox (21.75615pt too wide) in paragraph at lines 2305--2305
+ [][] 
+ []
+
+
+Overfull \vbox (18.7398pt too high) detected at line 2305
+ []
+
+[99
+
+] (./Convergence_Study_Plot_v_0.tex) (./Convergence_Study_Plot_T_0.tex)
+Overfull \hbox (21.75615pt too wide) in paragraph at lines 2305--2305
+ [][] 
+ []
+
+
+Overfull \vbox (19.35172pt too high) detected at line 2305
  []
 
 [100
 
- <./HS_P.png>] [101
-
-] [102
-
-] [103
-
-] [104
-
-]
-Overfull \vbox (28.96869pt too high) detected at line 2239
- []
-
-[105
-
-] (./Convergence_Study_Plot_p_0.tex) (./Convergence_Study_Plot_u_0.tex)
-Overfull \hbox (21.75615pt too wide) in paragraph at lines 2266--2266
- [][] 
- []
-
-
-Overfull \vbox (18.7398pt too high) detected at line 2266
- []
-
-[106
-
-] (./Convergence_Study_Plot_v_0.tex) (./Convergence_Study_Plot_T_0.tex)
-Overfull \hbox (21.75615pt too wide) in paragraph at lines 2266--2266
- [][] 
- []
-
-
-Overfull \vbox (19.35172pt too high) detected at line 2266
- []
-
-[107
-
 ] (./Convergence_Study_Plot_utheta_0.tex)
-Overfull \vbox (9.09988pt too high) detected at line 2266
+Overfull \vbox (9.09988pt too high) detected at line 2305
  []
 
-[108
+[101
 
 ] (./Convergence_Study_Plot_EpRe_0.tex)
 (./Convergence_Study_Plot_EpIm_0.tex)
-Overfull \hbox (35.79466pt too wide) in paragraph at lines 2288--2288
+Overfull \hbox (35.79466pt too wide) in paragraph at lines 2327--2327
  [][] 
  []
 
 
-Overfull \vbox (10.21948pt too high) detected at line 2288
+Overfull \vbox (10.21948pt too high) detected at line 2327
  []
 
-[109
+[102
 
 ] (./Convergence_Study_Plot_EpRe_1.tex)
 (./Convergence_Study_Plot_EpIm_1.tex)
-Overfull \hbox (35.79466pt too wide) in paragraph at lines 2288--2288
+Overfull \hbox (35.79466pt too wide) in paragraph at lines 2327--2327
  [][] 
  []
 
 
-Overfull \vbox (10.21948pt too high) detected at line 2288
+Overfull \vbox (10.21948pt too high) detected at line 2327
  []
 
-[110
+[103
 
 ]
 File: ./Grid_Independence_mesh_probe_cropped.pdf Graphic file (type pdf)
 <use ./Grid_Independence_mesh_probe_cropped.pdf>
 Package pdftex.def Info: ./Grid_Independence_mesh_probe_cropped.pdf  used on in
-put line 2309.
+put line 2348.
 (pdftex.def)             Requested size: 398.3386pt x 56.61847pt.
-<./ConvergenceFS_coarse-crop.pdf, id=683, 1649.16125pt x 234.8775pt>
+<./ConvergenceFS_coarse-crop.pdf, id=645, 1649.16125pt x 234.8775pt>
 File: ./ConvergenceFS_coarse-crop.pdf Graphic file (type pdf)
 <use ./ConvergenceFS_coarse-crop.pdf>
 Package pdftex.def Info: ./ConvergenceFS_coarse-crop.pdf  used on input line 23
-09.
+48.
 (pdftex.def)             Requested size: 398.3386pt x 56.73013pt.
 
-Overfull \vbox (14.82222pt too high) detected at line 2309
+Overfull \vbox (14.82222pt too high) detected at line 2348
  []
 
-[111
+[104
 
- <./ConvergenceFS_coarse-crop.pdf>] [112
+ <./ConvergenceFS_coarse-crop.pdf>] [105
 
 ]
-Overfull \hbox (0.73181pt too wide) in paragraph at lines 2384--2384
+Overfull \hbox (0.73181pt too wide) in paragraph at lines 2423--2423
  [][] 
  []
 
 
-Overfull \vbox (3.08083pt too high) detected at line 2384
+Overfull \vbox (3.08083pt too high) detected at line 2423
+ []
+
+[106
+
+] [107
+
+] (./HS50mm_Radial_1_N=4163_u.tex) (./HS50mm_Radial_1_N=4163_v.tex)
+Overfull \vbox (28.91608pt too high) detected at line 2423
+ []
+
+[108
+
+] [109
+
+] [110
+
+] (./CF_HDG_Comparison_Torch_Center_dp.tex)
+(./CF_HDG_Comparison_Torch_Center_u.tex)
+Overfull \vbox (19.73436pt too high) detected at line 2475
+ []
+
+[111
+
+] (./CF_HDG_Comparison_Torch_Center_v.tex)
+(./CF_HDG_Comparison_Torch_Center_T.tex)
+Overfull \hbox (1.24905pt too wide) in paragraph at lines 2475--2475
+[][] 
+ []
+
+
+Overfull \vbox (26.89867pt too high) detected at line 2475
+ []
+
+[112
+
+] (./CF_HDG_Comparison_Torch_Center_Ep_Re.tex)
+(./CF_HDG_Comparison_Torch_Center_Ep_Im.tex)
+Overfull \hbox (13.82983pt too wide) in paragraph at lines 2475--2475
+[][] 
+ []
+
+
+Overfull \vbox (16.15799pt too high) detected at line 2475
  []
 
 [113
 
 ] [114
 
-] (./HS50mm_Radial_1_N=4163_u.tex) (./HS50mm_Radial_1_N=4163_v.tex)
-Overfull \vbox (28.91608pt too high) detected at line 2384
+] (./resL2.tex) (./CFL_history.tex)
+Overfull \hbox (18.28955pt too wide) in paragraph at lines 2503--2503
+ [] 
+ []
+
+
+Overfull \vbox (33.97205pt too high) detected at line 2503
  []
 
 [115
 
-] [116
+] (./GMRES_history.tex)
+Overfull \vbox (27.10619pt too high) detected at line 2503
+ []
+
+[116
 
 ] [117
 
-] (./CF_HDG_Comparison_Torch_Center_dp.tex)
-(./CF_HDG_Comparison_Torch_Center_u.tex)
-Overfull \vbox (19.73436pt too high) detected at line 2436
+]
+<./HS_dp.png, id=723, 4685.505pt x 763.85374pt>
+File: ./HS_dp.png Graphic file (type png)
+<use ./HS_dp.png>
+Package pdftex.def Info: ./HS_dp.png  used on input line 2528.
+(pdftex.def)             Requested size: 398.3386pt x 64.93253pt.
+<./FS_dp.png, id=724, 3018.27625pt x 492.84125pt>
+File: ./FS_dp.png Graphic file (type png)
+<use ./FS_dp.png>
+Package pdftex.def Info: ./FS_dp.png  used on input line 2528.
+(pdftex.def)             Requested size: 398.3386pt x 65.0417pt.
+
+Overfull \hbox (7.29922pt too wide) in paragraph at lines 2528--2528
+ [] 
+ []
+
+
+Overfull \vbox (13.53452pt too high) detected at line 2528
  []
 
 [118
 
-] (./CF_HDG_Comparison_Torch_Center_v.tex)
-(./CF_HDG_Comparison_Torch_Center_T.tex)
-Overfull \hbox (1.24905pt too wide) in paragraph at lines 2436--2436
-[][] 
+ <./HS_dp.png> <./FS_dp.png>]
+<./HS_T.png, id=730, 4685.505pt x 763.85374pt>
+File: ./HS_T.png Graphic file (type png)
+<use ./HS_T.png>
+Package pdftex.def Info: ./HS_T.png  used on input line 2553.
+(pdftex.def)             Requested size: 398.3386pt x 64.93253pt.
+<./FS_T.png, id=731, 3018.27625pt x 492.84125pt>
+File: ./FS_T.png Graphic file (type png)
+<use ./FS_T.png>
+Package pdftex.def Info: ./FS_T.png  used on input line 2553.
+(pdftex.def)             Requested size: 398.3386pt x 65.0417pt.
+
+Overfull \hbox (7.29922pt too wide) in paragraph at lines 2553--2553
+ [] 
  []
 
 
-Overfull \vbox (26.89867pt too high) detected at line 2436
+Overfull \vbox (13.53452pt too high) detected at line 2553
  []
 
 [119
 
-] (./CF_HDG_Comparison_Torch_Center_Ep_Re.tex)
-(./CF_HDG_Comparison_Torch_Center_Ep_Im.tex)
-Overfull \hbox (13.82983pt too wide) in paragraph at lines 2436--2436
-[][] 
+ <./HS_T.png> <./FS_T.png>]
+<./HS_Streamlines.png, id=737, 3019.28pt x 492.84125pt>
+File: ./HS_Streamlines.png Graphic file (type png)
+<use ./HS_Streamlines.png>
+Package pdftex.def Info: ./HS_Streamlines.png  used on input line 2600.
+(pdftex.def)             Requested size: 398.3386pt x 65.01913pt.
+<./FS_Streamlines.png, id=738, 3019.28pt x 492.84125pt>
+File: ./FS_Streamlines.png Graphic file (type png)
+<use ./FS_Streamlines.png>
+Package pdftex.def Info: ./FS_Streamlines.png  used on input line 2600.
+(pdftex.def)             Requested size: 398.3386pt x 65.01913pt.
+
+Overfull \hbox (7.29922pt too wide) in paragraph at lines 2600--2600
+ [] 
  []
 
 
-Overfull \vbox (16.15799pt too high) detected at line 2436
+Overfull \vbox (11.3157pt too high) detected at line 2600
  []
 
 [120
 
-] [121
+ <./HS_Streamlines.png> <./FS_Streamlines.png>]
+File: ./HS_P.png Graphic file (type png)
+<use ./HS_P.png>
+Package pdftex.def Info: ./HS_P.png  used on input line 2625.
+(pdftex.def)             Requested size: 398.3386pt x 64.93253pt.
+<./FS_P.png, id=746, 3018.27625pt x 492.84125pt>
+File: ./FS_P.png Graphic file (type png)
+<use ./FS_P.png>
+Package pdftex.def Info: ./FS_P.png  used on input line 2625.
+(pdftex.def)             Requested size: 398.3386pt x 65.0417pt.
 
-] (./resL2.tex) (./CFL_history.tex)
-Overfull \hbox (18.28955pt too wide) in paragraph at lines 2464--2464
+Overfull \hbox (7.29922pt too wide) in paragraph at lines 2625--2625
  [] 
  []
 
 
-Overfull \vbox (33.97205pt too high) detected at line 2464
+Overfull \vbox (13.53452pt too high) detected at line 2625
+ []
+
+[121
+
+ <./FS_P.png>]
+<./HS_E_tot.png, id=753, 4503.82625pt x 951.555pt>
+File: ./HS_E_tot.png Graphic file (type png)
+<use ./HS_E_tot.png>
+Package pdftex.def Info: ./HS_E_tot.png  used on input line 2650.
+(pdftex.def)             Requested size: 398.3386pt x 84.15526pt.
+<./FS_E_tot.png, id=754, 2901.84125pt x 407.5225pt>
+File: ./FS_E_tot.png Graphic file (type png)
+<use ./FS_E_tot.png>
+Package pdftex.def Info: ./FS_E_tot.png  used on input line 2650.
+(pdftex.def)             Requested size: 398.3386pt x 55.93968pt.
+
+Overfull \hbox (7.29922pt too wide) in paragraph at lines 2650--2650
+ [] 
  []
 
 [122
 
-] (./GMRES_history.tex)
-Overfull \vbox (27.10619pt too high) detected at line 2464
+ <./HS_E_tot.png> <./FS_E_tot.png>]
+<./HS_Lorentz.png, id=760, 4686.50874pt x 764.8575pt>
+File: ./HS_Lorentz.png Graphic file (type png)
+<use ./HS_Lorentz.png>
+Package pdftex.def Info: ./HS_Lorentz.png  used on input line 2669.
+(pdftex.def)             Requested size: 398.3386pt x 65.00618pt.
+<./FS_Lorentz.png, id=761, 4686.50874pt x 764.8575pt>
+File: ./FS_Lorentz.png Graphic file (type png)
+<use ./FS_Lorentz.png>
+Package pdftex.def Info: ./FS_Lorentz.png  used on input line 2669.
+(pdftex.def)             Requested size: 398.3386pt x 65.00618pt.
+
+Overfull \hbox (7.29922pt too wide) in paragraph at lines 2669--2669
+ [] 
  []
 
 [123
 
-] [124
+ <./HS_Lorentz.png> <./FS_Lorentz.png>] [124
 
 ]
-<./HS_dp.png, id=761, 4685.505pt x 763.85374pt>
-File: ./HS_dp.png Graphic file (type png)
-<use ./HS_dp.png>
-Package pdftex.def Info: ./HS_dp.png  used on input line 2489.
-(pdftex.def)             Requested size: 398.3386pt x 64.93253pt.
-<./FS_dp.png, id=762, 3018.27625pt x 492.84125pt>
-File: ./FS_dp.png Graphic file (type png)
-<use ./FS_dp.png>
-Package pdftex.def Info: ./FS_dp.png  used on input line 2489.
-(pdftex.def)             Requested size: 398.3386pt x 65.0417pt.
+<./HS_Streamlines_min.png, id=772, 4526.9125pt x 792.9625pt>
+File: ./HS_Streamlines_min.png Graphic file (type png)
+<use ./HS_Streamlines_min.png>
+Package pdftex.def Info: ./HS_Streamlines_min.png  used on input line 2701.
+(pdftex.def)             Requested size: 398.3386pt x 69.76639pt.
+<./HS_Streamlines_max.png, id=773, 4525.90875pt x 738.76pt>
+File: ./HS_Streamlines_max.png Graphic file (type png)
+<use ./HS_Streamlines_max.png>
+Package pdftex.def Info: ./HS_Streamlines_max.png  used on input line 2701.
+(pdftex.def)             Requested size: 398.3386pt x 65.0201pt.
 
-Overfull \hbox (7.29922pt too wide) in paragraph at lines 2489--2489
- [] 
- []
-
-
-Overfull \vbox (13.53452pt too high) detected at line 2489
+Overfull \hbox (7.29922pt too wide) in paragraph at lines 2701--2701
+ [][] 
  []
 
 [125
 
- <./HS_dp.png> <./FS_dp.png>]
-<./HS_T.png, id=768, 4685.505pt x 763.85374pt>
-File: ./HS_T.png Graphic file (type png)
-<use ./HS_T.png>
-Package pdftex.def Info: ./HS_T.png  used on input line 2514.
-(pdftex.def)             Requested size: 398.3386pt x 64.93253pt.
-<./FS_T.png, id=769, 3018.27625pt x 492.84125pt>
-File: ./FS_T.png Graphic file (type png)
-<use ./FS_T.png>
-Package pdftex.def Info: ./FS_T.png  used on input line 2514.
-(pdftex.def)             Requested size: 398.3386pt x 65.0417pt.
-
-Overfull \hbox (7.29922pt too wide) in paragraph at lines 2514--2514
- [] 
- []
-
-
-Overfull \vbox (13.53452pt too high) detected at line 2514
+ <./HS_Streamlines_min.png> <./HS_Streamlines_max.png>]
+(./Torch_Center_P_T.tex) (./Torch_Center_P_P.tex)
+Overfull \hbox (9.76266pt too wide) in paragraph at lines 2711--2711
+ [][] 
  []
 
 [126
 
- <./HS_T.png> <./FS_T.png>]
-<./HS_Streamlines.png, id=775, 3019.28pt x 492.84125pt>
-File: ./HS_Streamlines.png Graphic file (type png)
-<use ./HS_Streamlines.png>
-Package pdftex.def Info: ./HS_Streamlines.png  used on input line 2561.
-(pdftex.def)             Requested size: 398.3386pt x 65.01913pt.
-<./FS_Streamlines.png, id=776, 3019.28pt x 492.84125pt>
-File: ./FS_Streamlines.png Graphic file (type png)
-<use ./FS_Streamlines.png>
-Package pdftex.def Info: ./FS_Streamlines.png  used on input line 2561.
-(pdftex.def)             Requested size: 398.3386pt x 65.01913pt.
-
-Overfull \hbox (7.29922pt too wide) in paragraph at lines 2561--2561
- [] 
- []
-
-
-Overfull \vbox (11.3157pt too high) detected at line 2561
+] (./Stagnation_P_u.tex) (./Stagnation_P_gradv_r.tex)
+Overfull \hbox (4.34767pt too wide) in paragraph at lines 2736--2736
+ [][] 
  []
 
 [127
 
- <./HS_Streamlines.png> <./FS_Streamlines.png>]
-File: ./HS_P.png Graphic file (type png)
-<use ./HS_P.png>
-Package pdftex.def Info: ./HS_P.png  used on input line 2586.
-(pdftex.def)             Requested size: 398.3386pt x 64.93253pt.
-<./FS_P.png, id=785, 3018.27625pt x 492.84125pt>
-File: ./FS_P.png Graphic file (type png)
-<use ./FS_P.png>
-Package pdftex.def Info: ./FS_P.png  used on input line 2586.
-(pdftex.def)             Requested size: 398.3386pt x 65.0417pt.
-
-Overfull \hbox (7.29922pt too wide) in paragraph at lines 2586--2586
- [] 
- []
-
-
-Overfull \vbox (13.53452pt too high) detected at line 2586
+] (./Stagnation_P_gradT_z.tex) (./probe_heat_flux.tex)
+Overfull \hbox (14.15785pt too wide) in paragraph at lines 2736--2736
+ [][] 
  []
 
 [128
 
- <./FS_P.png>]
-<./HS_E_tot.png, id=791, 4503.82625pt x 951.555pt>
-File: ./HS_E_tot.png Graphic file (type png)
-<use ./HS_E_tot.png>
-Package pdftex.def Info: ./HS_E_tot.png  used on input line 2611.
-(pdftex.def)             Requested size: 398.3386pt x 84.15526pt.
-<./FS_E_tot.png, id=792, 2901.84125pt x 407.5225pt>
-File: ./FS_E_tot.png Graphic file (type png)
-<use ./FS_E_tot.png>
-Package pdftex.def Info: ./FS_E_tot.png  used on input line 2611.
-(pdftex.def)             Requested size: 398.3386pt x 55.93968pt.
+] [129
 
-Overfull \hbox (7.29922pt too wide) in paragraph at lines 2611--2611
- [] 
- []
-
-[129
-
- <./HS_E_tot.png> <./FS_E_tot.png>]
-<./HS_Lorentz.png, id=798, 4686.50874pt x 764.8575pt>
-File: ./HS_Lorentz.png Graphic file (type png)
-<use ./HS_Lorentz.png>
-Package pdftex.def Info: ./HS_Lorentz.png  used on input line 2630.
-(pdftex.def)             Requested size: 398.3386pt x 65.00618pt.
-<./FS_Lorentz.png, id=799, 4686.50874pt x 764.8575pt>
-File: ./FS_Lorentz.png Graphic file (type png)
-<use ./FS_Lorentz.png>
-Package pdftex.def Info: ./FS_Lorentz.png  used on input line 2630.
-(pdftex.def)             Requested size: 398.3386pt x 65.00618pt.
-
-Overfull \hbox (7.29922pt too wide) in paragraph at lines 2630--2630
- [] 
+]
+Overfull \vbox (1.22461pt too high) detected at line 2785
  []
 
 [130
 
- <./HS_Lorentz.png> <./FS_Lorentz.png>] [131
+]
+Overfull \vbox (1.22461pt too high) detected at line 2785
+ []
+
+[131
 
 ]
-<./HS_Streamlines_min.png, id=810, 4526.9125pt x 792.9625pt>
-File: ./HS_Streamlines_min.png Graphic file (type png)
-<use ./HS_Streamlines_min.png>
-Package pdftex.def Info: ./HS_Streamlines_min.png  used on input line 2662.
-(pdftex.def)             Requested size: 398.3386pt x 69.76639pt.
-<./HS_Streamlines_max.png, id=811, 4525.90875pt x 738.76pt>
-File: ./HS_Streamlines_max.png Graphic file (type png)
-<use ./HS_Streamlines_max.png>
-Package pdftex.def Info: ./HS_Streamlines_max.png  used on input line 2662.
-(pdftex.def)             Requested size: 398.3386pt x 65.0201pt.
-
-Overfull \hbox (7.29922pt too wide) in paragraph at lines 2662--2662
- [][] 
+Overfull \vbox (1.22461pt too high) detected at line 2785
  []
 
 [132
 
- <./HS_Streamlines_min.png> <./HS_Streamlines_max.png>]
-(./Torch_Center_P_T.tex) (./Torch_Center_P_P.tex)
-Overfull \hbox (9.76266pt too wide) in paragraph at lines 2672--2672
- [][] 
+]
+Overfull \vbox (1.22461pt too high) detected at line 2785
  []
 
 [133
 
-] (./Stagnation_P_u.tex) (./Stagnation_P_gradv_r.tex)
-Overfull \hbox (4.34767pt too wide) in paragraph at lines 2697--2697
- [][] 
+]
+Overfull \vbox (1.22461pt too high) detected at line 2785
  []
 
 [134
 
-] (./Stagnation_P_gradT_z.tex) (./probe_heat_flux.tex)
-Overfull \hbox (14.15785pt too wide) in paragraph at lines 2697--2697
- [][] 
+]
+Overfull \vbox (1.22461pt too high) detected at line 2785
  []
 
 [135
 
 ] [136
-
-]
-Overfull \vbox (1.22461pt too high) detected at line 2746
- []
-
-[137
-
-]
-Overfull \vbox (1.22461pt too high) detected at line 2746
- []
-
-[138
-
-]
-Overfull \vbox (1.22461pt too high) detected at line 2746
- []
-
-[139
-
-]
-Overfull \vbox (1.22461pt too high) detected at line 2746
- []
-
-[140
-
-]
-Overfull \vbox (1.22461pt too high) detected at line 2746
- []
-
-[141
-
-]
-Overfull \vbox (1.22461pt too high) detected at line 2746
- []
-
-[142
-
-] [143
 
 ] (./comparison_experiment.tex)
 
@@ -2577,10 +2573,10 @@ Package siunitx Warning: Unit macro \bar has been deprecated in this release.
 (siunitx)                \DeclareSIUnit\bar{bar}
 
 
-Overfull \vbox (12.68634pt too high) detected at line 2789
+Overfull \vbox (12.68634pt too high) detected at line 2828
  []
 
-[144
+[137
 
 ]
 \tf@nav=\write6
@@ -2597,10 +2593,10 @@ Package rerunfilecheck Info: File `PhD_Presentation.out' has not changed.
 (rerunfilecheck)             Checksum: EEFD784EDC3CD18C53D0DB456EE588B0;855.
  ) 
 Here is how much of TeX's memory you used:
- 42389 strings out of 480104
- 1032906 string characters out of 5892285
- 2651997 words of memory out of 5000000
- 59170 multiletter control sequences out of 15000+600000
+ 42363 strings out of 480104
+ 1032452 string characters out of 5892285
+ 2652542 words of memory out of 5000000
+ 59155 multiletter control sequences out of 15000+600000
  493797 words of font info for 104 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  128i,33n,122p,1839b,2695s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2623,10 +2619,10 @@ t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sfss1095.pfb>
-Output written on PhD_Presentation.pdf (144 pages, 9682872 bytes).
+Output written on PhD_Presentation.pdf (137 pages, 9613268 bytes).
 PDF statistics:
- 1031 PDF objects out of 1200 (max. 8388607)
- 773 compressed objects within 8 object streams
- 294 named destinations out of 1000 (max. 500000)
- 288 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 990 PDF objects out of 1000 (max. 8388607)
+ 741 compressed objects within 8 object streams
+ 280 named destinations out of 1000 (max. 500000)
+ 283 words of extra memory for PDF output out of 10000 (max. 10000000)
 

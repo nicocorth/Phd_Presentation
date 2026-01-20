@@ -461,7 +461,7 @@ Large temperature gradients!
 \begin{framed}
 \textbf{FV require a highly refined mesh in regions of large solution gradient.}
 
-\textbf{FV can be very dissipative, smoothing small scale phenomena.}
+\textbf{FV can be very dissipative, "smoothing" the physics.}
 \end{framed}
 
 Solution procedure makes convergence slow and tedious...
@@ -648,7 +648,7 @@ $\mathcal{S}_i$ : scattering collision operator.
 
 $\mathcal{C}_i$ : chemically reacting collision operator.
 
-Provided $Kn \ll 1$ (continuous medium) + conservation of mass, momentum and energy, it is possible to simplify this system.
+Provided $Kn \ll 1$ (continuous medium) + conservation of mass, momentum and energy, it is possible to simplify this system by integration over the velocity space.
 
 \end{frame}
 
@@ -678,14 +678,14 @@ exhibiting a \underline{collective} behaviour (through collisions = particles in
 Direct contact (local \& binary) & Electric force (distance and collective)
 \end{tabular}
 \begin{framed}
-For large scales ($> \SI{1}{\micro\meter}$ in our case), $q \simeq 0$ due to electric force.
+For scales $>$ Debye length ($~ \SI{1}{\micro\meter}$ in our case), $q \simeq 0$ due to electric force.
 \end{framed}
 \end{frame}
 
 \begin{frame}{Cold plasmas and thermal equilibrium}
 
 \begin{framed}
-\textbf{"Cold plasmas" store energy in the free electrons. It is then transmitted during collisions to the ions et neutrals.}
+\textbf{"Cold plasmas" store energy in the free electrons. It is then transmitted during collisions to the ions and neutrals.}
 \end{framed}
 %En fonction de l'efficacité des collisions, deux scénarii sont possibles:
 \begin{center}
@@ -759,9 +759,129 @@ Chemical equilibrium & Chemical non-equilibrium & Frozen flow\\
 
 \textbf{Plasmas are in chemical equilibrium in this work.}
 
+\begin{framed}
+\centering
+\textbf{Thermal + Chemical equilibrium = Local Thermodynamic Equilibrium (LTE)}
+\end{framed}
+
 \end{frame}
 
-\begin{frame}{Hypothesis on the plasma}
+\begin{frame}{General equation for unmagnetized, optically thick plasma at LTE}
+\begin{framed}
+\begin{equation*}
+	\left\{
+	\begin{aligned}
+		& \partial_t \rho + \nabla \cdot (\rho \vecv) &&= 0\\
+		&\partial_t (\rho \vecv) + \nabla \cdot \left(\rho \vecv \vecv + p\mathbb{I}\right) - \nabla \cdot \vectau &&= \vecj \times \vecB\\
+		&\partial_t \left(\frac{1}{2}\rho ||\vecv||^2 + \rho e\right) + \nabla \cdot \left(\rho H\vecv\right) + \nabla \cdot \left(\vecq - \vectau \cdot \vecv \right) &&= \vecj \cdot \vecE
+	\end{aligned}
+	\right.
+\end{equation*}
+\end{framed}
+
+\only<1>{
+Linked to Boltzmann equation
+\begin{equation*}
+\rho = \sum_{i}\int m_i f_i d \vecc_i. \quad \rho \vecv = \sum_i \int m_i \vecc_i f_i d \vecc_i, ... 
+\end{equation*}
+}
+
+\only<2>
+{
+
+\begin{minipage}{0.7\linewidth}
+\begin{equation*}
+\begin{aligned}
+& \vectau = \eta \left[\nabla \vecv + \left(\nabla \vecv\right)^T - \frac{2}{3} \left(\nabla \cdot \vecv\right) \mathbb{I}\right] \\
+& \vecq = - \lambda \nabla T \\
+& \vecj = \sigma \vecE - \sum_{i,j\in S} n_i q_i D_{ij} \left[\frac{\nabla p_j}{n k_B T_h} - \frac{y_j p}{n k_B T_h} \nabla \ln(p) + \left(k_{T}^h + k_{T}^e\right) \nabla \ln(T)\right]
+\end{aligned}
+\end{equation*}
+\end{minipage}
+\begin{minipage}{0.29\linewidth}
+\flushright
+\includegraphics[width=0.7\linewidth]{./mpp-logo.png}
+\end{minipage}
+}
+
+%Unmagnetized plasma and no elemental de-mixing.
+
+\end{frame}
+
+%\begin{frame}{Transport properties : Mutation++}
+%
+%%\begin{framed}
+%%\centering
+%%\textbf{The transport properties are computed using Mutation++}
+%%
+%%%$\eta$, $k$, $\sigma_e$ 
+%%\end{framed}
+%
+%\centering
+%\begin{center}
+%\includegraphics[width=.8\linewidth]{./mpp-logo.png}
+%\end{center}
+%
+%Uses a Galerkin approximate solution of the linearized Boltzmann equation for computing the transport coefficients ($\sigma_e$, $\eta$, $\lambda$).
+%
+%
+%\end{frame}
+
+\begin{frame}{Transport properties}
+\centering
+\only<1>{
+\begin{minipage}{0.49\linewidth}
+\input{./mu}
+\end{minipage}}
+\only<2>{
+\begin{minipage}{.49\linewidth}
+\input{./lambda}
+\end{minipage}
+}\only<3>{
+\begin{minipage}{.49\linewidth}
+\input{./sigma_e}
+\end{minipage}}
+\begin{minipage}{0.49\linewidth}
+\input{./X}
+\end{minipage}
+\only<1>{
+\begin{equation*}
+	\eta \propto \sqrt{T}/\sigma
+\end{equation*}}
+\only<2>{
+\begin{equation*}
+	\lambda_r \propto \frac{d X}{d T}
+\end{equation*}}
+\only<3>{
+\begin{equation*}
+	\sigma_e \propto X_e
+\end{equation*}}
+
+\end{frame}
+
+\begin{frame}{Maxwell equations}
+\begin{framed}
+\begin{equation*}
+	\left\{
+	\begin{aligned}
+		& \partial_t \rho + \nabla \cdot (\rho \vecv) &&= 0\\
+		&\partial_t (\rho \vecv) + \nabla \cdot \left(\rho \vecv \vecv + p\mathbb{I}\right) - \nabla \cdot \vectau &&= \vecj \times \vecB\\
+		&\partial_t \left(\frac{1}{2}\rho ||\vecv||^2 + \rho e\right) + \nabla \cdot \left(\rho H\vecv\right) + \nabla \cdot \left(\vecq - \vectau \cdot \vecv \right) &&= \vecj \cdot \vecE
+	\end{aligned}
+	\right.
+\end{equation*}
+\end{framed}
+\begin{framed}
+\begin{equation*}
+\begin{aligned}
+& \nabla \cdot \vecE = 0 && \partial_t \vecB + \nabla \times \vecE = \mathbf{0}\\
+& \nabla \cdot \vecB = 0 && -\epsilon_0 \partial_t \vecE + \frac{1}{\mu_0} \nabla \times \vecB = \vecj
+\end{aligned}
+\end{equation*}
+\end{framed}
+\end{frame}
+
+\begin{frame}{Hypothesis specific to ICP}
 
 %\begin{framed}
 %
@@ -770,178 +890,142 @@ Chemical equilibrium & Chemical non-equilibrium & Frozen flow\\
 \begin{minipage}{.6\linewidth}
 %\small
 \begin{itemize}
-\onslide<1->
-{
-\item\textbf{Collision-dominated and thermal plasma}
-}
 
-\onslide<2->
-{
-\item\textbf{Quasi-neutrality}
-}
 
-\onslide<3->
-{
-\item\textbf{No displacement current}
-}
-
-\onslide<4->
-{
 \item\textbf{Axisymmetry}
-}
 
-\onslide<5->
-{
-\item\textbf{Optically thick plasma}
-}
 
-\onslide<6->
-{
-\item\textbf{Local thermodynamic equilibrium}
-}
-
-\onslide<7->
-{
-\item\textbf{No elemental de-mixing}
-}
-
-\onslide<8->
-{
-\item\textbf{Unmagnetized plasma}
-}
-
-\onslide<9->
-{
 \item\textbf{Steady-state}
-}
 \end{itemize}
 \end{minipage}
 \begin{minipage}{.39\linewidth}
-\only<1>{
-\begin{center}
-\begin{tikzpicture}[scale=3]
-\node[blue] at (0,0) {$\bullet$};
-\node[red] at (.4,.3) {$\bullet$};
-\node[red] at (.5,0) {$\bullet$};
-\node[red] at (.3,-.2) {$\bullet$};
-\node[red] at (-.2,-.3) {$\bullet$};
-\node[red] at (.1,.4) {$\bullet$};
-\draw[red, ->] (.5,0.) -- (.7, 0.);
-\draw[red, ->] (.3,-.2) -- (.4, -.3);
-\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-\draw[red, ->] (.1,.4) -- (0., .3);
-\draw[blue, ->] (0,0) -- (-0.2,0);
-\draw[red, ->] (.4,.3) -- (.6,.3);
-\node[blue] at (0,0) [above right]{$+$};
-\node[red] at (.4,.3) [above right]{$e^-$};
-\node[red] at (.5,0) [above right]{$e^-$};
-\node[red] at (.3,-.2) [above right]{$e^-$};
-\node[red] at (-.2,-.3) [above right]{$e^-$};
-\node[red] at (.1,.4) [above right]{$e^-$};
-\end{tikzpicture}
-
-\begin{framed}
-\begin{equation*}
-T_e \simeq T_h
-\end{equation*}
-\end{framed}
-
-\end{center}
-}
-
-\only<2>
-{
-
-Characteristic length $\gg$ Debye length so that $q \simeq 0$.
-
-}
-
-\only<3>
-{
-
-	\begin{itemize}
-	\item Electrons return fast to equilibrium when perturbed by ELM waves.
-	
-	\item ELM wavelength $\gg$ plasma length scale.
-	\end{itemize}
-}
-
-\only<4>
-{
-
-%	No 3D plasma modes may occur.
-%	Fully axisymmetric electric field.
-	
-	\begin{center}
-	\includegraphics[height=.42\linewidth]{./coil_effect.png}
-	\includegraphics[height = .42\linewidth]{./plasmatron_nozzle_operating.png}
-	\includegraphics[height = .42\linewidth]{./plasmatron_nozzles.png}
-	\end{center}
-
-}
-
-\only<5>
-{
-	\begin{tikzpicture}[scale=3.5]
-	\def\dist{1.5}
-  	\fill[blue] (\dist,0) circle (0.03) node[below left=2pt] {$p^+$};
-
-  	% Orbit path (optional, dashed)
-  	\draw[dashed,gray] (\dist,0) circle (.5);
-
-  	% Electron (red dot on orbit)
-  	\def\ang{-40} % position angle
-  
-  
-  	\fill[red] ({\dist+.5*cos(\ang)},{.5*sin(\ang)}) circle (0.03) 
-  	node[above left] {$e^-$};
-    
-  	\draw[dashed,gray] (\dist,0) circle (.7);
-  	\fill[red!50] ({\dist+.7*cos(\ang)},{.7*sin(\ang)}) circle (0.03) 
-  	node[below right] {$e^-$};
-  	\draw[<-, ultra thick, red] ({\dist+.55*cos(\ang)},{.55*sin(\ang)}) -- ({\dist+.65*cos(\ang)},{.65*sin(\ang)});
-  	
-  	\draw[->, ultra thick] ({\dist+.6*cos(\ang)}, {.6*sin(\ang)}) -- (2., -.6) node[below right]{$h \nu$};
-  
-  \end{tikzpicture}
-}
-
-\only<6>
-{
-
-Thermal + chemical equilibrium = LTE
-
-}
-
-\only<7>
-{
-
-Elemental de-mixing = diffusion of elements for LTE.
-
-Results closer to non-equilibrium.
-
-}
-
-\only<8>
-{
-\includegraphics[width=.8\linewidth]{helicoidal_motion.png}
-}
-
-\only<9>
-{
-\includegraphics[width=\linewidth]{./plasma_jet_unsteady_experimental.png}
-
-Equations averaged over one period of the induction current.
-
-}
-
-\only<10>
-{
-The electric field:
+%\only<1>{
+%\begin{center}
+%\begin{tikzpicture}[scale=3]
+%\node[blue] at (0,0) {$\bullet$};
+%\node[red] at (.4,.3) {$\bullet$};
+%\node[red] at (.5,0) {$\bullet$};
+%\node[red] at (.3,-.2) {$\bullet$};
+%\node[red] at (-.2,-.3) {$\bullet$};
+%\node[red] at (.1,.4) {$\bullet$};
+%\draw[red, ->] (.5,0.) -- (.7, 0.);
+%\draw[red, ->] (.3,-.2) -- (.4, -.3);
+%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
+%\draw[red, ->] (.1,.4) -- (0., .3);
+%\draw[blue, ->] (0,0) -- (-0.2,0);
+%\draw[red, ->] (.4,.3) -- (.6,.3);
+%\node[blue] at (0,0) [above right]{$+$};
+%\node[red] at (.4,.3) [above right]{$e^-$};
+%\node[red] at (.5,0) [above right]{$e^-$};
+%\node[red] at (.3,-.2) [above right]{$e^-$};
+%\node[red] at (-.2,-.3) [above right]{$e^-$};
+%\node[red] at (.1,.4) [above right]{$e^-$};
+%\end{tikzpicture}
+%
+%\begin{framed}
+%\begin{equation*}
+%T_e \simeq T_h
+%\end{equation*}
+%\end{framed}
+%
+%\end{center}
+%}
+%
+%\only<2>
+%{
+%
+%Characteristic length $\gg$ Debye length so that $q \simeq 0$.
+%
+%}
+%
+%\only<3>
+%{
+%
+%	\begin{itemize}
+%	\item Electrons return fast to equilibrium when perturbed by ELM waves.
+%	
+%	\item ELM wavelength $\gg$ plasma length scale.
+%	\end{itemize}
+%}
+%
+%\only<4>
+%{
+%
+%%	No 3D plasma modes may occur.
+%%	Fully axisymmetric electric field.
+%	
+%	\begin{center}
+%	\includegraphics[height=.42\linewidth]{./coil_effect.png}
+%	\includegraphics[height = .42\linewidth]{./plasmatron_nozzle_operating.png}
+%	\includegraphics[height = .42\linewidth]{./plasmatron_nozzles.png}
+%	\end{center}
+%
+%}
+%
+%\only<5>
+%{
+%	\begin{tikzpicture}[scale=3.5]
+%	\def\dist{1.5}
+%  	\fill[blue] (\dist,0) circle (0.03) node[below left=2pt] {$p^+$};
+%
+%  	% Orbit path (optional, dashed)
+%  	\draw[dashed,gray] (\dist,0) circle (.5);
+%
+%  	% Electron (red dot on orbit)
+%  	\def\ang{-40} % position angle
+%  
+%  
+%  	\fill[red] ({\dist+.5*cos(\ang)},{.5*sin(\ang)}) circle (0.03) 
+%  	node[above left] {$e^-$};
+%    
+%  	\draw[dashed,gray] (\dist,0) circle (.7);
+%  	\fill[red!50] ({\dist+.7*cos(\ang)},{.7*sin(\ang)}) circle (0.03) 
+%  	node[below right] {$e^-$};
+%  	\draw[<-, ultra thick, red] ({\dist+.55*cos(\ang)},{.55*sin(\ang)}) -- ({\dist+.65*cos(\ang)},{.65*sin(\ang)});
+%  	
+%  	\draw[->, ultra thick] ({\dist+.6*cos(\ang)}, {.6*sin(\ang)}) -- (2., -.6) node[below right]{$h \nu$};
+%  
+%  \end{tikzpicture}
+%}
+%
+%\only<6>
+%{
+%
+%Thermal + chemical equilibrium = LTE
+%
+%}
+%
+%\only<7>
+%{
+%
+%Elemental de-mixing = diffusion of elements for LTE.
+%
+%Results closer to non-equilibrium.
+%
+%}
+%
+%\only<8>
+%{
+%\includegraphics[width=.8\linewidth]{helicoidal_motion.png}
+%}
+%
+%\only<9>
+%{
+%\includegraphics[width=\linewidth]{./plasma_jet_unsteady_experimental.png}
+%
+%Equations averaged over one period of the induction current.
+%
+%}
+%
+%\only<10>
+%{
+The electromagnetic field electric field:
 
 \begin{itemize}
 
-\item It is ambipolar ($j_z = j_r = 0$).
+\item No displacement current.
+
+\item Ambipolar electrostatic field ($j_z = j_r = 0$).
 
 \item The coils are thin parallels wires surrounding the facility.
 
@@ -952,7 +1036,7 @@ The electric field:
 \item We use phasor notation.
 
 \end{itemize}
-}
+%}
 
 \end{minipage}
 
@@ -1028,52 +1112,7 @@ $E_1(k)$, $E_2(k)$ elliptic integral of the first and second kind.
 
 \end{frame}
 
-\begin{frame}{Transport properties : Mutation++}
 
-%\begin{framed}
-%\centering
-%\textbf{The transport properties are computed using Mutation++}
-%
-%%$\eta$, $k$, $\sigma_e$ 
-%\end{framed}
-
-\centering
-\begin{center}
-\includegraphics[width=.8\linewidth]{./mpp-logo.png}
-\end{center}
-
-Uses a Galerkin approximate solution of the linearized Boltzmann equation for computing the transport coefficients ($\sigma_e$, $\eta$, $\lambda$).
-
-
-\end{frame}
-
-\begin{frame}{Transport properties : viscosity}
-\centering
-\begin{minipage}{0.49\linewidth}
-\input{./mu}
-\end{minipage}
-\begin{minipage}{0.49\linewidth}
-\begin{equation*}
-	\eta_i \propto \frac{\sqrt{T_i}}{\sigma_i}.
-\end{equation*}
-\end{minipage}
-\end{frame}
-
-
-\begin{frame}{Transport properties : heat conductivity}
-\centering
-\begin{minipage}{.49\linewidth}
-\input{./lambda}
-\end{minipage}
-\begin{minipage}{.49\linewidth}
-\input{./X}
-\end{minipage}
-\end{frame}
-
-\begin{frame}{Transport properties : electric conductivity}
-\centering
-\input{./sigma_e}
-\end{frame}
 
 \begin{frame}{Coupling of the systems}
 
