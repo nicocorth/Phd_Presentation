@@ -859,7 +859,7 @@ Linked to Boltzmann equation
 
 \end{frame}
 
-\begin{frame}{Maxwell equations}
+\begin{frame}{Navier-Stokes and Maxwell equations}
 \begin{framed}
 \begin{equation*}
 	\left\{
@@ -874,164 +874,54 @@ Linked to Boltzmann equation
 \begin{framed}
 \begin{equation*}
 \begin{aligned}
-& \nabla \cdot \vecE = 0 && \partial_t \vecB + \nabla \times \vecE = \mathbf{0}\\
-& \nabla \cdot \vecB = 0 && -\epsilon_0 \partial_t \vecE + \frac{1}{\mu_0} \nabla \times \vecB = \vecj
+& \nabla \cdot \vecE = 0 && && \partial_t \vecB + \nabla \times \vecE = \mathbf{0}\\
+& \nabla \cdot \vecB = 0 && && -\epsilon_0 \partial_t \vecE + \frac{1}{\mu_0} \nabla \times \vecB = \vecj
 \end{aligned}
 \end{equation*}
 \end{framed}
 \end{frame}
 
-\begin{frame}{Hypothesis specific to ICP}
+\begin{frame}[c]{Hypothesis specific to ICP}
 
 %\begin{framed}
 %
 %\textbf{In order to simplify the development of the solver, assumptions are made.}
 %\end{framed}
-\begin{minipage}{.6\linewidth}
+\begin{minipage}{.39\linewidth}
 %\small
 \begin{itemize}
 
 
-\item\textbf{Axisymmetry}
+\item Quasi-steady \& averaged over an oscillation period.
 
-
-\item\textbf{Steady-state}
-\end{itemize}
-\end{minipage}
-\begin{minipage}{.39\linewidth}
-%\only<1>{
-%\begin{center}
-%\begin{tikzpicture}[scale=3]
-%\node[blue] at (0,0) {$\bullet$};
-%\node[red] at (.4,.3) {$\bullet$};
-%\node[red] at (.5,0) {$\bullet$};
-%\node[red] at (.3,-.2) {$\bullet$};
-%\node[red] at (-.2,-.3) {$\bullet$};
-%\node[red] at (.1,.4) {$\bullet$};
-%\draw[red, ->] (.5,0.) -- (.7, 0.);
-%\draw[red, ->] (.3,-.2) -- (.4, -.3);
-%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-%\draw[red, ->] (.1,.4) -- (0., .3);
-%\draw[blue, ->] (0,0) -- (-0.2,0);
-%\draw[red, ->] (.4,.3) -- (.6,.3);
-%\node[blue] at (0,0) [above right]{$+$};
-%\node[red] at (.4,.3) [above right]{$e^-$};
-%\node[red] at (.5,0) [above right]{$e^-$};
-%\node[red] at (.3,-.2) [above right]{$e^-$};
-%\node[red] at (-.2,-.3) [above right]{$e^-$};
-%\node[red] at (.1,.4) [above right]{$e^-$};
-%\end{tikzpicture}
-%
-%\begin{framed}
-%\begin{equation*}
-%T_e \simeq T_h
-%\end{equation*}
-%\end{framed}
-%
-%\end{center}
-%}
-%
-%\only<2>
-%{
-%
-%Characteristic length $\gg$ Debye length so that $q \simeq 0$.
-%
-%}
-%
-%\only<3>
-%{
-%
-%	\begin{itemize}
-%	\item Electrons return fast to equilibrium when perturbed by ELM waves.
-%	
-%	\item ELM wavelength $\gg$ plasma length scale.
-%	\end{itemize}
-%}
-%
-%\only<4>
-%{
-%
-%%	No 3D plasma modes may occur.
-%%	Fully axisymmetric electric field.
-%	
-%	\begin{center}
-%	\includegraphics[height=.42\linewidth]{./coil_effect.png}
-%	\includegraphics[height = .42\linewidth]{./plasmatron_nozzle_operating.png}
-%	\includegraphics[height = .42\linewidth]{./plasmatron_nozzles.png}
-%	\end{center}
-%
-%}
-%
-%\only<5>
-%{
-%	\begin{tikzpicture}[scale=3.5]
-%	\def\dist{1.5}
-%  	\fill[blue] (\dist,0) circle (0.03) node[below left=2pt] {$p^+$};
-%
-%  	% Orbit path (optional, dashed)
-%  	\draw[dashed,gray] (\dist,0) circle (.5);
-%
-%  	% Electron (red dot on orbit)
-%  	\def\ang{-40} % position angle
-%  
-%  
-%  	\fill[red] ({\dist+.5*cos(\ang)},{.5*sin(\ang)}) circle (0.03) 
-%  	node[above left] {$e^-$};
-%    
-%  	\draw[dashed,gray] (\dist,0) circle (.7);
-%  	\fill[red!50] ({\dist+.7*cos(\ang)},{.7*sin(\ang)}) circle (0.03) 
-%  	node[below right] {$e^-$};
-%  	\draw[<-, ultra thick, red] ({\dist+.55*cos(\ang)},{.55*sin(\ang)}) -- ({\dist+.65*cos(\ang)},{.65*sin(\ang)});
-%  	
-%  	\draw[->, ultra thick] ({\dist+.6*cos(\ang)}, {.6*sin(\ang)}) -- (2., -.6) node[below right]{$h \nu$};
-%  
-%  \end{tikzpicture}
-%}
-%
-%\only<6>
-%{
-%
-%Thermal + chemical equilibrium = LTE
-%
-%}
-%
-%\only<7>
-%{
-%
-%Elemental de-mixing = diffusion of elements for LTE.
-%
-%Results closer to non-equilibrium.
-%
-%}
-%
-%\only<8>
-%{
-%\includegraphics[width=.8\linewidth]{helicoidal_motion.png}
-%}
-%
-%\only<9>
-%{
-%\includegraphics[width=\linewidth]{./plasma_jet_unsteady_experimental.png}
-%
-%Equations averaged over one period of the induction current.
-%
-%}
-%
-%\only<10>
-%{
-The electromagnetic field electric field:
-
-\begin{itemize}
-
-\item No displacement current.
-
-\item Ambipolar electrostatic field ($j_z = j_r = 0$).
-
-\item The coils are thin parallels wires surrounding the facility.
+$\partial_t f \int_0^{1/f} dt \simeq 0$
 
 \item Axisymmetric
 
-\item $E_{tot} = E_C + E_P$
+$\partial_\theta \simeq 0$
+
+\item No displacement current.
+
+$\varepsilon_0 \partial_t \vecE \simeq 0$
+
+\item Ambipolar electrostatic field ($j_z = j_r = 0$).
+
+$\vecj = \sigma_e \vecE_I$
+
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.59\linewidth}
+
+\begin{itemize}
+
+
+\item Split of the induced electric field in a coil and plasma part 
+
+$E_I = E_C + E_P$
+
+\item The coils are thin parallels wires surrounding the facility.
+
+$ \sum_{l=1}^{N_{coil}} i f \mu_0 I_C \sqrt{\frac{r_0}{r}}\left[2 \frac{E_2(k_l)}{k_l} - E_1(k_l)\left(\frac{2}{k_l}-k_l\right)\right] $
 
 \item We use phasor notation.
 
@@ -1044,14 +934,12 @@ The electromagnetic field electric field:
 
 \begin{frame}{Equations governing the plasma}
 
-\textbf{Navier-Stokes equations}
-
 \begin{framed}
 \begin{equation*}
 \begin{aligned}
 & \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) = 0\\
-& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv \right) = -\nabla p + \nabla \cdot \vectau + \vecF_L\\
-& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv\right) = \nabla \cdot \left(\vectau\vecv\right) + \nabla \cdot \vecq + P_J\\
+& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv \right) = -\nabla p + \nabla \cdot \vectau + \only<1,2,3>{\vecF_L}\only<4>{\textcolor{red}{\vecF_L}}\\
+& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv\right) = \nabla \cdot \left(\vectau\vecv\right) + \nabla \cdot \vecq + \only<1,2,3>{P_J}\only<4>{\textcolor{red}{P_J}}\\
 \end{aligned}
 \end{equation*}
 \end{framed}
@@ -1077,87 +965,18 @@ The electromagnetic field electric field:
 \end{equation*}
 \end{minipage}
 }
-
-\end{frame}
-
-\begin{frame}{Electric field equation}
-
+\only<3->{
 \begin{framed}
 \begin{equation*}
-\partial^2_{zz} E_P + \frac{1}{r}\partial_r (r \partial_r E_P) - \frac{E_P}{r^2} = i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)
+\partial^2_{zz} E_P + \frac{1}{r}\partial_r (r \partial_r E_P) - \frac{E_P}{r^2} = i 2 \pi f\mu_0\only<3>{\sigma_e} \only<4>{\textcolor{red}{\sigma_e}} \left(E_C + E_P\right)
 \end{equation*}
+
+$\mu_0$ : magnetic permeability, $\sigma_e$ : electron electric conductivity, $f$ : induction frequency
 \end{framed}
-
-\only<2>
-{
-$\mu_0$ : magnetic permeability
-
-$\sigma_e$ : electron electric conductivity
-
-$f$ : induction frequency
-}
-
-\only<3>
-{
-\begin{equation*}
-	E_C = \sum_{l=1}^{N_{coil}} i f \mu_0 I_C \sqrt{\frac{r_0}{r}}\left[2 \frac{E_2(k_l)}{k_l} - E_1(k_l)\left(\frac{2}{k_l}-k_l\right)\right]
-\end{equation*}
-%\begin{equation*}
-%		E_1(k) = \int_0^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{1-k^2 \sin^2(\theta)}} \quad E_2(k) = \int_0^{\frac{\pi}{2}} \sqrt{1-k^2 \sin^2(\theta)} \; d\theta
-%\end{equation*}
-
-$E_1(k)$, $E_2(k)$ elliptic integral of the first and second kind.
-
 }
 
 \end{frame}
 
-
-
-\begin{frame}{Coupling of the systems}
-
-\only<1,2>
-{
-\textbf{Navier-Stokes}
-\begin{equation*}
-\begin{aligned}
-& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) = 0\\
-& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv \right) = -\nabla p + \nabla \cdot \vectau + \vecF_L\\
-& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv\right) = \nabla \cdot \left(\vectau\vecv\right) + \nabla \cdot \vecq + P_J\\
-\end{aligned}
-\end{equation*}
-}
-
-\only<2>
-{
-\textbf{Maxwell}
-\begin{equation*}
-\begin{aligned}
-& \partial^2_{zz} E_P + \frac{1}{r}\partial_r (r \partial_r E_P) - \frac{E_P}{r^2} = i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)
-\end{aligned}
-\end{equation*}
-}
-
-\only<3>
-{
-\textbf{Navier-Stokes}
-\begin{equation*}
-\begin{aligned}
-& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) = 0\\
-& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv \right) = -\nabla p + \nabla \cdot \vectau + \textcolor{red}{\vecF_L}\\
-& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv\right) = \nabla \cdot \left(\vectau\vecv\right) + \nabla \cdot \vecq + \textcolor{red}{P_J}\\
-\end{aligned}
-\end{equation*}
-
-\textbf{Maxwell}
-\begin{equation*}
-\begin{aligned}
-& \partial^2_{zz} E_P + \frac{1}{r}\partial_r (r \partial_r E_P) - \frac{E_P}{r^2} = i 2 \pi f\mu_0\textcolor{red}{\sigma_e} \left(E_C + E_P\right)
-\end{aligned}
-\end{equation*}
-}
-
-\end{frame}
 
 \begin{frame}{Computational domain}
 
@@ -1241,315 +1060,49 @@ $E_1(k)$, $E_2(k)$ elliptic integral of the first and second kind.
 \section{Hybridized discontinuous Galerkin method}
 
 
-
-\begin{frame}{Finite volume and (hybridized) discontinuous Galerkin}
-
-\centering
-\begin{tikzpicture}[scale = 1.5]
-	% Define the vertices of the standing on base triangle
-    \coordinate (A) at (0, 0, 0);
-    \coordinate (B) at (4, 0, 0);
-    \coordinate (C) at (2, 0, -3.464); % Height for an equilateral triangle
-    
-    % Define the vertice of the trace
-    \coordinate (D) at (5,0,0);
-    \coordinate (E) at (3,0,-3.464);
-    
-    % Define the vertices of the standing on head triangle
-    \coordinate (F) at (6, 0,0);
-    \coordinate (G) at (4, 0,-3.464);
-    \coordinate (H) at (8, 0,-3.464);
-
-    % Draw the triangle standing on its base
-    \draw[thick] (A) -- (B) -- (C) -- cycle;
-    
-    % Draw the triangle standing on its head
-    \draw[thick] (F) -- (G) -- (H) -- cycle;
-    
-    \only<3->
-    {
-    % Draw the trace
-    \draw[thick] (D) -- (E);
-	}
-    % Place the nodes at the vertices
-    \draw[blue] (A) circle (2pt);
-    %\only<1>
-    {
-    \draw[blue] (B) circle (2pt);
-    }
-%    \only<2->
-%    {
-%    \draw[blue] (B) circle (2pt) node[below] {$\vecu_1$, $\vecq_1$};
-%	}    
-    \draw[blue] (C) circle (2pt);
-    
-    \only<3->
-    {
-    \draw[red] (D) circle (2pt);
-    \draw[red] (E) circle (2pt);
-    }
-	%\only<1>
-    {
-    \draw[blue] (F) circle (2pt);
-	}       
-    
-%    \only<2->
-%    {
-%    \draw[blue] (F) circle (2pt) node[below] {$\vecu_2$, $\vecq_2$};
-%	}    
-    \draw[blue] (G) circle (2pt);
-    \draw[blue] (H) circle (2pt);
-
-    % Place the mid-edge nodes for the triangle on its basis
-    \coordinate (AB) at ($.5*(A)+ 0.5*(B)$);
-    \coordinate (BC) at ($.5*(B)+ 0.5*(C)$);
-    \coordinate (CA) at ($.5*(C)+ 0.5*(A)$);
-    
-    \only<3->
-    {
-    % Place the mid-edge of the trace
-    \coordinate (DE) at ($.5*(D)+ 0.5*(E)$);
-    }
-    
-    % Place the mid-edge nodes for the triangle on its head
-    \coordinate (FG) at ($.5*(F)+ 0.5*(G)$);
-    \coordinate (GH) at ($.5*(G)+ 0.5*(H)$);
-    \coordinate (HF) at ($.5*(H)+ 0.5*(F)$);
-
-    \draw[blue] (AB) circle (2pt);
-    \draw[blue] (BC) circle (2pt);
-    \draw[blue] (CA) circle (2pt);
-    
-    \draw[blue] (FG) circle (2pt);
-    \draw[blue] (GH) circle (2pt);
-    \draw[blue] (HF) circle (2pt);
-    
-    \only<3->
-    {
-    \draw[red] (DE) circle (2pt);% node[above right] {$\veclambda$};
-    \node[below left] at (DE) {$e$};
-    }
-    % Marks the center of the triangles
-    \coordinate (ABC) at ($ .333*(A) + .333*(B) + .333*(C) $);
-    \coordinate (FGH) at ($ .333*(F) + .333*(G) + .333*(H) $);
-    
-    \node[black] at (ABC) {$K_1$};
-    \node[black] at (FGH) {$K_2$};
-    
-    % Shape function of the first element.
-    \only<1>{
-    \coordinate (I) at (0, 1., 0);
-    \coordinate (J) at (4, 1., 0);
-    \coordinate (K) at (2, 1., -3.464);
-    }
-    
-    \only<2->{
-    	 \coordinate (I) at (0, 1.5, 0);
-     \coordinate (J) at (4, 2., 0);
-     \coordinate (K) at (2, 1.75, -3.464);
-    }
-    
-    \coordinate (IJ) at (2, 1., 0);
-    \coordinate (JK) at (3, 2.5, -1.732);
-    \coordinate (KI) at (1, 1.3, -1.732);
-    
-    \coordinate (IJK) at ($ .333*(I) + .333*(J) + .333*(K) $);
-    
-    \draw[dashed] (A) -- (I);
-    \draw[dashed] (B) -- (J);
-    \draw[dashed] (C) -- (K);
-    
-    \fill[blue] (I) circle (2pt);
-    \fill[blue] (J) circle (2pt);
-    \fill[blue] (K) circle (2pt);
-
-	\only<1>{
-	\fill[smooth, blue!20, opacity=0.5, tension = 0.] (I) -- (J) -- (K);
-    \draw[smooth, thick, blue, tension = 0.] (I) -- (J) -- (K) -- cycle;
-	}
-   
-    \only<2->{ 
-    \fill[smooth, blue!20, opacity=0.5, tension = 0.] (I) .. controls (IJ) .. (J) -- (J) .. controls (JK) .. (K) -- (K) .. controls (KI) ..(I);
-    \draw[smooth, thick, blue, tension = 0.] (I) .. controls (IJ) .. (J) -- (J) .. controls (JK) .. (K) -- (K) .. controls (KI) ..(I);
-	}
-
-	\only<1,2>
-	{
-	\node[below, blue] at (IJK) {$\vecu_{K_1}$};
-	}
-	
-	\only<3->
-	{
-	\node[below, blue] at (IJK) {$\vecu_{K_1}$, $\vecq_{K_1}$};
-	}
-	
-%	\only<2->
-%	{
-%	\node[below, blue] at (IJK) {$\varphi_{K_1}$};
-%	}
-	% Shape function of the second element.
-	\only<1>
-	{
-    \coordinate (L) at (6, 2,0);
-    \coordinate (M) at (4, 2,-3.464);
-    \coordinate (N) at (8, 2,-3.464);
-    }
-    
-    \only<2->
-	{
-    \coordinate (L) at (6, 2,0);
-    \coordinate (M) at (4, 1.75,-3.464);
-    \coordinate (N) at (8, 1.5,-3.464);
-    }
-    
-    \coordinate (LM) at (5, 1.3, -1.732);
-    \coordinate (MN) at (6, 2.2, -3.464);
-    \coordinate (NL) at (7, 2.3, -1.732);
-    
-    \coordinate (LMN) at ($ .333*(L) + .333*(M) + .333*(N) $);
-    
-    \draw[dashed] (F) -- (L);
-    \draw[dashed] (G) -- (M);
-    \draw[dashed] (H) -- (N);
-    
-    \fill[blue] (L) circle (2pt);
-    \fill[blue] (M) circle (2pt);
-    \fill[blue] (N) circle (2pt);
-
-	\only<1>{
-	\fill[smooth, blue!20, opacity=0.5, tension = 0.] (L) -- (M) -- (N);
-	\draw[smooth, thick, blue, tension = 0.] (L) -- (M) -- (N) -- cycle;
-	}    
-    
-    \only<2->{\fill[smooth, blue!20, opacity=0.5, tension = 0.] (L) .. controls (LM) .. (M) -- (M) .. controls (MN) .. (N) -- (N) .. controls (NL) ..(L);
-    \draw[smooth, thick, blue, tension = 0.] (L) .. controls (LM) .. (M) -- (M) .. controls (MN) .. (N) -- (N) .. controls (NL) ..(L);
-	}
-	\only<1,2>
-	{
-	\node[above, blue] at (LMN) {$\vecu_{K_2}$};
-	}
-
-	\only<3->
-	{
-	\node[above, blue] at (LMN) {$\vecu_{K_2}$, $\vecq_{K_2}$};
-	}	
-	
-%	\only<2->
-%	{
-%	\node[above, blue] at (LMN) {$\varphi_{K_2}$};
-%	}
-	% Shape function of the trace.
-	
-	\only<3->
-	{
-	\coordinate (O) at (5,1.7,0);
-    \coordinate (P) at (3,2.,-3.464);
-    \coordinate (OP) at (4,1.5,-1.732);
-    
-    \coordinate (OP_Bary) at ($ .5*(O) + .5*(P) $);
-    
-    \draw[smooth, thick, red, tension = 0.] (O) .. controls (OP) .. (P);
-    
-    \draw[dashed] (D) -- (O);
-    \draw[dashed] (E) -- (P);
-    
-    \fill[red] (O) circle (2pt);
-    \fill[red] (P) circle (2pt);
-    
-    \node[above right, red] at (OP_Bary) {$\veclambda_e$};
-	}
-	
-	\only<1,2>{
-
-	\draw[<->, ultra thick] ($(BC) + (0.1, 0)$) -- ($.5*(BC) + .5*(FG)$) node[below]{$\vecHcal$} -- ($(FG) - (0.1,0)$);	
-	
-	}
-
-	\only<3>{
-
-	\draw[<->, ultra thick] ($(BC) + (0.1, 0)$) -- ($.5*(BC) + .5*(DE)$) node[above]{$\vecHcal_1$} -- ($(DE) - (0.1,0)$);
-	\draw[<->, ultra thick] ($(DE) + (0.1, 0)$) -- ($.5*(DE) + .5*(FG)$) node[above]{$\vecHcal_2$} -- ($(FG) - (0.1,0)$);	
-	
-	}	
-	
-	% Axis
-	
-	%\draw[->, thick] (0, -2, 0) -- (0, -2, -1.5) node[above]{$\vece_y$};
-	%\draw[->, thick] (0, -2, 0) -- (1.5, -2, 0) node[above]{$\vece_x$};
-	%\draw[->, thick] (0, -2, 0) -- (0, -0.5, 0) node[right]{$\varphi, \mu$};
-
-\end{tikzpicture}
-
-\only<1>{
-\begin{framed}
-\centering
-\textbf{Finite volumes}
-\end{framed}
-}
-
-\only<2>{
-\begin{framed}
-\centering
-\textbf{Discontinuous Galerkin}
-\end{framed}
-}
-
-\only<3>{
-\begin{framed}
-\centering
-\textbf{Hybridized discontinuous Galerkin}
-\end{framed}
-}
-
-\only<4>
-{
-\begin{framed}
-\centering
-\textbf{Why HDG over DG?} As will be seen later, HDG allows for static condensation, effectively reducing the number of DOFs when using a Newton solver.
-\end{framed}
-}
-
-\end{frame}
-
-\begin{frame}{Conservative form of the equations}
-
-%\textbf{Navier-Stokes}
-\begin{equation*}
-\begin{aligned}
-& \partial_t \rho &&+ \nabla \cdot \left(\rho \vecv\right) && &&= 0\\
-& \partial_t \left(\rho \vecv\right) &&+ \nabla \cdot \left(\rho \vecv \vecv + p \mathbb{I} \right) &&- \nabla \cdot \vectau &&= \vecF_L\\
-& \partial_t \left(\rho E\right) &&+ \nabla \cdot \left(\rho E \vecv + p \vecv\right) &&- \nabla \cdot \left(\vectau\vecv + \vecq\right) &&= P_J\\
-& && &&- \nabla \cdot \left(\nabla E_P\right) &&= -\frac{E_P}{r^2} - i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)\\
-& && && &&\\
-\only<2>
-{
-& \partial_t \vecw(\vecu) &&+ \nabla \cdot \vecF_c(\vecu) &&- \nabla \cdot \vecF_v(\vecu, \nabla \vecu) &&= \vecS(\vecu, \nabla \vecu)
-}
-\end{aligned}
-\end{equation*}
-
-\only<3>
-{
-\begin{framed}
-\begin{equation*}
-\partial_t \vecw(\vecu) + \nabla \cdot \vecF_c(\vecu) - \nabla \cdot \vecF_v(\vecu, \nabla \vecu) = \vecS(\vecu, \nabla \vecu)
-\end{equation*}
-\end{framed}
-}
-
-%\textbf{Maxwell}
+%\begin{frame}{Conservative form of the equations}
+%
+%%\textbf{Navier-Stokes}
+%\begin{framed}
 %\begin{equation*}
 %\begin{aligned}
-%
+%& \partial_t \rho &&+ \nabla \cdot \left(\rho \vecv\right) && &&= 0\\
+%& \partial_t \left(\rho \vecv\right) &&+ \nabla \cdot \left(\rho \vecv \vecv + p \mathbb{I} \right) &&- \nabla \cdot \vectau &&= \vecF_L\\
+%& \partial_t \left(\rho E\right) &&+ \nabla \cdot \left(\rho E \vecv + p \vecv\right) &&- \nabla \cdot \left(\vectau\vecv + \vecq\right) &&= P_J\\
+%& && &&- \nabla \cdot \left(\nabla E_P\right) &&= -\frac{E_P}{r^2} - i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)\\
 %\end{aligned}
 %\end{equation*}
-
-%\onslide<2>
-%{
-
+%\end{framed}
+%\only<2>{
+%\begin{equation*}
+%\begin{aligned}
+%& \partial_t \vecw(\vecu) &&+ \nabla \cdot \vecF_c(\vecu) &&- \nabla \cdot \vecF_v(\vecu, \nabla \vecu) &&= \vecS(\vecu, \nabla \vecu)
+%\end{aligned}
+%\end{equation*}
 %}
-
-\end{frame}
+%
+%\only<3>
+%{
+%\begin{framed}
+%\begin{equation*}
+%\partial_t \vecw(\vecu) + \nabla \cdot \vecF_c(\vecu) - \nabla \cdot \vecF_v(\vecu, \nabla \vecu) = \vecS(\vecu, \nabla \vecu)
+%\end{equation*}
+%\end{framed}
+%}
+%
+%%\textbf{Maxwell}
+%%\begin{equation*}
+%%\begin{aligned}
+%%
+%%\end{aligned}
+%%\end{equation*}
+%
+%%\onslide<2>
+%%{
+%
+%%}
+%
+%\end{frame}
 
 \begin{frame}{Model problem}
 
@@ -1695,13 +1248,155 @@ If the $\varphi_{K,i}$ is a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}
 \end{aligned}
 \end{equation*}
 \end{framed}
-\begin{itemize}
-\item $\varphi_{K,i}$ are discontinuous across elements.
+\centering
+\begin{tikzpicture}[scale = 1.]
+	% Define the vertices of the standing on base triangle
+    \coordinate (A) at (0, 0, 0);
+    \coordinate (B) at (4, 0, 0);
+    \coordinate (C) at (2, 0, -3.464); % Height for an equilateral triangle
+    
+    % Define the vertice of the trace
+    \coordinate (D) at (5,0,0);
+    \coordinate (E) at (3,0,-3.464);
+    
+    % Define the vertices of the standing on head triangle
+    \coordinate (F) at (6, 0,0);
+    \coordinate (G) at (4, 0,-3.464);
+    \coordinate (H) at (8, 0,-3.464);
 
-\item If $\varphi_{K,i} = 1$ everywhere $\Rightarrow$ finite volume.
+    % Draw the triangle standing on its base
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    
+    % Draw the triangle standing on its head
+    \draw[thick] (F) -- (G) -- (H) -- cycle;
+    
+    
+    % Place the nodes at the vertices
+    \draw[blue] (A) circle (2pt);
+    %\only<1>
+    {
+    \draw[blue] (B) circle (2pt);
+    }
+%    \only<2->
+%    {
+%    \draw[blue] (B) circle (2pt) node[below] {$\vecu_1$, $\vecq_1$};
+%	}    
+    \draw[blue] (C) circle (2pt);
+    
+    
+	%\only<1>
+    {
+    \draw[blue] (F) circle (2pt);
+	}       
+    
+%    \only<2->
+%    {
+%    \draw[blue] (F) circle (2pt) node[below] {$\vecu_2$, $\vecq_2$};
+%	}    
+    \draw[blue] (G) circle (2pt);
+    \draw[blue] (H) circle (2pt);
 
-%\item The art of designing DG is contained in the numerical fluxes (\textit{cfr.} later).
-\end{itemize}
+    % Place the mid-edge nodes for the triangle on its basis
+    \coordinate (AB) at ($.5*(A)+ 0.5*(B)$);
+    \coordinate (BC) at ($.5*(B)+ 0.5*(C)$);
+    \coordinate (CA) at ($.5*(C)+ 0.5*(A)$);
+    
+    
+    % Place the mid-edge nodes for the triangle on its head
+    \coordinate (FG) at ($.5*(F)+ 0.5*(G)$);
+    \coordinate (GH) at ($.5*(G)+ 0.5*(H)$);
+    \coordinate (HF) at ($.5*(H)+ 0.5*(F)$);
+
+    \draw[blue] (AB) circle (2pt);
+    \draw[blue] (BC) circle (2pt);
+    \draw[blue] (CA) circle (2pt);
+    
+    \draw[blue] (FG) circle (2pt);
+    \draw[blue] (GH) circle (2pt);
+    \draw[blue] (HF) circle (2pt);
+    
+    % Marks the center of the triangles
+    \coordinate (ABC) at ($ .333*(A) + .333*(B) + .333*(C) $);
+    \coordinate (FGH) at ($ .333*(F) + .333*(G) + .333*(H) $);
+    
+    \node[black] at (ABC) {$K_1$};
+    \node[black] at (FGH) {$K_2$};
+    
+    % Shape function of the first element.
+    
+    	\coordinate (I) at (0, 1.5, 0);
+    \coordinate (J) at (4, 2., 0);
+    \coordinate (K) at (2, 1.75, -3.464);
+    
+    \coordinate (IJ) at (2, 1., 0);
+    \coordinate (JK) at (3, 2.5, -1.732);
+    \coordinate (KI) at (1, 1.3, -1.732);
+    
+    \coordinate (IJK) at ($ .333*(I) + .333*(J) + .333*(K) $);
+    
+    \draw[dashed] (A) -- (I);
+    \draw[dashed] (B) -- (J);
+    \draw[dashed] (C) -- (K);
+    
+    \fill[blue] (I) circle (2pt);
+    \fill[blue] (J) circle (2pt);
+    \fill[blue] (K) circle (2pt);
+
+   
+    \fill[smooth, blue!20, opacity=0.5, tension = 0.] (I) .. controls (IJ) .. (J) -- (J) .. controls (JK) .. (K) -- (K) .. controls (KI) ..(I);
+    \draw[smooth, thick, blue, tension = 0.] (I) .. controls (IJ) .. (J) -- (J) .. controls (JK) .. (K) -- (K) .. controls (KI) ..(I);
+
+	\node[below, blue] at (IJK) {$\vecu_{K_1}$};
+	
+	
+%	\only<2->
+%	{
+%	\node[below, blue] at (IJK) {$\varphi_{K_1}$};
+%	}
+	% Shape function of the second element.
+    
+    \coordinate (L) at (6, 2,0);
+    \coordinate (M) at (4, 1.75,-3.464);
+    \coordinate (N) at (8, 1.5,-3.464);
+    
+    \coordinate (LM) at (5, 1.3, -1.732);
+    \coordinate (MN) at (6, 2.2, -3.464);
+    \coordinate (NL) at (7, 2.3, -1.732);
+    
+    \coordinate (LMN) at ($ .333*(L) + .333*(M) + .333*(N) $);
+    
+    \draw[dashed] (F) -- (L);
+    \draw[dashed] (G) -- (M);
+    \draw[dashed] (H) -- (N);
+    
+    \fill[blue] (L) circle (2pt);
+    \fill[blue] (M) circle (2pt);
+    \fill[blue] (N) circle (2pt);
+
+    
+    \fill[smooth, blue!20, opacity=0.5, tension = 0.] (L) .. controls (LM) .. (M) -- (M) .. controls (MN) .. (N) -- (N) .. controls (NL) ..(L);
+    \draw[smooth, thick, blue, tension = 0.] (L) .. controls (LM) .. (M) -- (M) .. controls (MN) .. (N) -- (N) .. controls (NL) ..(L);
+	
+	\node[above, blue] at (LMN) {$\vecu_{K_2}$};
+	
+%	\only<2->
+%	{
+%	\node[above, blue] at (LMN) {$\varphi_{K_2}$};
+%	}
+	% Shape function of the trace.
+	
+
+	\draw[<->, ultra thick] ($(BC) + (0.1, 0)$) -- ($.5*(BC) + .5*(FG)$) node[below]{$\vecHcal$} -- ($(FG) - (0.1,0)$);	
+	
+		
+	
+	% Axis
+	
+	%\draw[->, thick] (0, -2, 0) -- (0, -2, -1.5) node[above]{$\vece_y$};
+	%\draw[->, thick] (0, -2, 0) -- (1.5, -2, 0) node[above]{$\vece_x$};
+	%\draw[->, thick] (0, -2, 0) -- (0, -0.5, 0) node[right]{$\varphi, \mu$};
+
+\end{tikzpicture}
 }
 
 \only<8>
@@ -1749,7 +1444,7 @@ M_h = \left\{\mu \in L^2(\Gamma) : \mu|_e \in \mathcal{P}^p(e), \forall e\in \Ga
 \end{equation*}
 %and local basis $\mu_{e,i}$
 \begin{equation*}
-\veclambda_h = \sum_{e\in\Gamma}\sum_{i=1}^{p} \veclambda_{e,i} \mu_{e,i}
+\veclambda_h = \sum_{e\in\Gamma}\sum_{i=1}^{N_p} \veclambda_{e,i} \mu_{e,i}
 \end{equation*}
 
 }
@@ -1790,7 +1485,189 @@ The jump operator is given by
 \end{aligned}
 \end{equation*}
 \end{framed}
+\centering
+\begin{tikzpicture}[scale = 1.]
+	% Define the vertices of the standing on base triangle
+    \coordinate (A) at (0, 0, 0);
+    \coordinate (B) at (4, 0, 0);
+    \coordinate (C) at (2, 0, -3.464); % Height for an equilateral triangle
+    
+    % Define the vertice of the trace
+    \coordinate (D) at (5,0,0);
+    \coordinate (E) at (3,0,-3.464);
+    
+    % Define the vertices of the standing on head triangle
+    \coordinate (F) at (6, 0,0);
+    \coordinate (G) at (4, 0,-3.464);
+    \coordinate (H) at (8, 0,-3.464);
 
+    % Draw the triangle standing on its base
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    
+    % Draw the triangle standing on its head
+    \draw[thick] (F) -- (G) -- (H) -- cycle;
+    
+    
+    % Draw the trace
+    \draw[thick] (D) -- (E);
+	
+    % Place the nodes at the vertices
+    \draw[blue] (A) circle (2pt);
+    %\only<1>
+    {
+    \draw[blue] (B) circle (2pt);
+    }
+%    \only<2->
+%    {
+%    \draw[blue] (B) circle (2pt) node[below] {$\vecu_1$, $\vecq_1$};
+%	}    
+    \draw[blue] (C) circle (2pt);
+    
+    
+    \draw[red] (D) circle (2pt);
+    \draw[red] (E) circle (2pt);
+    
+	%\only<1>
+    {
+    \draw[blue] (F) circle (2pt);
+	}       
+    
+%    \only<2->
+%    {
+%    \draw[blue] (F) circle (2pt) node[below] {$\vecu_2$, $\vecq_2$};
+%	}    
+    \draw[blue] (G) circle (2pt);
+    \draw[blue] (H) circle (2pt);
+
+    % Place the mid-edge nodes for the triangle on its basis
+    \coordinate (AB) at ($.5*(A)+ 0.5*(B)$);
+    \coordinate (BC) at ($.5*(B)+ 0.5*(C)$);
+    \coordinate (CA) at ($.5*(C)+ 0.5*(A)$);
+    
+    
+    % Place the mid-edge of the trace
+    \coordinate (DE) at ($.5*(D)+ 0.5*(E)$);
+    
+    
+    % Place the mid-edge nodes for the triangle on its head
+    \coordinate (FG) at ($.5*(F)+ 0.5*(G)$);
+    \coordinate (GH) at ($.5*(G)+ 0.5*(H)$);
+    \coordinate (HF) at ($.5*(H)+ 0.5*(F)$);
+
+    \draw[blue] (AB) circle (2pt);
+    \draw[blue] (BC) circle (2pt);
+    \draw[blue] (CA) circle (2pt);
+    
+    \draw[blue] (FG) circle (2pt);
+    \draw[blue] (GH) circle (2pt);
+    \draw[blue] (HF) circle (2pt);
+    
+    
+    \draw[red] (DE) circle (2pt);% node[above right] {$\veclambda$};
+    \node[below left] at (DE) {$e$};
+    
+    % Marks the center of the triangles
+    \coordinate (ABC) at ($ .333*(A) + .333*(B) + .333*(C) $);
+    \coordinate (FGH) at ($ .333*(F) + .333*(G) + .333*(H) $);
+    
+    \node[black] at (ABC) {$K_1$};
+    \node[black] at (FGH) {$K_2$};
+    
+    % Shape function of the first element.
+    
+    
+    
+    	\coordinate (I) at (0, 1.5, 0);
+    \coordinate (J) at (4, 2., 0);
+    \coordinate (K) at (2, 1.75, -3.464);
+    
+    
+    \coordinate (IJ) at (2, 1., 0);
+    \coordinate (JK) at (3, 2.5, -1.732);
+    \coordinate (KI) at (1, 1.3, -1.732);
+    
+    \coordinate (IJK) at ($ .333*(I) + .333*(J) + .333*(K) $);
+    
+    \draw[dashed] (A) -- (I);
+    \draw[dashed] (B) -- (J);
+    \draw[dashed] (C) -- (K);
+    
+    \fill[blue] (I) circle (2pt);
+    \fill[blue] (J) circle (2pt);
+    \fill[blue] (K) circle (2pt);
+
+	
+     
+    \fill[smooth, blue!20, opacity=0.5, tension = 0.] (I) .. controls (IJ) .. (J) -- (J) .. controls (JK) .. (K) -- (K) .. controls (KI) ..(I);
+    \draw[smooth, thick, blue, tension = 0.] (I) .. controls (IJ) .. (J) -- (J) .. controls (JK) .. (K) -- (K) .. controls (KI) ..(I);
+	
+	\node[below, blue] at (IJK) {$\vecu_{K_1}$, $\vecq_{K_1}$};
+	
+	
+%	\only<2->
+%	{
+%	\node[below, blue] at (IJK) {$\varphi_{K_1}$};
+%	}
+	% Shape function of the second element.
+	
+    \coordinate (L) at (6, 2,0);
+    \coordinate (M) at (4, 1.75,-3.464);
+    \coordinate (N) at (8, 1.5,-3.464);
+    
+    
+    \coordinate (LM) at (5, 1.3, -1.732);
+    \coordinate (MN) at (6, 2.2, -3.464);
+    \coordinate (NL) at (7, 2.3, -1.732);
+    
+    \coordinate (LMN) at ($ .333*(L) + .333*(M) + .333*(N) $);
+    
+    \draw[dashed] (F) -- (L);
+    \draw[dashed] (G) -- (M);
+    \draw[dashed] (H) -- (N);
+    
+    \fill[blue] (L) circle (2pt);
+    \fill[blue] (M) circle (2pt);
+    \fill[blue] (N) circle (2pt);
+    
+    
+    \fill[smooth, blue!20, opacity=0.5, tension = 0.] (L) .. controls (LM) .. (M) -- (M) .. controls (MN) .. (N) -- (N) .. controls (NL) ..(L);
+    \draw[smooth, thick, blue, tension = 0.] (L) .. controls (LM) .. (M) -- (M) .. controls (MN) .. (N) -- (N) .. controls (NL) ..(L);
+
+	\node[above, blue] at (LMN) {$\vecu_{K_2}$, $\vecq_{K_2}$};
+	
+%	\only<2->
+%	{
+%	\node[above, blue] at (LMN) {$\varphi_{K_2}$};
+%	}
+	% Shape function of the trace.
+	
+	\coordinate (O) at (5,1.7,0);
+    \coordinate (P) at (3,2.,-3.464);
+    \coordinate (OP) at (4,1.5,-1.732);
+    
+    \coordinate (OP_Bary) at ($ .5*(O) + .5*(P) $);
+    
+    \draw[smooth, thick, red, tension = 0.] (O) .. controls (OP) .. (P);
+    
+    \draw[dashed] (D) -- (O);
+    \draw[dashed] (E) -- (P);
+    
+    \fill[red] (O) circle (2pt);
+    \fill[red] (P) circle (2pt);
+    
+    \node[above right, red] at (OP_Bary) {$\veclambda_e$};
+	
+	
+	\draw[<->, ultra thick] ($(BC) + (0.1, 0)$) -- ($.5*(BC) + .5*(DE)$) node[above]{$\vecHcal_1$} -- ($(DE) - (0.1,0)$);
+	\draw[<->, ultra thick] ($(DE) + (0.1, 0)$) -- ($.5*(DE) + .5*(FG)$) node[above]{$\vecHcal_2$} -- ($(FG) - (0.1,0)$);		
+	
+	% Axis
+	
+	%\draw[->, thick] (0, -2, 0) -- (0, -2, -1.5) node[above]{$\vece_y$};
+	%\draw[->, thick] (0, -2, 0) -- (1.5, -2, 0) node[above]{$\vece_x$};
+	%\draw[->, thick] (0, -2, 0) -- (0, -0.5, 0) node[right]{$\varphi, \mu$};
+
+\end{tikzpicture}
 }
 
 \end{frame}
@@ -1926,6 +1803,7 @@ with $\bar{\Gamma}$ the set of interfaces between subdomains.
 
 \begin{frame}{Numerical fluxes : convection}
 
+\textbf{Low mach requires to use preconditioned numerical flux}
 \begin{framed}
 \begin{equation*}
 \vecHcal = \vecHcal_c - \vecHcal_v
@@ -2025,13 +1903,11 @@ and the following CFL evolution law
 CFL_k = \min\left(CFL_0 \left(\frac{||\Tilde{\mathcal{N}}||_2^0}{||\Tilde{\mathcal{N}}||_2^k}\right)^\alpha, CFL_{max}\right)
 \end{equation*}
 
-\onslide<2>
-{
 \begin{framed}
 \centering
 \textbf{We only use convective eigenvalues here. The diffusive could be use to enhance the convergence.}
 \end{framed}
-}
+
 
 \end{frame}
 
@@ -2226,22 +2102,10 @@ P_{target} = \int_{NS} P_J dV
 
 with
 \begin{equation*}
-E_P = \sqrt{\gamma} E_P' \quad E_C = \sqrt{\gamma} E_C'
+E_P = \sqrt{\gamma} E_P' \quad E_C = \sqrt{\gamma} E_C', \qquad \gamma = \frac{P_{target}}{\int_{NS}P_J' dV}
 \end{equation*}
 
 }
-\end{frame}
-
-\begin{frame}{Power ratio}
-
-$\gamma$ is computed at every Newton iteration by equalizing
-\begin{equation*}
-\gamma = \frac{P_{target}}{\int_{NS}P_J' dV}
-\end{equation*}
-with $P_{target}$ the desired power dissipated in the facility.
-
-The power was found to remain constant and $\gamma$ was converging towards a value using this method.
-
 \end{frame}
 
 \section{Results}
@@ -2467,10 +2331,10 @@ and tested from $0.2$ to $1.0$.
 \end{tabular}
 }
 
-\only<5>
-{
-Very similar results except for the electric field in the torch, might be due to the way electric field boundary conditions are imposed.
-}
+%\only<5>
+%{
+%Very similar results except for the electric field in the torch, might be due to the way electric field boundary conditions are imposed.
+%}
 
 \end{frame}
 
@@ -2497,7 +2361,9 @@ We first solve with polynomial degree 1 then 4 (red separation line).
 
 \only<3>
 {
-We have a fast and robust solver for ICP, able to produce meaningful results in 20 minutes of time on a single laptop using 8 OMP threads!
+\begin{framed}
+\textbf{We have a fast and robust solver for ICP, able to produce meaningful results in 20 minutes of time on a single laptop using 8 OMP threads!}
+\end{framed}
 }
 
 \end{frame}
@@ -2522,7 +2388,7 @@ We have a fast and robust solver for ICP, able to produce meaningful results in 
 
 \begin{framed}
 \centering
-\textbf{The pressure is almost constant everywhere.}
+\textbf{The pressure is almost constant everywhere ($p_0 = \SI{10000}{\pascal}$).}
 \end{framed}
 
 \end{frame}
