@@ -857,38 +857,6 @@ Linked to Boltzmann equation
 %
 %\end{frame}
 
-\begin{frame}{Transport properties}
-\centering
-\only<1>{
-\begin{minipage}{0.49\linewidth}
-\input{./mu}
-\end{minipage}}
-\only<2>{
-\begin{minipage}{.49\linewidth}
-\input{./lambda}
-\end{minipage}
-}\only<3>{
-\begin{minipage}{.49\linewidth}
-\input{./sigma_e}
-\end{minipage}}
-\begin{minipage}{0.49\linewidth}
-\input{./X}
-\end{minipage}
-\only<1>{
-\begin{equation*}
-	\eta \propto \sqrt{T}/\sigma
-\end{equation*}}
-\only<2>{
-\begin{equation*}
-	\lambda_r \propto \frac{d X}{d T}
-\end{equation*}}
-\only<3>{
-\begin{equation*}
-	\sigma_e \propto X_e
-\end{equation*}}
-
-\end{frame}
-
 \begin{frame}{Navier-Stokes and Maxwell equations}
 \begin{framed}
 \begin{equation*}
@@ -1031,60 +999,58 @@ $\mu_0$ : magnetic permeability, $\sigma_e$ : electron electric conductivity, $f
 	\draw[-, thick] (15, -0.5) -- (13,-0.5) arc[start angle=-90, end angle = -180, radius=0.5];
 	%\draw (14,-0.15) node[above]{Probe};
 	
-	\only<6,9>
-	{
 	\draw[-, thick, black, ->] (-1, 1.25) -- (-0.2, 1.25);
 	\draw[-, thick, black, ->] (-1, -1.25) -- (-0.2, -1.25);
-	}
+	
 	
 	% Boundary conditions
 	
-	\only<4,9>{\draw (12,3.8) node[above]{Opening}};
-	\only<4,9>{\draw (15,2) node[above, rotate = -90]{Opening}};
-	\only<3,9>{\draw (4,3.8) node[above]{Far electric field};}
-	\only<3,9>{\draw (-3,0) node[above, rotate = 90]{Far electric field};}
-	\only<5,9>{\draw (0.2,0) node[above, rotate = -90]{Isothermal}};
-	\only<5,9>{\draw (4,-1.3) node[above]{No slip isothermal}};
-	\only<5,9>{\draw (14, -0.7) node[below]{Isothermal}};
-	\only<7,9>{\draw (8.7, -2.55) node[above, rotate = -90] {Coflow}};
+	\draw (12,3.8) node[above]{Opening};
+	\draw (15,2) node[above, rotate = -90]{Opening};
+	\draw (4,3.8) node[above]{Far electric field};
+	\draw (-3,0) node[above, rotate = 90]{Far electric field};
+	\draw (0.2,0) node[above, rotate = -90]{Isothermal};
+	\draw (4,-1.3) node[above]{No slip isothermal};
+	\draw (14, -0.7) node[below]{Isothermal};
+	\draw (8.7, -2.55) node[above, rotate = -90] {Coflow};
 	
 \end{tikzpicture}
 \end{center}
 
-\only<2>
-{
-\textbf{Symmetry axis} $\partial_r p = 0$, $\partial_r u_z = 0$, $u_r = 0$, $\partial_r T = 0$ and $E_P = 0$.
-}
-\only<3>
-{
-\textbf{Vanishing far electric field} $E_P = 0$.
-}
-\only<4>
-{
-\textbf{Openings} $p = p_0$
-}
-\only<5>
-{	
-\textbf{No-slip wall isothermal} $T = T_{wall}$ and $\vecu = \mathbf{0}$.
-}
-\only<6>
-{
-\textbf{Inflow} $u_z = U_{in}$, $u_r = 0$ and $T = T_{inlet}$.
-}
-\only<7>
-{
-\textbf{Stabilizing co-flow} $T = T_{wall}$, $\vecu = u_{coflow} \mathbf{e}_z$
-}
-\only<8>
-{
-\textbf{ICP and Maxwell interface}
-\begin{equation*}
-\begin{aligned}
-&\nabla E_p^{Re, NS} \cdot \vecn^{NS} &&= \nabla E_p^{Re, MAX} \cdot \vecn^{MAX}\\
-&\nabla E_p^{Im, NS} \cdot \vecn^{NS} &&= \nabla E_p^{Im, MAX} \cdot \vecn^{MAX}
-\end{aligned}
-\end{equation*}
-}
+%\only<2>
+%{
+%\textbf{Symmetry axis} $\partial_r p = 0$, $\partial_r u_z = 0$, $u_r = 0$, $\partial_r T = 0$ and $E_P = 0$.
+%}
+%\only<3>
+%{
+%\textbf{Vanishing far electric field} $E_P = 0$.
+%}
+%\only<4>
+%{
+%\textbf{Openings} $p = p_0$
+%}
+%\only<5>
+%{	
+%\textbf{No-slip wall isothermal} $T = T_{wall}$ and $\vecu = \mathbf{0}$.
+%}
+%\only<6>
+%{
+%\textbf{Inflow} $u_z = U_{in}$, $u_r = 0$ and $T = T_{inlet}$.
+%}
+%\only<7>
+%{
+%\textbf{Stabilizing co-flow} $T = T_{wall}$, $\vecu = u_{coflow} \mathbf{e}_z$
+%}
+%\only<8>
+%{
+%\textbf{ICP and Maxwell interface}
+%\begin{equation*}
+%\begin{aligned}
+%&\nabla E_p^{Re, NS} \cdot \vecn^{NS} &&= \nabla E_p^{Re, MAX} \cdot \vecn^{MAX}\\
+%&\nabla E_p^{Im, NS} \cdot \vecn^{NS} &&= \nabla E_p^{Im, MAX} \cdot \vecn^{MAX}
+%\end{aligned}
+%\end{equation*}
+%}
 \end{frame}
 
 \section{Hybridized discontinuous Galerkin method}
@@ -1179,97 +1145,97 @@ Before going further, some notation:
 
 \end{frame}
 
-\begin{frame}{From weak form to HDG}
+\begin{frame}{DG}
 
-\only<1>
-{
-\begin{framed}
-\begin{equation*}
-\left(\partial_t \vecw - \vecS, w \right)_{\Omega} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\Omega} + \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial \Omega} = 0, \; \forall w \in L_2(\Omega)
-\end{equation*}
-\end{framed}
+%\only<1>
+%{
+%\begin{framed}
+%\begin{equation*}
+%\left(\partial_t \vecw - \vecS, w \right)_{\Omega} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\Omega} + \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial \Omega} = 0, \; \forall w \in L_2(\Omega)
+%\end{equation*}
+%\end{framed}
+%
+%Multiplying by a function $w \in L_2(\Omega)$ and integrating over the domain gives the \textbf{weak form}.
+%}
+%
+%\only<2>
+%{
+%\begin{framed}
+%\begin{equation*}
+%\left(\partial_t \vecw - \vecS, w \right)_{\textcolor{red}{\tesselation}} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\textcolor{red}{\tesselation}} + \textcolor{red}{\sum_{K \in \tesselation}} \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\textcolor{red}{\partial K}} = 0, \; \forall w \in L_2(\Omega)
+%\end{equation*}
+%\end{framed}
+%
+%The domain $\Omega$ is split in a collection of elements $K \in \mathcal{T}$.
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
+%\end{center}
+%
+%}
+%
+%\only<3>
+%{
+%\begin{framed}
+%\begin{equation*}
+%\left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial K} = 0, \; \textcolor{red}{\forall w \in W_h}
+%\end{equation*}
+%\end{framed}
+%We restrict $w$ to a \textbf{finite dimensional} subset of $L_2(\Omega)$.
+%
+%\begin{equation*}
+%W_h = \left\{w \in L^2(\Omega) : w|_K \in \mathcal{P}^p(K), \forall K\in \tesselation\right\} \subset L_2(\Omega)
+%\end{equation*}
+%}
+%
+%\only<4>
+%{
+%\begin{framed}
+%\begin{equation*}
+%\left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \textcolor{red}{\vecHcal (\vecu, \nabla \vecu)}, w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
+%\end{equation*}
+%\end{framed}
+%
+%For stabilizing the method, the convective and diffusive fluxes on the interface are approximated
+%\begin{equation*}
+%\left(\vecF_c - \vecF_v\right) \cdot \vecn_K \simeq \vecHcal 
+%\end{equation*}
+%}
+%
+%\only<5>
+%{
+%\begin{framed}
+%\begin{equation*}
+%\left(\partial_t \vecw_{\textcolor{red}{h}} - \vecS_{\textcolor{red}{h}}, w \right)_{\tesselation} - \left(\vecF_{c, {\textcolor{red}{h}}} - \vecF_{v, {\textcolor{red}{h}}}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \vecHcal (\vecu, \nabla \vecu), w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
+%\end{equation*}
+%\end{framed}
+%
+%The solution is also approximated by
+%\begin{equation*}
+%\vecu \simeq \vecu_h \in W_h
+%\end{equation*}
+%}
+%
+%\only<6>
+%{
+%\begin{framed}
+%\begin{equation*}
+%\begin{aligned}
+%& \left(\partial_t \vecw_{h} - \vecS_{h}, \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} + \left\langle \vecHcal(\textcolor{red}{\vecu_h, \nabla \vecu_h}), \textcolor{red}{\varphi_{K,i}} \right\rangle_{\partial K} = 0,\\
+%& \forall \textcolor{red}{\varphi_{K,i}} \in W_h
+%\end{aligned}
+%\end{equation*}
+%\end{framed}
+%
+%If the $\varphi_{K,i}$ is a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}$,
+%\begin{equation*}
+%\vecu \simeq \vecu_h = \sum_{K\in \tesselation}\sum_{i=1}^p \vecu_{K,i} \varphi_{K,i}
+%\end{equation*}
+%
+%}
 
-Multiplying by a function $w \in L_2(\Omega)$ and integrating over the domain gives the \textbf{weak form}.
-}
-
-\only<2>
-{
-\begin{framed}
-\begin{equation*}
-\left(\partial_t \vecw - \vecS, w \right)_{\textcolor{red}{\tesselation}} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\textcolor{red}{\tesselation}} + \textcolor{red}{\sum_{K \in \tesselation}} \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\textcolor{red}{\partial K}} = 0, \; \forall w \in L_2(\Omega)
-\end{equation*}
-\end{framed}
-
-The domain $\Omega$ is split in a collection of elements $K \in \mathcal{T}$.
-
-\begin{center}
-\includegraphics[width=\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
-\end{center}
-
-}
-
-\only<3>
-{
-\begin{framed}
-\begin{equation*}
-\left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial K} = 0, \; \textcolor{red}{\forall w \in W_h}
-\end{equation*}
-\end{framed}
-We restrict $w$ to a \textbf{finite dimensional} subset of $L_2(\Omega)$.
-
-\begin{equation*}
-W_h = \left\{w \in L^2(\Omega) : w|_K \in \mathcal{P}^p(K), \forall K\in \tesselation\right\} \subset L_2(\Omega)
-\end{equation*}
-}
-
-\only<4>
-{
-\begin{framed}
-\begin{equation*}
-\left(\partial_t \vecw - \vecS, w \right)_{\tesselation} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \textcolor{red}{\vecHcal (\vecu, \nabla \vecu)}, w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
-\end{equation*}
-\end{framed}
-
-For stabilizing the method, the convective and diffusive fluxes on the interface are approximated
-\begin{equation*}
-\left(\vecF_c - \vecF_v\right) \cdot \vecn_K \simeq \vecHcal 
-\end{equation*}
-}
-
-\only<5>
-{
-\begin{framed}
-\begin{equation*}
-\left(\partial_t \vecw_{\textcolor{red}{h}} - \vecS_{\textcolor{red}{h}}, w \right)_{\tesselation} - \left(\vecF_{c, {\textcolor{red}{h}}} - \vecF_{v, {\textcolor{red}{h}}}, \nabla w \right)_{\tesselation} + \sum_{K \in \tesselation} \left\langle \vecHcal (\vecu, \nabla \vecu), w \right\rangle_{\partial K} = 0, \; \forall w \in W_h
-\end{equation*}
-\end{framed}
-
-The solution is also approximated by
-\begin{equation*}
-\vecu \simeq \vecu_h \in W_h
-\end{equation*}
-}
-
-\only<6>
-{
-\begin{framed}
-\begin{equation*}
-\begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \textcolor{red}{\varphi_{K,i}} \right)_{\textcolor{red}{K}} + \left\langle \vecHcal(\textcolor{red}{\vecu_h, \nabla \vecu_h}), \textcolor{red}{\varphi_{K,i}} \right\rangle_{\partial K} = 0,\\
-& \forall \textcolor{red}{\varphi_{K,i}} \in W_h
-\end{aligned}
-\end{equation*}
-\end{framed}
-
-If the $\varphi_{K,i}$ is a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}$,
-\begin{equation*}
-\vecu \simeq \vecu_h = \sum_{K\in \tesselation}\sum_{i=1}^p \vecu_{K,i} \varphi_{K,i}
-\end{equation*}
-
-}
-
-\only<7>
-{
+%\only<7>
+%{
 \begin{framed}
 \begin{equation*}
 \begin{aligned}
@@ -1427,83 +1393,84 @@ If the $\varphi_{K,i}$ is a local basis of $W_h$ on $K$, $i \in \{1, 2, ..., p\}
 	%\draw[->, thick] (0, -2, 0) -- (0, -0.5, 0) node[right]{$\varphi, \mu$};
 
 \end{tikzpicture}
-}
+%}
 
-\only<8>
-{
-\begin{framed}
-\begin{equation*}
-\begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \textcolor{red}{\vecq_h}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \\
-& \textcolor{red}{\left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,} \\
-& \forall \varphi_{K,i} \in W_h, \; \textcolor{red}{\forall \vectau_{K,i} \in V_h}
-\end{aligned}
-\end{equation*}
-\end{framed}
-
-With the solution gradient
-\begin{equation*}
-\vecq = \nabla \vecu \simeq \vecq_h
-\end{equation*}
-with the subset
-\begin{equation*}
-V_h = \left\{\vecv \in L^2(\Omega) : \vecv|_K \in \left(\mathcal{P}^p(K)\right)^D, \forall K\in \tesselation\right\}
-\end{equation*}
-and local basis $\vectau_{K,i}$.
-
-}
-
-\only<9>
-{
-\begin{framed}
-\begin{equation*}
-\begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\textcolor{red}{\veclambda_h}, \vecu_h, \vecq_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \textcolor{red}{\veclambda_h}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0\\ 
-& \forall \varphi_{K,i} \in W_h, \; \forall \vectau_{K,i} \in V_h
-\end{aligned}
-\end{equation*}
-\end{framed}
-
-\begin{equation*}
-    \Gamma = \{e:e = K_i \cap K_j; \forall K_i, K_j \in \tesselation,\; K_i \neq K_j\}.
-\end{equation*}
-%and $\veclambda$ the hybrid unknowns defined on the function subset
-\begin{equation*}
-M_h = \left\{\mu \in L^2(\Gamma) : \mu|_e \in \mathcal{P}^p(e), \forall e\in \Gamma\right\}
-\end{equation*}
-%and local basis $\mu_{e,i}$
-\begin{equation*}
-\veclambda_h = \sum_{e\in\Gamma}\sum_{i=1}^{N_p} \veclambda_{e,i} \mu_{e,i}
-\end{equation*}
-
-}
-
-\only<10>
-{
-\begin{framed}
-\small
-\begin{equation*}
-\begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\veclambda_h, \vecu_h, \vecq_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\\
-& \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0},\\ 
-& \textcolor{red}{ \forall \mu_{e,i} \in M_h}, \; \forall \varphi_{K,i} \in W_h, \; \forall \vectau_{K,i} \in V_h
-\end{aligned}
-\end{equation*}
-\end{framed}
-
-Equation for $\veclambda$: conservativity of the normal numerical flux across the interfaces.
-
-The jump operator is given by
-\begin{equation*}
-[[\vecu]] = \vecu_+ \cdot \vecn_+ + \vecu_- \cdot \vecn_-
-\end{equation*}
-
-}
-
-\only<11->
-{
+%\only<8>
+%{
+%\begin{framed}
+%\begin{equation*}
+%\begin{aligned}
+%& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\vecu_h, \textcolor{red}{\vecq_h}), \varphi_{K,i} \right\rangle_{\partial K} = 0, \\
+%& \textcolor{red}{\left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \vecu_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,} \\
+%& \forall \varphi_{K,i} \in W_h, \; \textcolor{red}{\forall \vectau_{K,i} \in V_h}
+%\end{aligned}
+%\end{equation*}
+%\end{framed}
+%
+%With the solution gradient
+%\begin{equation*}
+%\vecq = \nabla \vecu \simeq \vecq_h
+%\end{equation*}
+%with the subset
+%\begin{equation*}
+%V_h = \left\{\vecv \in L^2(\Omega) : \vecv|_K \in \left(\mathcal{P}^p(K)\right)^D, \forall K\in \tesselation\right\}
+%\end{equation*}
+%and local basis $\vectau_{K,i}$.
+%
+%}
+%
+%\only<9>
+%{
+%\begin{framed}
+%\begin{equation*}
+%\begin{aligned}
+%& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\textcolor{red}{\veclambda_h}, \vecu_h, \vecq_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
+%& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \textcolor{red}{\veclambda_h}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0\\ 
+%& \forall \varphi_{K,i} \in W_h, \; \forall \vectau_{K,i} \in V_h
+%\end{aligned}
+%\end{equation*}
+%\end{framed}
+%
+%\begin{equation*}
+%    \Gamma = \{e:e = K_i \cap K_j; \forall K_i, K_j \in \tesselation,\; K_i \neq K_j\}.
+%\end{equation*}
+%%and $\veclambda$ the hybrid unknowns defined on the function subset
+%\begin{equation*}
+%M_h = \left\{\mu \in L^2(\Gamma) : \mu|_e \in \mathcal{P}^p(e), \forall e\in \Gamma\right\}
+%\end{equation*}
+%%and local basis $\mu_{e,i}$
+%\begin{equation*}
+%\veclambda_h = \sum_{e\in\Gamma}\sum_{i=1}^{N_p} \veclambda_{e,i} \mu_{e,i}
+%\end{equation*}
+%
+%}
+%
+%\only<10>
+%{
+%\begin{framed}
+%\small
+%\begin{equation*}
+%\begin{aligned}
+%& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\veclambda_h, \vecu_h, \vecq_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
+%& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\\
+%& \textcolor{red}{\left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0},\\ 
+%& \textcolor{red}{ \forall \mu_{e,i} \in M_h}, \; \forall \varphi_{K,i} \in W_h, \; \forall \vectau_{K,i} \in V_h
+%\end{aligned}
+%\end{equation*}
+%\end{framed}
+%
+%Equation for $\veclambda$: conservativity of the normal numerical flux across the interfaces.
+%
+%The jump operator is given by
+%\begin{equation*}
+%[[\vecu]] = \vecu_+ \cdot \vecn_+ + \vecu_- \cdot \vecn_-
+%\end{equation*}
+%
+%}
+\end{frame}
+\begin{frame}{HDG}
+%\only<11->
+%{
 \begin{framed}
 \small
 \begin{equation*}
@@ -1698,7 +1665,7 @@ The jump operator is given by
 	%\draw[->, thick] (0, -2, 0) -- (0, -0.5, 0) node[right]{$\varphi, \mu$};
 
 \end{tikzpicture}
-}
+%}
 
 \end{frame}
 
@@ -2723,5 +2690,38 @@ Comparison of the experimental $T(r)$ at $\SI{385}{\milli\meter}$ from the torch
 
 \end{frame}
 
+\section{Backup}
+
+\begin{frame}{Transport properties}
+\centering
+\only<1>{
+\begin{minipage}{0.49\linewidth}
+\input{./mu}
+\end{minipage}}
+\only<2>{
+\begin{minipage}{.49\linewidth}
+\input{./lambda}
+\end{minipage}
+}\only<3>{
+\begin{minipage}{.49\linewidth}
+\input{./sigma_e}
+\end{minipage}}
+\begin{minipage}{0.49\linewidth}
+\input{./X}
+\end{minipage}
+\only<1>{
+\begin{equation*}
+	\eta \propto \sqrt{T}/\sigma
+\end{equation*}}
+\only<2>{
+\begin{equation*}
+	\lambda_r \propto \frac{d X}{d T}
+\end{equation*}}
+\only<3>{
+\begin{equation*}
+	\sigma_e \propto X_e
+\end{equation*}}
+
+\end{frame}
 
 \end{document}
