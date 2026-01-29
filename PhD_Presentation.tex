@@ -135,65 +135,84 @@
 
 \section{Introduction}
 
+\begin{frame}[c]{Au fait, qu'est-ce que j'ai fait pendant 4 ans?}
+
+\begin{framed}
+\centering
+J'ai développé un \textbf{solver numérique} pour les \textbf{plasmas} à \textbf{induction}.
+\end{framed}
+\centering
+\includegraphics[height =1.5 cm]{2560px-University_of_Liège_logo.png}\hfill\includegraphics[height=1.5 cm]{FRS-FNRS_ros_vert_transp.png}\hfill\includegraphics[height =1.5 cm]{vki_logo_blue_rectangular.jpg}
+\end{frame}
+
 \begin{frame}{Etats de la matière: eau à pression atmosphérique}
 
 \begin{center}
 \begin{tabular}{ccc}
-\onslide<2->{\textbf{Solide}} & \onslide<3->{\textbf{Liquide}} & \onslide<4->{\textbf{Gaz}}\\
-\onslide<2->{\includegraphics[height=.17\linewidth]{ice_cubes.jpg}} & \onslide<3->{\includegraphics[height=.17\linewidth]{eau_liquide.jpg}} & \onslide<4->{\includegraphics[height=.17\linewidth]{bouilloire.jpg}}\\
-\onslide<2->{\includegraphics[height=.17\linewidth]{eau_solide.png}} & \onslide<3->{\includegraphics[height=.17\linewidth]{eau_liquide.png}} & \onslide<4->{\includegraphics[height=.17\linewidth]{eau_gaz.png}}%\footnote{\tiny\url{https://www.assistancescolaire.com/eleve/3e/physique-chimie/reviser-une-notion/les-\%20etatsde-la-matiere-et-les-changements-d-etat-3_pc_01/print?print=1&printSheet=1}}\\
+\textbf{Solide} & \textbf{Liquide} & \textbf{Gaz}\\
+\includegraphics[height=.17\linewidth]{ice_cubes.jpg} & \includegraphics[height=.17\linewidth]{eau_liquide.jpg} & \includegraphics[height=.17\linewidth]{bouilloire.jpg}\\
+\includegraphics[height=.17\linewidth]{eau_solide.png} & \includegraphics[height=.17\linewidth]{eau_liquide.png} & \includegraphics[height=.17\linewidth]{eau_gaz.png}%\footnote{\tiny\url{https://www.assistancescolaire.com/eleve/3e/physique-chimie/reviser-une-notion/les-\%20etatsde-la-matiere-et-les-changements-d-etat-3_pc_01/print?print=1&printSheet=1}}\\
 %\onslide<3->{
 %$T \leq \SI{0}{\celsius}$ & $T \geq \SI{0}{\celsius}$ & $T \geq \SI{100}{\celsius}$
 %}
 \end{tabular}
 \end{center}
-
-\onslide<5>
-{
 \begin{framed}
 \centering
 \textbf{Que se passe-t-il si on chauffe encore plus?}
 \end{framed}
-}
+
 \end{frame}
 
 \begin{frame}{Plasma: le quatrième état de la matière}
 \centering
+\begin{center}
+\includegraphics[height=.29\linewidth]{./sun.jpg}
+\includegraphics[height=.29\linewidth]{./aurora_borealis.jpeg}
 \begin{tikzpicture}
-\node at (0,0) {\includegraphics[height=.3\linewidth]{eau_gaz.png}};
+\node at (0,0) {\includegraphics[height=.29\linewidth]{eau_gaz.png}};
 \fill[red] (0,0) circle (0.1) node[above right] {$e^-$};
 \fill[red] (1,1) circle (0.1) node[above right] {$e^-$};
 \fill[red] (-1,-0.3) circle (0.1) node[above right] {$e^-$};
 \node[blue] at (-1.7,.7) {\textbf{+}};
 \node[blue] at (1.4,0) {\textbf{+}};
-\end{tikzpicture}
+\end{tikzpicture}\footnote{Courtesy of Wikipedia.}
+\end{center}
 
-\begin{framed}
-\textbf{Un plasma est un gaz quasi-neutre composé de particules chargées 
-%(ions $\textcolor{blue}{\bullet^+}$ et electrons $\textcolor{red}{\bullet^{e^-}}$)
-et neutres 
-%($\bullet^n$)
-démontrant un comportement collectif.\footnotemark}
-%A plasma is a quasi-neutral gas of charged and neutral particles which exhibits collective behaviour.
-\end{framed}
 
-\footnotetext[1]{\tiny F. F. Chen. Introduction to Plasma Physics and Controlled Fusion. Ed. by Springer International Publisher. 2016}
-
-\end{frame}
-
-\begin{frame}{Plasma dans la vie de tous les jours}
+%\begin{framed}
+%\textbf{Un plasma est un gaz quasi-neutre composé de particules chargées 
+%%(ions $\textcolor{blue}{\bullet^+}$ et electrons $\textcolor{red}{\bullet^{e^-}}$)
+%et neutres 
+%%($\bullet^n$)
+%démontrant un comportement collectif.\footnotemark}
+%%A plasma is a quasi-neutral gas of charged and neutral particles which exhibits collective behaviour.
+%\end{framed}
 
 \begin{framed}
 \centering
 \textbf{Les plasmas composent 90\% de l'univers visible.}
 \end{framed}
-\begin{center}
-\includegraphics[height=.22\linewidth]{./sun.jpg}
-\includegraphics[height=.22\linewidth]{./aurora_borealis.jpeg}
-\includegraphics[height=.22\linewidth]{./lightning.jpg}\footnote{Courtesy of Wikipedia.}
-\end{center}
+
 Fusion nucléaire, médecine, métallurgie, lasers, création de microprocesseurs, ...
+
+%\footnotetext[1]{\tiny F. F. Chen. Introduction to Plasma Physics and Controlled Fusion. Ed. by Springer International Publisher. 2016}
+
 \end{frame}
+
+%\begin{frame}{Plasma dans la vie de tous les jours}
+%
+%\begin{framed}
+%\centering
+%\textbf{Les plasmas composent 90\% de l'univers visible.}
+%\end{framed}
+%\begin{center}
+%\includegraphics[height=.22\linewidth]{./sun.jpg}
+%\includegraphics[height=.22\linewidth]{./aurora_borealis.jpeg}
+%\includegraphics[height=.22\linewidth]{./lightning.jpg}\footnote{Courtesy of Wikipedia.}
+%\end{center}
+%Fusion nucléaire, médecine, métallurgie, lasers, création de microprocesseurs, ...
+%\end{frame}
 
 
 
@@ -208,15 +227,13 @@ Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transfor
 \begin{frame}{Sytème de protection thermique et destruction des déchets spatiaux}
 \centering
 \begin{tabular}{cc}
-\onslide<2->{\includegraphics[height=.3\linewidth]{./heat_shield.jpg}} &
-\onslide<3->{\includegraphics[height=.3\linewidth]{./vizualisation_satellites_esa.jpg}}\\
-\onslide<2->{\textbf{TPS}} & \onslide<3->{\textbf{Déchets spatiaux}}
+\includegraphics[height=.3\linewidth]{./heat_shield.jpg} &
+\includegraphics[height=.3\linewidth]{./vizualisation_satellites_esa.jpg}\\
+\textbf{TPS} & \textbf{Déchets spatiaux}
 \end{tabular}
-\onslide<4->{
 \begin{framed}
-\textbf{Développement de dispositifs expérimentaux reproduisant les plasmas de réentrée atmosphérique.}
+\textbf{Expériences reproduisant les plasmas de réentrée atmosphérique.}
 \end{framed}
-}
 \end{frame}
 
 \begin{frame}{Plasma à induction}
@@ -252,7 +269,7 @@ Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transfor
       \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0, 1.4) (1.5, 1.4) (3, 1.0) (8, 1.0)};
       \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0, -1.4) (1.5, -1.4) (3, -1.0) (8, -1.0)};
       
-      \draw (6,1.2) node{\tiny \textcolor{red}{Lignes de courant}};
+      \draw (6,1.2) node{\tiny \textcolor{red}{Ecoulement d'air}};
       \draw (3,2.3) node{\tiny \textcolor{black}{Bobine}};
       \draw (-1,0) node{\tiny \rotatebox{90}{\textcolor{blue}{Flux d'air}}};
       \end{scope}
@@ -275,12 +292,10 @@ Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transfor
     Chambre
     \end{minipage}
     
-    \only<1>
-    {
-    Examples: Plasmatron (VKI), Plasmatron X (Illinois), IPG (Russie), ...
     
-    Basé sur le principe de \textbf{transfer de chaleur local} (video).
-    }
+    Exemples: Plasmatron (VKI), Plasmatron X (Illinois), IPG (Russie), ...
+    
+    
     %\only<2>
     %{
     	%Résoudre les équations de Maxwell, de Navier-Stokes + modèles physico-chimiques + modèle de radiation.
@@ -288,29 +303,38 @@ Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transfor
     %Physique de l'électromagnétisme, equations de la mécanique des fluides, et chimie/thermodynamique.
 \end{frame}
 
-\begin{frame}{Plasma à induction: besoin de plus}
+\begin{frame}{Plasma à induction: solveurs numériques}
 
 \begin{center}
-\begin{framed}
-\textbf{Des solvers numériques ont été développés afin de préparer au mieux les expériences dans les torches à induction.}
-\end{framed}
-\includegraphics[width=.7\linewidth]{lhtsT.pdf}\footnote{Courtesy of Thierry Magin.}
+%\begin{framed}
+%\textbf{Des solvers numériques ont été développés afin de préparer au mieux les expériences dans les torches à induction.}
+%\end{framed}
+\includegraphics[width=\linewidth]{lhtsT.pdf}\footnote{Courtesy of Thierry Magin.}
 \end{center}
+
+
+\begin{framed}
+\centering
+\textbf{On propose un nouveau type de solver numérique pour les plasmas à induction.}
+\end{framed}
+
 \end{frame}
 
-\begin{frame}{Objectif de la thèse}
-\begin{center}
-\begin{framed}
-\textbf{On propose un nouveau type de solver numérique pour les plasmas afin de représenter plus de situations physiques.}
-\end{framed}
+%\begin{frame}{Objectif de la thèse}
+%\begin{center}
+%\begin{framed}
+%\textbf{On propose un nouveau type de solver numérique pour les plasmas afin de représenter plus de situations physiques.}
+%\end{framed}
+%
+%\includegraphics[height = .15\linewidth]{./coil_effect.png}
+%\includegraphics[height = .15\linewidth]{./plasmatron_nozzle_operating.png}
+%\includegraphics[height = .15\linewidth]{./plasmatron_nozzles.png}
+%\includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}
+%
+%\end{center}
+%\end{frame}
 
-\includegraphics[height = .15\linewidth]{./coil_effect.png}
-\includegraphics[height = .15\linewidth]{./plasmatron_nozzle_operating.png}
-\includegraphics[height = .15\linewidth]{./plasmatron_nozzles.png}
-\includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}
-
-\end{center}
-\end{frame}
+\section{Thesis motivation}
 
 \begin{frame}{ICP facility: an overview}
 \begin{minipage}[t]{0.5\linewidth}
@@ -361,9 +385,6 @@ Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transfor
     \vspace{0.45cm}
     Torch
     
-    $T ~ \SI{10 0000}{K}$, $p \in [\SI{1000}{\pascal}; \SI{100000}{\pascal}]$.
-    
-    Air, argon, carbon dioxide.
     \end{minipage}
     \begin{minipage}[t]{0.49\linewidth}
     \centering
@@ -371,11 +392,23 @@ Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transfor
     
     Chamber
     
-    $Re ~ 100$, $Ma ~ 0.01$.
-    
-    At LTE \& non equilibrium.
     \end{minipage}
     
+    \centering
+    
+    \begin{minipage}[t]{0.59\linewidth}
+    \begin{itemize}
+    \item $T \simeq \SI{10 000}{K}$, $p \in [\SI{1000}{\pascal}; \SI{100000}{\pascal}]$.
+    \item $Re \simeq 100$, $Ma \simeq 0.01$.
+    \item Air, argon, carbon dioxide. 
+    \end{itemize}
+    \end{minipage}
+    \begin{minipage}[t]{0.39\linewidth}
+    \begin{itemize}
+    \item At LTE \& non equilibrium.
+    \item Local heat transfer principle. 
+    \end{itemize}
+    \end{minipage}
     
 \end{frame}
 
@@ -411,6 +444,17 @@ Large temperature gradients!
     
 \end{frame}
 
+\begin{frame}{ICP simulations : complex physics at play}
+
+\begin{center}
+\includegraphics[height = .2\linewidth]{./coil_effect.png}
+\includegraphics[height = .2\linewidth]{./plasmatron_nozzle_operating.png}
+\includegraphics[height = .2\linewidth]{./plasmatron_nozzles.png}
+\includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}
+\end{center}
+
+\end{frame}
+
 \begin{frame}{ICP : existing solvers}
 
 \begin{center}
@@ -434,27 +478,12 @@ Large temperature gradients!
 \end{minipage}
 \end{frame}
 
-\begin{frame}{ICP : what is missing?}
-
-\begin{center}
-\includegraphics[height = .15\linewidth]{./coil_effect.png}
-\includegraphics[height = .15\linewidth]{./plasmatron_nozzle_operating.png}
-\includegraphics[height = .15\linewidth]{./plasmatron_nozzles.png}
-\includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}
-\end{center}
-
-\begin{framed}
-\textbf{Can we offer a framework able to support future ICP simulations requirements?}
-\end{framed}
-
-\end{frame}
-
 \begin{frame}{Finite volume solver limitations.}
 
 \begin{center}
 \begin{tikzpicture}
-\node at (0,0) {\includegraphics[width=.65\linewidth]{lhtsT.pdf}};
-\node at (0,-.7) {\reflectbox{\includegraphics[width = .65\linewidth, angle=180, origin=c]{./thierry_mesh.png}}};
+\node at (0,0) {\includegraphics[width=.9\linewidth]{lhtsT.pdf}};
+\node at (0,-1.) {\reflectbox{\includegraphics[width = .9\linewidth, angle=180, origin=c]{./thierry_mesh.png}}};
 \end{tikzpicture}
 \end{center}
 
@@ -471,7 +500,7 @@ Solution procedure makes convergence slow and tedious...
 \begin{frame}{Thesis objective}
 
 \begin{framed}
-\textbf{Developing a discontinuous Galerkin solver of inductively coupled plasmas.}
+\textbf{Developing a hybridized discontinuous Galerkin solver of inductively coupled plasmas.}
 \end{framed}
 
 \begin{itemize}
@@ -798,9 +827,10 @@ Linked to Boltzmann equation
 \end{aligned}
 \end{equation*}
 \end{minipage}
-\begin{minipage}{0.29\linewidth}
+\begin{minipage}[t]{0.29\linewidth}
 \flushright
-\includegraphics[width=0.7\linewidth]{./mpp-logo.png}
+\includegraphics[width=1.\linewidth]{./mpp-logo.png}
+\vfill
 \end{minipage}
 }
 
