@@ -673,11 +673,15 @@ With the objective of producing a new high order solver for inductively coupled 
 
 $f_i(\mathbf{x}, \mathbf{c})$ : probability density function. 
 
-$\mathcal{S}_i$ : scattering collision operator.
+$\mathcal{S}_i$ : scattering collision operator (non chemically reacting).
 
 $\mathcal{C}_i$ : chemically reacting collision operator.
 
-Provided $Kn \ll 1$ (continuous medium) + conservation of mass, momentum and energy, it is possible to simplify this system by integration over the velocity space.
+Provided $Kn = \frac{\lambda}{L} \ll 1$ (continuous medium)
+
+\begin{equation*}
+\rho = \sum_{i}\int m_i f_i d \vecc_i. \quad \rho \vecv = \sum_i \int m_i \vecc_i f_i d \vecc_i, ... 
+\end{equation*}
 
 \end{frame}
 
@@ -763,7 +767,7 @@ Thermal non-equilibrium & Thermal equilibrium
 \end{tabular}
 \end{center}
 
-\textbf{Plasmas are in thermal equilibrium in this work.}
+%\textbf{Plasmas are in thermal equilibrium in this work.}
 
 \end{frame}
 
@@ -772,12 +776,12 @@ Thermal non-equilibrium & Thermal equilibrium
 \begin{framed}
 \centering
 \textbf{Collisions may lead to chemical reactions.}
-%\begin{equation*}
-%A \leftrightharpoons B
-%\end{equation*}
+\begin{equation*}
+N + O \leftrightharpoons NO^+ + e^-
+\end{equation*}
 \end{framed}
 
-If $\tau_{chem}$ and $\tau_{hydro}$ are characteristic chemical reaction and flow time respectively:
+%If $\tau_{chem}$ and $\tau_{hydro}$ are characteristic chemical reaction and flow time respectively:
 \begin{center}
 \begin{tabular}{ccc}
 $\tau_{chem} \gg \tau_{hydro}$ & $\tau_{chem} \simeq \tau_{hydro}$ & $\tau_{chem} \ll \tau_{hydro}$\\
@@ -786,7 +790,7 @@ Chemical equilibrium & Chemical non-equilibrium & Frozen flow\\
 \end{tabular}
 \end{center}
 
-\textbf{Plasmas are in chemical equilibrium in this work.}
+%\textbf{Plasmas are in chemical equilibrium in this work.}
 
 \begin{framed}
 \centering
@@ -808,16 +812,6 @@ Chemical equilibrium & Chemical non-equilibrium & Frozen flow\\
 \end{equation*}
 \end{framed}
 
-\only<1>{
-Linked to Boltzmann equation
-\begin{equation*}
-\rho = \sum_{i}\int m_i f_i d \vecc_i. \quad \rho \vecv = \sum_i \int m_i \vecc_i f_i d \vecc_i, ... 
-\end{equation*}
-}
-
-\only<2>
-{
-
 \begin{minipage}{0.7\linewidth}
 \begin{equation*}
 \begin{aligned}
@@ -832,7 +826,6 @@ Linked to Boltzmann equation
 \includegraphics[width=1.\linewidth]{./mpp-logo.png}
 \vfill
 \end{minipage}
-}
 
 %Unmagnetized plasma and no elemental de-mixing.
 
@@ -976,7 +969,7 @@ $\mu_0$ : magnetic permeability, $\sigma_e$ : electron electric conductivity, $f
 \end{frame}
 
 
-\begin{frame}{Computational domain}
+\begin{frame}{Computational domain and boundary conditions}
 
 \begin{center}
 \begin{tikzpicture}[scale = .6]
@@ -1005,7 +998,7 @@ $\mu_0$ : magnetic permeability, $\sigma_e$ : electron electric conductivity, $f
 	
 	% Boundary conditions
 	
-	\draw (12,3.8) node[above]{Opening};
+	\draw (12,3.8) node[above]{Freestream};
 	\draw (15,2) node[above, rotate = -90]{Opening};
 	\draw (4,3.8) node[above]{Far electric field};
 	\draw (-3,0) node[above, rotate = 90]{Far electric field};
@@ -1056,19 +1049,19 @@ $\mu_0$ : magnetic permeability, $\sigma_e$ : electron electric conductivity, $f
 \section{Hybridized discontinuous Galerkin method}
 
 
-%\begin{frame}{Conservative form of the equations}
-%
-%%\textbf{Navier-Stokes}
-%\begin{framed}
-%\begin{equation*}
-%\begin{aligned}
-%& \partial_t \rho &&+ \nabla \cdot \left(\rho \vecv\right) && &&= 0\\
-%& \partial_t \left(\rho \vecv\right) &&+ \nabla \cdot \left(\rho \vecv \vecv + p \mathbb{I} \right) &&- \nabla \cdot \vectau &&= \vecF_L\\
-%& \partial_t \left(\rho E\right) &&+ \nabla \cdot \left(\rho E \vecv + p \vecv\right) &&- \nabla \cdot \left(\vectau\vecv + \vecq\right) &&= P_J\\
-%& && &&- \nabla \cdot \left(\nabla E_P\right) &&= -\frac{E_P}{r^2} - i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)\\
-%\end{aligned}
-%\end{equation*}
-%\end{framed}
+\begin{frame}{Conservative form of the equations}
+
+%\textbf{Navier-Stokes}
+\begin{framed}
+\begin{equation*}
+\begin{aligned}
+& \partial_t \rho &&+ \nabla \cdot \left(\rho \vecv\right) && &&= 0\\
+& \partial_t \left(\rho \vecv\right) &&+ \nabla \cdot \left(\rho \vecv \vecv + p \mathbb{I} \right) &&- \nabla \cdot \vectau &&= \vecF_L\\
+& \partial_t \left(\rho E\right) &&+ \nabla \cdot \left(\rho E \vecv + p \vecv\right) &&- \nabla \cdot \left(\vectau\vecv + \vecq\right) &&= P_J\\
+& && &&- \nabla \cdot \left(\nabla E_P\right) &&= -\frac{E_P}{r^2} - i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)\\
+\end{aligned}
+\end{equation*}
+\end{framed}
 %\only<2>{
 %\begin{equation*}
 %\begin{aligned}
@@ -1076,29 +1069,29 @@ $\mu_0$ : magnetic permeability, $\sigma_e$ : electron electric conductivity, $f
 %\end{aligned}
 %\end{equation*}
 %}
-%
+
 %\only<3>
 %{
-%\begin{framed}
-%\begin{equation*}
-%\partial_t \vecw(\vecu) + \nabla \cdot \vecF_c(\vecu) - \nabla \cdot \vecF_v(\vecu, \nabla \vecu) = \vecS(\vecu, \nabla \vecu)
-%\end{equation*}
-%\end{framed}
+\begin{framed}
+\begin{equation*}
+\partial_t \vecw(\vecu) + \nabla \cdot \vecF_c(\vecu) - \nabla \cdot \vecF_v(\vecu, \nabla \vecu) = \vecS(\vecu, \nabla \vecu)
+\end{equation*}
+\end{framed}
 %}
+
+%\textbf{Maxwell}
+%\begin{equation*}
+%\begin{aligned}
 %
-%%\textbf{Maxwell}
-%%\begin{equation*}
-%%\begin{aligned}
-%%
-%%\end{aligned}
-%%\end{equation*}
-%
-%%\onslide<2>
-%%{
-%
-%%}
-%
-%\end{frame}
+%\end{aligned}
+%\end{equation*}
+
+%\onslide<2>
+%{
+
+%}
+
+\end{frame}
 
 \begin{frame}{Model problem}
 
@@ -1742,7 +1735,7 @@ Most widely used. Solve N-S while Maxwell frozen, and \textit{vice versa}. Slow 
 
 \only<3>
 {
-Solves the system in a fully coupled manner, with two domains. The method we employ here.
+Solves the system in a fully coupled manner, with two domains.
 }
 
 \end{frame}
@@ -1755,21 +1748,12 @@ Solves the system in a fully coupled manner, with two domains. The method we emp
 		& \partial_t \vecw^l(\vecu) + \nabla \cdot \left(\vecF_c^l(\vecu) - \vecF_v^l(\vecu, \nabla \vecu)\right) = \vecS^l(\vecu, \nabla \vecu), && \text{ on } \Omega^l\\
 		& \vecu^l = \vecu_{bc}^l, && \vecx\in\partial\Omega^l_d\\
 		& \vecF_v^l \cdot \vecn = \vecF_{v,n,bc}^l, &&  \text{ on } \partial\Omega^l_n\\
-		\only<1,3->
-		{
-		& \mathcal{F}^{l,l'}(\vecu^l, \nabla \vecu^l, \vecu^{l'}, \nabla \vecu^{l'}) = 0, &&  \text{ on }  \gamma^{l,l'}, \; l \neq l'\\
-		}
-		\only<2>
-		{
 		& \textcolor{red}{\mathcal{F}^{l,l'}(\vecu^l, \nabla \vecu^l, \vecu^{l'}, \nabla \vecu^{l'}) = 0}, &&  \text{ on }  \gamma^{l,l'}, \; l \neq l'\\
-		}
 		& \vecu^l(t = 0) = \vecU^l, &&  \text{ on }  \Omega^l
 	\end{aligned}
 \end{equation*}
 \end{framed}
 
-\onslide<3>
-{
 For ICP, 
 \begin{equation*}
 \mathcal{F} =
@@ -1778,7 +1762,6 @@ For ICP,
 \nabla E_p^{Im, NS} \cdot \vecn^{NS} - \nabla E_p^{Im, MAX} \cdot \vecn^{MAX}
 \end{pmatrix}
 \end{equation*}
-}
 
 \end{frame}
 
@@ -1878,7 +1861,7 @@ with $\delta\vecx = \vecx_{k+1} - \vecx_k$.
 
 \onslide<2->{
 
-\textbf{In order to stabilize the solver, a fictive temporal term is added.}
+\textbf{In order to stabilize the solver, a damping term is added.}
 
 }
 
@@ -1916,7 +1899,7 @@ CFL_k = \min\left(CFL_0 \left(\frac{||\Tilde{\mathcal{N}}||_2^0}{||\Tilde{\mathc
 \end{equation*}
 \end{framed}
 
-\only<2>
+\only<1>
 {
 \begin{equation*}
     \underbrace{
@@ -1943,7 +1926,7 @@ CFL_k = \min\left(CFL_0 \left(\frac{||\Tilde{\mathcal{N}}||_2^0}{||\Tilde{\mathc
     }_{-\Tilde{\mathcal{N}}},
 \end{equation*}
 }
-\only<3>
+\only<2>
 {
 The system can be split into two parts
 \begin{equation*}
@@ -1983,7 +1966,7 @@ and
 \end{equation*}
 }
 
-\only<4->
+\only<3->
 {
 By eliminating $\delta U$ and $\delta Q$, one gets the \textbf{global} system
 \begin{equation*}
@@ -2019,7 +2002,7 @@ By eliminating $\delta U$ and $\delta Q$, one gets the \textbf{global} system
     \end{aligned}
 \end{equation*}
 }
-\only<5>
+\only<4>
 {
 System solved for $\veclambda$, then $\vecu$ and $\vecq$ are retrieved by small local matrices inversion.
 \begin{equation*}
@@ -2054,55 +2037,57 @@ System solved for $\veclambda$, then $\vecu$ and $\vecq$ are retrieved by small 
 
 \textbf{If the power dissipated is not maintained, the torch quenches!}
 
-\only<1>
-{
-\begin{center}
-	\begin{tikzpicture}
-	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_P.png}};
-	\end{tikzpicture}
-\end{center}
+%\only<1>
+%{
+%\begin{center}
+%	\begin{tikzpicture}
+%	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_P.png}};
+%	\end{tikzpicture}
+%\end{center}
 \begin{framed}
 \begin{equation*}
 P_{target} = \int_{NS} P_J dV
 \end{equation*}
 \end{framed}
-}
+%}
 
-\only<2>
-{
-\begin{equation*}
-	\begin{aligned}
-		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
-		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \vecF^L\\
-		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = P_J\\
-	\end{aligned}
-\end{equation*}
+%\only<2>
+%{
+%\begin{equation*}
+%	\begin{aligned}
+%		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
+%		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \vecF^L\\
+%		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = P_J\\
+%	\end{aligned}
+%\end{equation*}
+%
+%\begin{equation*}
+%	\Delta E_P = \frac{E_P}{r^2} + i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)
+%\end{equation*}
+%}
 
-\begin{equation*}
-	\Delta E_P = \frac{E_P}{r^2} + i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)
-\end{equation*}
-}
-
-\only<3>
-{
+%\only<3>
+%{
+\begin{minipage}{.79\linewidth}
 \begin{equation*}
 	\begin{aligned}
 		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
 		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \textcolor{red}{\gamma \left(\vecF^L\right)'}\\
 		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = \textcolor{red}{\gamma P_J'}\\
+		& \Delta \textcolor{red}{E_P'} = \frac{\textcolor{red}{E_P'}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\textcolor{red}{E_C'} + \textcolor{red}{E_P'}\right) 
 	\end{aligned}
 \end{equation*}
-
+\end{minipage}
+\begin{minipage}{.19\linewidth}
 \begin{equation*}
-	\Delta \textcolor{red}{E_P'} = \frac{\textcolor{red}{E_P'}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\textcolor{red}{E_C'} + \textcolor{red}{E_P'}\right)
+\begin{aligned}
+E_P = \sqrt{\gamma} E_P'\\
+E_C = \sqrt{\gamma} E_C'\\ 
+\gamma = \frac{P_{target}}{\int_{NS}P_J' dV}
+\end{aligned}
 \end{equation*}
-
-with
-\begin{equation*}
-E_P = \sqrt{\gamma} E_P' \quad E_C = \sqrt{\gamma} E_C', \qquad \gamma = \frac{P_{target}}{\int_{NS}P_J' dV}
-\end{equation*}
-
-}
+\end{minipage}
+%}
 \end{frame}
 
 \section{Results}
@@ -2212,12 +2197,24 @@ The mesh size close to the probe is $\SI{10}{\micro\meter}$ thick, while it is o
 
 \begin{framed}
 \textbf{A coflow is introduced in the chamber for obtaining a steady state, does it have an important impact?}
-\only<5>{\textcolor{red}{Short answer is no, BUT...}}
+%\only<5>{\textcolor{red}{Short answer is no, BUT...}}
 \end{framed}
-\only<2>
-{
+%\only<2>
+%{
+\begin{minipage}{.29\linewidth}
+\begin{itemize}
+\small
+\item $P = \SI{100}{\kilo\watt}$
+\item $p_0 = \SI{10000}{\pascal}$
+\item $f = \SI{0.37}{\mega\hertz}$
+\item $Q = \SI{16}{\gram\;\second^{-1}}$
+\item $S = \SI{20}{\degree}$
+\item air (11 species)
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.69\linewidth}
 \centering
-	\begin{tikzpicture}[scale = .8]
+	\begin{tikzpicture}[scale = .55]
 		\draw[dash dot] (-1.0,0) -- (15,0);
 		\draw[-, thick] (0, 0) -- (0,1) -- (-1.0,1);
 		\fill[gray, opacity=0.5] (-1.0,0) -- (0, 0) -- (0,1) -- (-1.0,1) -- (-1.0,-1);
@@ -2235,74 +2232,52 @@ The mesh size close to the probe is $\SI{10}{\micro\meter}$ thick, while it is o
 		\draw[<->] (0.1,0) -- node[right]{$\SI{75}{\milli\meter}$} (0.1,1);
 		\draw[<->] (-1.1, 1.) -- node[left]{$\SI{5}{\milli\meter}$} (-1.1,1.5);
 		\draw[<->] (13,0) -- node[right]{$\SI{25}{\milli\meter}$} (13,0.5);
-		\draw[thick, red, <->] (12.5, 0.) -- (12, 0.) node[above]{STAG} -- (11.5, 0.);
-		\draw[thick, red, <->] (4.15, 0.) -- (4.15, 0.75) node[right]{TC} -- (4.15, 1.5);
-		\draw[thick, red, <->] (10, 0.) -- (10, 0.75) node[left]{PF} -- (10, 1.5);
+		%\draw[thick, red, <->] (12.5, 0.) -- (12, 0.) node[above]{STAG} -- (11.5, 0.);
+		%\draw[thick, red, <->] (4.15, 0.) -- (4.15, 0.75) node[right]{TC} -- (4.15, 1.5);
+		%\draw[thick, red, <->] (10, 0.) -- (10, 0.75) node[left]{PF} -- (10, 1.5);
 		\draw[black] (0,0) node{$\bullet$};
 		\draw[black] (0,0) node[below left]{$(0,0)$};
 		\draw[blue, thick, ->] (8.5,2.75)-- (9.5, 2.75) node[above right]{$U_{blow} = \chi U_{in}$} --(10.5,2.75);
 	\end{tikzpicture}
-}
-\only<3>
-{
-\begin{minipage}{.49\linewidth}
-\begin{itemize}
-	\item $P = \SI{100}{\kilo\watt}$
-	\item $p_0 = \SI{10000}{\pascal}$
-	\item $f = \SI{0.37}{\mega\hertz}$
-	\item $Q = \SI{16}{\gram\;\second^{-1}}$
-	\item $S = \SI{20}{\degree}$
-	\item air mixture with 11 species
-\end{itemize}
 \end{minipage}
-\hfill\begin{minipage}{.49\linewidth}
-\centering
-The coflow $\chi$ is defined as
+\vfill
 \begin{equation*}
-\chi = \frac{U_{blow}}{U_{in}}
+\chi = \frac{U_{blow}}{U_{in}} \in [0.2, 1.]
 \end{equation*}
-and tested from $0.2$ to $1.0$.
-\end{minipage}
-}
-\only<4>
-{
+%}
+\end{frame}
+\begin{frame}{Effect of the coflow on the simulations}
+Only has an impact at the torch exit, outside the torch radius.
+
 %Short answer, $\chi$ does not have an impact, the only measurable impact being on the region where the coflow is injected.
 \begin{tabular}{cc}
 \input{./HS50mm_Radial_1_N=4163_u} & \input{./HS50mm_Radial_1_N=4163_v}
 \end{tabular}
-}
-\only<5>
-{
- ... we were not able to obtain any steady state without coflow.
 
- A question to ask is to see if steady state is possible in ICP?
- 
- Left for future work... 
- 
-}
+\textbf{However, we were not able to obtain any steady state without coflow.}
 
 \end{frame}
 
-\begin{frame}{Comparison with the COOLFluiD solver}
+\begin{frame}{Comparison with the COOLFluiD solver (radial profile in the torch)}
 
-\begin{framed}
-\textbf{We compared the results of the COOLFluiD solver and the HDG code.}
-\end{framed}
+%\begin{framed}
+%\textbf{We compared the results of the COOLFluiD solver and the HDG code.}
+%\end{framed}
+%\only<1>
+%{
+%\begin{itemize}
+%	\item $p_0 = \SI{5000}{\pascal}$ 
+%	\item $Q = \SI{16}{\gram\;\second^{-1}}$ 
+%	\item $T_{wall} = T_{inlet} = \SI{350}{\kelvin}$
+%	\item $P = \SI{100}{\kilo\watt}$ 
+%	\item $f = \SI{0.37}{\mega\hertz}$
+%	\item air mixture with 11 species.
+%	\item No swirl angle.
+%	\item The coflow applied for HDG is $\chi_{HDG} = 0.2$.
+%\end{itemize}
+%}
+
 \only<1>
-{
-\begin{itemize}
-	\item $p_0 = \SI{5000}{\pascal}$ 
-	\item $Q = \SI{16}{\gram\;\second^{-1}}$ 
-	\item $T_{wall} = T_{inlet} = \SI{350}{\kelvin}$
-	\item $P = \SI{100}{\kilo\watt}$ 
-	\item $f = \SI{0.37}{\mega\hertz}$
-	\item air mixture with 11 species.
-	\item No swirl angle.
-	\item The coflow applied for HDG is $\chi_{HDG} = 0.2$.
-\end{itemize}
-}
-
-\only<2>
 {
 
 \begin{center}
@@ -2314,14 +2289,14 @@ and tested from $0.2$ to $1.0$.
 
 }
 
-\only<3>
+\only<2>
 {
 \begin{tabular}{cc}
 \input{./CF_HDG_Comparison_Torch_Center_v} & \input{./CF_HDG_Comparison_Torch_Center_T}
 \end{tabular}
 }
 
-\only<4>
+\only<3>
 {
 \begin{tabular}{cc}
 \input{./CF_HDG_Comparison_Torch_Center_Ep_Re} & \input{./CF_HDG_Comparison_Torch_Center_Ep_Im}
@@ -2332,6 +2307,8 @@ and tested from $0.2$ to $1.0$.
 %{
 %Very similar results except for the electric field in the torch, might be due to the way electric field boundary conditions are imposed.
 %}
+\small
+$p_0 = \SI{5000}{\pascal}$, $Q = \SI{16}{\gram\;\second^{-1}}$, $T_{wall} = T_{inlet} = \SI{350}{\kelvin}$, $P = \SI{100}{\kilo\watt}$, $f = \SI{0.37}{\mega\hertz}$, $S = 0$, air (11 species), $\chi_{HDG} = 0.2$.
 
 \end{frame}
 
@@ -2350,18 +2327,21 @@ We first solve with polynomial degree 1 then 4 (red separation line).
 }
 \only<2>
 {
-\begin{tabular}{c}
+\begin{minipage}{0.49\linewidth}
 \input{./GMRES_history.tex}
-\end{tabular}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+\textbf{Fast and robust solver for ICP, able to produce meaningful results in 20 minutes of time on a single laptop using 8 OMP threads!}
+
+DOFS $\lambda \simeq \SI{400 000}{}$
+
+DOFs $w \simeq \SI{2 000 000}{}$
+
+DOFS $q \simeq 400 000$
+
+\end{minipage}
 }
 \end{center}
-
-\only<3>
-{
-\begin{framed}
-\textbf{We have a fast and robust solver for ICP, able to produce meaningful results in 20 minutes of time on a single laptop using 8 OMP threads!}
-\end{framed}
-}
 
 \end{frame}
 
