@@ -1,7 +1,7 @@
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
 \beamer@sectionintoc {2}{Thesis motivation}{10}{0}{2}
 \beamer@sectionintoc {3}{Model for inductively coupled plasma}{18}{0}{3}
-\beamer@sectionintoc {4}{Hybridized discontinuous Galerkin method}{31}{0}{4}
-\beamer@sectionintoc {5}{Results}{52}{0}{5}
-\beamer@sectionintoc {6}{Conclusions and future work}{78}{0}{6}
-\beamer@sectionintoc {7}{Backup}{87}{0}{7}
+\beamer@sectionintoc {4}{Hybridized discontinuous Galerkin method}{28}{0}{4}
+\beamer@sectionintoc {5}{Results}{47}{0}{5}
+\beamer@sectionintoc {6}{Conclusions and future work}{73}{0}{6}
+\beamer@sectionintoc {7}{Backup}{82}{0}{7}

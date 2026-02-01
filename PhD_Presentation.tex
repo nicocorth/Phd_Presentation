@@ -96,7 +96,7 @@
   \begin{mdframed}[linecolor=orange, backgroundcolor=orange!20]
   \Large
   \centering
-  \textbf{A Hybridized Discontinuous Galerkin Solver for Inductively Coupled Plasma}
+  \textbf{A Monolithic High-Order Multi-Domain Solver for Inductively Coupled Plasma}
   
   \small
   
@@ -482,18 +482,26 @@ Large temperature gradients!
 
 \begin{center}
 \begin{tikzpicture}
-\node at (0,0) {\includegraphics[width=.9\linewidth]{lhtsT.pdf}};
-\node at (0,-1.) {\reflectbox{\includegraphics[width = .9\linewidth, angle=180, origin=c]{./thierry_mesh.png}}};
+%\node at (0,0) {\includegraphics[width=.9\linewidth]{lhtsT.pdf}};
+%\node at (0,-1.) {\reflectbox{\includegraphics[width = .9\linewidth, angle=180, origin=c]{./thierry_mesh.png}}};
+\node at (0,0.) {\includegraphics[width = .9\linewidth]{./thierry_mesh.png}};
 \end{tikzpicture}
 \end{center}
 
-\begin{framed}
-\textbf{FV require a highly refined mesh in regions of large solution gradient.}
+\begin{minipage}{0.49 \linewidth}
+\begin{itemize}
+\item \textbf{Constant solution on each element: refined mesh large gradient region.}
 
-\textbf{FV can be very dissipative, "smoothing" the physics.}
-\end{framed}
+\item \textbf{Dissipative, "smoothing" the physics.}
 
-Solution procedure makes convergence slow and tedious...
+\item \textbf{Structured mesh.}
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+\includegraphics[width=\linewidth]{./No_nice_physics.png}
+\end{minipage}
+
+%Solution procedure makes convergence slow and tedious...
 
 \end{frame}
 
@@ -510,16 +518,16 @@ Solution procedure makes convergence slow and tedious...
 \item More precise (less dissipative) solver than finite volumes.
 \end{itemize}
 
-\begin{center}
-\includegraphics[width=.8\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
-%\reflectbox{\includegraphics[width = .8\linewidth, angle=180, origin=c]{./Grid_Independence_mesh_probe_cropped.pdf}}
-\end{center}
+%\begin{center}
+%\includegraphics[width=.8\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
+%%\reflectbox{\includegraphics[width = .8\linewidth, angle=180, origin=c]{./Grid_Independence_mesh_probe_cropped.pdf}}
+%\end{center}
 
 \end{frame}
 
 \begin{frame}{Research questions}
 
-With the objective of producing a new high order solver for inductively coupled plasma, we will try to answer the following questions:
+%With the objective of producing a new high order solver for inductively coupled plasma, we will try to answer the following questions:
 
 \begin{framed}
 \begin{description}
@@ -662,28 +670,6 @@ With the objective of producing a new high order solver for inductively coupled 
 %
 %\end{frame}
 %
-
-\begin{frame}{Plasma governing equations : the Boltzmann equation}
-
-\begin{framed}
-\begin{equation*}
-\mathcal{D}_{i}(f_{i,I}) = \partial_t f_{i,I} + \mathbf{c}_i \cdot \nabla f_{i,I} + \frac{\mathbf{F}_i}{m_i}\cdot \partial_{\mathbf{c}_{i}} f_{i,I} = \mathcal{S}_{i} + \mathcal{C}_{i}
-\end{equation*}
-\end{framed}
-
-$f_i(\mathbf{x}, \mathbf{c})$ : probability density function. 
-
-$\mathcal{S}_i$ : scattering collision operator (non chemically reacting).
-
-$\mathcal{C}_i$ : chemically reacting collision operator.
-
-Provided $Kn = \frac{\lambda}{L} \ll 1$ (continuous medium)
-
-\begin{equation*}
-\rho = \sum_{i}\int m_i f_i d \vecc_i. \quad \rho \vecv = \sum_i \int m_i \vecc_i f_i d \vecc_i, ... 
-\end{equation*}
-
-\end{frame}
 
 \begin{frame}{Plasma collective behaviour}
 
@@ -929,20 +915,20 @@ $ \sum_{l=1}^{N_{coil}} i f \mu_0 I_C \sqrt{\frac{r_0}{r}}\left[2 \frac{E_2(k_l)
 \begin{equation*}
 \begin{aligned}
 & \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) = 0\\
-& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv \right) = -\nabla p + \nabla \cdot \vectau + \only<1,2,3>{\vecF_L}\only<4>{\textcolor{red}{\vecF_L}}\\
-& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv\right) = \nabla \cdot \left(\vectau\vecv\right) + \nabla \cdot \vecq + \only<1,2,3>{P_J}\only<4>{\textcolor{red}{P_J}}\\
+& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv \right) = -\nabla p + \nabla \cdot \vectau + \textcolor{red}{\vecF_L}\\
+& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv\right) = \nabla \cdot \left(\vectau\vecv\right) + \nabla \cdot \vecq + \textcolor{red}{P_J}\\
 \end{aligned}
 \end{equation*}
 \end{framed}
 
-\only<2>
+\only<1>
 {
 \vspace{-.7cm}
 \begin{minipage}{0.49\linewidth}
 \begin{equation*}
 \begin{aligned}
 & \vectau = \eta \left(\nabla \vecv + \nabla \vecv^T\right) - \frac{2}{3} \eta \nabla \cdot \vecv\\
-& \vecq = -k \nabla T
+& \vecq = -\lambda \nabla T
 \end{aligned}
 \end{equation*}
 \end{minipage}
@@ -956,10 +942,10 @@ $ \sum_{l=1}^{N_{coil}} i f \mu_0 I_C \sqrt{\frac{r_0}{r}}\left[2 \frac{E_2(k_l)
 \end{equation*}
 \end{minipage}
 }
-\only<3->{
+\only<2->{
 \begin{framed}
 \begin{equation*}
-\partial^2_{zz} E_P + \frac{1}{r}\partial_r (r \partial_r E_P) - \frac{E_P}{r^2} = i 2 \pi f\mu_0\only<3>{\sigma_e} \only<4>{\textcolor{red}{\sigma_e}} \left(E_C + E_P\right)
+\partial^2_{zz} E_P + \frac{1}{r}\partial_r (r \partial_r E_P) - \frac{E_P}{r^2} = i 2 \pi f\mu_0 \textcolor{red}{\sigma_e} \left(E_C + E_P\right)
 \end{equation*}
 
 $\mu_0$ : magnetic permeability, $\sigma_e$ : electron electric conductivity, $f$ : induction frequency
@@ -1072,13 +1058,14 @@ $\mu_0$ : magnetic permeability, $\sigma_e$ : electron electric conductivity, $f
 
 %\only<3>
 %{
-\begin{framed}
+%\begin{framed}
 \begin{equation*}
 \partial_t \vecw(\vecu) + \nabla \cdot \vecF_c(\vecu) - \nabla \cdot \vecF_v(\vecu, \nabla \vecu) = \vecS(\vecu, \nabla \vecu)
 \end{equation*}
-\end{framed}
+\vfill
+%\end{framed}
 %}
-
+For N-S: $\vecw = \left(\rho \quad \rho \vecv \quad \rho e + \rho \frac{||\vecv||^2}{2} \right)$, $\vecu = \left(p \quad \vecv \quad T \right)$
 %\textbf{Maxwell}
 %\begin{equation*}
 %\begin{aligned}
@@ -1093,7 +1080,7 @@ $\mu_0$ : magnetic permeability, $\sigma_e$ : electron electric conductivity, $f
 
 \end{frame}
 
-\begin{frame}{Model problem}
+\begin{frame}{Model problem and weak form}
 
 \begin{framed}
 \begin{equation*}
@@ -1125,20 +1112,60 @@ $\vecU$ : initial data.
 \end{minipage}
 }
 
-\only<2>{
-Before going further, some notation:
-\begin{equation*}
-\begin{aligned}
-&(a,b)_{K} &&= \int_K a b\;dV,\\
-&\langle a,b \rangle_{\partial K} &&= \int_{\partial K} a  b \;dS.\\
-\end{aligned}
-\end{equation*}
+\only<2->{
 
-}
+Weak form:
+\begin{equation*}
+\left(\partial_t \vecw - \vecS, w \right)_{\Omega} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{\Omega} + \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial \Omega} = 0, \; \forall w \in L_2(\Omega)
+\end{equation*}}
+\only<2>{
+with
+\begin{equation*}
+(a,b)_{K} = \int_K a b\;dV,\quad \langle a,b \rangle_{\partial K} = \int_{\partial K} a  b \;dS
+\end{equation*}}
+%\only<3>{
+%Discretization of $\Omega$, functional space and solution $\vecu$ + interface numerical fluxes.
+%}
 
 \end{frame}
 
-\begin{frame}{DG}
+\begin{frame}[c]{Weak form: spatial discretization.}
+
+Division of $\Omega$ into elements ($K$):
+
+\includegraphics[width=\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
+%\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./ConvergenceFS_coarse-crop.pdf}}
+
+\begin{equation*}
+\sum_K \left(\partial_t \vecw - \vecS, w \right)_{K} - \left(\vecF_{c} - \vecF_{v}, \nabla w \right)_{K} + \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, w \right\rangle_{\partial K} = 0, \; \forall w \in L_2(\Omega)
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}{Weak form: Functional space reduction and solution}
+
+Restriction of functional space to a finite dimensional subspace of $L_2(\Omega)$. Ex:
+\begin{equation*}
+w \in \mathcal{P}_p(K) \subset L_2(\Omega),
+\end{equation*}
+with $\mathcal{P}_p(K)$ polynomials of degree at most $p$ on $K$. 
+
+If $\{\varphi_{K,i}\}$, $i = \{1, 2, ..., N_p\}$ is a basis (Lagrange, monomial, ...) of $\mathcal{P}_p(K)$, then 
+
+\begin{equation*}
+\left(\partial_t \vecw - \vecS, \varphi_{K,i} \right)_{K} - \left(\vecF_{c} - \vecF_{v}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \left(\vecF_{c} - \vecF_{v}\right) \cdot \vecn, \varphi_{K,i} \right\rangle_{\partial K} = 0
+\end{equation*}
+
+$\vecu$ is then discretized as
+\begin{equation*}
+\vecu_h = \sum_K \sum_{i=1}^{N_p} \vecu_{K,i} \varphi_{K,i}
+\end{equation*}
+
+\end{frame}
+
+
+
+\begin{frame}{Discontinuous Galerkin}
 
 %\only<1>
 %{
@@ -1229,15 +1256,13 @@ Before going further, some notation:
 
 %\only<7>
 %{
-\begin{framed}
 \begin{equation*}
 \begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal (\vecu_h, \nabla \vecu_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
-& \forall \varphi_{K,i} \in W_h
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal (\vecu_h, \nabla \vecu_h), \varphi_{K,i} \right\rangle_{\partial K} = 0
 \end{aligned}
 \end{equation*}
-\end{framed}
 \centering
+\begin{minipage}{0.69\linewidth}
 \begin{tikzpicture}[scale = 1.]
 	% Define the vertices of the standing on base triangle
     \coordinate (A) at (0, 0, 0);
@@ -1386,6 +1411,15 @@ Before going further, some notation:
 	%\draw[->, thick] (0, -2, 0) -- (0, -0.5, 0) node[right]{$\varphi, \mu$};
 
 \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.29\linewidth}
+\begin{equation*}
+\vecu_h = \sum_K \sum_{i=1}^{N_p} \vecu_{K,i} \varphi_{K,i}
+\end{equation*}
+\end{minipage}
+%\textbf{Usual functional space choice: polynomials of degree at most $p$.}
+
+%$\varphi_{k,i}$ basis can be Lagrange polynomials, monomial, etc...
 %}
 
 %\only<8>
@@ -1461,21 +1495,20 @@ Before going further, some notation:
 %
 %}
 \end{frame}
-\begin{frame}{HDG}
+\begin{frame}{Hybridized Discontinuous Galerkin}
 %\only<11->
 %{
-\begin{framed}
-\small
+%\begin{framed}
+%\small
 \begin{equation*}
 \begin{aligned}
-& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\veclambda_h, \vecu_h, \vecq_h), \varphi_{K,i} \right\rangle_{\partial K} = 0,\\
-& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0,\\
-& \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0,\\ 
-& \forall \mu_{e,i} \in M_h, \; \forall \varphi_{K,i} \in W_h, \; \forall \vectau_{K,i} \in V_h
+& \left(\partial_t \vecw_{h} - \vecS_{h}, \varphi_{K,i} \right)_{K} - \left(\vecF_{c, {h}} - \vecF_{v, {h}}, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal(\veclambda_h, \vecu_h, \vecq_h), \varphi_{K,i} \right\rangle_{\partial K} = 0\\
+& \left(\vecq_h, \vectau_{K,i}\right)_{K} - \left(\vecu_h, \nabla \vectau_{K,i}\right)_{K} + \left\langle \veclambda_h, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0\\
+& \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e} = 0
 \end{aligned}
 \end{equation*}
-\end{framed}
-\centering
+%\end{framed}
+\begin{minipage}{0.69\linewidth}
 \begin{tikzpicture}[scale = 1.]
 	% Define the vertices of the standing on base triangle
     \coordinate (A) at (0, 0, 0);
@@ -1658,6 +1691,16 @@ Before going further, some notation:
 	%\draw[->, thick] (0, -2, 0) -- (0, -0.5, 0) node[right]{$\varphi, \mu$};
 
 \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.29\linewidth}
+\begin{equation*}
+\begin{aligned}
+& \vecu_h = \sum_K \sum_{i=1}^{N_p} \vecu_{K,i} \varphi_{K,i}\\
+& \vecq_h = \sum_K \sum_{i=1}^{N_p} \vecq_{K,i} \vectau_{K,i} \\
+& \veclambda_h = \sum_e \sum_{i=1}^{N_p} \veclambda_{e,i} \mu_{e,i}
+\end{aligned}
+\end{equation*}
+\end{minipage}
 %}
 
 \end{frame}
@@ -1725,7 +1768,7 @@ Before going further, some notation:
 
 \only<1>
 {
-Compact but fills the jacobian matrix, making it incompatible with HDG.
+Compact but fills the jacobian matrix.
 }
 
 \only<2>
@@ -1800,6 +1843,9 @@ with
 \begin{equation*}
 \vecP = \begin{pmatrix} 0 & p_\lambda & 0 & 0 \end{pmatrix}^T
 \end{equation*}
+\begin{equation*}
+\dot{m}_p = \frac{p_U - p_\lambda}{V_p}
+\end{equation*}
 
 
 \end{frame}
@@ -1824,52 +1870,14 @@ C depends on the diffusive transport coefficients.
 
 \end{frame}
 
-\begin{frame}{Solution strategy}
-The HDG system is solved at steady-state such that
+\begin{frame}{Solution strategy: Newton solver with damping term}
+
+\begin{framed}
 \begin{equation*}
-	\begin{aligned}
-		\only<1>
-		{
-		& \left(\xcancel{\partial_t \vecw_h} - \vecS_h^K, \varphi_{K,i} \right)_{K} - \left(\vecF_{h,c}^K - \vecF_{h,v}^K, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal^K, \varphi_{K,i} \right\rangle_{\partial K} = 0\\
-		}
-		\only<2->
-		{
-		& \left(\textcolor{red}{\frac{\delta\vecw_h^K}{\tau_{K,k}}} - \vecS_h^K, \varphi_{K,i} \right)_{K} - \left(\vecF_{h,c}^K - \vecF_{h,v}^K, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal^K, \varphi_{K,i} \right\rangle_{\partial K} = 0\\
-		}
-		& \left(\vecq_K, \vectau_{K,i}\right)_{K} - \left(\vecu_K, \nabla \vectau_{K',i}\right)_{K} + \left\langle \veclambda_{\partial K}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0\\
-		& \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e\setminus\Gammabar} + \langle \Tilde{\mathcal{F}^e}, \mu_{e,i}\rangle_{e\cap\Gammabar} = 0\\
-	\end{aligned}
+\mathcal{N}(\vecx) = 0 \Rightarrow \mathcal{N}'(\vecx_k) \delta \vecx_k = - \mathcal{N}(\vecx_k) 
 \end{equation*}
-
-\only<1>
-{
-If the system is written as $\mathcal{N} = 0$, then the Newton method solves
-\begin{equation*}
-\mathcal{N}'(\vecx_k) \delta \vecx_k = - \mathcal{N}(\vecx_k) 
-\end{equation*}
-with $\delta\vecx_k = \vecx_{k+1} - \vecx_k$.
-}
-
-\only<2>
-{
-If the system is written as \textcolor{red}{$\tilde{\mathcal{N}} = 0$}, then the Newton method solves
-\begin{equation*}
-\textcolor{red}{\tilde{\mathcal{N}}'(\vecx_k) \delta \vecx = - \tilde{\mathcal{N}}(\vecx_k)}
-\end{equation*}
-with $\delta\vecx = \vecx_{k+1} - \vecx_k$.
-}
-
-\onslide<2->{
-
-\textbf{In order to stabilize the solver, a damping term is added.}
-
-}
-
-
-\end{frame}
-
-\begin{frame}{Damping term}
-
+\end{framed}
+with damping term
 \begin{equation*}
 \frac{\delta \vecw_h}{\tau_K} = \frac{\vecw(\vecu_{h,k+1}) - \vecw(\vecu_{h,k})}{\tau_{K,k}}
 \end{equation*}
@@ -1880,13 +1888,13 @@ with
 
 and the following CFL evolution law
 \begin{equation*}
-CFL_k = \min\left(CFL_0 \left(\frac{||\Tilde{\mathcal{N}}||_2^0}{||\Tilde{\mathcal{N}}||_2^k}\right)^\alpha, CFL_{max}\right)
+CFL_k = \min\left(CFL_0 \left(\frac{||\mathcal{N}||_2^0}{||\mathcal{N}||_2^k}\right)^\alpha, CFL_{max}\right)
 \end{equation*}
 
-\begin{framed}
-\centering
-\textbf{We only use convective eigenvalues here. The diffusive could be use to enhance the convergence.}
-\end{framed}
+%\begin{framed}
+%\centering
+%\textbf{We only use convective eigenvalues here. The diffusive could be use to enhance the convergence.}
+%\end{framed}
 
 
 \end{frame}
@@ -1895,12 +1903,13 @@ CFL_k = \min\left(CFL_0 \left(\frac{||\Tilde{\mathcal{N}}||_2^0}{||\Tilde{\mathc
 
 \begin{framed}
 \begin{equation*}
-\tilde{\mathcal{N}}'(\vecx_k) \delta \vecx_k = - \tilde{\mathcal{N}}(\vecx_k) 
+\mathcal{N}'(\vecx_k) \delta \vecx_k = - \mathcal{N}(\vecx_k) 
 \end{equation*}
 \end{framed}
 
 \only<1>
 {
+\begin{minipage}{.49\linewidth}
 \begin{equation*}
     \underbrace{
     \begin{pmatrix}
@@ -1908,7 +1917,7 @@ CFL_k = \min\left(CFL_0 \left(\frac{||\Tilde{\mathcal{N}}||_2^0}{||\Tilde{\mathc
         C & D & S\\
         L & M & N
     \end{pmatrix}
-    }_{\Tilde{\mathcal{N}}'}
+    }_{\mathcal{N}'}
     \overbrace{
     \begin{pmatrix}
         \delta Q\\
@@ -1923,14 +1932,14 @@ CFL_k = \min\left(CFL_0 \left(\frac{||\Tilde{\mathcal{N}}||_2^0}{||\Tilde{\mathc
         G\\
         H
     \end{pmatrix}
-    }_{-\Tilde{\mathcal{N}}},
+    }_{-\mathcal{N}} \Rightarrow
 \end{equation*}
-}
-\only<2>
-{
-The system can be split into two parts
+\end{minipage}
+\begin{minipage}{.49\linewidth}
 \begin{equation*}
-	\underbrace{
+\left\{
+\begin{aligned}
+	& \underbrace{
     \begin{pmatrix}
         A & B\\
         C & D
@@ -1950,11 +1959,8 @@ The system can be split into two parts
         R\\
         S
     \end{pmatrix}
-    \delta \Lambda
-\end{equation*}
-and
-\begin{equation*}
-    \begin{pmatrix}
+    \delta \Lambda\\
+    & \begin{pmatrix}
         L & M
     \end{pmatrix}
     \begin{pmatrix}
@@ -1963,10 +1969,13 @@ and
     \end{pmatrix}
     + N \delta \Lambda
     = H
+    \end{aligned}
+    \right.
 \end{equation*}
+\end{minipage}
 }
 
-\only<3->
+\only<2->
 {
 By eliminating $\delta U$ and $\delta Q$, one gets the \textbf{global} system
 \begin{equation*}
@@ -2001,9 +2010,6 @@ By eliminating $\delta U$ and $\delta Q$, one gets the \textbf{global} system
     \end{pmatrix}
     \end{aligned}
 \end{equation*}
-}
-\only<4>
-{
 System solved for $\veclambda$, then $\vecu$ and $\vecq$ are retrieved by small local matrices inversion.
 \begin{equation*}
     \begin{pmatrix}
@@ -2335,9 +2341,9 @@ We first solve with polynomial degree 1 then 4 (red separation line).
 
 DOFS $\lambda \simeq \SI{400 000}{}$
 
-DOFs $w \simeq \SI{2 000 000}{}$
+DOFs $w \simeq \SI{1 000 000}{}$
 
-DOFS $q \simeq 400 000$
+DOFS $q \simeq \SI{2 000 000}{}$
 
 \end{minipage}
 }
@@ -2701,6 +2707,72 @@ Comparison of the experimental $T(r)$ at $\SI{385}{\milli\meter}$ from the torch
 \begin{equation*}
 	\sigma_e \propto X_e
 \end{equation*}}
+
+\end{frame}
+
+\begin{frame}{Plasma governing equations : the Boltzmann equation}
+
+\begin{framed}
+\begin{equation*}
+\mathcal{D}_{i}(f_{i,I}) = \partial_t f_{i,I} + \mathbf{c}_i \cdot \nabla f_{i,I} + \frac{\mathbf{F}_i}{m_i}\cdot \partial_{\mathbf{c}_{i}} f_{i,I} = \mathcal{S}_{i} + \mathcal{C}_{i}
+\end{equation*}
+\end{framed}
+
+$f_i(\mathbf{x}, \mathbf{c})$ : probability density function. 
+
+$\mathcal{S}_i$ : scattering collision operator (non chemically reacting).
+
+$\mathcal{C}_i$ : chemically reacting collision operator.
+
+Provided $Kn = \frac{\lambda}{L} \ll 1$ (continuous medium)
+
+\begin{equation*}
+\rho = \sum_{i}\int m_i f_i d \vecc_i. \quad \rho \vecv = \sum_i \int m_i \vecc_i f_i d \vecc_i, ... 
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}{Solution strategy}
+The HDG system is solved at steady-state such that
+\begin{equation*}
+	\begin{aligned}
+		\only<1>
+		{
+		& \left(\xcancel{\partial_t \vecw_h} - \vecS_h^K, \varphi_{K,i} \right)_{K} - \left(\vecF_{h,c}^K - \vecF_{h,v}^K, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal^K, \varphi_{K,i} \right\rangle_{\partial K} = 0\\
+		}
+		\only<2->
+		{
+		& \left(\textcolor{red}{\frac{\delta\vecw_h^K}{\tau_{K,k}}} - \vecS_h^K, \varphi_{K,i} \right)_{K} - \left(\vecF_{h,c}^K - \vecF_{h,v}^K, \nabla \varphi_{K,i} \right)_{K} + \left\langle \vecHcal^K, \varphi_{K,i} \right\rangle_{\partial K} = 0\\
+		}
+		& \left(\vecq_K, \vectau_{K,i}\right)_{K} - \left(\vecu_K, \nabla \vectau_{K',i}\right)_{K} + \left\langle \veclambda_{\partial K}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_0} + \left\langle \vecu_{bc}, \vectau_{K,i} \cdot \vecn \right\rangle_{\partial K_{bc}} = 0\\
+		& \left\langle[[\vecHcal]], \mu_{e,i} \right\rangle_{e\setminus\Gammabar} + \langle \Tilde{\mathcal{F}^e}, \mu_{e,i}\rangle_{e\cap\Gammabar} = 0\\
+	\end{aligned}
+\end{equation*}
+
+\only<1>
+{
+If the system is written as $\mathcal{N} = 0$, then the Newton method solves
+\begin{equation*}
+\mathcal{N}'(\vecx_k) \delta \vecx_k = - \mathcal{N}(\vecx_k) 
+\end{equation*}
+with $\delta\vecx_k = \vecx_{k+1} - \vecx_k$.
+}
+
+\only<2>
+{
+If the system is written as \textcolor{red}{$\tilde{\mathcal{N}} = 0$}, then the Newton method solves
+\begin{equation*}
+\textcolor{red}{\tilde{\mathcal{N}}'(\vecx_k) \delta \vecx = - \tilde{\mathcal{N}}(\vecx_k)}
+\end{equation*}
+with $\delta\vecx = \vecx_{k+1} - \vecx_k$.
+}
+
+\onslide<2->{
+
+\textbf{In order to stabilize the solver, a damping term is added.}
+
+}
+
 
 \end{frame}
 
