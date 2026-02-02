@@ -136,13 +136,15 @@
 \section{Introduction}
 
 \begin{frame}[c]{Au fait, qu'est-ce que j'ai fait pendant 4 ans?}
-
+\centering
+\onslide<1->{
+\includegraphics[height = 3.5 cm]{./breaking_bad_crossed.jpg}}
+\onslide<2->{
+\hfill\includegraphics[height=3.5 cm]{./koen.jpg}\hfill\includegraphics[height =3.5 cm]{./thierry.jpg}
 \begin{framed}
 \centering
 J'ai développé un \textbf{solver numérique} pour les \textbf{plasmas} à \textbf{induction}.
-\end{framed}
-\centering
-\includegraphics[height =1.5 cm]{2560px-University_of_Liège_logo.png}\hfill\includegraphics[height=1.5 cm]{FRS-FNRS_ros_vert_transp.png}\hfill\includegraphics[height =1.5 cm]{vki_logo_blue_rectangular.jpg}
+\end{framed}}
 \end{frame}
 
 \begin{frame}{Etats de la matière: eau à pression atmosphérique}
@@ -150,8 +152,8 @@ J'ai développé un \textbf{solver numérique} pour les \textbf{plasmas} à \tex
 \begin{center}
 \begin{tabular}{ccc}
 \textbf{Solide} & \textbf{Liquide} & \textbf{Gaz}\\
-\includegraphics[height=.17\linewidth]{ice_cubes.jpg} & \includegraphics[height=.17\linewidth]{eau_liquide.jpg} & \includegraphics[height=.17\linewidth]{bouilloire.jpg}\\
-\includegraphics[height=.17\linewidth]{eau_solide.png} & \includegraphics[height=.17\linewidth]{eau_liquide.png} & \includegraphics[height=.17\linewidth]{eau_gaz.png}%\footnote{\tiny\url{https://www.assistancescolaire.com/eleve/3e/physique-chimie/reviser-une-notion/les-\%20etatsde-la-matiere-et-les-changements-d-etat-3_pc_01/print?print=1&printSheet=1}}\\
+\includegraphics[height=.21\linewidth]{ice_cubes.jpg} & \includegraphics[height=.21\linewidth]{eau_liquide.jpg} & \includegraphics[height=.21\linewidth]{bouilloire.jpg}\\
+%\includegraphics[height=.17\linewidth]{eau_solide.png} & \includegraphics[height=.17\linewidth]{eau_liquide.png} & \includegraphics[height=.17\linewidth]{eau_gaz.png}%\footnote{\tiny\url{https://www.assistancescolaire.com/eleve/3e/physique-chimie/reviser-une-notion/les-\%20etatsde-la-matiere-et-les-changements-d-etat-3_pc_01/print?print=1&printSheet=1}}\\
 %\onslide<3->{
 %$T \leq \SI{0}{\celsius}$ & $T \geq \SI{0}{\celsius}$ & $T \geq \SI{100}{\celsius}$
 %}
@@ -169,14 +171,14 @@ J'ai développé un \textbf{solver numérique} pour les \textbf{plasmas} à \tex
 \begin{center}
 \includegraphics[height=.29\linewidth]{./sun.jpg}
 \includegraphics[height=.29\linewidth]{./aurora_borealis.jpeg}
-\begin{tikzpicture}
-\node at (0,0) {\includegraphics[height=.29\linewidth]{eau_gaz.png}};
-\fill[red] (0,0) circle (0.1) node[above right] {$e^-$};
-\fill[red] (1,1) circle (0.1) node[above right] {$e^-$};
-\fill[red] (-1,-0.3) circle (0.1) node[above right] {$e^-$};
-\node[blue] at (-1.7,.7) {\textbf{+}};
-\node[blue] at (1.4,0) {\textbf{+}};
-\end{tikzpicture}\footnote{Courtesy of Wikipedia.}
+%\begin{tikzpicture}
+%\node at (0,0) {\includegraphics[height=.29\linewidth]{eau_gaz.png}};
+%\fill[red] (0,0) circle (0.1) node[above right] {$e^-$};
+%\fill[red] (1,1) circle (0.1) node[above right] {$e^-$};
+%\fill[red] (-1,-0.3) circle (0.1) node[above right] {$e^-$};
+%\node[blue] at (-1.7,.7) {\textbf{+}};
+%\node[blue] at (1.4,0) {\textbf{+}};
+%\end{tikzpicture}\footnote{Courtesy of Wikipedia.}
 \end{center}
 
 
@@ -2052,9 +2054,15 @@ System solved for $\veclambda$, then $\vecu$ and $\vecq$ are retrieved by small 
 %\end{center}
 \begin{framed}
 \begin{equation*}
-P_{target} = \int_{NS} P_J dV
+P_{tot} = \int_{NS} P_J dV
 \end{equation*}
 \end{framed}
+
+The current $I_c$ is adapted throughout the simulation in order to reach a target power $P_{target}$.
+\begin{equation*}
+I_c^{k+1} = I_c^k \sqrt{\frac{P_{target}}{P_{tot}^k}}
+\end{equation*}
+
 %}
 
 %\only<2>
@@ -2074,25 +2082,25 @@ P_{target} = \int_{NS} P_J dV
 
 %\only<3>
 %{
-\begin{minipage}{.79\linewidth}
-\begin{equation*}
-	\begin{aligned}
-		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
-		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \textcolor{red}{\gamma \left(\vecF^L\right)'}\\
-		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = \textcolor{red}{\gamma P_J'}\\
-		& \Delta \textcolor{red}{E_P'} = \frac{\textcolor{red}{E_P'}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\textcolor{red}{E_C'} + \textcolor{red}{E_P'}\right) 
-	\end{aligned}
-\end{equation*}
-\end{minipage}
-\begin{minipage}{.19\linewidth}
-\begin{equation*}
-\begin{aligned}
-E_P = \sqrt{\gamma} E_P'\\
-E_C = \sqrt{\gamma} E_C'\\ 
-\gamma = \frac{P_{target}}{\int_{NS}P_J' dV}
-\end{aligned}
-\end{equation*}
-\end{minipage}
+%\begin{minipage}{.79\linewidth}
+%\begin{equation*}
+%	\begin{aligned}
+%		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
+%		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \textcolor{red}{\gamma \left(\vecF^L\right)'}\\
+%		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = \textcolor{red}{\gamma P_J'}\\
+%		& \Delta \textcolor{red}{E_P'} = \frac{\textcolor{red}{E_P'}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\textcolor{red}{E_C'} + \textcolor{red}{E_P'}\right) 
+%	\end{aligned}
+%\end{equation*}
+%\end{minipage}
+%\begin{minipage}{.19\linewidth}
+%\begin{equation*}
+%\begin{aligned}
+%E_P = \sqrt{\gamma} E_P'\\
+%E_C = \sqrt{\gamma} E_C'\\ 
+%\gamma = \frac{P_{target}}{\int_{NS}P_J' dV}
+%\end{aligned}
+%\end{equation*}
+%\end{minipage}
 %}
 \end{frame}
 
@@ -2575,8 +2583,8 @@ $P_{tot} = \SI{50}{\kilo\watt}$ (top) and $P_{tot} = \SI{200}{\kilo\watt}$ (bott
 \centering
 \begin{tabular}{cc}
 	\centering
-	\begin{tabular}{cc}
-		\hspace{-1cm}\input{./Stagnation_P_gradT_z.tex} &
+	\begin{tabular}{c}
+		%\hspace{-1cm}\input{./Stagnation_P_gradT_z.tex} &
 		\input{./probe_heat_flux.tex}
 	\end{tabular}
 \end{tabular}
