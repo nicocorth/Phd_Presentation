@@ -137,9 +137,9 @@
 
 \begin{frame}[c]{Au fait, qu'est-ce que j'ai fait pendant 4 ans?}
 \centering
-\onslide<1->{
-\includegraphics[height = 3.5 cm]{./breaking_bad_crossed.jpg}}
 \onslide<2->{
+\includegraphics[height = 3.5 cm]{./breaking_bad_crossed.jpg}}
+\onslide<3->{
 \hfill\includegraphics[height=3.5 cm]{./koen.jpg}\hfill\includegraphics[height =3.5 cm]{./thierry.jpg}
 \begin{framed}
 \centering
@@ -507,18 +507,24 @@ Large temperature gradients!
 
 \end{frame}
 
-\begin{frame}{Thesis objective}
+\begin{frame}{Thesis objective and research questions}
 
 \begin{framed}
 \textbf{Developing a hybridized discontinuous Galerkin solver of inductively coupled plasmas.}
 \end{framed}
 
-\begin{itemize}
-\item Solution is not constant anymore on every element.
-\item Much greater mesh flexibility and (hopefully) less mesh elements.
-\item We hope to make a more robust solver.
-\item More precise (less dissipative) solver than finite volumes.
-\end{itemize}
+%\begin{itemize}
+%\item Solution is not constant anymore on every element.
+%\item Much greater mesh flexibility and (hopefully) less mesh elements.
+%\item We hope to make a more robust solver.
+%\item More precise (less dissipative) solver than finite volumes.
+%\end{itemize}
+
+\begin{description}
+\item[Q1] \textbf{In addition of being precise, can a high-order solver be robust for inductively coupled plasma applications?}
+\item[Q2] \textbf{Is the developed solver user-friendly?} 
+\item[Q3] \textbf{Can the new solver be easily adapted to the new experiments performed in ICP facilities?}
+\end{description}
 
 %\begin{center}
 %\includegraphics[width=.8\linewidth]{./Grid_Independence_mesh_probe_cropped.pdf}
@@ -527,19 +533,19 @@ Large temperature gradients!
 
 \end{frame}
 
-\begin{frame}{Research questions}
-
-%With the objective of producing a new high order solver for inductively coupled plasma, we will try to answer the following questions:
-
-\begin{framed}
-\begin{description}
-\item[Q1] \textbf{In addition of being precise, can a high-order solver be robust for inductively coupled plasma applications?}
-\item[Q2] \textbf{Is the developed solver user-friendly?} 
-\item[Q3] \textbf{Can the new solver be easily adapted to the new experiments performed in ICP facilities?}
-\end{description}
-\end{framed}
-
-\end{frame}
+%\begin{frame}{Research questions}
+%
+%%With the objective of producing a new high order solver for inductively coupled plasma, we will try to answer the following questions:
+%
+%\begin{framed}
+%\begin{description}
+%\item[Q1] \textbf{In addition of being precise, can a high-order solver be robust for inductively coupled plasma applications?}
+%\item[Q2] \textbf{Is the developed solver user-friendly?} 
+%\item[Q3] \textbf{Can the new solver be easily adapted to the new experiments performed in ICP facilities?}
+%\end{description}
+%\end{framed}
+%
+%\end{frame}
 
 \section{Model for inductively coupled plasma}
 
@@ -787,7 +793,7 @@ Chemical equilibrium & Chemical non-equilibrium & Frozen flow\\
 
 \end{frame}
 
-\begin{frame}{General equation for unmagnetized, optically thick plasma at LTE}
+\begin{frame}{General equation for plasma at LTE}
 \begin{framed}
 \begin{equation*}
 	\left\{
@@ -2335,16 +2341,10 @@ We first solve with polynomial degree 1 then 4 (red separation line).
 \begin{center}
 \only<1>
 {
-\begin{tabular}{cc}
-\input{./resL2.tex} & \input{./CFL_history.tex}
-\end{tabular}
-}
-\only<2>
-{
-\begin{minipage}{0.49\linewidth}
-\input{./GMRES_history.tex}
+\begin{minipage}{0.59\linewidth}
+\input{./resL2.tex}
 \end{minipage}
-\begin{minipage}{0.49\linewidth}
+\begin{minipage}{0.39\linewidth}
 \textbf{Fast and robust solver for ICP, able to produce meaningful results in 20 minutes of time on a single laptop using 8 OMP threads!}
 
 DOFS $\lambda \simeq \SI{400 000}{}$
@@ -2354,7 +2354,24 @@ DOFs $w \simeq \SI{1 000 000}{}$
 DOFS $q \simeq \SI{2 000 000}{}$
 
 \end{minipage}
+%\input{./CFL_history.tex}
 }
+%\only<2>
+%{
+%\begin{minipage}{0.49\linewidth}
+%\input{./GMRES_history.tex}
+%\end{minipage}
+%\begin{minipage}{0.49\linewidth}
+%\textbf{Fast and robust solver for ICP, able to produce meaningful results in 20 minutes of time on a single laptop using 8 OMP threads!}
+%
+%DOFS $\lambda \simeq \SI{400 000}{}$
+%
+%DOFs $w \simeq \SI{1 000 000}{}$
+%
+%DOFS $q \simeq \SI{2 000 000}{}$
+%
+%\end{minipage}
+%}
 \end{center}
 
 \end{frame}
@@ -2481,49 +2498,49 @@ DOFS $q \simeq \SI{2 000 000}{}$
 
 \end{frame}
 
-\begin{frame}{Flow fields in ICP: Total electric field}
-
-\begin{center}
-	\begin{tikzpicture}
-	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_E_tot.png}};
-	\node at (0,-2.45) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_E_tot.png}}};
-%	\filldraw (-3.45,-2.8078125) circle (3pt);
-%	\filldraw (-0.5,-2.8078125) circle (3pt);
-%	\filldraw (-0.5,-0.2) circle (3pt);
-	\filldraw (-3.45,-2.8078125 ) circle (3pt);
-	\filldraw (-2.86 ,-2.8078125 ) circle (3pt);
-	\filldraw (-2.27 ,-2.8078125 ) circle (3pt);
-	\filldraw (-1.68 ,-2.8078125 ) circle (3pt);
-	\filldraw (-1.09 ,-2.8078125 ) circle (3pt);
-	\filldraw (-0.5,-2.8078125 ) circle (3pt);
-	\filldraw (-3.45,-0.2 ) circle (3pt);
-	\filldraw (-2.86 ,-0.2 ) circle (3pt);
-	\filldraw (-2.27 ,-0.2 ) circle (3pt);
-	\filldraw (-1.68 ,-0.2 ) circle (3pt);
-	\filldraw (-1.09 ,-0.2 ) circle (3pt);
-	\filldraw (-0.5,-0.2 ) circle (3pt);
-	\end{tikzpicture}
-\end{center}
-\end{frame}
-
-\begin{frame}{Flow fields in ICP: Lorentz force}
-
-\begin{center}
-	\begin{tikzpicture}
-	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_Lorentz.png}};
-	\node at (0,-2.25) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_Lorentz.png}}};
-	%\filldraw (-0.05,-2.25) circle (3pt);
-	%\filldraw (-0.05,0.) circle (3pt);
-	%\filldraw (-7.,-2.2) circle (3pt);
-	\filldraw (-5.207716049 ,-2.6578125 ) circle (3pt);
-	\filldraw (-4.482407407 ,-2.6578125 ) circle (3pt);
-	\filldraw (-3.757098765 ,-2.6578125 ) circle (3pt);
-	\filldraw (-3.031790123 ,-2.6578125 ) circle (3pt);
-	\filldraw (-2.306481481 ,-2.6578125 ) circle (3pt);
-	\filldraw (-1.58117284 ,-2.6578125 ) circle (3pt);
-	\end{tikzpicture}
-\end{center}
-\end{frame}
+%\begin{frame}{Flow fields in ICP: Total electric field}
+%
+%\begin{center}
+%	\begin{tikzpicture}
+%	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_E_tot.png}};
+%	\node at (0,-2.45) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_E_tot.png}}};
+%%	\filldraw (-3.45,-2.8078125) circle (3pt);
+%%	\filldraw (-0.5,-2.8078125) circle (3pt);
+%%	\filldraw (-0.5,-0.2) circle (3pt);
+%	\filldraw (-3.45,-2.8078125 ) circle (3pt);
+%	\filldraw (-2.86 ,-2.8078125 ) circle (3pt);
+%	\filldraw (-2.27 ,-2.8078125 ) circle (3pt);
+%	\filldraw (-1.68 ,-2.8078125 ) circle (3pt);
+%	\filldraw (-1.09 ,-2.8078125 ) circle (3pt);
+%	\filldraw (-0.5,-2.8078125 ) circle (3pt);
+%	\filldraw (-3.45,-0.2 ) circle (3pt);
+%	\filldraw (-2.86 ,-0.2 ) circle (3pt);
+%	\filldraw (-2.27 ,-0.2 ) circle (3pt);
+%	\filldraw (-1.68 ,-0.2 ) circle (3pt);
+%	\filldraw (-1.09 ,-0.2 ) circle (3pt);
+%	\filldraw (-0.5,-0.2 ) circle (3pt);
+%	\end{tikzpicture}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}{Flow fields in ICP: Lorentz force}
+%
+%\begin{center}
+%	\begin{tikzpicture}
+%	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_Lorentz.png}};
+%	\node at (0,-2.25) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./FS_Lorentz.png}}};
+%	%\filldraw (-0.05,-2.25) circle (3pt);
+%	%\filldraw (-0.05,0.) circle (3pt);
+%	%\filldraw (-7.,-2.2) circle (3pt);
+%	\filldraw (-5.207716049 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-4.482407407 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-3.757098765 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-3.031790123 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-2.306481481 ,-2.6578125 ) circle (3pt);
+%	\filldraw (-1.58117284 ,-2.6578125 ) circle (3pt);
+%	\end{tikzpicture}
+%\end{center}
+%\end{frame}
 
 \begin{frame}{Parametric study}
 
@@ -2663,6 +2680,8 @@ We see the following roadmap:
 
 \end{frame}
 
+\section{Backup}
+
 \begin{frame}{Comparison with experiment}
 
 \centering
@@ -2684,7 +2703,6 @@ Comparison of the experimental $T(r)$ at $\SI{385}{\milli\meter}$ from the torch
 
 \end{frame}
 
-\section{Backup}
 
 \begin{frame}{Transport properties}
 \centering
