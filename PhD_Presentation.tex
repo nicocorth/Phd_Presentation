@@ -88,254 +88,71 @@
 
 \begin{document}
 
-\begin{frame}[c, noframenumbering, plain]
-  %\maketitle
-  
-  \large
-  \begin{center}
-  \begin{mdframed}[linecolor=orange, backgroundcolor=orange!20]
-  \Large
-  \centering
-  \textbf{A Monolithic High-Order Multi-Domain Solver for Inductively Coupled Plasma}
-  
-  \small
-  
-  Nicolas Corthouts
-  \end{mdframed}
-  %\vspace{0.2cm}
-  %\textcolor{orange}{\hrule}
-  \end{center}
-  \begin{center}
-  \begin{tikzpicture}
-  \draw (0,0) node{\includegraphics[width=.9\linewidth]{./cover_cropped.png}};
-  \draw (0,-2.05) node{\reflectbox{\includegraphics[width = .9\linewidth, angle=180, origin=c]{./cover_cropped.png}}};
-  \end{tikzpicture}
-  \end{center}
-  
-%  \begin{minipage}[c]{.49\linewidth}
+%\begin{frame}[c, noframenumbering, plain]
+%  %\maketitle
+%  
+%  \large
+%  \begin{center}
+%  \begin{mdframed}[linecolor=orange, backgroundcolor=orange!20]
+%  \Large
+%  \centering
+%  \textbf{A Monolithic High-Order Multi-Domain Solver for Inductively Coupled Plasma}
+%  
 %  \small
-%  \begin{tabular}{ll}
-%  \textbf{Author} & Nicolas Corthouts\\ 
-%  \textbf{Promoters} & Koen Hillewaert\\
-%   & Thierry Magin
-%  \end{tabular}
-%  \end{minipage}
-%  \begin{minipage}[c]{.49\linewidth}
-%  \begin{tabular}{ll}
-%  \textbf{Jury} & Christophe Geuzaine\\
-%   & Peter Schütz \\
-%   & Trevor Lafleur
-%  \end{tabular}
-%  \end{minipage}
-%
-%  \vspace{0.3cm}
-  \includegraphics[height =1 cm]{2560px-University_of_Liège_logo.png}\hfill\includegraphics[height=1 cm]{FRS-FNRS_ros_vert_transp.png}\hfill\includegraphics[height =1 cm]{vki_logo_blue_rectangular.jpg}
-  \vfill
-\end{frame}
-
-\section{Introduction}
-
-\begin{frame}[c]{Au fait, qu'est-ce que j'ai fait pendant 4 ans?}
-\onslide<1->{
-\begin{framed}
-\centering
-J'ai développé un \textbf{solver numérique} pour les \textbf{plasmas} à \textbf{induction}.
-\end{framed}}
-\onslide<2->{
-\centering
-\includegraphics[width=.7\linewidth]{shrek.jpg}}
-\end{frame}
-
-\begin{frame}{Etats de la matière: eau à pression atmosphérique}
-
-\begin{center}
-\begin{tabular}{ccc}
-\textbf{Solide} & \textbf{Liquide} & \textbf{Gaz}\\
-\includegraphics[height=.21\linewidth]{ice_cubes.jpg} & \includegraphics[height=.21\linewidth]{eau_liquide.jpg} & \includegraphics[height=.21\linewidth]{bouilloire.jpg}\\
-%\includegraphics[height=.17\linewidth]{eau_solide.png} & \includegraphics[height=.17\linewidth]{eau_liquide.png} & \includegraphics[height=.17\linewidth]{eau_gaz.png}%\footnote{\tiny\url{https://www.assistancescolaire.com/eleve/3e/physique-chimie/reviser-une-notion/les-\%20etatsde-la-matiere-et-les-changements-d-etat-3_pc_01/print?print=1&printSheet=1}}\\
-%\onslide<3->{
-%$T \leq \SI{0}{\celsius}$ & $T \geq \SI{0}{\celsius}$ & $T \geq \SI{100}{\celsius}$
-%}
-\end{tabular}
-\end{center}
-\begin{framed}
-\centering
-\textbf{Que se passe-t-il si on chauffe encore plus?}
-\end{framed}
-
-\end{frame}
-
-\begin{frame}{Plasma: le quatrième état de la matière}
-\centering
-\begin{center}
-\includegraphics[height=.29\linewidth]{./sun.jpg}
-\includegraphics[height=.29\linewidth]{./aurora_borealis.jpeg}
-%\begin{tikzpicture}
-%\node at (0,0) {\includegraphics[height=.29\linewidth]{eau_gaz.png}};
-%\fill[red] (0,0) circle (0.1) node[above right] {$e^-$};
-%\fill[red] (1,1) circle (0.1) node[above right] {$e^-$};
-%\fill[red] (-1,-0.3) circle (0.1) node[above right] {$e^-$};
-%\node[blue] at (-1.7,.7) {\textbf{+}};
-%\node[blue] at (1.4,0) {\textbf{+}};
-%\end{tikzpicture}\footnote{Courtesy of Wikipedia.}
-\end{center}
-
-
-%\begin{framed}
-%\textbf{Un plasma est un gaz quasi-neutre composé de particules chargées 
-%%(ions $\textcolor{blue}{\bullet^+}$ et electrons $\textcolor{red}{\bullet^{e^-}}$)
-%et neutres 
-%%($\bullet^n$)
-%démontrant un comportement collectif.\footnotemark}
-%%A plasma is a quasi-neutral gas of charged and neutral particles which exhibits collective behaviour.
-%\end{framed}
-
-\begin{framed}
-\centering
-\textbf{Les plasmas composent 90\% de l'univers visible.}
-\end{framed}
-
-Fusion nucléaire, médecine, métallurgie, lasers, création de microprocesseurs, ...
-
-%\footnotetext[1]{\tiny F. F. Chen. Introduction to Plasma Physics and Controlled Fusion. Ed. by Springer International Publisher. 2016}
-
-\end{frame}
-
-%\begin{frame}{Plasma dans la vie de tous les jours}
-%
-%\begin{framed}
-%\centering
-%\textbf{Les plasmas composent 90\% de l'univers visible.}
-%\end{framed}
-%\begin{center}
-%\includegraphics[height=.22\linewidth]{./sun.jpg}
-%\includegraphics[height=.22\linewidth]{./aurora_borealis.jpeg}
-%\includegraphics[height=.22\linewidth]{./lightning.jpg}\footnote{Courtesy of Wikipedia.}
-%\end{center}
-%Fusion nucléaire, médecine, métallurgie, lasers, création de microprocesseurs, ...
+%  
+%  Nicolas Corthouts
+%  \end{mdframed}
+%  %\vspace{0.2cm}
+%  %\textcolor{orange}{\hrule}
+%  \end{center}
+%  \begin{center}
+%  \begin{tikzpicture}
+%  \draw (0,0) node{\includegraphics[width=.9\linewidth]{./cover_cropped.png}};
+%  \draw (0,-2.05) node{\reflectbox{\includegraphics[width = .9\linewidth, angle=180, origin=c]{./cover_cropped.png}}};
+%  \end{tikzpicture}
+%  \end{center}
+%  
+%%  \begin{minipage}[c]{.49\linewidth}
+%%  \small
+%%  \begin{tabular}{ll}
+%%  \textbf{Author} & Nicolas Corthouts\\ 
+%%  \textbf{Promoters} & Koen Hillewaert\\
+%%   & Thierry Magin
+%%  \end{tabular}
+%%  \end{minipage}
+%%  \begin{minipage}[c]{.49\linewidth}
+%%  \begin{tabular}{ll}
+%%  \textbf{Jury} & Christophe Geuzaine\\
+%%   & Peter Schütz \\
+%%   & Trevor Lafleur
+%%  \end{tabular}
+%%  \end{minipage}
+%%
+%%  \vspace{0.3cm}
+%  \includegraphics[height =1 cm]{2560px-University_of_Liège_logo.png}\hfill\includegraphics[height=1 cm]{FRS-FNRS_ros_vert_transp.png}\hfill\includegraphics[height =1 cm]{vki_logo_blue_rectangular.jpg}
+%  \vfill
 %\end{frame}
 
+%\section{Who am I?}
 
-
-\begin{frame}{Plasma en réentrée atmosphérique}
+\begin{frame}[c]{Presentation and experience}
 \centering
-\includegraphics[height=.35\linewidth]{./reentry_esa.jpg}\footnote{Coutesy of NASA.}
+\begin{minipage}{0.29\linewidth}
+\includegraphics[width=.95\linewidth]{photoNico.jpg}
+\end{minipage}
+\begin{minipage}{0.69\linewidth}
+\begin{description}
+\item[[2015$\rightarrow$2020]] Master in Physics Engineering
+\item[[2020$\rightarrow$2021]] Research master at VKI.
+\item[[2021$\rightarrow$2025]] Ph. D. on ICP simulations.
+\item[[2025$\rightarrow$Now]] Software Developer at Spacebel.
+\item[[2019$\rightarrow$Now]] Experience with DG.
+\end{description}
+\end{minipage}
 \begin{framed}
-Vitesse de réentrée $\simeq\SI{10}{\kilo\meter\;\second^{-1}}$ : choc transformant l'air en plasma.
+I developed a \textbf{high-order numerical solver} for \textbf{inductively coupled plasma} (ICP).
 \end{framed}
 \end{frame}
-
-\begin{frame}{Sytème de protection thermique et destruction des déchets spatiaux}
-\centering
-\begin{tabular}{cc}
-\includegraphics[height=.3\linewidth]{./heat_shield.jpg} &
-\includegraphics[height=.3\linewidth]{./vizualisation_satellites_esa.jpg}\\
-\textbf{TPS} & \textbf{Déchets spatiaux}
-\end{tabular}
-\begin{framed}
-\textbf{Expériences reproduisant les plasmas de réentrée atmosphérique.}
-\end{framed}
-\end{frame}
-
-\begin{frame}{Plasma à induction}
-\begin{minipage}[t]{0.5\linewidth}
-    \centering
-    \vspace{0.7cm}
-    \begin{tikzpicture}[scale=0.7]
-      \draw[dash dot] (0,0) -- (8.5,0);
-      \draw[-] (-0.5,-1) -- (0, -1) -- (0,1) -- (-0.5,1);
-      \fill[gray, opacity=0.5] (-0.5,-1) -- (0, -1) -- (0,1) -- (-0.5,1) -- (-0.5,-1);
-      \draw[-] (-0.5,1.5) -- (8,1.5);
-      \draw[-] (-0.5,-1.5) -- (8,-1.5);
-      \foreach \x in {1,2,...,6}{
-        \filldraw[gray, opacity = 0.5] (\x, 1.8) circle (0.2);
-        \filldraw[gray, opacity = 0.5] (\x, -1.8) circle (0.2);
-      }
-      \begin{scope}[red]
-      \begin{scope}[yshift=1cm,yscale=-0.6,xscale=1.5]
-      \spiral{10}
-      \end{scope}
-      \begin{scope}[yshift=-1cm,yscale=0.6,xscale=1.5]
-      \spiral{10}
-      \end{scope}
-      \draw plot [help lines, smooth] coordinates {(-0.5,1.2) (0,1.2) (1.5, 1.0) (3, 0.3) (8, 0.3)};
-      \draw plot [help lines, smooth] coordinates {(-0.5, -1.2) (0,-1.2) (1.5, -1.0) (3, -0.3) (8, -0.3)};
-      
-      \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0,1.4) (1.5, 1.2) (3, 0.5) (8, 0.5)};
-      \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0,-1.4) (1.5, -1.2) (3, -0.5) (8, -0.5)};
-      
-      \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0, 1.4) (1.5, 1.4) (3, 0.8) (8, 0.8)};
-      \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0, -1.4) (1.5, -1.4) (3, -0.8) (8, -0.8)};
-      
-      \draw plot [help lines, smooth] coordinates {(-0.5, 1.4) (0, 1.4) (1.5, 1.4) (3, 1.0) (8, 1.0)};
-      \draw plot [help lines, smooth] coordinates {(-0.5, -1.4) (0, -1.4) (1.5, -1.4) (3, -1.0) (8, -1.0)};
-      
-      \draw (6,1.2) node{\tiny \textcolor{red}{Ecoulement d'air}};
-      \draw (3,2.3) node{\tiny \textcolor{black}{Bobine}};
-      \draw (-1,0) node{\tiny \rotatebox{90}{\textcolor{blue}{Flux d'air}}};
-      \end{scope}
-      
-      %\draw (2,0.2) node{$T\simeq \SI{}{10^4\kelvin}$};
-      \draw[blue, ->, thick](-1.25, 1.25) -- (-0.75,1.25);
-      \draw[blue, ->, thick](-1.25, -1.25) -- (-0.75,-1.25);
-      %\draw (3.5,2.3) node{\includegraphics[width=0.1\linewidth]{AC_Sign.png}};
-      %\draw (6,1.2) node{$p \simeq \SI{}{10^4\pascal}$};
-      
-    \end{tikzpicture}
-    
-    \vspace{0.45cm}
-    Torche
-    \end{minipage}
-    \begin{minipage}[t]{0.49\linewidth}
-    \centering
-    \vspace{0.5cm}\includegraphics[width=\linewidth]{Ablation-testing-at-the-Plasmatron-ICP-facility-of-the-VKI-3.jpg}
-    
-    Chambre
-    \end{minipage}
-    
-    
-    Exemples: Plasmatron (VKI), Plasmatron X (Illinois), IPG (Russie), ...
-    
-    
-    %\only<2>
-    %{
-    	%Résoudre les équations de Maxwell, de Navier-Stokes + modèles physico-chimiques + modèle de radiation.
-    %}
-    %Physique de l'électromagnétisme, equations de la mécanique des fluides, et chimie/thermodynamique.
-\end{frame}
-
-\begin{frame}{Plasma à induction: solveurs numériques}
-
-\begin{center}
-%\begin{framed}
-%\textbf{Des solvers numériques ont été développés afin de préparer au mieux les expériences dans les torches à induction.}
-%\end{framed}
-\includegraphics[width=\linewidth]{lhtsT.pdf}\footnote{Courtesy of Thierry Magin.}
-\end{center}
-
-
-\begin{framed}
-\centering
-\textbf{On propose un nouveau type de solver numérique pour les plasmas à induction.}
-\end{framed}
-
-\end{frame}
-
-%\begin{frame}{Objectif de la thèse}
-%\begin{center}
-%\begin{framed}
-%\textbf{On propose un nouveau type de solver numérique pour les plasmas afin de représenter plus de situations physiques.}
-%\end{framed}
-%
-%\includegraphics[height = .15\linewidth]{./coil_effect.png}
-%\includegraphics[height = .15\linewidth]{./plasmatron_nozzle_operating.png}
-%\includegraphics[height = .15\linewidth]{./plasmatron_nozzles.png}
-%\includegraphics[height=.2\linewidth]{./plasma_jet_unsteady_experimental.png}
-%
-%\end{center}
-%\end{frame}
-
-\section{Thesis motivation}
 
 \begin{frame}{ICP facility: an overview}
 \begin{minipage}[t]{0.5\linewidth}
@@ -546,8 +363,6 @@ Large temperature gradients!
 %
 %\end{frame}
 
-\section{Model for inductively coupled plasma}
-
 %\begin{frame}{Translation, rotation et vibration}
 %
 %\begin{center}
@@ -678,244 +493,6 @@ Large temperature gradients!
 %\end{frame}
 %
 
-\begin{frame}{Plasma collective behaviour}
-
-\begin{framed}
-\textbf{A plasma is a quasi-neutral gas composed of charged 
-%(ions $\textcolor{blue}{\bullet^+}$ et electrons $\textcolor{red}{\bullet^{e^-}}$)
-and neutral particles 
-%($\bullet^n$)
-exhibiting a \underline{collective} behaviour (through collisions = particles interaction).}
-%A plasma is a quasi-neutral gas of charged and neutral particles which exhibits collective behaviour.
-\end{framed}
-\centering
-\begin{tabular}{cc}
-\textbf{Short ranged} & \textbf{Long ranged}\\
-\begin{tikzpicture}
-\fill[blue] (0,0) circle (0.1) node[above right] {$+$};
-\fill[black] (2,0) circle (0.1) node[above right]{$n$};
-\draw[blue, ->, thick] (0.2,0) -- (1.8, 0) -- (2.5, 1);
-\end{tikzpicture} &
-\begin{tikzpicture}
-\fill[blue] (0,0) circle (0.1) node[above right] {$+$};
-\fill[blue] (2,0) circle (0.1) node[above right] {$+$};
-\draw[->,blue, thick] (0.2,0) arc[start angle=-90,end angle=-30,radius=1.5];
-\end{tikzpicture}\\
-Direct contact (local \& binary) & Electric force (distance and collective)
-\end{tabular}
-\begin{framed}
-For scales $>$ Debye length ($~ \SI{1}{\micro\meter}$ in our case), $q \simeq 0$ due to electric force.
-\end{framed}
-\end{frame}
-
-\begin{frame}{Cold plasmas and thermal equilibrium}
-
-\begin{framed}
-\textbf{"Cold plasmas" store energy in the free electrons. It is then transmitted during collisions to the ions and neutrals.}
-\end{framed}
-%En fonction de l'efficacité des collisions, deux scénarii sont possibles:
-\begin{center}
-\begin{tabular}{cc}
-\textbf{Innefficient collisions} ($T_e \gg T_h$) & \textbf{Efficient collisions} ($T_e \simeq T_h$)\\
-\begin{tikzpicture}[scale=3]
-\node[blue] at (0,0) {$\bullet$};
-\node[red] at (.4,.3) {$\bullet$};
-%\node[red] at (.5,0) {$\bullet$};
-\node[red] at (.3,-.2) {$\bullet$};
-%\node[red] at (-.2,-.3) {$\bullet$};
-\node[red] at (.1,.4) {$\bullet$};
-%\draw[red, ->] (.5,0.) -- (.7, 0.);
-\draw[red, ->] (.3,-.2) -- (.4, -.3);
-%\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-\draw[red, ->] (.1,.4) -- (0., .3);
-\draw[blue, ->] (0,0) -- (-0.1,0);
-\node[blue] at (0,0) [above right]{$+$};
-\node[red] at (.4,.3) [above right]{$e^-$};
-%\node[red] at (.5,0) [above right]{$e^-$};
-\node[red] at (.3,-.2) [above right]{$e^-$};
-%\node[red] at (-.2,-.3) [above right]{$e^-$};
-\node[red] at (.1,.4) [above right]{$e^-$};
-\end{tikzpicture}
- & \begin{tikzpicture}[scale=3]
-\node[blue] at (0,0) {$\bullet$};
-\node[red] at (.4,.3) {$\bullet$};
-\node[red] at (.5,0) {$\bullet$};
-\node[red] at (.3,-.2) {$\bullet$};
-\node[red] at (-.2,-.3) {$\bullet$};
-\node[red] at (.1,.4) {$\bullet$};
-\draw[red, ->] (.5,0.) -- (.7, 0.);
-\draw[red, ->] (.3,-.2) -- (.4, -.3);
-\draw[red, ->] (-.2,-.3) -- (-.2, -.1);
-\draw[red, ->] (.1,.4) -- (0., .3);
-\draw[blue, ->] (0,0) -- (-0.2,0);
-\draw[red, ->] (.4,.3) -- (.6,.3);
-\node[blue] at (0,0) [above right]{$+$};
-\node[red] at (.4,.3) [above right]{$e^-$};
-\node[red] at (.5,0) [above right]{$e^-$};
-\node[red] at (.3,-.2) [above right]{$e^-$};
-\node[red] at (-.2,-.3) [above right]{$e^-$};
-\node[red] at (.1,.4) [above right]{$e^-$};
-\end{tikzpicture}\\
-Thermal non-equilibrium & Thermal equilibrium
-\end{tabular}
-\end{center}
-
-%\textbf{Plasmas are in thermal equilibrium in this work.}
-
-\end{frame}
-
-\begin{frame}{Chemical equilibrium state}
-
-\begin{framed}
-\centering
-\textbf{Collisions may lead to chemical reactions.}
-\begin{equation*}
-N + O \leftrightharpoons NO^+ + e^-
-\end{equation*}
-\end{framed}
-
-%If $\tau_{chem}$ and $\tau_{hydro}$ are characteristic chemical reaction and flow time respectively:
-\begin{center}
-\begin{tabular}{ccc}
-$\tau_{chem} \gg \tau_{hydro}$ & $\tau_{chem} \simeq \tau_{hydro}$ & $\tau_{chem} \ll \tau_{hydro}$\\
-%$A \leftrightharpoons B$ & $A \leftrightharpoons B$ & $A \leftrightharpoons B$\\
-Chemical equilibrium & Chemical non-equilibrium & Frozen flow\\
-\end{tabular}
-\end{center}
-
-%\textbf{Plasmas are in chemical equilibrium in this work.}
-
-\begin{framed}
-\centering
-\textbf{Thermal + Chemical equilibrium = Local Thermodynamic Equilibrium (LTE)}
-\end{framed}
-
-\end{frame}
-
-\begin{frame}{General equation for plasma at LTE}
-\begin{framed}
-\begin{equation*}
-	\left\{
-	\begin{aligned}
-		& \partial_t \rho + \nabla \cdot (\rho \vecv) &&= 0\\
-		&\partial_t (\rho \vecv) + \nabla \cdot \left(\rho \vecv \vecv + p\mathbb{I}\right) - \nabla \cdot \vectau &&= \vecj \times \vecB\\
-		&\partial_t \left(\frac{1}{2}\rho ||\vecv||^2 + \rho e\right) + \nabla \cdot \left(\rho H\vecv\right) + \nabla \cdot \left(\vecq - \vectau \cdot \vecv \right) &&= \vecj \cdot \vecE
-	\end{aligned}
-	\right.
-\end{equation*}
-\end{framed}
-
-\begin{minipage}{0.7\linewidth}
-\begin{equation*}
-\begin{aligned}
-& \vectau = \eta \left[\nabla \vecv + \left(\nabla \vecv\right)^T - \frac{2}{3} \left(\nabla \cdot \vecv\right) \mathbb{I}\right] \\
-& \vecq = - \lambda \nabla T \\
-& \vecj = \sigma \vecE - \sum_{i,j\in S} n_i q_i D_{ij} \left[\frac{\nabla p_j}{n k_B T_h} - \frac{y_j p}{n k_B T_h} \nabla \ln(p) + \left(k_{T}^h + k_{T}^e\right) \nabla \ln(T)\right]
-\end{aligned}
-\end{equation*}
-\end{minipage}
-\begin{minipage}[t]{0.29\linewidth}
-\flushright
-\includegraphics[width=1.\linewidth]{./mpp-logo.png}
-\vfill
-\end{minipage}
-
-%Unmagnetized plasma and no elemental de-mixing.
-
-\end{frame}
-
-%\begin{frame}{Transport properties : Mutation++}
-%
-%%\begin{framed}
-%%\centering
-%%\textbf{The transport properties are computed using Mutation++}
-%%
-%%%$\eta$, $k$, $\sigma_e$ 
-%%\end{framed}
-%
-%\centering
-%\begin{center}
-%\includegraphics[width=.8\linewidth]{./mpp-logo.png}
-%\end{center}
-%
-%Uses a Galerkin approximate solution of the linearized Boltzmann equation for computing the transport coefficients ($\sigma_e$, $\eta$, $\lambda$).
-%
-%
-%\end{frame}
-
-\begin{frame}{Navier-Stokes and Maxwell equations}
-\begin{framed}
-\begin{equation*}
-	\left\{
-	\begin{aligned}
-		& \partial_t \rho + \nabla \cdot (\rho \vecv) &&= 0\\
-		&\partial_t (\rho \vecv) + \nabla \cdot \left(\rho \vecv \vecv + p\mathbb{I}\right) - \nabla \cdot \vectau &&= \vecj \times \vecB\\
-		&\partial_t \left(\frac{1}{2}\rho ||\vecv||^2 + \rho e\right) + \nabla \cdot \left(\rho H\vecv\right) + \nabla \cdot \left(\vecq - \vectau \cdot \vecv \right) &&= \vecj \cdot \vecE
-	\end{aligned}
-	\right.
-\end{equation*}
-\end{framed}
-\begin{framed}
-\begin{equation*}
-\begin{aligned}
-& \nabla \cdot \vecE = 0 && && \partial_t \vecB + \nabla \times \vecE = \mathbf{0}\\
-& \nabla \cdot \vecB = 0 && && -\epsilon_0 \partial_t \vecE + \frac{1}{\mu_0} \nabla \times \vecB = \vecj
-\end{aligned}
-\end{equation*}
-\end{framed}
-\end{frame}
-
-\begin{frame}[c]{Hypothesis specific to ICP}
-
-%\begin{framed}
-%
-%\textbf{In order to simplify the development of the solver, assumptions are made.}
-%\end{framed}
-\begin{minipage}{.39\linewidth}
-%\small
-\begin{itemize}
-
-
-\item Quasi-steady \& averaged over an oscillation period.
-
-$\partial_t f \int_0^{1/f} dt \simeq 0$
-
-\item Axisymmetric
-
-$\partial_\theta \simeq 0$
-
-\item No displacement current.
-
-$\varepsilon_0 \partial_t \vecE \simeq 0$
-
-\item Ambipolar electrostatic field ($j_z = j_r = 0$).
-
-$\vecj = \sigma_e \vecE_I$
-
-\end{itemize}
-\end{minipage}
-\begin{minipage}{.59\linewidth}
-
-\begin{itemize}
-
-
-\item Split of the induced electric field in a coil and plasma part 
-
-$E_I = E_C + E_P$
-
-\item The coils are thin parallels wires surrounding the facility.
-
-$ \sum_{l=1}^{N_{coil}} i f \mu_0 I_C \sqrt{\frac{r_0}{r}}\left[2 \frac{E_2(k_l)}{k_l} - E_1(k_l)\left(\frac{2}{k_l}-k_l\right)\right] $
-
-\item We use phasor notation.
-
-\end{itemize}
-%}
-
-\end{minipage}
-
-\end{frame}
-
 \begin{frame}{Equations governing the plasma}
 
 \begin{framed}
@@ -938,6 +515,7 @@ $ \sum_{l=1}^{N_{coil}} i f \mu_0 I_C \sqrt{\frac{r_0}{r}}\left[2 \frac{E_2(k_l)
 & \vecq = -\lambda \nabla T
 \end{aligned}
 \end{equation*}
+\includegraphics[width=.3\linewidth]{mpp-logo.png}
 \end{minipage}
 \begin{minipage}{0.49\linewidth}
 \begin{equation*}
@@ -1714,20 +1292,6 @@ $\vecu$ is then discretized as
 
 \begin{frame}{ICP as a multi-domain problem}
 
-\only<1>
-{
-\textbf{Single domain + integral boundary value}
-}
-
-\only<2>
-{
-\textbf{Two overlapping domain}
-}
-
-\only<3>
-{
-\textbf{Multi-domain}
-}
 
 \begin{center}
 \small
@@ -1736,57 +1300,14 @@ $\vecu$ is then discretized as
 			\fill[gray, opacity=0.5] (-1.0,0) -- (0, 0) -- (0,1) -- (-1.0,1) -- cycle;
 			\draw[-,thick] (-1.0,1.5) -- (8.5,1.5) -- (8.5,4.);
 			\draw[dashed, blue] (0.2, 0) -- (0.2, 1.3) -- (8.7, 1.3) -- (8.7, 3.8) -- (15, 3.8) -- (15, 0.7) -- (13, 0.7) arc[start angle=90, end angle = 180, radius=0.7] -- cycle;
-			
-			\onslide<1,3>
-			{
 			\draw[blue] (12,2) node[above]{Maxwell + N-S ($\Omega^1$)};
-			}
-			\onslide<2>
-			{
-			\draw[blue] (12,2) node[above]{N-S ($\Omega^1$)};
-			}
 			\draw[-, thick] (15, 0.5) -- (13,0.5) arc[start angle=90, end angle = 180, radius=0.5];
-			
-			\onslide<2->
-			{
 			\draw[red] (-0.5,3) node{Maxwell ($\Omega^2$)};
-			}
-			
-			\onslide<2>
-			{
-			\draw[dashed, red] (-3.,-0.1) -- (15,-0.1) -- (15,3.9) -- (-3.,3.9) -- cycle;% (-1.2, 1.7) -- (8, 1.7) -- (8, 3.8) -- (-3, 3.8) -- (-3,0) -- cycle;
-			}
-			
-			\onslide<1>
-			{
-			\node[red] at (1.5, 1.5) [above]{$E_{bc} = \sum E_{cell}$};
-			%\draw[black, <->, ultra thick] (1.5,1) -- (1.5,2);
-			}			
-			
-			\onslide<3>
-			{
 			\draw[dashed, red] (-1.2,0) -- (-1.2, 1.7) -- (8, 1.7) -- (8, 3.8) -- (-3, 3.8) -- (-3,0) -- cycle;
 			\draw[black, <->, ultra thick] (1.5,1) -- (1.5,2) node[above right]{$\mathcal{F}$};
-			}
-			
-			
 		\end{tikzpicture}
 \end{center}
-
-\only<1>
-{
-Compact but fills the jacobian matrix.
-}
-
-\only<2>
-{
-Most widely used. Solve N-S while Maxwell frozen, and \textit{vice versa}. Slow convergence.
-}
-
-\only<3>
-{
 Solves the system in a fully coupled manner, with two domains.
-}
 
 \end{frame}
 
@@ -1884,18 +1405,15 @@ C depends on the diffusive transport coefficients.
 \mathcal{N}(\vecx) = 0 \Rightarrow \mathcal{N}'(\vecx_k) \delta \vecx_k = - \mathcal{N}(\vecx_k) 
 \end{equation*}
 \end{framed}
-with damping term
+with a damping term.
+\begin{framed}
 \begin{equation*}
-\frac{\delta \vecw_h}{\tau_K} = \frac{\vecw(\vecu_{h,k+1}) - \vecw(\vecu_{h,k})}{\tau_{K,k}}
+P_{tot} = \int_{NS} P_J dV
 \end{equation*}
-with
+\end{framed}
+The current $I_c$ is adapted throughout the simulation in order to reach a target power $P_{target}$.
 \begin{equation*}
-\tau_{K,k} = CFL_k \frac{h_K}{v_K} = CFL_k \frac{V_K}{\int_{\partial K} \lambda_{max} dS}
-\end{equation*}
-
-and the following CFL evolution law
-\begin{equation*}
-CFL_k = \min\left(CFL_0 \left(\frac{||\mathcal{N}||_2^0}{||\mathcal{N}||_2^k}\right)^\alpha, CFL_{max}\right)
+I_c^{k+1} = I_c^k \sqrt{\frac{P_{target}}{P_{tot}^k}}
 \end{equation*}
 
 %\begin{framed}
@@ -1906,210 +1424,6 @@ CFL_k = \min\left(CFL_0 \left(\frac{||\mathcal{N}||_2^0}{||\mathcal{N}||_2^k}\ri
 
 \end{frame}
 
-\begin{frame}{Matrix form of the system}
-
-\begin{framed}
-\begin{equation*}
-\mathcal{N}'(\vecx_k) \delta \vecx_k = - \mathcal{N}(\vecx_k) 
-\end{equation*}
-\end{framed}
-
-\only<1>
-{
-\begin{minipage}{.49\linewidth}
-\begin{equation*}
-    \underbrace{
-    \begin{pmatrix}
-        A & B & R\\
-        C & D & S\\
-        L & M & N
-    \end{pmatrix}
-    }_{\mathcal{N}'}
-    \overbrace{
-    \begin{pmatrix}
-        \delta Q\\
-        \delta U\\
-        \delta \Lambda
-    \end{pmatrix}
-    }^{\delta \vecx}
-    = 
-    \underbrace{
-    \begin{pmatrix}
-        F\\
-        G\\
-        H
-    \end{pmatrix}
-    }_{-\mathcal{N}} \Rightarrow
-\end{equation*}
-\end{minipage}
-\begin{minipage}{.49\linewidth}
-\begin{equation*}
-\left\{
-\begin{aligned}
-	& \underbrace{
-    \begin{pmatrix}
-        A & B\\
-        C & D
-    \end{pmatrix}
-    }_{\text{Block diagonal}}
-    \begin{pmatrix}
-        \delta Q\\
-        \delta U\\
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-        F\\
-        G
-    \end{pmatrix}
-    -
-    \begin{pmatrix}
-        R\\
-        S
-    \end{pmatrix}
-    \delta \Lambda\\
-    & \begin{pmatrix}
-        L & M
-    \end{pmatrix}
-    \begin{pmatrix}
-        \delta Q\\
-        \delta U\\
-    \end{pmatrix}
-    + N \delta \Lambda
-    = H
-    \end{aligned}
-    \right.
-\end{equation*}
-\end{minipage}
-}
-
-\only<2->
-{
-By eliminating $\delta U$ and $\delta Q$, one gets the \textbf{global} system
-\begin{equation*}
-    \begin{aligned}
-    &\left(
-    N -
-    \begin{pmatrix}
-        L & M
-    \end{pmatrix}
-    \begin{pmatrix}
-        A & B\\
-        C & D
-    \end{pmatrix}^{-1}
-    \begin{pmatrix}
-        R\\
-        S
-    \end{pmatrix}
-    \right)
-    \delta \Lambda
-    =
-    H - 
-    \begin{pmatrix}
-        L & M
-    \end{pmatrix}
-    \begin{pmatrix}
-        A & B\\
-        C & D
-    \end{pmatrix}^{-1}
-    \begin{pmatrix}
-        F\\
-        G
-    \end{pmatrix}
-    \end{aligned}
-\end{equation*}
-System solved for $\veclambda$, then $\vecu$ and $\vecq$ are retrieved by small local matrices inversion.
-\begin{equation*}
-    \begin{pmatrix}
-        \delta Q\\
-        \delta U\\
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-        A & B\\
-        C & D
-    \end{pmatrix}^{-1}
-    \begin{pmatrix}
-        F\\
-        G
-    \end{pmatrix}
-    -
-    \begin{pmatrix}
-        A & B\\
-        C & D
-    \end{pmatrix}^{-1}
-    \begin{pmatrix}
-        R\\
-        S
-    \end{pmatrix}
-    \delta \Lambda
-\end{equation*}
-}
-\end{frame}
-
-\begin{frame}{The problem of power quenching}
-
-\textbf{If the power dissipated is not maintained, the torch quenches!}
-
-%\only<1>
-%{
-%\begin{center}
-%	\begin{tikzpicture}
-%	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_P.png}};
-%	\end{tikzpicture}
-%\end{center}
-\begin{framed}
-\begin{equation*}
-P_{tot} = \int_{NS} P_J dV
-\end{equation*}
-\end{framed}
-
-The current $I_c$ is adapted throughout the simulation in order to reach a target power $P_{target}$.
-\begin{equation*}
-I_c^{k+1} = I_c^k \sqrt{\frac{P_{target}}{P_{tot}^k}}
-\end{equation*}
-
-%}
-
-%\only<2>
-%{
-%\begin{equation*}
-%	\begin{aligned}
-%		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
-%		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \vecF^L\\
-%		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = P_J\\
-%	\end{aligned}
-%\end{equation*}
-%
-%\begin{equation*}
-%	\Delta E_P = \frac{E_P}{r^2} + i 2 \pi f\mu_0\sigma_e \left(E_C + E_P\right)
-%\end{equation*}
-%}
-
-%\only<3>
-%{
-%\begin{minipage}{.79\linewidth}
-%\begin{equation*}
-%	\begin{aligned}
-%		& \partial_t \rho + \nabla \cdot \left(\rho \vecv\right) =0\\
-%		& \partial_t \left(\rho \vecv\right) + \nabla \cdot \left(\rho \vecv \vecv\right) + \nabla p - \nabla \cdot \vectau = \textcolor{red}{\gamma \left(\vecF^L\right)'}\\
-%		& \partial_t \left(\rho e + \frac{1}{2} \rho ||\vecv||^2\right) + \nabla \cdot \left(\rho e \vecv + \frac{1}{2} \rho ||\vecv||^2 \vecv + p \vecv - \vectau \cdot \vecv - \vecq\right) = \textcolor{red}{\gamma P_J'}\\
-%		& \Delta \textcolor{red}{E_P'} = \frac{\textcolor{red}{E_P'}}{r^2} + i 2 \pi f\mu_0\sigma_e \left(\textcolor{red}{E_C'} + \textcolor{red}{E_P'}\right) 
-%	\end{aligned}
-%\end{equation*}
-%\end{minipage}
-%\begin{minipage}{.19\linewidth}
-%\begin{equation*}
-%\begin{aligned}
-%E_P = \sqrt{\gamma} E_P'\\
-%E_C = \sqrt{\gamma} E_C'\\ 
-%\gamma = \frac{P_{target}}{\int_{NS}P_J' dV}
-%\end{aligned}
-%\end{equation*}
-%\end{minipage}
-%}
-\end{frame}
-
-\section{Results}
 
 \begin{frame}{Manufactured solution}
 
@@ -2561,52 +1875,7 @@ We performed a parametric study of ICP for the parameters used by the experiment
 \end{frame}
 
 
-\begin{frame}{Power dissipated in the facility: impact on mass flow rate}
 
-\centering
-\begin{tikzpicture}
-	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_Streamlines_min.png}};
-	\node at (0,-2.4) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./HS_Streamlines_max.png}}};
-\end{tikzpicture}
-
-$P_{tot} = \SI{50}{\kilo\watt}$ (top) and $P_{tot} = \SI{200}{\kilo\watt}$ (bottom)
-
-\end{frame}
-
-\begin{frame}{Power dissipated in the facility: impact in the torch}
-
-\centering
-\begin{tabular}{cc}
-	\hspace{-.7cm}\input{./Torch_Center_P_T.tex} & \input{./Torch_Center_P_P.tex}
-\end{tabular}
-
-
-\end{frame}
-
-\begin{frame}{Power dissipated in the facility: impact along the stagnation line}
-
-\only<1>
-{
-\centering
-	\begin{tabular}{cc}
-		\hspace{-1cm}\input{./Stagnation_P_u.tex} &
-		\input{./Stagnation_P_gradv_r.tex}
-	\end{tabular}
-}
-
-\only<2>
-{
-\centering
-\begin{tabular}{cc}
-	\centering
-	\begin{tabular}{c}
-		%\hspace{-1cm}\input{./Stagnation_P_gradT_z.tex} &
-		\input{./probe_heat_flux.tex}
-	\end{tabular}
-\end{tabular}
-}
-
-\end{frame}
 
 \section{Conclusions and future work}
 
@@ -2680,6 +1949,193 @@ We see the following roadmap:
 \end{frame}
 
 \section{Backup}
+
+\begin{frame}{Power dissipated in the facility: impact on mass flow rate}
+
+\centering
+\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[width = \linewidth]{./HS_Streamlines_min.png}};
+	\node at (0,-2.4) {\reflectbox{\includegraphics[width = \linewidth, angle=180, origin=c]{./HS_Streamlines_max.png}}};
+\end{tikzpicture}
+
+$P_{tot} = \SI{50}{\kilo\watt}$ (top) and $P_{tot} = \SI{200}{\kilo\watt}$ (bottom)
+
+\end{frame}
+
+\begin{frame}{Power dissipated in the facility: impact in the torch}
+
+\centering
+\begin{tabular}{cc}
+	\hspace{-.7cm}\input{./Torch_Center_P_T.tex} & \input{./Torch_Center_P_P.tex}
+\end{tabular}
+
+
+\end{frame}
+
+\begin{frame}{Power dissipated in the facility: impact along the stagnation line}
+
+\only<1>
+{
+\centering
+	\begin{tabular}{cc}
+		\hspace{-1cm}\input{./Stagnation_P_u.tex} &
+		\input{./Stagnation_P_gradv_r.tex}
+	\end{tabular}
+}
+
+\only<2>
+{
+\centering
+\begin{tabular}{cc}
+	\centering
+	\begin{tabular}{c}
+		%\hspace{-1cm}\input{./Stagnation_P_gradT_z.tex} &
+		\input{./probe_heat_flux.tex}
+	\end{tabular}
+\end{tabular}
+}
+
+\end{frame}
+
+\begin{frame}{Matrix form of the system}
+
+\begin{framed}
+\begin{equation*}
+\mathcal{N}'(\vecx_k) \delta \vecx_k = - \mathcal{N}(\vecx_k) 
+\end{equation*}
+\end{framed}
+
+\only<1>
+{
+\begin{minipage}{.49\linewidth}
+\begin{equation*}
+    \underbrace{
+    \begin{pmatrix}
+        A & B & R\\
+        C & D & S\\
+        L & M & N
+    \end{pmatrix}
+    }_{\mathcal{N}'}
+    \overbrace{
+    \begin{pmatrix}
+        \delta Q\\
+        \delta U\\
+        \delta \Lambda
+    \end{pmatrix}
+    }^{\delta \vecx}
+    = 
+    \underbrace{
+    \begin{pmatrix}
+        F\\
+        G\\
+        H
+    \end{pmatrix}
+    }_{-\mathcal{N}} \Rightarrow
+\end{equation*}
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+\begin{equation*}
+\left\{
+\begin{aligned}
+	& \underbrace{
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}
+    }_{\text{Block diagonal}}
+    \begin{pmatrix}
+        \delta Q\\
+        \delta U\\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        F\\
+        G
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        R\\
+        S
+    \end{pmatrix}
+    \delta \Lambda\\
+    & \begin{pmatrix}
+        L & M
+    \end{pmatrix}
+    \begin{pmatrix}
+        \delta Q\\
+        \delta U\\
+    \end{pmatrix}
+    + N \delta \Lambda
+    = H
+    \end{aligned}
+    \right.
+\end{equation*}
+\end{minipage}
+}
+
+\only<2->
+{
+By eliminating $\delta U$ and $\delta Q$, one gets the \textbf{global} system
+\begin{equation*}
+    \begin{aligned}
+    &\left(
+    N -
+    \begin{pmatrix}
+        L & M
+    \end{pmatrix}
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        R\\
+        S
+    \end{pmatrix}
+    \right)
+    \delta \Lambda
+    =
+    H - 
+    \begin{pmatrix}
+        L & M
+    \end{pmatrix}
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        F\\
+        G
+    \end{pmatrix}
+    \end{aligned}
+\end{equation*}
+System solved for $\veclambda$, then $\vecu$ and $\vecq$ are retrieved by small local matrices inversion.
+\begin{equation*}
+    \begin{pmatrix}
+        \delta Q\\
+        \delta U\\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        F\\
+        G
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        A & B\\
+        C & D
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        R\\
+        S
+    \end{pmatrix}
+    \delta \Lambda
+\end{equation*}
+}
+\end{frame}
 
 \begin{frame}{Comparison with experiment}
 
